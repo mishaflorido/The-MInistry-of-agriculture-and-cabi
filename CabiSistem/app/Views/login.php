@@ -40,27 +40,22 @@
 								<div class="w-100 text-center">
 									<h4 class="mb-4">Sign In</h4>
 								</div>
-								<!-- <div class="w-100">
-									<p class="social-media d-flex justify-content-end">
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-									</p>
-								</div> -->
+							
 							</div>
-							<form action="#" class="signin-form">
+							<?php echo form_open("login"); ?>
 								<div class="form-group mb-3">
-									<label class="label" for="name">Username</label>
-									<input type="text" class="form-control" placeholder="Username" required>
+									<label class="label" for="name">User Email</label>
+									<input type="text" class="form-control" placeholder="User Email" name="email_user" required>
 								</div>
 								<div class="form-group mb-3">
 									<label class="label" for="password">Password</label>
-									<input type="password" class="form-control" placeholder="Password" required>
+									<input type="password" class="form-control" placeholder="Password" name="psw_user" required>
 								</div>
 								<div class="form-group">
 									<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
 								</div>
 								
-							</form>
+								<?php echo form_close(); ?>
 						</div>
 					</div>
 				</div>
