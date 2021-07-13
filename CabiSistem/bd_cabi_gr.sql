@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2021 a las 16:32:13
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 7.4.20
+-- Tiempo de generación: 13-07-2021 a las 16:50:13
+-- Versión del servidor: 10.3.16-MariaDB
+-- Versión de PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -77,6 +78,84 @@ CREATE TABLE `farm_register` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `level1`
+--
+
+CREATE TABLE `level1` (
+  `id_lv1` int(11) NOT NULL,
+  `name_lv1` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `level1`
+--
+
+INSERT INTO `level1` (`id_lv1`, `name_lv1`) VALUES
+(1, 'Grenada');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `level2`
+--
+
+CREATE TABLE `level2` (
+  `id_lv2` int(11) NOT NULL,
+  `name_lv2` varchar(50) DEFAULT NULL,
+  `id_lv1` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `level2`
+--
+
+INSERT INTO `level2` (`id_lv2`, `name_lv2`, `id_lv1`) VALUES
+(1, 'Saint Andrew', 1),
+(2, 'Saint David', 1),
+(3, 'Saint George', 1),
+(4, 'Saint John', 1),
+(5, 'Saint Mark', 1),
+(6, 'Saint Patrick', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `level3`
+--
+
+CREATE TABLE `level3` (
+  `id_lv3` int(11) NOT NULL,
+  `name_lv3` varchar(50) DEFAULT NULL,
+  `id_lv2` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `level3`
+--
+
+INSERT INTO `level3` (`id_lv3`, `name_lv3`, `id_lv2`) VALUES
+(1, 'Saint Patrick', 1),
+(2, 'Hills Road', 1),
+(3, 'Seaton Browne', 1),
+(4, 'Mardigras', 2),
+(5, 'Perdmontemps', 2),
+(6, 'St. Dominic’s', 2),
+(7, 'Market Hill', 3),
+(8, 'Old Fort', 3),
+(9, 'Gretna Green', 3),
+(10, ' Central Depradine', 4),
+(11, 'Upper Depradine', 4),
+(12, 'Doctor Belle', 4),
+(13, 'Maran', 5),
+(14, 'Gross Point', 5),
+(15, 'Diamond Estate', 5),
+(16, 'Hermitage', 6),
+(17, 'Pointzfield', 6),
+(18, 'River Sallee', 6);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `other_involved`
 --
 
@@ -100,55 +179,41 @@ CREATE TABLE `user` (
   `email_user` varchar(50) NOT NULL,
   `phone_user` int(11) NOT NULL,
   `type_user` int(1) NOT NULL,
-  `psw_user` varchar(20) NOT NULL
+  `psw_user` varchar(20) NOT NULL,
+  `img_user` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id_user`, `name_user`, `lastn_user`, `email_user`, `phone_user`, `type_user`, `psw_user`) VALUES
-(1, 'Miguel Angel', 'Florido Torrez', 'mishaflorido@gmail.com', 67410049, 0, 'admin');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `variety`
---
-
-CREATE TABLE `variety` (
-  `id_variety` int(11) NOT NULL,
-  `id_crop` int(11) NOT NULL,
-  `descript` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+INSERT INTO `user` (`id_user`, `name_user`, `lastn_user`, `email_user`, `phone_user`, `type_user`, `psw_user`, `img_user`) VALUES
+(1, 'Miguel', 'Florido Torrez', 'mishaflorido@gmail.com', 67410049, 0, 'admin', 'IMG_20210709_095649.jpg'),
+(4, 'Alexander Ruslan', 'Florido Siles', 'elnagas123@gmail.com', 79374484, 1, '1234', '1625867882_065d60169d23dfabcba1.jpeg');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `crops`
+-- Indices de la tabla `level1`
 --
-ALTER TABLE `crops`
-  ADD PRIMARY KEY (`id_crop`);
+ALTER TABLE `level1`
+  ADD PRIMARY KEY (`id_lv1`);
 
 --
--- Indices de la tabla `farm_parcels`
+-- Indices de la tabla `level2`
 --
-ALTER TABLE `farm_parcels`
-  ADD PRIMARY KEY (`id_parcels`);
+ALTER TABLE `level2`
+  ADD PRIMARY KEY (`id_lv2`),
+  ADD KEY `id_lv1` (`id_lv1`);
 
 --
--- Indices de la tabla `farm_register`
+-- Indices de la tabla `level3`
 --
-ALTER TABLE `farm_register`
-  ADD PRIMARY KEY (`id_farm`);
-
---
--- Indices de la tabla `other_involved`
---
-ALTER TABLE `other_involved`
-  ADD PRIMARY KEY (`id_others`);
+ALTER TABLE `level3`
+  ADD PRIMARY KEY (`id_lv3`),
+  ADD KEY `id_lv2` (`id_lv2`);
 
 --
 -- Indices de la tabla `user`
@@ -157,50 +222,48 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indices de la tabla `variety`
---
-ALTER TABLE `variety`
-  ADD PRIMARY KEY (`id_variety`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `crops`
+-- AUTO_INCREMENT de la tabla `level1`
 --
-ALTER TABLE `crops`
-  MODIFY `id_crop` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Crop identifier';
+ALTER TABLE `level1`
+  MODIFY `id_lv1` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `farm_parcels`
+-- AUTO_INCREMENT de la tabla `level2`
 --
-ALTER TABLE `farm_parcels`
-  MODIFY `id_parcels` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Parcels identifier';
+ALTER TABLE `level2`
+  MODIFY `id_lv2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `farm_register`
+-- AUTO_INCREMENT de la tabla `level3`
 --
-ALTER TABLE `farm_register`
-  MODIFY `id_farm` int(11) NOT NULL AUTO_INCREMENT COMMENT 'farm identifier';
-
---
--- AUTO_INCREMENT de la tabla `other_involved`
---
-ALTER TABLE `other_involved`
-  MODIFY `id_others` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of orhers';
+ALTER TABLE `level3`
+  MODIFY `id_lv3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `variety`
+-- Restricciones para tablas volcadas
 --
-ALTER TABLE `variety`
-  MODIFY `id_variety` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Filtros para la tabla `level2`
+--
+ALTER TABLE `level2`
+  ADD CONSTRAINT `level2_ibfk_1` FOREIGN KEY (`id_lv1`) REFERENCES `level1` (`id_lv1`);
+
+--
+-- Filtros para la tabla `level3`
+--
+ALTER TABLE `level3`
+  ADD CONSTRAINT `level3_ibfk_1` FOREIGN KEY (`id_lv2`) REFERENCES `level2` (`id_lv2`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

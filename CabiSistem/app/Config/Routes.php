@@ -34,6 +34,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->post('/login', 'Log_in_out::log_users');
+$routes->post('/logout', 'Log_in_out::log_out');
+
+// User Controllers
+$routes->post('/insert/user', 'UserController::insert_user');
+$routes->post('/update/user', 'UserController::update_user');
+$routes->get('/get/users', 'UserController::get_users');
+
 
 /*
  * --------------------------------------------------------------------
