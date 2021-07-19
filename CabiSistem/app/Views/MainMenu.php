@@ -34,6 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/adminlte.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/formUser.css">
+    
 
 </head>
 
@@ -334,6 +335,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.content-wrapper -->
 
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="farmer_page">
+            <?= view_cell('App\Libraries\ViewComponents::getfarmerform') ?>
+        </div>
+        <!-- /.content-wrapper -->
+
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
@@ -370,6 +377,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url() ?>/assets/js/adminlte.min.js"></script>
     <script src="<?= base_url() ?>/assets/js/formUser.js"></script>
     <script src="<?= base_url() ?>/assets/js/mainMenu.js"></script>
+    <script src="<?= base_url() ?>/assets/js/farmer.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.jqueryui.min.js"></script>
     <script>

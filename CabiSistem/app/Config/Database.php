@@ -35,7 +35,7 @@ class Database extends Config
 		'hostname' => 'localhost',
 		'username' => '',
 		'password' => '',
-		'database' => 'bd_cabi_gra',
+		'database' => 'bd_cabi_gr',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => true,
