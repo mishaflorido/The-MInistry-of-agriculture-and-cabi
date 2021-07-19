@@ -84,7 +84,6 @@ class UserController extends BaseController
                            
             ];
         }
-
         $UserModel->update($id_user, $data);
         echo json_encode('1');
     }

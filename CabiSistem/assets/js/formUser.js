@@ -121,7 +121,7 @@ $("#sub_updatePI").on("submit", function(event){
 });
 // Register new User 
 $("form").submit(function(event){
-    console.log($(this).attr('class'));
+    // console.log($(this).attr('class'));
     if($(this).attr('class')=='userform'){
     event.preventDefault();
     var formData = new FormData($(this)[0]);
