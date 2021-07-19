@@ -7,6 +7,9 @@ class ViewComponents{
     public function getStartCont(){
         return view('StartPageContent');
     }
+    public function getfarmerform(){
+        return view('FarmerView');
+    }
  
 }
 
