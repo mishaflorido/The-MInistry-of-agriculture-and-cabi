@@ -34,7 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/adminlte.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/formUser.css">
-    
+
 
 </head>
 
@@ -236,7 +236,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>User Page</p>
                                     </a>
                                 </li>
-                               
+
                             </ul>
                         </li>
                         <li class="nav-item ">
@@ -258,7 +258,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#vendor_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Vendors Form</p>
+                                        <p>Vendors Registration Form</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -303,7 +303,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>Form 9</p>
                                     </a>
                                 </li>
-                               
+
                             </ul>
                         </li>
                         <li class="nav-item">

@@ -89,57 +89,188 @@
       </div>
     </div>
     <div>
-      <label for="involved" class="involved"> 6. Name(s) of others in households / group involved in the farming bussines </label>
+      3. What are the the principal markets for your crop/livestock
     </div>
     <div class="row">
       <div class="col-md-2">
         <div>
           <a class="form-control" role="button" id="add_involved" onclick="add_involded()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
         </div>
+        <div class="container">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-2">
+                <div>
+                  <a class="form-control" role="button" id="add_farm_crop" onclick="add_farm_crop()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="container">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Crop</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
 
+                    <tbody id='tbody_parcel'>
+                      <tr>
+                        <td><input type="text" name="f_crop" id="" placeholder="" class="form-control"></td>
+                        <td><input type="text" name="f_market" id="" placeholder="" class="form-control"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-2">
+                <div>
+                  <a class="form-control" role="button" id="add_farm_crop" onclick="add_farm_crop()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="container">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Livestock</th>
+                        <th scope="col">Market</th>
+                      </tr>
+                    </thead>
+
+                    <div class="container">
+                      <table class="table">
+                        <thead>
+                          <tr>
+
+                            <th scope="col">Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Last Name</th>
+                          </tr>
+                        </thead>
+                        <tbody id='tbody_involved'>
+                          <tr>
+                            <td><input type="text" name="" id="" placeholder="Name" class="form-control"></td>
+                            <td><input type="text" name="" id="" placeholder="LastName" class="form-control"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <div class="container">
+                      </div>
+                    </div>
+
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                      </label>
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<tbody id='tbody_parcel'>
+  <tr>
+    <td><input type="text" name="f_livestock" id="" placeholder="" class="form-control"></td>
+    <td><input type="text" name="f_market" id="" placeholder="" class="form-control"></td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="form-check">4. Doyou go to the market or do middlemen come to your farm:
+  <div class="row">
+    Market:
+    <div class="col-md-4">
+      <input class="form-check-input" type="radio" name="go_market" id="go_market">
+      <label class="form-check-label" for="go_market"> Yes </label>
+    </div>
+    <div class="col-md-6">
+      <input class="form-check-input" type="radio" name="go_market" id="go_market">
+      <label class="form-check-label" for="go_market"> No </label>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-2">
+        <div>
+          <a class="form-control" role="button" id="add_middle_name" onclick="add_middle_name()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+        </div>
       </div>
       <div class="col-md-10">
-
         <div class="container">
           <table class="table">
             <thead>
               <tr>
-
-                <th scope="col">Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Last Name</th>
+                <th scope="col">Middleman name</th>
               </tr>
             </thead>
-            <tbody id='tbody_involved'>
+            <tbody id='tbody_parcel'>
               <tr>
-                <td><input type="text" name="" id="" placeholder="Name" class="form-control"></td>
-                <td><input type="text" name="" id="" placeholder="LastName" class="form-control"></td>
+                <td><input type="text" name="m_name" id="" placeholder="" class="form-control"></td>
               </tr>
             </tbody>
           </table>
-
-
-          <div class="container">
-          </div>
         </div>
-
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Default checkbox
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-          <label class="form-check-label" for="flexCheckChecked">
-            Checked checkbox
-          </label>
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="container">
+  <div class="col-md-6">5. Who is/are your parcel (s) in boundary with?
+    <div class="row">
+      <div class="col-md-2">
+        <div>
+          <a class="form-control" role="button" id="add_boundary" onclick="add_boundary()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Please list</th>
+              </tr>
+            </thead>
+            <tbody id='tbody_parcel'>
+              <tr>
+                <td><input type="text" name="name_boundary" id="" placeholder="" class="form-control"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-check">
+  <div class="col-md-3">
+    <label class="form-check-label" for="boundary"> Tick if you unknow </label>
+    <input class="form-check-input" type="checkbox" name="boundary" id="boundary">
+  </div>
+</div>
+<div class="form-control">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
