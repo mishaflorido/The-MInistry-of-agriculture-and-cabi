@@ -1,3 +1,44 @@
+var district;
+$(document).ready(function () {
+    $.ajax({
+        method: "get",
+        url: "get/district",
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        success: function (result) {
+
+            district = JSON.parse(result);
+            // console.log(district);
+        }
+    });
+    $.ajax({
+        method: "get",
+        url: "get/parish",
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        success: function (result) {
+
+            // console.log(result);
+            var district = JSON.parse(result);
+
+            for (const key in district) {
+                if (district.hasOwnProperty(key)) {
+                    const element = district[key];
+                    $('#parish').append("<option value='" + element['id_lv2'] + "'>" + element['name_lv2'] + "</option>");
+                }
+            }
+        }
+    });
+});
+$("#parish").on('change',function(){
+    $("#district").empty();
+for (const key in district) {
+    if (Object.hasOwnProperty.call(district, key)) {
+        const element = district[key];
+        if(element['id_lv2']==$(this).val())
+        $('#district').append("<option value='" + element['id_lv3'] + "'>" + element['name_lv3'] + "</option>");
+        
+    }
+}
+});
 $("form").submit(function (event) {
     // console.log($(this).attr('class'));
     if ($(this).attr('class') == 'farmer_form') {

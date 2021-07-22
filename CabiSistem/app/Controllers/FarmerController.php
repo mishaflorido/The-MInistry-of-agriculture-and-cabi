@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\FarmerRegisterModel;
+use App\Models\Lv2Model;
+use App\Models\Lv3Model;
 use CodeIgniter\Controller;
 
 class FarmerController extends BaseController
@@ -53,6 +55,18 @@ class FarmerController extends BaseController
         $FarmerController->insert($data);
         echo json_encode('1');
     }
+    public function get_parish(){
+    $parish = new Lv2Model($db);
+    $result = $parish->findAll();
+    echo json_encode ($result);
+
+    }
+    public function get_district(){
+        $distric = new Lv3Model($db);
+        $result = $distric->findAll();
+        echo json_encode ($result);
+    
+        }
     public function update_user()
     {
     //     # code...

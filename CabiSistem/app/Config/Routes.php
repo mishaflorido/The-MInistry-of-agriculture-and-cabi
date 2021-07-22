@@ -40,6 +40,11 @@ $routes->post('/logout', 'Log_in_out::log_out');
 $routes->post('/insert/user', 'UserController::insert_user');
 $routes->post('/update/user', 'UserController::update_user');
 $routes->get('/get/users', 'UserController::get_users');
+//Parish
+$routes->get('/get/parish', 'FarmerController::get_parish');
+//District
+$routes->get('/get/district', 'FarmerController::get_district');
+
 
 
 /*

@@ -467,32 +467,32 @@ select{
 	-webkit-appearance: none;
 	-moz-appearance: none;
 }
-.form-select{
-  outline: none;
-  border: none;
-  height: 39px;
-  background: transparent;
-  line-height: 39px;
-  padding-left: 0;
-  color: #ccc;
-  font-size: 16px;
-  font-family: inherit;
+.form-select-user{
+  outline: none !important;
+  border: none !important;
+  height: 39px !important;
+  background: transparent !important;
+  line-height: 39px !important;
+  padding-left: 0 !important;
+  color: #ccc !important;
+  font-size: 16px !important;
+  font-family: inherit!important;
 }
-.form-select:focus{
-  border-color: #202327;
-  background-color: #373c42;
-  color: #ccc;
+.form-select-user:focus{
+  border-color: #202327 !important;
+  background-color: #373c42 !important;
+  color: #ccc !important;
 }
-.form-select:disabled{
-  outline: none;
-  border: none;
-  height: 39px;
-  background: transparent;
-  line-height: 39px;
-  padding-left: 0;
-  color: #ccc;
-  font-size: 16px;
-  font-family: inherit;
+.form-select-user:disabled{
+  outline: none !important;
+  border: none !important;
+  height: 39px !important;
+  background: transparent !important;
+  line-height: 39px !important;
+  padding-left: 0 !important;
+  color: #ccc !important;
+  font-size: 16px !important;
+  font-family: inherit !important;
 }
 select option:hover{
   background-color: rgba(204, 204, 204, 0.371);

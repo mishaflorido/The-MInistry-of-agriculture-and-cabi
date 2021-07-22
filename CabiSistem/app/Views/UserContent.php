@@ -72,7 +72,7 @@ if ($type_user == 0) {
                                  </div> -->
                             <div class="input-group">
 
-                                <select class="form-control form-select pi_input" id="profile_select" name="type_user" selected='<?php echo $type_user ?>' disabled>
+                                <select class="form-control form-select-user  pi_input" id="profile_select" name="type_user" selected='<?php echo $type_user ?>' disabled>
                                     <?php if ($type_user == 0) { ?>
                                         <option selected="selected" value='0'>Administrator</option>
                                     <?php } ?>
@@ -140,7 +140,7 @@ if ($type_user == 0) {
 
                                 <div class="input-group">
 
-                                    <select class="form-control form-select" name="type_user">
+                                    <select class="form-control form-select-user" name="type_user">
                                         <option selected="selected" value="1">Supervisor</option>
                                         <option value="2">Technical User </option>
                                         <option value="3">Invited User</option>
