@@ -43,3 +43,12 @@ function add_involded() {
         '<td><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>' +
         '</tr>');
 }
+function add_parcel() {
+    $("#tbody_parcel").append('<tr>' +
+        '<td><input type="text" name="parc_num" id="" placeholder="" class="form-control"></td>'+
+        '<td><input type="text" name="parc_address" id="" placeholder="" class="form-control"></td>'+
+        '<td><input type="text" name="parc_acreage" id="" placeholder="" class="form-control"></td>'+
+        '<td><input type="text" name="parc_tenure" id="" placeholder="" class="form-control"></td>'+
+        '<td><input type="text" name="crop_livestock" id="" placeholder="" class="form-control"></td>'+
+        '</tr>');
+}
