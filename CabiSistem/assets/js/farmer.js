@@ -1,5 +1,14 @@
 var district;
 $(document).ready(function () {
+    // Pagination
+    $('#1st_page_farmer').pageMe({
+        pagerSelector: '#1ts_page',
+        showPrevNext: true,
+        hidePageNumbers: false,
+        perPage: 3
+    });
+    // ///////////////
+    // Get District
     $.ajax({
         method: "get",
         url: "get/district",
@@ -10,6 +19,8 @@ $(document).ready(function () {
             // console.log(district);
         }
     });
+    // //////////////////
+    // Get Parish
     $.ajax({
         method: "get",
         url: "get/parish",
@@ -27,17 +38,18 @@ $(document).ready(function () {
             }
         }
     });
+    // //////////////////
 });
-$("#parish").on('change',function(){
+$("#parish").on('change', function () {
     $("#district").empty();
-for (const key in district) {
-    if (Object.hasOwnProperty.call(district, key)) {
-        const element = district[key];
-        if(element['id_lv2']==$(this).val())
-        $('#district').append("<option value='" + element['id_lv3'] + "'>" + element['name_lv3'] + "</option>");
-        
+    for (const key in district) {
+        if (Object.hasOwnProperty.call(district, key)) {
+            const element = district[key];
+            if (element['id_lv2'] == $(this).val())
+                $('#district').append("<option value='" + element['id_lv3'] + "'>" + element['name_lv3'] + "</option>");
+
+        }
     }
-}
 });
 $("form").submit(function (event) {
     // console.log($(this).attr('class'));
@@ -79,17 +91,17 @@ $("form").submit(function (event) {
 // });
 function add_involded() {
     $("#tbody_involved").append('<tr>' +
-        '<td><input type="text" name="" id="" placeholder="Name" class="form-control"></td>' +
-        '<td><input type="text" name="" id="" placeholder="LastName" class="form-control"></td>' +
-        '<td><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>' +
+        '<td><input type="text" name="name" placeholder="Name" class="form-control"></td>' +
+        '<td><input type="text" name="last_name" placeholder="LastName" class="form-control"></td>' +
+        '<td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>' +
         '</tr>');
 }
 function add_parcel() {
     $("#tbody_parcel").append('<tr>' +
-        '<td><input type="text" name="parc_num" id="" placeholder="" class="form-control"></td>'+
-        '<td><input type="text" name="parc_address" id="" placeholder="" class="form-control"></td>'+
-        '<td><input type="text" name="parc_acreage" id="" placeholder="" class="form-control"></td>'+
-        '<td><input type="text" name="parc_tenure" id="" placeholder="" class="form-control"></td>'+
-        '<td><input type="text" name="crop_livestock" id="" placeholder="" class="form-control"></td>'+
+        '<td><input type="text" name="parc_num" id="" placeholder="" class="form-control"></td>' +
+        '<td><input type="text" name="parc_address" id="" placeholder="" class="form-control"></td>' +
+        '<td><input type="text" name="parc_acreage" id="" placeholder="" class="form-control"></td>' +
+        '<td><input type="text" name="parc_tenure" id="" placeholder="" class="form-control"></td>' +
+        '<td><input type="text" name="crop_livestock" id="" placeholder="" class="form-control"></td>' +
         '</tr>');
 }
