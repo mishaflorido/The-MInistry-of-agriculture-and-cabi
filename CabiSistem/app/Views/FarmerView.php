@@ -377,9 +377,14 @@
       </div>
     </div>
     <div class="form-check">
-      <div class="col-md-3">
-        <label class="form-check-label" for="boundary"> Tick if you unknow </label>
-        <input class="form-check-input" type="checkbox" name="boundary" id="boundary">
+      <div class="row">
+        <div class="col-md-1">
+
+          Tick if you unknow
+        </div>
+        <div class="col-md-3">
+          <input class="form-check-input" type="checkbox" name="boundary" id="boundary">
+        </div>
       </div>
     </div>
     <div class="form-control">
