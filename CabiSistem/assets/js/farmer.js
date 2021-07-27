@@ -1,13 +1,6 @@
 var district;
 $(document).ready(function () {
-    // Pagination
-    $('#1st_page_farmer').pageMe({
-        pagerSelector: '#1ts_page',
-        showPrevNext: true,
-        hidePageNumbers: false,
-        perPage: 3
-    });
-    // ///////////////
+
     // Get District
     $.ajax({
         method: "get",
@@ -39,6 +32,23 @@ $(document).ready(function () {
         }
     });
     // //////////////////
+});
+$("input[type=radio]").on("change", function () {
+    if ($(this).val() == 1) {
+        $("#middleman_table").removeClass("d-none");
+    }
+    else {
+        $("#middleman_table").addClass("d-none");
+    }
+});
+$("#boundary_check").on("change", function () {
+    if ($(this).is(":checked")) {
+        $("#boundary_table").removeClass("d-none");
+    }
+    else {
+        $("#boundary_table").addClass("d-none");
+    }
+
 });
 $("#parish").on('change', function () {
     $("#district").empty();
