@@ -7,8 +7,7 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
 	require SYSTEMPATH . 'Config/Routes.php';
 }
 
@@ -40,10 +39,26 @@ $routes->post('/logout', 'Log_in_out::log_out');
 $routes->post('/insert/user', 'UserController::insert_user');
 $routes->post('/update/user', 'UserController::update_user');
 $routes->get('/get/users', 'UserController::get_users');
+// Farmer
+$routes->post('/insert/farmer', 'FarmerController::insert_farmer');
+// Parcel
+$routes->post('/insert/parcel', 'FarmerController::insert_parcel');
+// Other Involved
+$routes->post('/insert/otherInvolved', 'FarmerController::insert_other_involved');
 //Parish
 $routes->get('/get/parish', 'FarmerController::get_parish');
 //District
 $routes->get('/get/district', 'FarmerController::get_district');
+// Crop
+$routes->get('/get/crop', 'CropController::get_crop');
+$routes->post('/insert/crop_det', 'FarmerController::insert_crop_det');
+// Livestock
+$routes->get('/get/livestock', 'LivestockController::get_livestock');
+$routes->post('/insert/live_det', 'FarmerController::insert_live_det');
+// Middleman 
+$routes->post('/insert/m_det', 'FarmerController::insert_middleman');
+// Boundary 
+$routes->post('/insert/boundary', 'FarmerController::insert_boundary');
 
 
 
@@ -60,7 +75,6 @@ $routes->get('/get/district', 'FarmerController::get_district');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

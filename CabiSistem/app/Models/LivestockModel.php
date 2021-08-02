@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class FarmerRegisterModel extends Model
+class LivestockModel extends Model
 {
-    protected $table      = 'farm_register';
-    protected $primaryKey = 'id_farm';
+    protected $table      = 'livestock';
+    protected $primaryKey = 'id_livestock';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['date_reg', 'name', 'last_name', 'mo_last_name', 'AKA', 'birthdate', 'address', 'phone_num', 'sex', 'district', 'watershed', 'parcel_num', 'fe_pump', 'fe_irrig_line', 'fe_other', 'go_market', 'boundary'];
+    protected $allowedFields = ['name_livestock', 'description'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';
