@@ -341,6 +341,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.content-wrapper -->
 
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="vendor_page">
+            <?= view_cell('App\Libraries\ViewComponents::getVendorform') ?>
+        </div>
+        <!-- /.content-wrapper -->
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
