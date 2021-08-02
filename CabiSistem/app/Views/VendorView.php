@@ -6,273 +6,201 @@
         <label for="FarmRegister" class="form-label"> Vendor Registration form</label>
     </div>
     <div class="container">
+        <!-- start input section -->
         <div>
             <label for="date_reg" class="form-label"> Register date: </label>
         </div>
-        <div>
-            <label for="Personal" class="Personal"> I PERSONAL</label>
+        <div class="row">
+            <div class="col">
+                <p>1. Name: <input type="text" class="v_name" placeholder="Name" name="v_name"></p>
+            </div>
+            <div class="col">
+                <p>Alias: <input type="text" class="v_alias" placeholder="Alias" name="v_alias"></p>
+            </div>
         </div>
         <div>
-            <div class="row">
-                <div class="col">
-                    <p>1. Name: <input type="text" class="v_name" placeholder="Name" name="v_name"></p>
-                </div>
-                <div class="col">
-                    <p>AKA: <input type="text" class="v_alias" placeholder="Alias" name="v_alias"></p>
-                </div>
-                <div>
-                    <p>3. Home address: <input type="text" class="addres" placeholder="Home address" name="address"></p>
-                </div>
-                <div>
-                </div>
-                <div>
-                    <p>2. Date of Birth: <input type='date' class="form-control" name="birthdate" /></p>
-                </div>
+            <p>3. Home address: <input type="text" class="addres" placeholder="Home address" name="address"></p>
+        </div>
+        <div class="row">
+            <div>
                 <p>4. Telephone number: (H) <input type="text" class="phone_num" placeholder="Telephone number" name="phone_num"></p>
+            </div>
+            <div class="col">
                 <p>4. Telephone number: (C)<input type="text" class="phone_num" placeholder="Telephone number" name="phone_num"></p>
             </div>
-            <div class="form-check">Are you currently occuping a booth/stall/table?
-                <div class="row">
-                    <div class="col-md-1">
-                        <input class="form-check-input" type="radio" name="v_table" id="sex">
-                        <label class="form-check-label" for="sex"> Male </label>
-                    </div>
-                    <div class="col-md-2">
-                        <input class="form-check-input" type="radio" name="sex" id="sex">
-                        <label class="form-check-label" for="sex"> Female </label>
-                    </div>
+        </div>
+        <div class="col-md-6">
+            <div class=" row">
+                <span class="input-group-text"> Are you currently occuping a booth/stall/table?</span>
+            </div>
+            <div class="form-control">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="v_table" id="yes">
+                    <label class="form-check-label" for="yes"> Yes </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="v_table" id="no">
+                    <label class="form-check-label" for="no"> No </label>
                 </div>
             </div>
-
-            <div>
-                <label for="involved" class="involved"> 6. Name(s) of others in households / group involved in the farming bussines </label>
-
-                <div class="row">
-                    <div class="col-md-2">
-                        <div>
-                            <a class="form-control" role="button" id="add_involved" onclick="add_involded()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id='tbody_involved'>
-                                    <tr>
-                                        <td><input type="text" name="" id="" placeholder="Name" class="form-control"></td>
-                                        <td><input type="text" name="" id="" placeholder="LastName" class="form-control"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-6">
+            <div class=" row">
+                <span class="input-group-text"> How long have you been vending?</span>
+            </div>
+            <div class="form-control">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="v_long" id="years">
+                    <label class="form-check-label" for="years"> Years </label>
                 </div>
-                <div>
-                    7. District: <input type="text" class="form-control" placeholder="" name="district">
-                </div>
-                <div>
-                    8. Watershed: <input type="text" class="form-control" placeholder="" name="watershed">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="v_long" id="months">
+                    <label class="form-check-label" for="months"> Months </label>
                 </div>
             </div>
         </div>
     </div>
-    <!-- aqui termian la primera parte del formulario farmers register -->
+    <div style="text-align: left" class="mb-3">
+        <label for="Typwbusssines"> Type of businesss:</label>
+    </div>
     <div class="container">
-        <div>
-            <label for="farm_inf" class="Farm_inf"> II FARM INFORMATION</label>
-            <div>
-                1. How many parcel do you operate? <input type="text" class="form-control" placeholder="" name="parcel_num">
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div>
-                        <a class="form-control" role="button" id="add_parcel" onclick="add_parcel()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <div class="container">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Number</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">Acreage</th>
-                                    <th scope="col">Tenure</th>
-                                    <th scope="col">Crop/Livestock</th>
-                                </tr>
-                            </thead>
-
-                            <tbody id='tbody_parcel'>
-                                <tr>
-                                    <td><input type="text" name="parc_num" id="" placeholder="" class="form-control"></td>
-                                    <td><input type="text" name="parc_address" id="" placeholder="" class="form-control"></td>
-                                    <td><input type="text" name="parc_acreage" id="" placeholder="" class="form-control"></td>
-                                    <td><input type="text" name="parc_tenure" id="" placeholder="" class="form-control"></td>
-                                    <td><input type="text" name="crop_livestock" id="" placeholder="" class="form-control"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-check">2. What farm equipment do you own?>
-            <div class="row">
-                <div class="col-md-1">
-                    <input class="form-check-input" type="checkbox" name="f_pump" id="f_pump">
-                    <label class="form-check-label" for="pump"> Pump </label>
-                </div>
-                <div class="col-md-2">
-                    <input class="form-check-input" type="checkbox" name="f_irri" id="f_irri">
-                    <label class="form-check-label" for="f_irri"> Irrigation line </label>
-                </div>
-                <div class="col-md-2">
-                    <input class="form-check-input" type="checkbox" name="f_other" id="f_other">
-                    <label class="form-check-label" for="f_other"> Other </label>
-                </div>
-            </div>
-        </div>
-        <div>
-            3. What are the the principal markets for your crop/livestock
-        </div>
-        <div class="container">
+        <div class=" row">
             <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div>
-                            <a class="form-control" role="button" id="add_farm_crop" onclick="add_farm_crop()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
+                <div class="form-control">
+                    <div class="form-check form-check-inline">
+                        Vegetables: <input class="form-check-input" type="checkbox" name="veg" id="veg">
                     </div>
-                    <div class="col-md-10">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Crop</th>
-                                        <th scope="col">Market</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id='tbody_parcel'>
-                                    <tr>
-                                        <td><input type="text" name="f_crop" id="" placeholder="" class="form-control"></td>
-                                        <td><input type="text" name="f_market" id="" placeholder="" class="form-control"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="form-check form-check-inline">
+                        <input type=text class="form-llbs" name="veg_lbs" id="veg_lbs">
                     </div>
                 </div>
             </div>
+        </div>
+        <div class=" row">
             <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div>
-                            <a class="form-control" role="button" id="add_farm_crop" onclick="add_farm_crop()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
+                <div class="form-control">
+                    <div class="form-check form-check-inline">
+                        Root tubers: <input class="form-check-input" type="checkbox" name="roots" id="roots">
                     </div>
-                    <div class="col-md-10">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Livestock</th>
-                                        <th scope="col">Market</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id='tbody_parcel'>
-                                    <tr>
-                                        <td><input type="text" name="f_livestock" id="" placeholder="" class="form-control"></td>
-                                        <td><input type="text" name="f_market" id="" placeholder="" class="form-control"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="form-check form-check-inline">
+                        <input type=text class="form-llbs" name="rot_lbs" id="rot_lbs">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="form-check">4. Doyou go to the market or do middlemen come to your farm:
-            <div class="row">
-                Market:
-                <div class="col-md-4">
-                    <input class="form-check-input" type="radio" name="go_market" id="go_market">
-                    <label class="form-check-label" for="go_market"> Yes </label>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-check-input" type="radio" name="go_market" id="go_market">
-                    <label class="form-check-label" for="go_market"> No </label>
-                </div>
-            </div>
-        </div>
-        <div class="container">
+        <div class=" row">
             <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div>
-                            <a class="form-control" role="button" id="add_middle_name" onclick="add_middle_name()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
+                <div class="form-control">
+                    <div class="form-check form-check-inline">
+                        Spices: <input class="form-check-input" type="checkbox" name="spices" id="spices">
                     </div>
-                    <div class="col-md-10">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Middleman name</th>
-                                    </tr>
-                                </thead>
-                                <tbody id='tbody_parcel'>
-                                    <tr>
-                                        <td><input type="text" name="m_name" id="" placeholder="" class="form-control"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="form-check form-check-inline">
+                        <input type=text class="form-llbs" name="spc_lbs" id="spc_lbs">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="col-md-6">5. Who is/are your parcel (s) in boundary with?
-                <div class="row">
-                    <div class="col-md-2">
-                        <div>
-                            <a class="form-control" role="button" id="add_boundary" onclick="add_boundary()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
+        <div class=" row">
+            <div class="col-md-6">
+                <div class="form-control">
+                    <div class="form-check form-check-inline">
+                        Fresh fruits juices: <input class="form-check-input" type="checkbox" name="fruits" id="fruits">
                     </div>
-                    <div class="col-md-4">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Please list</th>
-                                    </tr>
-                                </thead>
-                                <tbody id='tbody_parcel'>
-                                    <tr>
-                                        <td><input type="text" name="name_boundary" id="" placeholder="" class="form-control"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="form-check form-check-inline">
+                        <input type=text class="frt-llbs" name="frt_lbs" id="frt_lbs">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="form-check">
-            <div class="col-md-3">
-                <label class="form-check-label" for="boundary"> Tick if you unknow </label>
-                <input class="form-check-input" type="checkbox" name="boundary" id="boundary">
+        <div class=" row">
+            <div class="col-md-6">
+                <div class="form-control">
+                    <div class="form-check form-check-inline">
+                        Others: <input class="form-check-input" type="checkbox" name="b_other" id="b_other">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type=text class="frt-llbs" name="b_oth_lbs" id="b_oth_lbs">
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class=" row">
+                <span class="input-group-text"> For vendors of agriculrual produce: Are you the sole producer?</span>
+            </div>
+            <div class="form-control">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="v_prod" id="yes">
+                    <label class="form-check-label" for="yes"> Yes </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="v_prod" id="no">
+                    <label class="form-check-label" for="no"> No </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" row">
+        <span class="input-group-text"> If No, please supply the following information of produce supply:</span>
+    </div>
+    <div class="row">
+        <div class="col-md-1 text-center">
+            <div class="d-inline-flex text-center mt-4">
+                <a class="form-control" role="button" id="add_prod_sup" onclick="add_prod()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+            </div>
+        </div>
+        <div class="col-md-11">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Farmer(s) Name(s)</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Contact number (H)</th>
+                            <th scope="col">Contact number (C)</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id='tbody_parcel'>
+                        <tr>
+                            <td><input type="text" name="prod_sup_name" placeholder="" class="form-control"></td>
+                            <td><input type="text" name="prod_address" placeholder="" class="form-control"></td>
+                            <td><input type="number" name="prod_numh" placeholder="" class="form-control"></td>
+                            <td><input type="number" name="prod_numc" placeholder="" class="form-control"></td>
+                            <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class=" row">
+            <span class="input-group-text"> FEES, please tick the apropiate box</span>
+        </div>
+        <div class="row">
+            <div class="col-md-2 form-check-inline"">
+                <span class=" input-group-text">Annual Fee: <input class=" form-check-input" type="checkbox" name="v_fee_ann" id="v_fee_ann"></span>
+
+            </div>
+            <div class="col-md-2 form-check-inline">
+                <span class="input-group-text">Montly Fee:<input class="form-check-input" type="checkbox" name="v_fee_mon" id="v_fee_mon"></span>
+
+            </div>
+            <div class="col-md-2 form-check-inline">
+                <span class="input-group-text"> Weekly fee:<input class="form-check-input" type="checkbox" name="v_fee_wek" id="v_fee_wek"></span>
+
+            </div>
+            <div class="col-md-2 form-check-inline">
+                <span class="input-group-text">Daily Fee:<input class="form-check-input" type="checkbox" name="v_fee_dai" id="v_fee_dai"></span>
+
+            </div>
+            <div class="col-md-2 form-check-inline">
+                <span class="input-group-text">No Fee:<input class="form-check-input" type="checkbox" name="v_no_fee" id="v_no_fee"></span>
+            </div>
+        </div>
+
         <div class="form-control">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>

@@ -324,13 +324,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper collapse" data-bs-spy="scroll" id="start_page">
+        <div class="content-wrapper collapse" id="start_page">
             <?= view_cell('App\Libraries\ViewComponents::getStartCont') ?>
         </div>
         <!-- /.content-wrapper -->
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper collapse" data-bs-spy="scroll" id="user_page">
+        <div class="content-wrapper collapse" id="user_page">
             <?= view_cell('App\Libraries\ViewComponents::getUserCont') ?>
         </div>
         <!-- /.content-wrapper -->
@@ -341,6 +341,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.content-wrapper -->
 
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="vendor_page">
+            <?= view_cell('App\Libraries\ViewComponents::getVendorform') ?>
+        </div>
+        <!-- /.content-wrapper -->
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
