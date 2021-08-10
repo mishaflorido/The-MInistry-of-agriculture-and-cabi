@@ -98,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <img src="../assets/img/user_img/<?= $photo ?>" class="brand-image elevation-2" alt="User Image" style="width: 4.1rem; height: auto">
                     </div>
                     <div class="info">
-                        <a role="button" class="d-block" data-bs-toggle="collapse" data-bs-target="#user_page" aria-expanded="false" aria-controls="user_page">
+                        <a role="button" class="d-block" data-bs-toggle="collapse" data-bs-target="#user_page" aria-expanded="false" aria-controls="usergi_page">
                             <?= $name ?></a>
                     </div>
                 </div>
@@ -361,7 +361,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- JSpdf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
     <!-- <script src="<?= base_url() ?>/assets/plugins/jsPDF-1.3.2/dist/jspdf.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
     <!-- Data Table -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.jqueryui.min.js"></script>
