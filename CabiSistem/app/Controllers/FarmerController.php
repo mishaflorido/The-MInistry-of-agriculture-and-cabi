@@ -75,8 +75,8 @@ class FarmerController extends BaseController
             'go_market' => $go_market,
             'boundary' => $boundary
         ];
-        $FarmerController->insert($data);
-        // print_r($data);
+        // $FarmerController->insert($data);
+        print_r($data);
         $lastFarmer = $db->query('select * from farm_register ORDER BY id_farm DESC LIMIT 1')->resultID;
         foreach ($lastFarmer as $key => $value) {
             $id_farm = $value['id_farm'];
@@ -219,6 +219,22 @@ class FarmerController extends BaseController
     {
         $distric = new Lv3Model($db);
         $result = $distric->findAll();
+        echo json_encode($result);
+    }
+    public function get_farmer()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $result = $db->query("SELECT f.*, l3.name_lv3 FROM farm_register f INNER JOIN level3 l3 on l3.id_lv3 = f.district")->getResultArray();
+        echo json_encode($result);
+    }
+    public function get_other_involved()
+    {
+        $request = \Config\Services::request();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $id_farm = $request->getPostGet('id_farm');
+        $result = $db->query("SELECT name, last_name FROM other_involved where id_farm = " . $id_farm)->getResultArray();
         echo json_encode($result);
     }
     public function update_user()

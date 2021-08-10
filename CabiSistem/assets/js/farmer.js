@@ -133,6 +133,7 @@ $("form").submit(function (event) {
         formData.delete("m_name");
         formData.delete("name_boundary");
 
+
         $.ajax({
             url: "insert/farmer",
             type: "POST",

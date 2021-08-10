@@ -40,11 +40,13 @@ $routes->post('/insert/user', 'UserController::insert_user');
 $routes->post('/update/user', 'UserController::update_user');
 $routes->get('/get/users', 'UserController::get_users');
 // Farmer
+$routes->get('/get/farmer', 'FarmerController::get_farmer');
 $routes->post('/insert/farmer', 'FarmerController::insert_farmer');
 // Parcel
 $routes->post('/insert/parcel', 'FarmerController::insert_parcel');
 // Other Involved
 $routes->post('/insert/otherInvolved', 'FarmerController::insert_other_involved');
+$routes->post('/get/otherinvolved', 'FarmerController::get_other_involved');
 //Parish
 $routes->get('/get/parish', 'FarmerController::get_parish');
 //District

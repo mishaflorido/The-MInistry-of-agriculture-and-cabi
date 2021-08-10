@@ -24,6 +24,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Data Table -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.jqueryui.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     <!-- Font Awesome Icons -->
     <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/fontawesome-free/css/all.min.css">
@@ -59,113 +61,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fab fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
 
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="../assets/img/bg-heading-03.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="../assets/img/bg-heading-03.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="../assets/img/bg-heading-03.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                         <i class="fas fa-th-large"></i>
@@ -187,20 +84,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="<?= base_url() ?>/assets/img/CABI-logo.svg" alt="CABI Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">C.A.B.I.</span>
+            <a role="button" class="brand-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page">
+                <!-- <a href="index3.html" class="brand-link"> -->
+                <img src="<?= base_url() ?>/assets/img/granate_shield.jpeg" alt="CABI Logo" class="brand-image elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Granate</span>
             </a>
 
             <!-- Sidebar -->
-            <div class="sidebar">
+            <div class="sidebar" style="  position: sticky; top: 0; width:auto; height:45em; overflow: scroll;">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="../assets/img/user_img/<?= $photo ?>" class="brand-image elevation-2" alt="User Image" style="width: 4.1rem; height: auto">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= $name ?></a>
+                        <a role="button" class="d-block" data-bs-toggle="collapse" data-bs-target="#user_page" aria-expanded="false" aria-controls="user_page">
+                            <?= $name ?></a>
                     </div>
                 </div>
 
@@ -231,8 +130,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#user_page" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#user_page" data-t="user_page" aria-expanded="false" aria-controls="user_page">
+                                        <i class="nav-icon fas fa-users-cog"></i>
                                         <p>User Page</p>
                                     </a>
                                 </li>
@@ -241,7 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                         <li class="nav-item ">
                             <a role="button" class="nav-link">
-                                <i class="nav-icon fab fa-wpforms"></i>
+                                <i class="nav-icon fas fa-book"></i>
 
                                 <p>
                                     Forms Pages
@@ -250,13 +149,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#farmer_page" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#farmer_page" data-t="farmer_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Farmer Register Form</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#vendor_page" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#vendor_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Vendors Registration Form</p>
                                     </a>
@@ -264,49 +163,116 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form 3</p>
+                                        <p>List of Farm Roads That Need Urgent Attention</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form 4</p>
+                                        <p>Weekly data collection from praedial larceny programme</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form 5</p>
+                                        <p>Plant Application Form</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form 6</p>
+                                        <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form 7</p>
+                                        <p>Crop damage data</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form 8</p>
+                                        <p>Monthly Report(many topics)</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form 9</p>
+                                        <p>DCA Form</p>
                                     </a>
                                 </li>
 
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ">
+                            <a role="button" class="nav-link">
+                                <i class="nav-icon far fa-file-alt"></i>
+
+                                <p>
+                                    Reports Page
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#farmer_page_report" data-t="farmer_page_report" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Farmer Register Report</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#vendor_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Vendors Registration Report</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>List of Farm Roads That Need Urgent Attention</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Weekly data collection from praedial larceny programme</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Plant Application Report</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Crop damage data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Monthly Report(many topics)</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>DCA Report</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
@@ -314,7 +280,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -346,6 +312,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <?= view_cell('App\Libraries\ViewComponents::getVendorform') ?>
         </div>
         <!-- /.content-wrapper -->
+        <div class="content-wrapper collapse" id="farmer_page_report">
+            <?= view_cell('App\Libraries\ViewComponents::getFarmerReport') ?>
+        </div>
+        <!-- /.content-wrapper -->
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
@@ -371,20 +341,42 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <!-- <script src="plugins/jquery/jquery.min.js"></script> -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <!-- Bootstrap 4 -->
+    <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
     <!-- AdminLTE App -->
     <!-- <script src="dist/js/adminlte.min.js"></script> -->
-    <script src="<?= base_url() ?>/assets/js/adminlte.min.js"></script>
+    <script src="<?= base_url() ?>/assets/js/adminlteprueba.js"></script>
+
     <script src="<?= base_url() ?>/assets/js/formUser.js"></script>
     <script src="<?= base_url() ?>/assets/js/mainMenu.js"></script>
     <script src="<?= base_url() ?>/assets/js/farmer.js"></script>
+    <script src="<?= base_url() ?>/assets/js/farmerReport.js"></script>
+    <script src="<?= base_url() ?>/assets/js/vendor.js"></script>
+
+    <!-- JSpdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <!-- <script src="<?= base_url() ?>/assets/plugins/jsPDF-1.3.2/dist/jspdf.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+    <!-- Data Table -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.jqueryui.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.25/pagination/input.js"></script>
+    <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+
+
+
 
     <script>
         var myCollapse = document.getElementById('start_page');

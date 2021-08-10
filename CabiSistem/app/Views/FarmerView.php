@@ -1,9 +1,27 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-8">
+        <h1 class="m-0">Farmer Registration Form</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-4">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a role="button" class="nav-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page" style="padding-top: 0; padding-right:0">Home</a></li>
+          <li class="breadcrumb-item active">Starter Page</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
 <div style="text-align: center" class="mb-3">
   <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
 </div>
 <div style="text-align: center" class="mb-3">
-  <label for="FarmRegister" class="form-label"> Farmer Registration form</label>
+  <label for="FarmRegister" class="form-label"> </label>
 </div>
+
 <form class="farmer_form">
   <div class="container">
     <!-- First Data Inputs -->
@@ -90,7 +108,7 @@
       <!-- ////////////////// -->
       <div class="row my-2">
         <div>
-          <div class="input-group-text">7. Name(s) of others in households/group involved in the farming bussines</div>
+          <div class="input-group-text text-wrap">7. Name(s) of others in households/group involved in the farming bussines</div>
         </div>
       </div>
       <div class="row">
@@ -202,7 +220,7 @@
 
       <div class="row my-3">
         <div class="my-3">
-          <span class="input-group-text">3. What are the the principal markets for your crop/livestock</span>
+          <span class="input-group-text text-wrap">3. What are the the principal markets for your crop/livestock</span>
 
         </div>
         <div class="row">
@@ -285,7 +303,7 @@
       <div class="row">
 
         <div class="my-3">
-          <span class="input-group-text">4. Doyou go to the market or do middlemen come to your farm:</span>
+          <span class="input-group-text text-wrap">4. Doyou go to the market or do middlemen come to your farm:</span>
 
           <div>
             <div class="form-check">
@@ -333,7 +351,7 @@
       </div>
       <div class="row">
         <div>
-          <span class="input-group-text">5. Who is/are your parcel (s) in boundary with?</span>
+          <span class="input-group-text text-wrap">5. Who is/are your parcel (s) in boundary with?</span>
 
         </div>
         <div class="form-check">

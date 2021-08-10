@@ -175,43 +175,43 @@ if ($type_user == 0) {
         </div>
         <!-- /.row -->
         <hr>
-        <?php if($type_user==0 || $type_user==1){?>
-        <!-- Data Table User -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">View Users Registred</h1>
-                    </div><!-- /.col -->
-                   
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <table id="user_table" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Type User</th>
+        <?php if ($type_user == 0 || $type_user == 1) { ?>
+            <!-- Data Table User -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">View Users Registred</h1>
+                        </div><!-- /.col -->
 
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Type User</th>
-                </tr>
-            </tfoot>
-        </table>
-        <!-- /////////// -->
-        <?php }?>
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <table id="user_table" class="display responsive" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Type User</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Type User</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <!-- /////////// -->
+        <?php } ?>
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content -->
