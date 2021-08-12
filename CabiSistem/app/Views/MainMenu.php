@@ -141,7 +141,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item ">
                             <a role="button" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
-
                                 <p>
                                     Forms Pages
                                     <i class="right fas fa-angle-left"></i>
@@ -161,13 +160,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#farm_roads" data-t="farm_roads" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List of Farm Roads That Need Urgent Attention</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#larceny_programme" data-t="larceny_programme" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Weekly data collection from praedial larceny programme</p>
                                     </a>
@@ -228,7 +227,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#" aria-expanded="false" aria-controls="farm_roads">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List of Farm Roads That Need Urgent Attention</p>
                                     </a>
@@ -311,6 +310,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper collapse" id="vendor_page">
             <?= view_cell('App\Libraries\ViewComponents::getVendorform') ?>
         </div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="farm_roads">
+            <?= view_cell('App\Libraries\ViewComponents::getFarmRoadform') ?>
+        </div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="larceny_programme">
+            <?= view_cell('App\Libraries\ViewComponents::getLarcenyProgramme') ?>
+        </div>
         <!-- /.content-wrapper -->
         <div class="content-wrapper collapse" id="farmer_page_report">
             <?= view_cell('App\Libraries\ViewComponents::getFarmerReport') ?>
@@ -360,6 +367,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- JSpdf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.30/jspdf.plugin.autotable.js" integrity="sha512-uX3+QfFVkw6AXwyh3Dfe4DW5wy5kp8J6hycPyhzMmolo2a6rHucqhkrWE1uUdAKaZkI/cQIYQs2ewJ06fGRpeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <script src="<?= base_url() ?>/assets/plugins/jsPDF-1.3.2/dist/jspdf.min.js"></script> -->
 
     <!-- Data Table -->

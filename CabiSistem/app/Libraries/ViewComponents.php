@@ -24,4 +24,12 @@ class ViewComponents
     {
         return view('FarmerReport');
     }
+    public function getFarmRoadform()
+    {
+        return view('FarmRoadform');
+    }
+    public function getLarcenyProgramme()
+    {
+        return view('LarcenyProgramme');
+    }
 }

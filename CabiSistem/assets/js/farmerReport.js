@@ -212,8 +212,11 @@ function to_pdf_farmer(farmer) {
         'padding': 0
     }));
 
+    // doc.table(18, 175, rows, headerConfig);
+    var res = doc.autoTableHtmlToJson(document.getElementById("t-other"));
+    doc.autoTable(res.columns, res.data, { margin: { top: 180 } });
+    // doc.text(18, "Hol como estas");
 
-    doc.table(18, 175, rows, headerConfig);
 
 
 
@@ -240,7 +243,7 @@ function to_pdf_farmer(farmer) {
 function get_length(arr) {
     var aux = 0;
     arr.forEach(element => {
-        console.log(element.length);
+        // console.log(element.length);
         if (element.length >= aux) {
             aux = element.length;
         }
@@ -268,10 +271,10 @@ function get_otherinvolved(id_farm) {
                     };
                     // console.log(item);
                     rows.push(item);
-                    // $('#tb_other').append("<tr>" +
-                    //     "<td>" + element['name'] + "</td>" +
-                    //     "<td>" + element['last_name'] + "</td>" +
-                    //     "</tr>")
+                    $('#tb_other').append("<tr>" +
+                        "<td>" + element['name'] + "</td>" +
+                        "<td>" + element['last_name'] + "</td>" +
+                        "</tr>")
 
                 }
             }
