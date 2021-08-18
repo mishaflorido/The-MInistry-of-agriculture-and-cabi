@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a role="button" class="brand-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page">
                 <!-- <a href="index3.html" class="brand-link"> -->
                 <img src="<?= base_url() ?>/assets/img/granate_shield.jpeg" alt="CABI Logo" class="brand-image elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Granate</span>
+                <span class="brand-text font-weight-light">Grenade</span>
             </a>
 
             <!-- Sidebar -->
@@ -161,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="farmroad_page" data-t="farmroad_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List of Farm Roads That Need Urgent Attention</p>
                                     </a>
@@ -311,6 +311,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper collapse" id="vendor_page">
             <?= view_cell('App\Libraries\ViewComponents::getVendorform') ?>
         </div>
+        <!-- Content Wrapper. Contains page content -->
+        <!--<div class="content-wrapper collapse" id="farmroad_page">-->
+        <!--<?= view_cell('App\Libraries\ViewComponents::getfarmroadform') ?>-->
+        <!--</div> -->
+
         <!-- /.content-wrapper -->
         <div class="content-wrapper collapse" id="farmer_page_report">
             <?= view_cell('App\Libraries\ViewComponents::getFarmerReport') ?>

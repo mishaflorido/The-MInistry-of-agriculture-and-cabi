@@ -20,6 +20,10 @@ class ViewComponents
     {
         return view('VendorView');
     }
+    public function getFarmroadview()
+    {
+        return view('farmroadview');
+    }
     public function getFarmerReport()
     {
         return view('FarmerReport');
