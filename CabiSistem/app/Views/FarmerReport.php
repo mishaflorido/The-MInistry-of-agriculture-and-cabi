@@ -16,7 +16,17 @@
 </div>
 <!-- /.content-header -->
 <div class="container">
+    <table class="d-none" id="t-other">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody id="tb_other">
 
+        </tbody>
+    </table>
     <div class="row my-4">
         <table id="farmer_table_report" class="display responsive " style="width:100%">
             <thead>
