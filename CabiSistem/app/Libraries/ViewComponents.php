@@ -20,9 +20,9 @@ class ViewComponents
     {
         return view('VendorView');
     }
-    public function getFarmroadview()
+    public function getCropDamage()
     {
-        return view('farmroadview');
+        return view('CropDamageView');
     }
     public function getFarmerReport()
     {
