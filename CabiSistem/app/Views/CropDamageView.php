@@ -10,14 +10,21 @@
             <!-- start input section -->
 
 
-
-
-            <div class=" row my-2">
-                <div class="col-md-12">
-
-                    <span class="input-group-text text-wrap"> xxxx</span>
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="input-group-text">EXTENSION DISTRICT: </span>
+                    <input type="text" class="form-control" placeholder="Extensión district" name="cdf_ext_dist">
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text">DATE OF DISASTER: </span>
+                    <input type="DATE" class="form-control" placeholder="" name="cdf_date_dis">
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text">TYPE OF DISASTER: </span>
+                    <input type="text" class="form-control" placeholder="Type of disaster" name="cdf_typ_dis">
                 </div>
             </div>
+
             <div class="row my-2">
                 <div class="col-md-1 text-center">
                     <div class="d-inline-flex text-center mt-4">
@@ -61,43 +68,49 @@
             </div>
 
 
-            <div class="col-md-11">
-                <div class="container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">No. of Stools</th>
-                                <th scope="col">Amount in Each Stool</th>
-                                <th scope="col">Age of Plants (weeks)</th>
-                                <th scope="col">Stage of Maturity</th>
-                                <th scope="col">Cost Per Plant</th>
-                                <th scope="col">Total Value </th>
-                                <th scope="col">Officer Collecting Data</th>
-                                <th scope="col">Certified by</th>
-                                <th scope="col">Remarks</th>
-                                <th scope="col">Delete</th>
-                            </tr>
-                        </thead>
+            <div class="row my-2">
+                <div class="col-md-1 text-center">
+                    <div class="d-inline-flex text-center mt-4">
+                        <a class="form-control" role="button" id="add_stools" onclick="add_stools()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-11">
+                    <div class="container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No. of Stools</th>
+                                    <th scope="col">Amount in Each Stool</th>
+                                    <th scope="col">Age of Plants (weeks)</th>
+                                    <th scope="col">Stage of Maturity</th>
+                                    <th scope="col">Cost Per Plant</th>
+                                    <th scope="col">Total Value </th>
+                                    <th scope="col">Officer Collecting Data</th>
+                                    <th scope="col">Certified by</th>
+                                    <th scope="col">Remarks</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
 
-                        <tbody id='tbody_produce_supply'>
-                            <tr>
-                                <td><input type="number" name="num_stools" placeholder="" class="form-control num_stools"></td>
-                                <td><input type="number" name="amount" placeholder="" class="form-control amount"></td>
-                                <td><input type="number" name="age_plants" placeholder="" class="form-control age_plants"></td>
-                                <td><input type="text" name="stage_mat" placeholder="" class="form-control stage_mat"></td>
-                                <td><input type="number" name="cost_plant" placeholder="" class="form-control cost_plant"></td>
-                                <td><input type="number" name="tot_val" placeholder="" class="form-control tot_val"></td>
-                                <td><input type="text" name="ofc_collec" placeholder="" class="form-control ofc_collec"></td>
-                                <td><input type="text" name="cert_by" placeholder="" class="form-control cert_by"></td>
-                                <td><input type="text" name="remark" placeholder="" class="form-control remark"></td>
-                                <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <tbody id='tbody_produce_supply'>
+                                <tr>
+                                    <td><input type="number" name="num_stools" placeholder="" class="form-control num_stools"></td>
+                                    <td><input type="number" name="amount" placeholder="" class="form-control amount"></td>
+                                    <td><input type="number" name="age_plants" placeholder="" class="form-control age_plants"></td>
+                                    <td><input type="text" name="stage_mat" placeholder="" class="form-control stage_mat"></td>
+                                    <td><input type="number" name="cost_plant" placeholder="" class="form-control cost_plant"></td>
+                                    <td><input type="number" name="tot_val" placeholder="" class="form-control tot_val"></td>
+                                    <td><input type="text" name="ofc_collec" placeholder="" class="form-control ofc_collec"></td>
+                                    <td><input type="text" name="cert_by" placeholder="" class="form-control cert_by"></td>
+                                    <td><input type="text" name="remark" placeholder="" class="form-control remark"></td>
+                                    <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="row my-4">
             <div class="d-grid gap-2 col-md-6 mx-auto">
                 <button type="submit" class="btn btn-success">Submit</button>

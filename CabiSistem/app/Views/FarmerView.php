@@ -47,8 +47,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <span class="input-group-text">AKA: </span>
-          <input type="text" class="form-control" placeholder="AKA" name="aka">
+          <span class="input-group-text">MOA FARMER´S ID#: </span>
+          <input type="numbertext" class="form-control" placeholder="AKA" name="aka">
         </div>
       </div>
       <div class="row">

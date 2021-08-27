@@ -36,4 +36,8 @@ class ViewComponents
     {
         return view('LarcenyProgramme');
     }
+    public function getPlantApplication()
+    {
+        return view('PlantAplicationForm');
+    }
 }
