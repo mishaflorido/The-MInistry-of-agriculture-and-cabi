@@ -172,7 +172,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#plant_application" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Plant Application Form</p>
                                     </a>
@@ -297,6 +297,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper collapse" id="user_page">
             <?= view_cell('App\Libraries\ViewComponents::getUserCont') ?>
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="plant_application">
+            <?= view_cell('App\Libraries\ViewComponents::getPlantApplication') ?>
         </div>
         <!-- /.content-wrapper -->
 

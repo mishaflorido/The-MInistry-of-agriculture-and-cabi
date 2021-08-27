@@ -14,17 +14,16 @@
 
             <div class=" row my-2">
                 <div class="col-md-12">
-
                     <span class="input-group-text text-wrap"> xxxx</span>
                 </div>
             </div>
             <div class="row my-2">
                 <div class="col-md-1 text-center">
-                    <div class="d-inline-flex text-center mt-4">
+                    <div class="d-inline-flex text-center mt-3">
                         <a class="form-control" role="button" id="add_praedial" onclick="add_praedial()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
                     </div>
                 </div>
-                <div class="col-md-11">
+                <div class="col-md-12">
                     <div class="container">
                         <table class="table">
                             <thead>
@@ -64,7 +63,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="row my-4">
                 <div class="d-grid gap-2 col-md-6 mx-auto">
