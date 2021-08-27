@@ -61,6 +61,9 @@ $routes->post('/insert/live_det', 'FarmerController::insert_live_det');
 $routes->post('/insert/m_det', 'FarmerController::insert_middleman');
 // Boundary 
 $routes->post('/insert/boundary', 'FarmerController::insert_boundary');
+// Praedial
+$routes->post('/insert/praedial', 'PraedialController::insert_praedial');
+$routes->post('/insert/weekly_data_collector', 'PraedialController::insert_weekly_data_collection');
 
 
 

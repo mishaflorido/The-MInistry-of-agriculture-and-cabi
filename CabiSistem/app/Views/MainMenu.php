@@ -369,6 +369,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url() ?>/assets/js/farmer.js"></script>
     <script src="<?= base_url() ?>/assets/js/farmerReport.js"></script>
     <script src="<?= base_url() ?>/assets/js/vendor.js"></script>
+    <script src="<?= base_url() ?>/assets/js/lanceryProgramme.js"></script>
 
     <!-- JSpdf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
