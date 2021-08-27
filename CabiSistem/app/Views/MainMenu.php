@@ -196,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#dca_form" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>DCA Form</p>
                                     </a>
@@ -328,9 +328,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <?= view_cell('App\Libraries\ViewComponents::getFarmerReport') ?>
         </div>
         <!-- /.content-wrapper -->
-        <!-- /.content-wrapper -->
         <div class="content-wrapper collapse" id="cropdamage">
             <?= view_cell('App\Libraries\ViewComponents::getCropDamage') ?>
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- /.content-wrapper -->
+        <div class="content-wrapper collapse" id="dca_form">
+            <?= view_cell('App\Libraries\ViewComponents::getDCAForm') ?>
         </div>
         <!-- /.content-wrapper -->
         <!-- Control Sidebar -->

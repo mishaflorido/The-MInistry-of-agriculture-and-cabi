@@ -40,4 +40,8 @@ class ViewComponents
     {
         return view('PlantAplicationForm');
     }
+    public function getDCAForm()
+    {
+        return view('dca_view');
+    }
 }
