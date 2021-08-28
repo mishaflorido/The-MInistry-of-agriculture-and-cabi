@@ -178,7 +178,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#weekly_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
                                     </a>
@@ -190,7 +190,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#monthly_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Monthly Report(many topics)</p>
                                     </a>
@@ -335,6 +335,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.content-wrapper -->
         <div class="content-wrapper collapse" id="dca_form">
             <?= view_cell('App\Libraries\ViewComponents::getDCAForm') ?>
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- /.content-wrapper -->
+        <div class="content-wrapper collapse" id="weekly_report">
+            <?= view_cell('App\Libraries\ViewComponents::get_weekly_report') ?>
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- /.content-wrapper -->
+        <div class="content-wrapper collapse" id="monthly_report">
+            <?= view_cell('App\Libraries\ViewComponents::get_monthly_report') ?>
         </div>
         <!-- /.content-wrapper -->
         <!-- Control Sidebar -->

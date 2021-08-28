@@ -44,4 +44,12 @@ class ViewComponents
     {
         return view('dca_view');
     }
+    public function get_weekly_report()
+    {
+        return view('WeeklyReportView');
+    }
+    public function get_monthly_report()
+    {
+        return view('MonthlyReportView');
+    }
 }
