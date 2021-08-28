@@ -1,227 +1,526 @@
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-8">
-                <h1 class="m-0">List of Farm Roads That Need Urgent Attention</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-4">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a role="button" class="nav-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page" style="padding-top: 0; padding-right:0">Home</a></li>
-                    <li class="breadcrumb-item active">List of Farm Roads</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
-<div class="container">
-    <!-- AQUI ENTRE TODO EL CONTENIDO -->
+<form>
+    <div style="text-align: center" class="mb-3">
+        <label for="FarmRegisterForm" class="form-label">DCA FORM</label>
+    </div>
 
-    <form>
-        <div style="text-align: center" class="mb-3">
-            <label for="FarmRegisterForm" class="form-label">DCA FORM</label>
-        </div>
+    <div class="container">
+        <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
+            <!-- start input section -->
+            <!-- esta parte debemos obtener de la tabla doctores de plantas -->
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="input-group-text">Select or enter plant doctor name: </span>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <span class="input-group-text">Clinic details </span>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="GDCAR1 Carriacou and Petit Martinic">GDCAR1 Carriacou and Petit Martinic</option>
+                        <option value="GDCARF Carriacou field visit">GDCARF Carriacou field visit</option>
+                        <option value="GDEAE1 Eastern Agricultural District">GDEAE1 Eastern Agricultural District</option>
+                        <option value="GDEAEF Eastern Agricultural District Field Visit">GDEAEF Eastern Agricultural District Field Visit</option>
+                        <option value="GDNAD1 (Northern Agricultural District)">GDNAD1 (Northern Agricultural District)</option>
+                        <option value="GDNADF (Northern Agricultural District Field Visit)">GDNADF (Northern Agricultural District Field Visit)</option>
+                        <option value="GDSAD1 Southern Agricultural District">GDSAD1 Southern Agricultural District</option>
+                        <option value="GDSADF Southern Agricultural District Field Visit">GDSADF Southern Agricultural District Field Visit</option>
+                        <option value="GDWAD1 Western Agricultural District">GDWAD1 Western Agricultural District</option>
+                        <option value="GDWADF Western Agricultural District Field Visit">GDWADF Western Agricultural District Field Visit</option>
+                    </select>
+                </div>
+            </div>
+            FARMER
+            ABOUT THE FARMER
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="input-group-text">Enter famer name: </span>
+                    <input type="text" class="form-control" placeholder="Farmer name" name="f_name">
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text">Phone number: </span>
+                    <input type="text" class="form-control" placeholder="Phone number" name="f_phone">
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text">Farmer ID: </span>
+                    <input type="text" class="form-control" placeholder="Farmer id" name="f_id">
+                </div>
+            </div>
 
-        <div class="container">
-            <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
-
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="input-group-text">Select or enter plant doctro name: </span>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Name" name="name_f">
-                        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="input-group-text">Farmer sex: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Male
+                        </label>
                     </div>
-                    <div class="col-md-6">
-                        <span class="input-group-text">MOA FARMERS ID# </span>
-                        <input type="number" class="form-control" placeholder="MOA farmers id" name="id_farm">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Female
+                        </label>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="input-group-text">ADDRES: </span>
-                        <input type="text" class="form-control" placeholder="Addres" name="f_addres">
+                <div class="col-md-6">
+                    <span class="input-group-text">Farmer age: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_age" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Adult
+                        </label>
                     </div>
-                    <div class="col-md-6">
-                        <span class="input-group-text">LOCATION OF PLOTS </span>
-                        <input type="text" class="form-control" placeholder="Location" name="plt_loc">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_age">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Senior
+                        </label>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <span class="input-group-text">Tel. N°: </span>
-                        <input type="number" class="form-control" placeholder="Tel. Number" name="f_phone">
-                    </div>
-                    <div class="col-md-4">
-                        <span class="input-group-text">ACREAGE(S): </span>
-                        <input type="numbre" class="form-control" placeholder="Acreage" name="f_acr">
-                    </div>
-                    <div class="col-md-4">
-                        <span class="input-group-text">EXT´N DISTRICT </span>
-                        <input type="text" class="form-control" placeholder="Extension district" name="f_dst">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="input-group-text">DATE APPLIED: </span>
-                        <input type="date" class="form-control" placeholder="" name="f_date_apl">
-                    </div>
-                    <div class="col-md-6">
-                        <span class="input-group-text">EXTENSION OFFICER </span>
-                        <input type="text" class="form-control" placeholder="Extension officer" name="plt_ofc">
-                    </div>
-                </div>
-
-
-                <div class="row my-2">
-                    <div class="col-md-1 text-center">
-                        <div class="d-inline-flex text-center mt-4">
-                            <a class="form-control" role="button" id="add_cropdmg" onclick="add_cropdmg()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Plant type/Variety</th>
-                                        <th scope="col">Request</th>
-                                        <th scope="col">Recom.</th>
-                                        <th scope="col">Approved</th>
-                                        <th scope="col">Received</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id='tbody_plant_aplication'>
-                                    <tr>
-                                        <td><input type="text" name="plant_crop" placeholder="" class="form-control plant_crop"></td>
-                                        <td><input type="text" name="plant_req" placeholder="" class="form-control plant_req"></td>
-                                        <td><input type="text" name="plant_recom" placeholder="" class="form-control plant_recom"></td>
-                                        <td><input type="text" name="plant_approv" placeholder="" class="form-control plant_approv"></td>
-                                        <td><input type="text" name="plant_received" placeholder="" class="form-control plant_received"></td>
-                                        <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center" class="mb-3">
-                    <label for="FarmRegister" class="form-label"> To be completed by Extensión Officer </label>
-                    <label for="FarmRegister" class="form-label">1. Pre-planting inspection: (eg. Area cleared, status of lining of plots, drains, establishment of shade, holes dug, etc.)</label>
-                </div>
-
-                <div class="row my-2">
-                    <div class="col-md-1 text-center">
-                        <div class="d-inline-flex text-center mt-4">
-                            <a class="form-control" role="button" id="add_pre_planting" onclick="add_preplnt()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Date of visit</th>
-                                        <th scope="col">Commments</th>
-                                        <th scope="col">Extn. Officer</th>
-                                        <th scope="col">Supervisor</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id='tbody_pre_pln_inspection'>
-                                    <tr>
-                                        <td><input type="date" name="pre_date_visit" placeholder="" class="form-control pre_date_visit"></td>
-                                        <td><input type="text" name="pre_com" placeholder="" class="form-control pre_com"></td>
-                                        <td><input type="text" name="plant_approv" placeholder="" class="form-control plant_approv"></td>
-                                        <td><input type="text" name="plant_received" placeholder="" class="form-control plant_received"></td>
-                                        <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div style="text-align: center" class="mb-3">
-                        <label for="FarmRegister" class="form-label">2. Post-planting inspection: (eg. Plants planted; field condition – weeds, rootstock growth; pests & diseases ; # of deaths; cause of death, etc)</label>
-                    </div>
-
-                    <div class="col-md-1 text-center">
-                        <div class="d-inline-flex text-center mt-4">
-                            <a class="form-control" role="button" id="add_pst_planting" onclick="add_pstplnt()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Date of visit</th>
-                                        <th scope="col">Commments</th>
-                                        <th scope="col">Extn. Officer</th>
-                                        <th scope="col">Supervisor</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id='tbody_pst_pln_inspection'>
-                                    <tr>
-                                        <td><input type="date" name="pos_date_visit" placeholder="" class="form-control pos_date_visit"></td>
-                                        <td><input type="text" name="pos_Comments" placeholder="" class="form-control pos_Comments"></td>
-                                        <td><input type="text" name="plant_approv" placeholder="" class="form-control plant_approv"></td>
-                                        <td><input type="text" name="plant_received" placeholder="" class="form-control plant_received"></td>
-                                        <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-1 text-center">
-                        <div class="d-inline-flex text-center mt-4">
-                            <a class="form-control" role="button" id="add_fut_dev" onclick="add_fut_dev()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-11">
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">3. Potential for Future Development: (eg. Plans for expansion, overall plan for farm, etc.)</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id='tbody_pst_pln_inspection'>
-                                    <tr>
-                                        <td><input type="text" name="fut_dev" placeholder="" class="form-control fut_dev"></td>
-                                        <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row my-4">
-                    <div class="d-grid gap-2 col-md-6 mx-auto">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_age">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Youth
+                        </label>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="input-group-text"> County: </span>
+                    <input type="text" class="form-control" placeholder="County" name="f_county">
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text"> Sub - county: </span>
+                    <input type="text" class="form-control" placeholder="sub-county" name="f_subcounty">
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text"> Village: </span>
+                    <input type="text" class="form-control" placeholder="Village" name="f_village">
+                </div>
+            </div>
+
+            SAMPLE INFORMATION - vARIETY
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="input-group-text">Select or enter crop: </span>
+                    <!-- sacar de tabla crop y relacionar con variedad en la siguiente lista -->
+                    <select class="form-select" aria-label="Default select example" name="crop">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <!-- sacar de tabla variedady relacionar con crop de la tabla anterior -->
+                    <span class="input-group-text">Select or enter Variety: </span>
+                    <select class="form-select" aria-label="Default select example" name="variety">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            SAMPLE INFORMATION - SAMPLE
+
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="input-group-text">Sample brought: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sample">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sample">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            DEVELOPMENT STAGE
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="input-group-text">Development stage: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="dev_stage">
+                            Flowering
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="dev_stage">
+                            Fruiting
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="dev_stage">
+                            Intermediate
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="dev_stage">
+                            Mature
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="dev_stage">
+                            Post harvest
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="dev_stage">
+                            Seeding
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="input-group-text"> Plant Part Afected: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Flower
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Fruit/Grain
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Leaf
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Root/tuber
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Seed
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Stem/shot
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Twig/branch
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="pln_afected">
+                            Whole plant
+                        </label>
+                    </div>
+                </div>
+            </div>
+            AREA AFECTED
+
+            <div class="row">
+                <div class="col-md-3">
+                    <span class="input-group-text">Year first seen </span>
+                    <input type="number" min="1980" max="2030" step="1" value="2021" class="form-control" />
+                </div>
+                <div class="col-md-3">
+                    <span class="input-group-text">Area planted: </span>
+                    <input type="number" class="form-control" placeholder="area planted" name="area_planted">
+                </div>
+                <div class="col-md-3">
+
+                    <span class="input-group-text">Unit </span>
+                    <select class="form-select" aria-label="Default select example" name="Unit">
+                        <option selected>Open this select menu</option>
+                        <option value="Acres">Acres</option>
+                        <option value="Hectares">Hectares</option>
+                        <option value="m2">m2</option>
+                        <option value="Plants">Plants</option>
+
+                    </select>
+
+                </div>
+                <div class="col-md-3">
+
+                    <span class="input-group-text">Percent of crop afeted </span>
+                    <select class="form-select" aria-label="Default select example" name="percent">
+                        <option selected>Open this select menu</option>
+                        <option value="100%">100%</option>
+                        <option value="75%">75%</option>
+                        <option value="50%">50%</option>
+                        <option value="25%">25%</option>
+                        <option value="<25%">&lt;25% </option>
+                    </select>
+
+                </div>
+            </div>
+            SYMPTOMS
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="input-group-text">Describe only the major symptoms </span>
+                    <select class="form-select" aria-label="Default select example" name="symptom">
+                        <option selected>Open this select menu</option>
+                        <option value="Blistered">Blistered</option>
+                        <option value="Bore holes">Bore holes</option>
+                        <option value="Chewed">Chewed</option>
+                        <option value="Dieback">Dieback</option>
+                        <option value="Distorted">Distorted</option>
+                        <option value="Drying">Drying</option>
+                        <option value="Frass">Frass</option>
+                        <option value="Galls/sweellings">Galls/sweellings</option>
+                        <option value="Insect seen">Insect seen</option>
+                        <option value="Leaf fall">Leaf fall</option>
+                        <option value="Leaf spot">Leaf spot</option>
+                        <option value="Mite seen">Mite seen</option>
+                        <option value="Mosaic">Mosaic</option>
+                        <option value="No response">No response</option>
+                        <option value="Pustule">Pustule</option>
+                        <option value="Red">Red</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <span class="input-group-text">Symptom distribution </span>
+                    <select class="form-select" aria-label="Default select example" name="sym_dist">
+                        <option selected>Open this select menu</option>
+                        <option value="Certain varieties">Certain varieties</option>
+                        <option value="Even">Even</option>
+                        <option value="Field margin">Field margin</option>
+                        <option value="High areas">High areas</option>
+                        <option value="Individual plants">Individual plants</option>
+                        <option value="Linear">Linear</option>
+                        <option value="Localised">Localised</option>
+                        <option value="Low areas">Low areas</option>
+                        <option value="Scattered">Scattered</option>
+                        >
+                    </select>
+                </div>
+
+                <!-- sintomas -->
+                SYMPTOMS - DESCRIBE PROBLEM
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="input-group-text">Describe the problem </span>
+                        <input type="text" class="form-control" placeholder="Describe problem" name="desc_problem">
+                    </div>
+
+                    <div class="col-md-6">
+                        <span class="input-group-text">Type of problem: </span>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Bacterium
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Bird
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Fungus
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Insect
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Mammal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Mite
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Mollusc
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Nematode
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Nutrient deficiency
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Other
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Unknow
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Virus
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Water mould
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="t_prob">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Weed
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- sintomas -->
+                DIAGNOSIS
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="input-group-text">Diagnosis on: </span>
+                        <input type="text" class="form-control" placeholder="Diagnosis on" name="diagnosis">
+                    </div>
+                    <div class="col-md-6">
+                        <span class="input-group-text">Current control: </span>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Cur_cnt">
+                            <label class="form-check-label" for="cur_control">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Cur_cnt">
+                            <label class="form-check-label" for="cur_control ">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                RECOMENDATION / TYPE
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="input-group-text">Recomendation type </span>
+                        <select class="form-select" aria-label="Default select example" name="rec_type">
+                            <option selected>Open this select menu</option>
+                            <option value="Biological">Biological</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Fertilizer"> Fertilizer</option>
+                            <option value="Fungicide">Fungicide</option>
+                            <option value="Herbicide">Herbicide</option>
+                            <option value="Insecticide/acaricide">Insecticide/acaricide</option>
+                            <option value="Monitoring"> Monitoring</option>
+                            <option value="Other">Other</option>
+                            <option value="Resistant varieties">Resistant varieties</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="input-group-text">Recomendation to manage the current problem </span>
+                        <input type="text" class="form-control" placeholder="Phone number" name="f_phone">
+                    </div>
+                    <div class="col-md-6">
+                        <span class="input-group-text">Recomendation to prevent this problem in future </span>
+                        <input type="text" class="form-control" placeholder="Phone number" name="f_phone">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="input-group-text">Sample send to lab: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No`
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text">Fact sheet given: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No`
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text">Field visit arranged: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="f_sex" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No`
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- boton submit -->
+            <div class="row my-4">
+                <div class="d-grid gap-2 col-md-6 mx-auto">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
         </div>
-    </form>
-</div>
+    </div>
+    </div>
+</form>
