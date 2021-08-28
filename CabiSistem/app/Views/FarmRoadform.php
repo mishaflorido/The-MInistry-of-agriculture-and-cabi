@@ -17,7 +17,7 @@
 <!-- /.content-header -->
 <div class="container">
     <!-- AQUI ENTRE TODO EL CONTENIDO -->
-    <form>
+    <form class="farm_roads">
         <div style="text-align: center" class="mb-3">
             <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
         </div>
@@ -58,8 +58,7 @@
                                         <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
-
-                                <tbody id='tbody_produce_supply'>
+                                <tbody id='tbody_farm_road'>
                                     <tr>
                                         <td><input type="text" name="road_dist" placeholder="" class="form-control road_dist"></td>
                                         <td><input type="text" name="road_name" placeholder="" class="form-control road_name"></td>
@@ -79,7 +78,7 @@
 
                 <div class="row my-4">
                     <div class="d-grid gap-2 col-md-6 mx-auto">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-success" id="submit_farm_road">Submit</button>
                     </div>
                 </div>
             </div>

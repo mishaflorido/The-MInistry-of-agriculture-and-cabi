@@ -61,9 +61,21 @@ $routes->post('/insert/live_det', 'FarmerController::insert_live_det');
 $routes->post('/insert/m_det', 'FarmerController::insert_middleman');
 // Boundary 
 $routes->post('/insert/boundary', 'FarmerController::insert_boundary');
+// FarmRoads 
+$routes->post('/insert/farmRoad', 'FarmRoadController::insert_farm_road');
 // Praedial
 $routes->post('/insert/praedial', 'PraedialController::insert_praedial');
 $routes->post('/insert/weekly_data_collector', 'PraedialController::insert_weekly_data_collection');
+//Crop Damage
+$routes->post('/insert/crop_damage', 'CropDamageController::insert_crop_damage');
+$routes->post('/insert/crop_damage_tb1', 'CropDamageController::insert_crop_damage_tb1');
+$routes->post('/insert/crop_damage_tb2', 'CropDamageController::insert_crop_damage_tb2');
+// Plant Application
+$routes->post('/insert/plant_application', 'PlantApplicationController::insert_plant_application');
+$routes->post('/insert/plant_application_table', 'PlantApplicationController::insert_plant_application_table');
+$routes->post('/insert/pre_plant_insp', 'PlantApplicationController::insert_pre_plant_insp');
+$routes->post('/insert/post_plant_insp', 'PlantApplicationController::insert_post_plant_insp');
+$routes->post('/insert/future_development', 'PlantApplicationController::insert_future_development');
 
 
 
