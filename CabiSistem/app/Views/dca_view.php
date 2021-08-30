@@ -7,15 +7,14 @@
         <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
             <!-- start input section -->
             <!-- esta parte debemos obtener de la tabla doctores de plantas -->
-            <div class="row">
+            <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Select or enter plant doctor name: </span>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <input list="plant_doctor_list" class="form-control" name="plant_doctor_name">
+                    <datalist id="plant_doctor_list">
+
+                    </datalist>
+
                 </div>
                 <div class="col-md-6">
                     <span class="input-group-text">Clinic details </span>
@@ -34,9 +33,11 @@
                     </select>
                 </div>
             </div>
-            FARMER
-            ABOUT THE FARMER
-            <div class="row">
+            <hr>
+            <div class="row my-2">
+                <h4>FARMER ABOUT THE FARMER</h4>
+            </div>
+            <div class="row my-2">
                 <div class="col-md-4">
                     <span class="input-group-text">Enter famer name: </span>
                     <input type="text" class="form-control" placeholder="Farmer name" name="f_name">
@@ -51,17 +52,17 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Farmer sex: </span>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="f_sex">
+                        <input class="form-check-input" type="radio" name="f_sex" value="Male">
                         <label class="form-check-label" for="flexRadioDefault1">
                             Male
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="f_sex" checked>
+                        <input class="form-check-input" type="radio" name="f_sex" value="Female" checked>
                         <label class="form-check-label" for="flexRadioDefault2">
                             Female
                         </label>
@@ -70,19 +71,19 @@
                 <div class="col-md-6">
                     <span class="input-group-text">Farmer age: </span>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="f_age" checked>
+                        <input class="form-check-input" type="radio" name="f_age" value="Adult" checked>
                         <label class="form-check-label" for="flexRadioDefault1">
                             Adult
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="f_age">
+                        <input class="form-check-input" type="radio" name="f_age" value="Senior">
                         <label class="form-check-label" for="flexRadioDefault2">
                             Senior
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="f_age">
+                        <input class="form-check-input" type="radio" name="f_age" value="Youth">
                         <label class="form-check-label" for="flexRadioDefault2">
                             Youth
                         </label>
@@ -90,32 +91,41 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row my-2">
                 <div class="col-md-4">
                     <span class="input-group-text"> County: </span>
-                    <input type="text" class="form-control" placeholder="County" name="f_county">
+                    <select name="f_county" id="county_list_id" class="form-control">
+                        <option selected disabled>County Select</option>
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <span class="input-group-text"> Sub - county: </span>
-                    <input type="text" class="form-control" placeholder="sub-county" name="f_subcounty">
+                    <select name="f_subcounty" id="sub_county_list_id" class="form-control">
+                        <option selected disabled>Sub County Select (First Select County)</option>
+                    </select>
+
                 </div>
                 <div class="col-md-4">
                     <span class="input-group-text"> Village: </span>
-                    <input type="text" class="form-control" placeholder="Village" name="f_village">
+                    <select name="f_village" id="village_id" class="form-control">
+                        <option selected disabled>Village Select (First Select Sub County)</option>
+                    </select>
+
                 </div>
             </div>
-
-            SAMPLE INFORMATION - vARIETY
-            <div class="row">
+            <hr>
+            <div class="row my-2">
+                <h4>SAMPLE INFORMATION - VARIETY</h4>
+            </div>
+            <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Select or enter crop: </span>
                     <!-- sacar de tabla crop y relacionar con variedad en la siguiente lista -->
-                    <select class="form-select" aria-label="Default select example" name="crop">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <input type="hidden" name="id_crop_dca">
+                    <input list="crop_dca" name="crop_dca" class="form-control" placeholder="Select Crop">
+                    <datalist id="crop_dca">
+                    </datalist>
+
                 </div>
                 <div class="col-md-6">
                     <!-- sacar de tabla variedady relacionar con crop de la tabla anterior -->
@@ -128,9 +138,12 @@
                     </select>
                 </div>
             </div>
-            SAMPLE INFORMATION - SAMPLE
+            <hr>
+            <div class="row my-2">
+                <h4>SAMPLE INFORMATION - SAMPLE</h4>
+            </div>
 
-            <div class="row">
+            <div class="row my-2">
                 <div class="col-md-12">
                     <span class="input-group-text">Sample brought: </span>
                     <div class="form-check">
@@ -147,102 +160,124 @@
                     </div>
                 </div>
             </div>
-            DEVELOPMENT STAGE
-            <div class="row">
+            <hr>
+            <div class="row my-2">
+                <h4>DEVELOPMENT STAGE</h4>
+            </div>
+            <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Development stage: </span>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="dev_stage">
-                            Flowering
-                        </label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="dev_stage">
+                                    Flowering
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="dev_stage">
+                                    Fruiting
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="dev_stage">
+                                    Intermediate
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="dev_stage">
+                                    Mature
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="dev_stage">
+                                    Post harvest
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="dev_stage">
+                                    Seeding
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="dev_stage">
-                            Fruiting
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="dev_stage">
-                            Intermediate
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="dev_stage">
-                            Mature
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="dev_stage">
-                            Post harvest
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="dev_stage">
-                            Seeding
-                        </label>
-                    </div>
+
                 </div>
                 <div class="col-md-6">
                     <span class="input-group-text"> Plant Part Afected: </span>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Flower
-                        </label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Flower
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Fruit/Grain
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Leaf
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Root/tuber
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Seed
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Stem/shot
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Twig/branch
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label" for="pln_afected">
+                                    Whole plant
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Fruit/Grain
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Leaf
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Root/tuber
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Seed
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Stem/shot
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Twig/branch
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="pln_afected">
-                            Whole plant
-                        </label>
-                    </div>
+
+
                 </div>
             </div>
-            AREA AFECTED
+            <hr>
+            <div class="row my-2">
+                <h4> AREA AFECTED</h4>
+            </div>
 
-            <div class="row">
+            <div class="row my-2">
                 <div class="col-md-3">
                     <span class="input-group-text">Year first seen </span>
                     <input type="number" min="1980" max="2030" step="1" value="2021" class="form-control" />
@@ -278,8 +313,11 @@
 
                 </div>
             </div>
-            SYMPTOMS
-            <div class="row">
+            <hr>
+            <div class="row my-2">
+                <h4>SYMPTOMS</h4>
+            </div>
+            <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Describe only the major symptoms </span>
                     <select class="form-select" aria-label="Default select example" name="symptom">
@@ -318,156 +356,178 @@
                         >
                     </select>
                 </div>
+            </div>
+            <hr>
+            <div class="row my-2">
+                <h4> SYMPTOMS - DESCRIBE PROBLEM</h4>
+            </div>
 
-                <!-- sintomas -->
-                SYMPTOMS - DESCRIBE PROBLEM
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="input-group-text">Describe the problem </span>
-                        <input type="text" class="form-control" placeholder="Describe problem" name="desc_problem">
+            <!-- sintomas -->
+            <div class="row my-2">
+                <div class="col-md-6">
+                    <span class="input-group-text">Describe the problem </span>
+                    <input type="text" class="form-control" placeholder="Describe problem" name="desc_problem">
+                </div>
+
+                <div class="col-md-6">
+                    <span class="input-group-text">Type of problem: </span>
+                    <div class="row" style="background-color: white; border: radius 20%;">
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Bacterium
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Bird
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Fungus
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Insect
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Mammal
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Mite
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Mollusc
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Nematode
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Nutrient deficiency
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Unknow
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Virus
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Water mould
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="t_prob">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Weed
+                                </label>
+                            </div>
+
+                        </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <span class="input-group-text">Type of problem: </span>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Bacterium
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Bird
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Fungus
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Insect
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Mammal
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Mite
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Mollusc
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Nematode
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Nutrient deficiency
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Other
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Unknow
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Virus
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Water mould
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="t_prob">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Weed
-                            </label>
-                        </div>
-                    </div>
+
+
                 </div>
-                <!-- sintomas -->
-                DIAGNOSIS
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="input-group-text">Diagnosis on: </span>
-                        <input type="text" class="form-control" placeholder="Diagnosis on" name="diagnosis">
-                    </div>
-                    <div class="col-md-6">
-                        <span class="input-group-text">Current control: </span>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Cur_cnt">
-                            <label class="form-check-label" for="cur_control">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Cur_cnt">
-                            <label class="form-check-label" for="cur_control ">
-                                No
-                            </label>
-                        </div>
-                    </div>
+            </div>
+            <!-- sintomas -->
+            <hr>
+            <div class="row my-2">
+                <h4> DIAGNOSIS</h4>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-6">
+                    <span class="input-group-text">Diagnosis on: </span>
+                    <input type="text" class="form-control" placeholder="Diagnosis on" name="diagnosis">
                 </div>
-                RECOMENDATION / TYPE
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="input-group-text">Recomendation type </span>
-                        <select class="form-select" aria-label="Default select example" name="rec_type">
-                            <option selected>Open this select menu</option>
-                            <option value="Biological">Biological</option>
-                            <option value="Cultural">Cultural</option>
-                            <option value="Fertilizer"> Fertilizer</option>
-                            <option value="Fungicide">Fungicide</option>
-                            <option value="Herbicide">Herbicide</option>
-                            <option value="Insecticide/acaricide">Insecticide/acaricide</option>
-                            <option value="Monitoring"> Monitoring</option>
-                            <option value="Other">Other</option>
-                            <option value="Resistant varieties">Resistant varieties</option>
-                        </select>
+                <div class="col-md-6">
+                    <span class="input-group-text">Current control: </span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Cur_cnt">
+                        <label class="form-check-label" for="cur_control">
+                            Yes
+                        </label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="input-group-text">Recomendation to manage the current problem </span>
-                        <input type="text" class="form-control" placeholder="Phone number" name="f_phone">
-                    </div>
-                    <div class="col-md-6">
-                        <span class="input-group-text">Recomendation to prevent this problem in future </span>
-                        <input type="text" class="form-control" placeholder="Phone number" name="f_phone">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Cur_cnt">
+                        <label class="form-check-label" for="cur_control ">
+                            No
+                        </label>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <hr>
+            <div class="row my-2">
+                <h4> RECOMENDATION / TYPE </h4>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-6">
+                    <span class="input-group-text">Recomendation type </span>
+                    <select class="form-select" aria-label="Default select example" name="rec_type">
+                        <option selected>Open this select menu</option>
+                        <option value="Biological">Biological</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Fertilizer"> Fertilizer</option>
+                        <option value="Fungicide">Fungicide</option>
+                        <option value="Herbicide">Herbicide</option>
+                        <option value="Insecticide/acaricide">Insecticide/acaricide</option>
+                        <option value="Monitoring"> Monitoring</option>
+                        <option value="Other">Other</option>
+                        <option value="Resistant varieties">Resistant varieties</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-6">
+                    <span class="input-group-text">Recomendation to manage the current problem </span>
+                    <input type="text" class="form-control" placeholder="Phone number" name="f_phone">
+                </div>
+                <div class="col-md-6">
+                    <span class="input-group-text">Recomendation to prevent this problem in future </span>
+                    <input type="text" class="form-control" placeholder="Phone number" name="f_phone">
+                </div>
+            </div>
+
+            <div class="row my-2">
                 <div class="col-md-4">
                     <span class="input-group-text">Sample send to lab: </span>
                     <div class="form-check">
@@ -523,4 +583,4 @@
         </div>
     </div>
     </div>
-</form>
+</form>s
