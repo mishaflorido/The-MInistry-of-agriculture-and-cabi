@@ -1,4 +1,6 @@
-var district;
+var village;
+var sub_county;
+
 $(document).ready(function () {
 
 
@@ -44,19 +46,21 @@ $(document).ready(function () {
         }
 
     });
-    // Get District
+
+    // //////////////////
+    // Get village
     $.ajax({
         method: "get",
         url: "get/district",
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         success: function (result) {
 
-            district = JSON.parse(result);
+            village = JSON.parse(result);
             // console.log(district);
         }
     });
     // //////////////////
-    // Get Parish
+    // Get sub-county
     $.ajax({
         method: "get",
         url: "get/parish",
@@ -64,11 +68,12 @@ $(document).ready(function () {
         success: function (result) {
 
             // console.log(result);
-            var district = JSON.parse(result);
+            sub_county = JSON.parse(result);
 
-            for (const key in district) {
-                if (district.hasOwnProperty(key)) {
-                    const element = district[key];
+
+            for (const key in sub_county) {
+                if (sub_county.hasOwnProperty(key)) {
+                    const element = sub_county[key];
                     $('#parish').append("<option value='" + element['id_lv2'] + "'>" + element['name_lv2'] + "</option>");
                 }
             }
@@ -106,9 +111,9 @@ $("#boundary_check").on("change", function () {
 // //////////////////////
 $("#parish").on('change', function () {
     $("#district").empty();
-    for (const key in district) {
-        if (Object.hasOwnProperty.call(district, key)) {
-            const element = district[key];
+    for (const key in village) {
+        if (Object.hasOwnProperty.call(village, key)) {
+            const element = village[key];
             if (element['id_lv2'] == $(this).val())
                 $('#district').append("<option value='" + element['id_lv3'] + "'>" + element['name_lv3'] + "</option>");
 

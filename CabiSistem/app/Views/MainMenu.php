@@ -392,6 +392,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url() ?>/assets/js/farmRoad.js"></script>
     <script src="<?= base_url() ?>/assets/js/cropDamage.js"></script>
     <script src="<?= base_url() ?>/assets/js/plantApplication.js"></script>
+    <script src="<?= base_url() ?>/assets/js/dca_form.js"></script>
 
     <!-- JSpdf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>

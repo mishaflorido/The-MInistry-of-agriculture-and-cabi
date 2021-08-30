@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\FarmerRegisterModel;
+use App\Models\Lv1Model;
 use App\Models\Lv2Model;
 use App\Models\Lv3Model;
 use App\Models\ParcelRegisterModel;
@@ -212,6 +213,12 @@ class FarmerController extends BaseController
     public function get_parish()
     {
         $parish = new Lv2Model($db);
+        $result = $parish->findAll();
+        echo json_encode($result);
+    }
+    public function get_county()
+    {
+        $parish = new Lv1Model($db);
         $result = $parish->findAll();
         echo json_encode($result);
     }

@@ -42,14 +42,18 @@ $routes->get('/get/users', 'UserController::get_users');
 // Farmer
 $routes->get('/get/farmer', 'FarmerController::get_farmer');
 $routes->post('/insert/farmer', 'FarmerController::insert_farmer');
+// Plant Doctor
+$routes->get('/get/plant_doctor', 'PlantDoctorController::get_plant_doctor');
 // Parcel
 $routes->post('/insert/parcel', 'FarmerController::insert_parcel');
 // Other Involved
 $routes->post('/insert/otherInvolved', 'FarmerController::insert_other_involved');
 $routes->post('/get/otherinvolved', 'FarmerController::get_other_involved');
-//Parish
+//County
+$routes->get('/get/county', 'FarmerController::get_county');
+//Sub-County
 $routes->get('/get/parish', 'FarmerController::get_parish');
-//District
+//Village
 $routes->get('/get/district', 'FarmerController::get_district');
 // Crop
 $routes->get('/get/crop', 'CropController::get_crop');
@@ -76,6 +80,9 @@ $routes->post('/insert/plant_application_table', 'PlantApplicationController::in
 $routes->post('/insert/pre_plant_insp', 'PlantApplicationController::insert_pre_plant_insp');
 $routes->post('/insert/post_plant_insp', 'PlantApplicationController::insert_post_plant_insp');
 $routes->post('/insert/future_development', 'PlantApplicationController::insert_future_development');
+// DCA Form
+$routes->get('/get/variety', 'DCAFromController::get_variety');
+
 
 
 
