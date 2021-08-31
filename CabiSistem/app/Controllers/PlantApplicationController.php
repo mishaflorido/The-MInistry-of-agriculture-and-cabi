@@ -51,6 +51,7 @@ class PlantApplicationController extends BaseController
             $id_plant_apply = $value['id_plant_apply'];
         }
         echo json_encode($id_plant_apply);
+        $db->close();
     }
     public function insert_plant_application_table()
     {
@@ -72,6 +73,7 @@ class PlantApplicationController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
 
     public function insert_pre_plant_insp()
@@ -92,6 +94,7 @@ class PlantApplicationController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_post_plant_insp()
     {
@@ -111,6 +114,7 @@ class PlantApplicationController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_future_development()
     {
@@ -127,5 +131,6 @@ class PlantApplicationController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
 }

@@ -64,5 +64,6 @@ class PraedialController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
 }

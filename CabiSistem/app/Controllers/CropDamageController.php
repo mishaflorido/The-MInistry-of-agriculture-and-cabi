@@ -35,6 +35,7 @@ class CropDamageController extends BaseController
         }
 
         echo json_encode($id_crop_damage);
+        $db->close();
     }
     public function insert_crop_damage_tb1()
     {
@@ -61,6 +62,7 @@ class CropDamageController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_crop_damage_tb2()
     {

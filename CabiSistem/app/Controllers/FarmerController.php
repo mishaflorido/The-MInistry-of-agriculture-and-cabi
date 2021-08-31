@@ -84,6 +84,7 @@ class FarmerController extends BaseController
         }
 
         echo json_encode($id_farm);
+        $db->close();
     }
     public function insert_boundary()
     {
@@ -101,6 +102,7 @@ class FarmerController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_other_involved()
     {
@@ -119,6 +121,7 @@ class FarmerController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_crop_det()
     {
@@ -137,6 +140,7 @@ class FarmerController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_middleman()
     {
@@ -155,6 +159,7 @@ class FarmerController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_live_det()
     {
@@ -173,6 +178,7 @@ class FarmerController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function insert_parcel()
     {
@@ -209,6 +215,7 @@ class FarmerController extends BaseController
         } catch (\Throwable $th) {
             echo $th;
         }
+        $db->close();
     }
     public function get_parish()
     {
@@ -234,6 +241,7 @@ class FarmerController extends BaseController
         $db = db_connect();
         $result = $db->query("SELECT f.*, l3.name_lv3 FROM farm_register f INNER JOIN level3 l3 on l3.id_lv3 = f.district")->getResultArray();
         echo json_encode($result);
+        $db->close();
     }
     public function get_other_involved()
     {
@@ -243,6 +251,7 @@ class FarmerController extends BaseController
         $id_farm = $request->getPostGet('id_farm');
         $result = $db->query("SELECT name, last_name FROM other_involved where id_farm = " . $id_farm)->getResultArray();
         echo json_encode($result);
+        $db->close();
     }
     public function update_user()
     {

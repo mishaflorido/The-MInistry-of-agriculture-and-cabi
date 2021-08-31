@@ -18,8 +18,7 @@ class FarmRoadController extends BaseController
     {
         $farm_road = new FarmRoadModel();
         $request = \Config\Services::request();
-        $db = \Config\Database::connect("default");
-        $db = db_connect();
+
         $road_dist = $request->getPostGet('road_dist');
         $road_name = $request->getPostGet('road_name');
         $road_length = $request->getPostGet('road_length');

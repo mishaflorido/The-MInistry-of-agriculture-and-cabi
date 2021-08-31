@@ -71,9 +71,7 @@ class UserController extends BaseController
                 'name_user' => $name_user,
                 'img_user' => $imgName
             ];
-        
-        }
-        else{
+        } else {
             $data = [
                 'name_user' => $name_user,
                 'lastn_user' => $lastn_user,
@@ -81,16 +79,17 @@ class UserController extends BaseController
                 'phone_user' => $phone_user,
                 'type_user' => $type_user,
                 'name_user' => $name_user,
-                           
+
             ];
         }
         $UserModel->update($id_user, $data);
         echo json_encode('1');
+        $db->close();
     }
-    public function get_users(){
+    public function get_users()
+    {
         $UserModel = new UserModel($db);
         $users = $UserModel->findAll();
         echo json_encode($users);
-
     }
 }

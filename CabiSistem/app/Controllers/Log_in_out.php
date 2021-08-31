@@ -11,7 +11,7 @@ class Log_in_out extends BaseController
     //--------------------------------------------------------------------
     public function log_users()
     {
-        
+
         # code...
         helper('form');
         $db = \Config\Database::connect("default");
@@ -26,7 +26,7 @@ class Log_in_out extends BaseController
 
         // Set request to Data Base
         $user = $UserModel->where('email_user', $email)->where('psw_user', $password)->findAll();
-        
+
 
         if ($user != null) {
 
@@ -55,6 +55,7 @@ class Log_in_out extends BaseController
         } else {
             return ("usuario desconocido");
         };
+        $db->close();
     }
 
     public function log_out()
@@ -62,6 +63,6 @@ class Log_in_out extends BaseController
 
         $session = \Config\Services::session();
         $session->destroy();
-        return redirect()->to(base_url()."/");
+        return redirect()->to(base_url() . "/");
     }
 }
