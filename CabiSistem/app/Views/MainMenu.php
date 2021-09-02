@@ -192,7 +192,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#monthly_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Monthly Report(many topics)</p>
+                                        <p>Monthly Report(Pendient)</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
