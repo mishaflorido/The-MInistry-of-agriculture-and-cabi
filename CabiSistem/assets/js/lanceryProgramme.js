@@ -26,6 +26,7 @@ function add_praedial() {
 $("form").submit(function (event) {
 
     if ($(this).attr('class') == 'praedial_lancery') {
+        show_spin("lancery_btn_submit", "spin_lancery", "not_spin_lancery");
         // $(".spin").removeClass("d-none");
         // $(".not_spin").addClass("d-none");
         // $("#submit_form_farmer").attr("disabled", "disabled")
@@ -49,6 +50,10 @@ $("form").submit(function (event) {
 
 
             }
+        }).done(function () {
+            hide_spin("lancery_btn_submit", "spin_lancery", "not_spin_lancery");
+            $('#alert_lancery_programme').html("The Crop Establishment and Production Information Has Been Registred Succesfully");
+            $('#alert_lancery_programme').removeClass('d-none');
         });
     }
 

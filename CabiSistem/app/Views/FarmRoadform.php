@@ -24,19 +24,18 @@
         <div style="text-align: center" class="mb-3">
             <label for="FarmRegister" class="form-label"> List of Farm Roads That Need Urgent Attention</label>
         </div>
+        <div class="row">
+            <div class="offset-lg-1 col-lg-10">
+                <!-- Alert -->
+                <div class="alert alert-success d-none" role="alert" id="alert_farm_roads">
+
+                </div>
+                <!-- ///////// -->
+            </div>
+        </div>
         <div class="container">
             <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
                 <!-- start input section -->
-
-
-
-
-                <div class=" row my-2">
-                    <div class="col-md-12">
-
-                        <span class="input-group-text text-wrap"> xxxx</span>
-                    </div>
-                </div>
                 <div class="row my-2">
                     <div class="col-md-1 text-center">
                         <div class="d-inline-flex text-center mt-4">
@@ -60,13 +59,13 @@
                                 </thead>
                                 <tbody id='tbody_farm_road'>
                                     <tr>
-                                        <td><input type="text" name="road_dist" placeholder="" class="form-control road_dist"></td>
-                                        <td><input type="text" name="road_name" placeholder="" class="form-control road_name"></td>
-                                        <td><input type="number" name="road_length" placeholder="" class="form-control road_length"></td>
-                                        <td><input type="number" name="num_farm" placeholder="" class="form-control num_farm"></td>
-                                        <td><input type="text" name="agr_act" placeholder="" class="form-control agr_act"></td>
-                                        <td><input type="text" name="work" placeholder="" class="form-control work"></td>
-                                        <td><input type="text" name="remark" placeholder="" class="form-control remark"></td>
+                                        <td><input type="text" name="road_dist" placeholder="" class="form-control road_dist" required></td>
+                                        <td><input type="text" name="road_name" placeholder="" class="form-control road_name" required></td>
+                                        <td><input type="number" name="road_length" placeholder="" class="form-control road_length" required></td>
+                                        <td><input type="number" name="num_farm" placeholder="" class="form-control num_farm" required></td>
+                                        <td><input type="text" name="agr_act" placeholder="" class="form-control agr_act" required></td>
+                                        <td><input type="text" name="work" placeholder="" class="form-control work" required></td>
+                                        <td><input type="text" name="remark" placeholder="" class="form-control remark" required></td>
                                         <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                     </tr>
                                 </tbody>
@@ -78,7 +77,12 @@
 
                 <div class="row my-4">
                     <div class="d-grid gap-2 col-md-6 mx-auto">
-                        <button type="button" class="btn btn-success" id="submit_farm_road">Submit</button>
+                        <button type="button" class="btn btn-success" id="submit_farm_road">
+                            <span class="spinner-border spinner-border-sm d-none spin_farm_road" role="status" aria-hidden="true"></span>
+                            <span class="d-none spin_farm_road">Loading...<br></span>
+                            <span class="d-none spin_farm_road"> Please Wait</span>
+                            <span class="not_spin_farm_road"> Submit</span>
+                        </button>
                     </div>
                 </div>
             </div>

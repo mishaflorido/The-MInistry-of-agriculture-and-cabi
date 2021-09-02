@@ -21,6 +21,15 @@
 <div style="text-align: center" class="mb-3">
   <label for="FarmRegister" class="form-label"> </label>
 </div>
+<div class="row">
+  <div class="offset-lg-1 col-lg-10">
+    <!-- Alert -->
+    <div class="alert alert-success d-none alert_farmer_register" role="alert">
+
+    </div>
+    <!-- ///////// -->
+  </div>
+</div>
 
 <form class="farmer_form">
   <div class="container">
@@ -404,6 +413,15 @@
               <span class="not_spin">Submit</span>
             </button>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-lg-1 col-lg-10">
+          <!-- Alert -->
+          <div class="alert alert-success d-none alert_farmer_register" role="alert">
+
+          </div>
+          <!-- ///////// -->
         </div>
       </div>
 

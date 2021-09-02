@@ -123,9 +123,8 @@ $("#parish").on('change', function () {
 $("form").submit(function (event) {
 
     if ($(this).attr('class') == 'farmer_form') {
-        $(".spin").removeClass("d-none");
-        $(".not_spin").addClass("d-none");
-        $("#submit_form_farmer").attr("disabled", "disabled")
+        show_spin("submit_form_farmer", "spin", "not_spin");
+
         event.preventDefault();
         var formData = new FormData($(this)[0]);
         formData.delete("name_involved");
@@ -183,9 +182,10 @@ $("form").submit(function (event) {
 
             }
         }).done(function () {
-            $(".not_spin").removeClass("d-none");
-            $(".spin").addClass("d-none");
-            $("#submit_form_farmer").attr("disabled", false);
+            hide_spin("submit_form_farmer", "spin", "not_spin");
+            $('.alert_farmer_register').html("The New Farmer Has Been Registred Succesfully");
+            $('.alert_farmer_register').removeClass('d-none');
+
         });;
     }
 
@@ -193,13 +193,14 @@ $("form").submit(function (event) {
 function get_id_crop(name, list) {
     var resp;
     $("#" + list + " option").each(function () {
-        // console.log($(this).attr('class'));
+        // console.log($(this).attr('class') + "Clase," + name + "nombre");
         if ($(this).attr('class') == name) {
             // console.log("estoy aqui");
             resp = $(this).attr('id');
         }
 
     });
+    // console.log(resp + 'Esta es el id crop');
     return resp;
 
 }

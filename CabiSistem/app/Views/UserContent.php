@@ -28,7 +28,7 @@ if ($type_user == 0) {
 <div class="row">
     <div class="offset-lg-1 col-lg-10">
         <!-- Alert -->
-        <div class="alert alert-info d-none" role="alert" id="alert_user_page">
+        <div class="alert alert-success d-none" role="alert" id="alert_user_page">
 
         </div>
         <!-- ///////// -->
@@ -117,7 +117,7 @@ if ($type_user == 0) {
                             <div id="imagePreview_new_user" class="card-heading" style="background-color: #373c42;">
                                 <form autocomplete="off" method="POST" id="register_user" action="insert/user">
                                     <div class="avatar-edit">
-                                        <input class="load_img" type='file' name='img_user' data-xform='1' id="imageUpload_new" accept=".png, .jpg, .jpeg" enctype="multipart/form-data" />
+                                        <input class="load_img" type='file' name='img_user' data-xform='1' id="imageUpload_new" accept=".png, .jpg, .jpeg" nctype="multipart/form-data" required />
                                         <label for="imageUpload_new"><i class="fas fa-pencil-alt" style="position: absolute; left:30%; top:26%;"></i></label>
                                     </div>
                                     <div class="avatar-upload" style="display: none;" id='new_user_img'>
@@ -140,7 +140,7 @@ if ($type_user == 0) {
 
                                 <div class="input-group">
 
-                                    <select class="form-control form-select-user" name="type_user">
+                                    <select class="form-control form-select-user" name="type_user" required>
                                         <option selected="selected" value="1">Supervisor</option>
                                         <option value="2">Technical User </option>
                                         <option value="3">Invited User</option>
@@ -149,17 +149,22 @@ if ($type_user == 0) {
 
                                 </div>
                                 <div class="input-group">
-                                    <input class="input--style-3 " type="email" placeholder="Email" name="email" value="">
+                                    <input class="input--style-3 " type="email" placeholder="Email" name="email" value="" required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="input--style-3 " type="text" placeholder="Phone" name="phone" autocomplete="off" value="">
+                                    <input class="input--style-3 " type="text" placeholder="Phone" name="phone" autocomplete="off" value="" required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="input--style-3 " type="text" placeholder="Password" name="password" autocomplete="off" value="">
+                                    <input class="input--style-3 " type="text" placeholder="Password" name="password" autocomplete="off" value="" required>
                                 </div>
 
                                 <div class="row p-t-10">
-                                    <button class="btn btn--pill btn--green" id="sub_register_user" type="submit">Register User</button>
+                                    <button class="btn btn--pill btn--green" id="sub_register_user" type="submit">
+                                        <span class="spinner-border spinner-border-sm d-none spin_n_user" role="status" aria-hidden="true"></span>
+                                        <span class="d-none spin_n_user">Loading...<br></span>
+                                        <span class="d-none spin_n_user"> Please Wait</span>
+                                        <span class="not_spin_n_user"> Register User</span>
+                                    </button>
                                 </div>
                                 </form>
                             </div>

@@ -68,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
-                <?php echo form_open('/logout') ?>
+                <?php echo form_open("logout") ?>
                 <li class="nav-item">
                     <button type="submit" class="nav-link">
                         <i class="fas fa-sign-out-alt"></i>
@@ -77,6 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- </a> -->
                 </li>
                 <?php echo form_close() ?>
+
             </ul>
         </nav>
         <!-- /.navbar -->

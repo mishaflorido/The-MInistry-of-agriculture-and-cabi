@@ -8,7 +8,15 @@
     <div class="container">
         <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
             <!-- start input section -->
+            <div class="row">
+                <div class="offset-lg-1 col-lg-10">
+                    <!-- Alert -->
+                    <div class="alert alert-success d-none" role="alert" id="alert_plant_application">
 
+                    </div>
+                    <!-- ///////// -->
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <span class="input-group-text">Name Of Farmer: </span>
@@ -224,7 +232,12 @@
 
             <div class="row my-4">
                 <div class="d-grid gap-2 col-md-6 mx-auto">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success" id="btn_plant_app">
+                        <span class="spinner-border spinner-border-sm d-none spin_papp" role="status" aria-hidden="true"></span>
+                        <span class="d-none spin_papp">Loading...<br></span>
+                        <span class="d-none spin_papp"> Please Wait</span>
+                        <span class="not_spin_plant"> Submit</span>
+                    </button>
                 </div>
             </div>
         </div>

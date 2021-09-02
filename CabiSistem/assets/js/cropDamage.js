@@ -33,8 +33,8 @@ $("#submit_crop_damage").on("click", function () {
     var ext = $("#cdf_ext_dist").val();
     var date_dis = $("#cdf_date_dis").val();
     var typ_dis = $("#cdf_typ_dis").val();
-
-    console.log(ext, date_dis, typ_dis);
+    show_spin("submit_crop_damage", "spin_crop_dmg", "not_spin_cdmg");
+    // console.log(ext, date_dis, typ_dis);
     $.ajax({
         url: "insert/crop_damage",
         type: "POST",
@@ -58,6 +58,10 @@ $("#submit_crop_damage").on("click", function () {
 
 
         }
+    }).done(function () {
+        hide_spin("submit_crop_damage", "spin_crop_dmg", "not_spin_cdmg");
+        $('#alert_crop_dmg').html("The Crop Damage Form Has Been Registred Succesfully");
+        $('#alert_crop_dmg').removeClass('d-none');
     })
 
 

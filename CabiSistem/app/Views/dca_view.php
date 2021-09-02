@@ -122,7 +122,7 @@
                     <span class="input-group-text">Select or enter crop: </span>
                     <!-- sacar de tabla crop y relacionar con variedad en la siguiente lista -->
                     <input type="hidden" name="id_crop_dca">
-                    <input list="crop_dca" name="crop_dca" class="form-control" placeholder="Select Crop">
+                    <input list="crop_dca" name="crop_dca" class="form-control" placeholder="Select Crop" id="crop_dca_list">
                     <datalist id="crop_dca">
                     </datalist>
 
@@ -130,12 +130,12 @@
                 <div class="col-md-6">
                     <!-- sacar de tabla variedady relacionar con crop de la tabla anterior -->
                     <span class="input-group-text">Select or enter Variety: </span>
-                    <select class="form-select" aria-label="Default select example" name="variety">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <input list="list_dca_variety" class="form-select" placeholder="Select First Crop" name="variety" id="variety_dca">
+                    <datalist id="list_dca_variety">
+
+                    </datalist>
+
+
                 </div>
             </div>
             <hr>

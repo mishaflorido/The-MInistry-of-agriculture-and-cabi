@@ -1,7 +1,7 @@
 var county;
 var sub_county;
 var village;
-var variery;
+var variety;
 $(document).ready(function () {
     // Get Varietys
     $.ajax({
@@ -10,9 +10,7 @@ $(document).ready(function () {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         success: function (result) {
 
-            variery = JSON.parse(result);
-
-
+            variety = JSON.parse(result);
         }
     });
     // Get Plant Doctor
@@ -94,7 +92,7 @@ $(document).ready(function () {
             for (const key in result) {
                 if (result.hasOwnProperty.call(result, key)) {
                     const element = result[key];
-                    $("#crop_dca").append("<option class='" + element['Crop_name'] + " crop_dca' id='" + element['id_crop'] + "' value='" + element['Crop_name'] + "'></option>");
+                    $("#crop_dca").append("<option class='" + element['Crop_name'] + "' id='" + element['id_crop'] + "' value='" + element['Crop_name'] + "'></option>");
 
                 }
             }
@@ -132,9 +130,6 @@ $("#sub_county_list_id").on('change', function () {
         }
     }
 });
-$(document).on("click", "option .crop_dca", function () {
-    console.log($(this).attr("id"));
-});
 $("#sub_county_list_id").on('change', function () {
 
 
@@ -149,4 +144,18 @@ $("#sub_county_list_id").on('change', function () {
 
         }
     }
+});
+$("#crop_dca_list").on("change", function () {
+    console.log("valor" + $(this).val());
+    var id_crop = get_id_crop($(this).val(), "crop_dca");
+    for (const key in variety) {
+        if (Object.hasOwnProperty.call(variety, key)) {
+            const element = variety[key];
+            if (element['id_crop'] == id_crop) {
+                $("#list_dca_variety").append("<option class='" + element['name_variety'] + "' id='" + element['id_variety'] + "' value='" + element['name_variety'] + "'></option>")
+            }
+
+        }
+    }
+
 });
