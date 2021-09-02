@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#larceny_programme" data-t="larceny_programme" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Weekly data collection from praedial larceny programme</p>
+                                        <p>Crop Establishment and Production Information</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -235,7 +235,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Weekly data collection from praedial larceny programme</p>
+                                        <p>Crop Establishment and Production Information</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
