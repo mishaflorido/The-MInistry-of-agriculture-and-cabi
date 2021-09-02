@@ -8,7 +8,6 @@ $(document).ready(function () {
         success: function (result) {
             // console.log(result);
 
-
             for (const key in result) {
                 if (result.hasOwnProperty.call(result, key)) {
                     const element = result[key];
@@ -61,9 +60,9 @@ function add_fut_dev() {
 }
 $("form").submit(function (event) {
 
-    event.preventDefault();
     if ($(this).attr('class') == 'plant_application') {
-
+        event.preventDefault();
+        show_spin("btn_plant_app", "spin_papp", "not_spin_plant");
 
         var formData = new FormData($(this)[0]);
 
@@ -100,7 +99,11 @@ $("form").submit(function (event) {
 
 
             }
-        })
+        }).done(function () {
+            hide_spin("btn_plant_app", "spin_papp", "not_spin_plant");
+            $('#alert_plant_application').html("The Plant Application Form Has Been Registred Succesfully");
+            $('#alert_plant_application').removeClass('d-none');
+        });
     }
 
 })

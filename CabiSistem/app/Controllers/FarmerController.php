@@ -76,15 +76,14 @@ class FarmerController extends BaseController
             'go_market' => $go_market,
             'boundary' => $boundary
         ];
-        // $FarmerController->insert($data);
-        print_r($data);
+        $FarmerController->insert($data);
         $lastFarmer = $db->query('select * from farm_register ORDER BY id_farm DESC LIMIT 1')->resultID;
         foreach ($lastFarmer as $key => $value) {
             $id_farm = $value['id_farm'];
         }
 
-        echo json_encode($id_farm);
         $db->close();
+        echo json_encode($id_farm);
     }
     public function insert_boundary()
     {

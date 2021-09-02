@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-8">
-                <h1 class="m-0">Weekly data collection from praedial larceny programme</h1>
+                <h1 class="m-0">Crop Establishment and Production Information</h1>
             </div><!-- /.col -->
             <div class="col-sm-4">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a role="button" class="nav-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page" style="padding-top: 0; padding-right:0">Home</a></li>
-                    <li class="breadcrumb-item active">Weekly data collection</li>
+                    <li class="breadcrumb-item active">Crop Establishment</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,11 +24,20 @@
             <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
         </div>
         <div style="text-align: center" class="mb-3">
-            <label for="FarmRegister" class="form-label"> WEEKLY DATA COLLECTION FORM PRAEDIAL LARCENY PROGRAMME </label>
+            <label for="FarmRegister" class="form-label"> Crop Establishment and Production Information </label>
         </div>
 
         <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
             <!-- start input section -->
+            <div class="row">
+                <div class="offset-lg-1 col-lg-10">
+                    <!-- Alert -->
+                    <div class="alert alert-success d-none" role="alert" id="alert_lancery_programme">
+
+                    </div>
+                    <!-- ///////// -->
+                </div>
+            </div>
 
             <div class=" row my-2">
                 <div class="col-md-6">
@@ -110,7 +119,12 @@
 
             <div class="row my-4">
                 <div class="d-grid gap-2 col-md-6 mx-auto">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success" id="lancery_btn_submit">
+                        <span class="spinner-border spinner-border-sm d-none spin_lancery" role="status" aria-hidden="true"></span>
+                        <span class="d-none spin_lancery">Loading...<br></span>
+                        <span class="d-none spin_lancery"> Please Wait</span>
+                        <span class="not_spin_lancery"> Submit</span>
+                    </button>
                 </div>
             </div>
         </div>

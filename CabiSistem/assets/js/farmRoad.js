@@ -12,6 +12,7 @@ function add_road() {
         '</tr>');
 }
 $("#submit_farm_road").on("click", function () {
+    show_spin("submit_farm_road", "spin_farm_road", "not_spin_farm_road");
 
     $("#tbody_farm_road tr").each(function () {
         var road_dist = $(this).find(".road_dist").val();
@@ -45,6 +46,9 @@ $("#submit_farm_road").on("click", function () {
             }
         });
     })
+    hide_spin("submit_farm_road", "spin_farm_road", "not_spin_farm_road");
+    $('#alert_farm_roads').html("The Farm Roads Has Been Registred Succesfully");
+    $('#alert_farm_roads').removeClass('d-none');
     // }
 
 })
