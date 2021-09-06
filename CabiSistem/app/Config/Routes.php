@@ -82,6 +82,7 @@ $routes->post('/insert/post_plant_insp', 'PlantApplicationController::insert_pos
 $routes->post('/insert/future_development', 'PlantApplicationController::insert_future_development');
 // DCA Form
 $routes->get('/get/variety', 'DCAFromController::get_variety');
+$routes->post('/insert/dca_form', 'DCAFromController::insert_dca');
 
 
 

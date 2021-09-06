@@ -610,7 +610,7 @@ select option:hover{
 
 .card-3 .card-body {
   padding: 35px 35px;
-  padding-bottom: 65px;
+  /* padding-bottom: 65px; */
   display: table-cell;
   width: 100%;
 }

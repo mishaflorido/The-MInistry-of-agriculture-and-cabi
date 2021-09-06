@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" style=" position: sticky;top:0; margin-left:0;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -83,196 +83,200 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a role="button" class="brand-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page">
-                <!-- <a href="index3.html" class="brand-link"> -->
-                <img src="<?= base_url() ?>/assets/img/granate_shield.jpeg" alt="CABI Logo" class="brand-image elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Grenade</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar" style="  position: sticky; top: 0; width:auto; height:45em; overflow: scroll;">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="../assets/img/user_img/<?= $photo ?>" class="brand-image elevation-2" alt="User Image" style="width: 4.1rem; height: auto">
-                    </div>
-                    <div class="info">
-                        <a role="button" class="d-block" data-bs-toggle="collapse" data-bs-target="#user_page" aria-expanded="false" aria-controls="usergi_page">
-                            <?= $name ?></a>
-                    </div>
-                </div>
-
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
+        <div style=" position: sticky;top:57px;">
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a role="button" class="brand-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page">
+                    <!-- <a href="index3.html" class="brand-link"> -->
+                    <img src="<?= base_url() ?>/assets/img/granate_shield.jpeg" alt="CABI Logo" class="brand-image elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight-light">Grenada</span>
+                </a>
+                <!--  -->
+                <!-- position: sticky; top: 0; width:auto; height:45em; overflow: scroll; -->
+                <!-- Sidebar -->
+                <div class="sidebar" style="overflow: scroll;height:38.7em;">
+                    <!-- Sidebar user panel (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img src="../assets/img/user_img/<?= $photo ?>" class="brand-image elevation-2" alt="User Image" style="width: 4.1rem; height: auto">
+                        </div>
+                        <div class="info">
+                            <a role="button" class="d-block" data-bs-toggle="collapse" data-bs-target="#user_page" aria-expanded="false" aria-controls="usergi_page">
+                                <?= $name ?></a>
                         </div>
                     </div>
-                </div>
 
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a role="button" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Admin Pages
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#user_page" data-t="user_page" aria-expanded="false" aria-controls="user_page">
-                                        <i class="nav-icon fas fa-users-cog"></i>
-                                        <p>User Page</p>
-                                    </a>
-                                </li>
+                    <!-- SidebarSearch Form -->
+                    <div class="form-inline">
+                        <div class="input-group" data-widget="sidebar-search">
+                            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-sidebar">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-                            </ul>
-                        </li>
-                        <li class="nav-item ">
-                            <a role="button" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Forms Pages
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#farmer_page" data-t="farmer_page" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Farmer Register Form</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#vendor_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Vendors Registration Form</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#farm_roads" data-t="farm_roads" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>List of Farm Roads That Need Urgent Attention</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#larceny_programme" data-t="larceny_programme" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Weekly data collection from praedial larceny programme</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#plant_application" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Plant Application Form</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#weekly_report" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#cropdamage" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Crop damage data</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#monthly_report" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Monthly Report(many topics)</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#dca_form" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>DCA Form</p>
-                                    </a>
-                                </li>
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
 
-                            </ul>
-                        </li>
-                        <li class="nav-item ">
-                            <a role="button" class="nav-link">
-                                <i class="nav-icon far fa-file-alt"></i>
+                            <li class="nav-item">
+                                <a role="button" class="nav-link">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Forms Pages
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#farmer_page" data-t="farmer_page" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Farmer Register Form</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#dca_form" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>DCA Form</p>
+                                        </a>
+                                    </li>
 
-                                <p>
-                                    Reports Page
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#farmer_page_report" data-t="farmer_page_report" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Farmer Register Report</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#vendor_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Vendors Registration Report</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="#" aria-expanded="false" aria-controls="farm_roads">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>List of Farm Roads That Need Urgent Attention</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Weekly data collection from praedial larceny programme</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Plant Application Report</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Crop damage data</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Monthly Report(many topics)</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link " data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>DCA Report</p>
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#farm_roads" data-t="farm_roads" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>List of Farm Roads That Need Urgent Attention</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#larceny_programme" data-t="larceny_programme" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Weekly data collection from praedial larceny programme</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#plant_application" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Plant Application Form</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#weekly_report" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#cropdamage" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crop damage data</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#monthly_report" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Monthly Report(many topics)</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#vendor_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Vendors Registration Form</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ">
+                                <a role="button" class="nav-link">
+                                    <i class="nav-icon far fa-file-alt"></i>
 
-                            </ul>
-                        </li>
-                        <!-- <li class="nav-item">
+                                    <p>
+                                        Reports Page
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#farmer_page_report" data-t="farmer_page_report" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Farmer Register Report</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>DCA Report</p>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#" aria-expanded="false" aria-controls="farm_roads">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>List of Farm Roads That Need Urgent Attention</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Weekly data collection from praedial larceny programme</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Plant Application Report</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crop damage data</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Monthly Report(many topics)</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#vendor_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Vendors Registration Report</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a role="button" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Admin Pages
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#user_page" data-t="user_page" aria-expanded="false" aria-controls="user_page">
+                                            <i class="nav-icon fas fa-users-cog"></i>
+                                            <p>User Page</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
@@ -281,12 +285,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li> -->
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
+                        </ul>
+                        <footer style="width:100%; margin-top: 5rem;">
+
+                            <div>
+                                <a href="https://www.cabi.org/">
+                                    <img src="<?= base_url() ?>/assets/img/CABI_LOGO.jpg" style="width: 100%">
+                                </a>
+                            </div>
+                            <div class="text-center my-2" style="color: white; font-size: 70%;">
+                                Portal set with collaboration of CABI Plantwise
+                            </div>
+                        </footer>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+        </div>
 
 
         <!-- Content Wrapper. Contains page content -->
@@ -332,22 +348,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper collapse" id="cropdamage">
             <?= view_cell('App\Libraries\ViewComponents::getCropDamage') ?>
         </div>
-        <!-- /.content-wrapper -->
+
         <!-- /.content-wrapper -->
         <div class="content-wrapper collapse" id="dca_form">
             <?= view_cell('App\Libraries\ViewComponents::getDCAForm') ?>
         </div>
         <!-- /.content-wrapper -->
-        <!-- /.content-wrapper -->
         <div class="content-wrapper collapse" id="weekly_report">
             <?= view_cell('App\Libraries\ViewComponents::get_weekly_report') ?>
         </div>
-        <!-- /.content-wrapper -->
         <!-- /.content-wrapper -->
         <div class="content-wrapper collapse" id="monthly_report">
             <?= view_cell('App\Libraries\ViewComponents::get_monthly_report') ?>
         </div>
         <!-- /.content-wrapper -->
+
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
@@ -359,13 +374,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-                Anything you want
+        <footer class="main-footer" style="padding-bottom: 0.5rem;">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Default to the left -->
+                    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+
+                </div>
+                <div class="col-md-6">
+                    <div class="float-right d-sm-inline">
+                        <a href="https://www.cabi.org/">
+                            <img src="<?= base_url() ?>/assets/img/CABI_LOGO.jpg" style="width: 30%">
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <!-- To the right -->
+
         </footer>
     </div>
     <!-- ./wrapper -->
@@ -398,7 +424,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- JSpdf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.30/jspdf.plugin.autotable.js" integrity="sha512-uX3+QfFVkw6AXwyh3Dfe4DW5wy5kp8J6hycPyhzMmolo2a6rHucqhkrWE1uUdAKaZkI/cQIYQs2ewJ06fGRpeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script src="<?= base_url() ?>/assets/plugins/jsPDF-1.3.2/dist/jspdf.min.js"></script> -->
 
     <!-- Data Table -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

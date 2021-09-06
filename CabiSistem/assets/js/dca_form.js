@@ -77,8 +77,6 @@ $(document).ready(function () {
         }
     });
     // //////////////////
-
-
     // Get Crop
     $.ajax({
         method: "GET",
@@ -159,3 +157,62 @@ $("#crop_dca_list").on("change", function () {
     }
 
 });
+$("form").submit(function (event) {
+    if ($(this).attr("id") == "dca_reg_form") {
+        event.preventDefault();
+        show_spin("btn_dca_form", "spin_dca", "not_spin_dca");
+        var formData = new FormData($(this)[0]);
+        var id_crop = get_id_crop(formData.get("id_crop"), "crop_dca");
+        var id_vari = get_id_crop(formData.get("id_variety"), "list_dca_variety");
+        var dev_stage = get_string_check("development_stage1", "development_stage2");
+        var pp_afected = get_string_check("plant_afect1", "plant_afect2");
+        formData.delete("id_crop");
+        formData.delete("id_variety");
+        formData.append("id_crop", id_crop);
+        formData.append("id_variety", id_vari);
+        formData.append("dev_stage", dev_stage);
+        formData.append("pp_afected", pp_afected);
+        $.ajax({
+            url: "insert/dca_form",
+            type: "POST",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (respuesta) {
+                // setTimeout(function () {
+                //     $('#alert_farmer_page').html("The New User Has Been Registred Succesfully");
+                //     $('#alert_farmer_page').removeClass('d-none');
+                // }, 2000);
+                // $('#alert_farmer_page').addClass('d-none');
+
+                // var r = JSON.parse(respuesta);
+            }
+        }).done(function () {
+            hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
+            $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
+            $('.alert_dca').removeClass('d-none');
+        });;
+
+
+    }
+});
+function get_string_check(list1, list2) {
+    var cadena = "";
+    $("#" + list1 + " div").each(function () {
+
+        if ($(this).find("input").is(":checked")) {
+            cadena = cadena + $(this).find("input").val() + " ";
+        }
+    });
+    $("#" + list2 + " div").each(function () {
+
+        if ($(this).find("input").is(":checked")) {
+            cadena = cadena + $(this).find("input").val() + " ";
+        }
+    });
+    return cadena;
+
+
+
+}

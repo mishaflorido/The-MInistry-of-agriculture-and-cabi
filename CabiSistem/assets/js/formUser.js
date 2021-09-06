@@ -1,6 +1,7 @@
+var user_table;
 $(document).ready(function () {
 
-    $('#user_table').DataTable({
+    user_table = $('#user_table').DataTable({
         stateSave: true,
         ajax: {
             method: "GET",
@@ -140,9 +141,11 @@ $("form").submit(function (event) {
                 // console.log(r,'json');
             }
         }).done(function () {
+            user_table.ajax.reload();
             hide_spin("sub_register_user", "spin_n_user", "not_spin_n_user");
             $('#alert_user_page').html("The New User Has Been Registred Succesfully");
             $('#alert_user_page').removeClass('d-none');
+
         });
     }
 
