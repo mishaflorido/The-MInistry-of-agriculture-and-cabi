@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
@@ -8,9 +10,9 @@ class UserModel extends Model
     protected $primaryKey = 'id_user';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['name_user', 'lastn_user', 'tel_usu', 'email_user', 'phone_user', 'type_user', 'psw_user','img_user'];
+    protected $allowedFields = ['name_user', 'lastn_user', 'tel_usu', 'email_user', 'phone_user', 'type_user', 'psw_user', 'img_user'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

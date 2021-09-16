@@ -9,6 +9,10 @@ class Log_in_out extends BaseController
 {
 
     //--------------------------------------------------------------------
+    public function index()
+    {
+        echo "hola";
+    }
     public function log_users()
     {
 

@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class FarmRoadModel extends Model
+class PestAppModel extends Model
 {
-    protected $table      = 'farm_roads_need_attention';
-    protected $primaryKey = 'id_farm_roads';
+    protected $table      = 'pest_app';
+    protected $primaryKey = 'id_pest_app';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['date_farm_road', 'road_dist', 'road_name', 'road_length', 'num_farm', 'agr_act', 'work', 'remark'];
+    protected $allowedFields = ['spsig_pestapp', 'inf_far', 'date_pestapp', 'crop_pestapp', 'plsi_pestapp', 'targ_pestapp', 'pest_pestapp', 'rate_pestapp', 'amt_pestapp', 'com_pestapp'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

@@ -52,4 +52,32 @@ class ViewComponents
     {
         return view('MonthlyReportView');
     }
+    public function getDcaReport()
+    {
+        return view('DCAReportView');
+    }
+    public function getPesta_frs()
+    {
+        return view('Pestafrs');
+    }
+    public function getTesting()
+    {
+        return view('testingPage');
+    }
+    public function getCrEstReport()
+    {
+        return view('CropEstabReport');
+    }
+    public function getPlantApplicationReport()
+    {
+        return view('PlanAppReport');
+    }
+    public function getCropDamageReport()
+    {
+        return view('CropDamageReport');
+    }
+    public function getFarmRoadeport()
+    {
+        return view('FarmRoadReport');
+    }
 }

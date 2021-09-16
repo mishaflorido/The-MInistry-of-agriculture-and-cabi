@@ -16,6 +16,14 @@ class DCAFromController extends BaseController
         $db->close();
         echo json_encode($result);
     }
+    public function get_dca()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $result = $db->query("Select a.*, c.Crop_name, v.name_variety, l2.name_lv2, l3.name_lv3 from dca_form a INNER JOIN crops c on c.id_crop = a.id_crop INNER JOIN variety v on v.id_variety = a.id_variety INNER JOIN level2 l2 on l2.id_lv2 = a.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = a.id_lv3")->getResultArray();
+        $db->close();
+        echo json_encode($result);
+    }
     public function insert_dca()
     {
         $dcaForm = new DCAFormModel();

@@ -7,6 +7,26 @@ use App\Models\CropDamageModel;
 
 class CropDamageController extends BaseController
 {
+    public function get_cropd_tb1()
+    {
+        $request = \Config\Services::request();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $id_crop_damage = $request->getPostGet('id_crop_damage');
+        $res = $db->query("Select * from crop_damage_table1 where id_crop_damage = " . $id_crop_damage)->getResultArray();
+        echo json_encode($res);
+        $db->close();
+    }
+    public function get_cropd_tb2()
+    {
+        $request = \Config\Services::request();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $id_crop_damage = $request->getPostGet('id_crop_damage');
+        $res = $db->query("Select * from crop_damage_table2 where id_crop_damage = " . $id_crop_damage)->getResultArray();
+        echo json_encode($res);
+        $db->close();
+    }
     public function get_crop_damage()
     {
         $livestock = new CropDamageModel();

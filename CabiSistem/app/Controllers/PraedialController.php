@@ -14,6 +14,16 @@ class PraedialController extends BaseController
 
         echo json_encode($result);
     }
+    public function get_weekly_data()
+    {
+        $request = \Config\Services::request();
+        $id_praedial = $request->getPostGet('id_praedial');
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $result = $db->query("Select * from weekly_data_collection where id_praedial = " . $id_praedial)->getResultArray();
+
+        echo json_encode($result);
+    }
     public function insert_praedial()
     {
         $praedial = new PraedialModel();

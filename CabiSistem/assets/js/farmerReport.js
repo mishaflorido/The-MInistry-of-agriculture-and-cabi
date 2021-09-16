@@ -14,7 +14,7 @@ $(document).ready(function () {
             {
 
                 text: '<i class="fas fa-trash-o" aria-hidden="true"></i>',
-                titleAttr: "Eliminar",
+                titleAttr: "To PDF",
                 action: function () {
                     var farmer = table.row({ selected: true }).data();
 

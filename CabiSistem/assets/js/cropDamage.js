@@ -1,3 +1,239 @@
+var cropDamage;
+$(document).ready(function () {
+    cropDamage = $('#crdd_table_report').DataTable({
+        select: {
+            style: 'single',
+            blurable: true
+        },
+        stateSave: true,
+        dom: 'Bfrtip',
+        pagingType: "input",
+        buttons: [
+            {
+
+                text: 'PDF',
+                titleAttr: "To PDF",
+                action: function () {
+                    var crop = cropDamage.row({ selected: true }).data();
+
+                    to_pdf_cropdamage(crop);
+
+                }
+            },
+            'excel', 'print'
+        ],
+        ajax: {
+            method: "GET",
+            url: "get/crop_damage",
+            dataSrc: ""
+
+        },
+        columns: [
+
+            { data: 'cdf_ext_dist' },
+            { data: 'cdf_date_dis' },
+            { data: 'cdf_typ_dis' },
+        ],
+
+    });
+
+});
+$(document).on("click", "#tbody_crdd_report tr", function () {
+    var crop = cropDamage.row({ selected: true }).data();
+
+    get_crop_damage_tb1(crop["id_crop_damage"]);
+    get_crop_damage_tb2(crop["id_crop_damage"]);
+})
+function get_crop_damage_tb1(id_crop_damage) {
+    $('#tb_crop_damage1').empty();
+    $.ajax({
+        url: "get/crop_damage_tb1",
+        type: "POST",
+        data: {
+            "id_crop_damage": id_crop_damage,
+        },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        success: function (respuesta) {
+            // var r = JSON.parse(respuesta);
+            for (const key in respuesta) {
+                if (Object.hasOwnProperty.call(respuesta, key)) {
+                    const element = respuesta[key];
+                    // console.log(element);
+                    $('#tb_crop_damage1').append("<tr>" +
+                        "<td>" + element['farmer_name_crd'] + "</td>" +
+                        "<td>" + element['visit_date_crd'] + "</td>" +
+                        "<td>" + element['farmer_reg_crd'] + "</td>" +
+                        "<td>" + element['contact_crd'] + "</td>" +
+                        "<td>" + element['crop_var_crd'] + "</td>" +
+                        "<td>" + element['location_crd'] + "</td>" +
+                        "<td>" + element['tot_acre_crd'] + "</td>" +
+                        "<td>" + element['desc_dmg_crd'] + "</td>" +
+                        "<td>" + element['area_plot_crd'] + "</td>" +
+                        "</tr>");
+
+                }
+
+            }
+        }
+
+    })
+
+}
+function get_crop_damage_tb2(id_crop_damage) {
+    $('#tb_crop_damage2').empty();
+    $.ajax({
+        url: "get/crop_damage_tb2",
+        type: "POST",
+        data: {
+            "id_crop_damage": id_crop_damage,
+        },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        success: function (respuesta) {
+            // var r = JSON.parse(respuesta);
+            for (const key in respuesta) {
+                if (Object.hasOwnProperty.call(respuesta, key)) {
+                    const element = respuesta[key];
+                    // console.log(element);
+                    $('#tb_crop_damage2').append("<tr>" +
+                        "<td>" + element['num_stools'] + "</td>" +
+                        "<td>" + element['amount'] + "</td>" +
+                        "<td>" + element['age_plants'] + "</td>" +
+                        "<td>" + element['stage_mat'] + "</td>" +
+                        "<td>" + element['cost_plant'] + "</td>" +
+                        "<td>" + element['tot_val'] + "</td>" +
+                        "<td>" + element['ofc_collec'] + "</td>" +
+                        "<td>" + element['cert_by'] + "</td>" +
+                        "<td>" + element['remark_stools'] + "</td>" +
+                        "</tr>");
+
+                }
+
+            }
+        }
+
+    })
+
+}
+
+function to_pdf_cropdamage(crop) {
+    let doc = new jsPDF('l', "pt", 'letter');
+    doc.setFont('helvetica');
+    doc.setFontSize(12);
+    // NORMAL FONT TYPE
+    doc.setFontType('normal');
+    doc.text(300, 30, 'MINISTRY OF AGRICULTURE');
+    doc.text(320, 55, 'EXTENSION DIVISION');
+    // BOLD FONT TYPE
+    doc.setFontType('bold');
+    doc.text(320, 80, 'CROP DAMAGE DATA');
+    doc.setFontSize(11);
+    doc.text(100, 120, "EXTENSION DISTRICT: " + crop['cdf_ext_dist'] + "    DATE OF DISASTER: " + crop['cdf_date_dis'] + "    TYPE OF DISASTER: " + crop['cdf_typ_dis']);
+
+    var tb1 = doc.autoTableHtmlToJson(document.getElementById("t-crop_damage1"));
+    var currentpage = 0;
+    var footer = function (data) {
+        if (currentpage < doc.internal.getNumberOfPages()) {
+            doc.setFontSize(10);
+            doc.setFontStyle('normal');
+            doc.text("Copyright (c) XYZ. All rights reserved.", data.settings.margin.left, doc.internal.pageSize.height - 3);
+            currentpage = doc.internal.getNumberOfPages();
+        }
+    };
+
+
+    doc.autoTable(tb1.columns, tb1.data, {
+        startY: 145,
+        afterPageContent: footer,
+        margin: { horizontal: 10 },
+        showHeader: 'everyPage',
+        tableLineColor: 200,
+        tableLineWidth: 0,
+        height: 'auto',
+        bodyStyles: {
+            valign: 'top',
+            minCellHeight: 8,
+        },
+        headerStyles: {
+            fillColor: '#30aa4c',
+            minCellHeight: 8,
+            fontSize: 10,
+            cellPadding: 2,
+        },
+        styles: {
+            overflow: 'linebreak',
+            fontSize: 10,
+            cellPadding: 2,
+        },
+
+
+        columnStyles: {
+
+            // 10: { columnWidth: 39 },
+
+            text: { columnWidth: 'auto' },
+            nil: { halign: 'right' },
+            tgl: { halign: 'right' }
+        },
+        theme: 'grid',
+        // tableWidth: 'auto',
+    });
+    doc.rect(10, doc.autoTableEndPosY() + 10, 772, 20, "S");
+    doc.setFillColor(48, 170, 76);
+    doc.rect(314, doc.autoTableEndPosY() + 10, 230, 20, "F");
+    doc.setFontSize("10");
+    doc.setTextColor(255, 255, 255);
+    doc.text(330, doc.autoTableEndPosY() + 22, "This Section for Head Office  use only");
+    var tb2 = doc.autoTableHtmlToJson(document.getElementById("t-crop_damage2"));
+    doc.autoTable(tb2.columns, tb2.data, {
+        startY: doc.autoTableEndPosY() + 30,
+        afterPageContent: footer,
+        margin: { horizontal: 10 },
+        showHeader: 'everyPage',
+        tableLineColor: 200,
+        tableLineWidth: 0,
+        height: 'auto',
+        bodyStyles: {
+            valign: 'top',
+            minCellHeight: 8,
+        },
+        headerStyles: {
+            fillColor: '#30aa4c',
+            minCellHeight: 8,
+            fontSize: 10,
+            cellPadding: 2,
+        },
+        styles: {
+            overflow: 'linebreak',
+            fontSize: 10,
+            cellPadding: 2,
+        },
+
+
+        columnStyles: {
+
+            // 0: { fillColor: '#30aa4c' },
+
+            text: { columnWidth: 'auto' },
+            nil: { halign: 'right' },
+            tgl: { halign: 'right' }
+        },
+        theme: 'grid',
+
+    });
+
+
+
+    window.open(doc.output('bloburl'));
+}
+
+
+
+
+
+
+// CROP DAMAGE FORM
 function add_cropdmg() {
 
     $('#tbody_crop_damage').append('<tr>' +
@@ -146,3 +382,4 @@ function insert_crop_damage_tb2(id_crop_damage) {
 
     });
 }
+// //////////////////////////////////////////////

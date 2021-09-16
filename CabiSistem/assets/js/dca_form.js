@@ -2,6 +2,7 @@ var county;
 var sub_county;
 var village;
 var variety;
+
 $(document).ready(function () {
     // Get Varietys
     $.ajax({
@@ -189,6 +190,7 @@ $("form").submit(function (event) {
                 // var r = JSON.parse(respuesta);
             }
         }).done(function () {
+            dca_table.ajax.reload();
             hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
             $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
             $('.alert_dca').removeClass('d-none');

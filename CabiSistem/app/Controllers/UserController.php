@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use CodeIgniter\Controller;
+use PHPUnit\Util\Json;
 
 class UserController extends BaseController
 {
@@ -25,8 +26,13 @@ class UserController extends BaseController
         $type_user = $request->getPostGet('type_user');
         $psw_user = $request->getPostGet('password');
         $file = $this->request->getFile('img_user');
-        $imgName = $file->getRandomName();
-        $file->move('./assets/img/user_img', $imgName);
+        // echo $file;
+        if ($file != "") {
+            $imgName = $file->getRandomName();
+            $file->move('./assets/img/user_img', $imgName);
+        } else {
+            $imgName = "";
+        }
 
         $data = [
             'name_user' => $name_user,
@@ -38,8 +44,16 @@ class UserController extends BaseController
             'psw_user' => $psw_user,
             'img_user' => $imgName
         ];
-        $UserModel->insert($data);
-        echo json_encode('1');
+        // echo "hola";
+        $result = $db->query("Select * from user where email_user = '" . $email_user . "' and deleted_at = null")->getNumRows();
+
+
+        if ($result == 0) {
+            $UserModel->insert($data);
+            echo ('0');
+        } else {
+            echo ('1');
+        }
     }
     public function update_user()
     {
@@ -91,5 +105,16 @@ class UserController extends BaseController
         $UserModel = new UserModel($db);
         $users = $UserModel->findAll();
         echo json_encode($users);
+    }
+    public function delete_users()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $request = \Config\Services::request();
+        $UserModel = new UserModel($db);
+        $id_user = $request->getPostGet('id_user');
+
+        $UserModel->where("id_user", $id_user)->delete();
+        echo json_encode("1");
     }
 }

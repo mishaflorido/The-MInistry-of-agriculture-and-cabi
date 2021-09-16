@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class FarmRoadModel extends Model
+class OficersWeeklyReportModel extends Model
 {
-    protected $table      = 'farm_roads_need_attention';
-    protected $primaryKey = 'id_farm_roads';
+    protected $table      = 'ofice_weekly_report';
+    protected $primaryKey = 'id_of_wr';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['date_farm_road', 'road_dist', 'road_name', 'road_length', 'num_farm', 'agr_act', 'work', 'remark'];
+    protected $allowedFields = ['ofc_name', 'ofc_desig', 'ofc_week', 'ofc_dpt', 'wk_beg'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

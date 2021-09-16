@@ -539,15 +539,16 @@ select option:hover{
 
 /* This is the Avatar Preview Element */
  .avatar-upload .avatar-preview {
-  display: inline-block;
+  display: none;
   width: 192px;
   height: 192px;
   position: absolute;
   border-radius: 100%;
-  border: 6px solid #f8f8f8;
+  border: 6px solid #f8f8f8 ;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
   top: 35%;
   left: 15%;
+  
   
 }
 .avatar-upload .avatar-preview > div {
@@ -606,6 +607,7 @@ select option:hover{
 .card-3 .card-heading:hover{
   width: 60%;
   transition: width 0.5s;
+  
 }
 
 .card-3 .card-body {

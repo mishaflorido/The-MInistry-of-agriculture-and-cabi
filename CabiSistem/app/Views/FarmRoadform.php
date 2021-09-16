@@ -37,6 +37,9 @@
             <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
                 <!-- start input section -->
                 <div class="row my-2">
+                    <input type="date" name="date_farm_road" class="form-control date_farm_road" value="<?php echo date('Y-m-d'); ?>" id="date_farm_road">
+                </div>
+                <div class="row my-2">
                     <div class="col-md-1 text-center">
                         <div class="d-inline-flex text-center mt-4">
                             <a class="form-control" role="button" id="add_road" onclick="add_road()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
@@ -44,7 +47,7 @@
                     </div>
                     <div class="col-md-11">
                         <div class="container">
-                            <table class="table">
+                            <table class="table table-responsive">
                                 <thead>
                                     <tr>
                                         <th scope="col">Extension District/Parish</th>

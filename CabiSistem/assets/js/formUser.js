@@ -1,8 +1,30 @@
 var user_table;
+var contador = 0;
 $(document).ready(function () {
 
     user_table = $('#user_table').DataTable({
         stateSave: true,
+        select: {
+            style: 'single',
+            blurable: true
+        },
+        stateSave: true,
+        dom: 'Bfrtip',
+        pagingType: "input",
+        buttons: [
+            {
+
+                text: 'Delete',
+                titleAttr: "Delete User",
+                action: function () {
+                    var farmer = user_table.row({ selected: true }).data();
+
+                    delete_user(farmer);
+
+                }
+            },
+
+        ],
         ajax: {
             method: "GET",
             url: "get/users",
@@ -16,24 +38,35 @@ $(document).ready(function () {
             { data: 'email_user' },
             { data: 'phone_user' },
             { data: 'type_user' }
-            // { data: 'estado' },
-            // {
-            //     ordenable: true,
-            //     render: function (data, type, row) {
-            //         return "<button type='button' class='btn btn-danger dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
-            //             "<span class='sr - only'>Menu</span> </button >" +
-            //             "<div class='dropdown-menu'>" +
-            //             "<a class='dropdown-item' href='#' OnClick=\"ver_personal(" + row.id_per + ",'" + row.nom_per + "','" + row.ciudad + "','" + row.unidad_per + "','" + row.telf_per + "','" + row.app_per + "','" + row.apm_per + "','" + row.ci_per + "','" + row.id_cat_per + "','" + row.id_cargo_per + "','" + row.email_per + "','" + row.fec_ingreso_personal + "','" + row.cost_per + "','" + row.img_per + "')\">Ver Informacion</a>" +
-            //             "<a class='dropdown-item' href='#' onClick=\"modificar_personal(" + row.id_per + ",'" + row.nom_per + "','" + row.ciudad + "','" + row.unidad_per + "','" + row.telf_per + "','" + row.app_per + "','" + row.apm_per + "','" + row.ci_per + "','" + row.id_cat_per + "','" + row.id_cargo_per + "','" + row.email_per + "','" + row.fec_ingreso_personal + "','" + row.cost_per + "','" + row.img_per + "')\">Editar Información</a>" +
-            //             "<a class='dropdown-item' href='#' onClick=\"cambiar_estado(" + row.id_per + ",'" + row.estado + "')\">Cambiar de estado</a>" +
-            //             "<div class='dropdown-divider'></div>" +
-            //             "<a id='btn_eliminar_personalf' name='btn_eliminar_personalf' class='dropdown-item fa fa-trash-o' href='#' onClick=\"eliminar_personalFijo( " + row.id_per + ",'" + row.nom_per + "', '" + row.nom_cargo + "', '" + row.ciudad + "')\" >Eliminar Personal</a></div></div > "
-
-            //     }
-            // },
         ]
     });
 });
+function delete_user(user) {
+    if (confirm("Want to delete " + user['name_user'] + "?")) {
+        $.ajax({
+            url: "delete/user",
+            type: "POST",
+            data: {
+                "id_user": user['id_user']
+            },
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            dataType: 'json',
+            success: function (respuesta) {
+
+
+
+
+
+
+                // console.log(r,'json');
+            }
+        }).done(function () {
+
+            alert("User " + user['name_user'] + " has been deleted ");
+            user_table.ajax.reload();
+        })
+    }
+}
 
 function readURL(input, elemento) {
     if (input.files && input.files[0]) {
@@ -57,50 +90,40 @@ function readURL(input, elemento) {
     }
 }
 $(".load_img").change(function () {
+
     readURL(this, $(this).data('xform'));
     // console.log($(this).data('xform'));
 });
 
-$('.card-heading').mouseenter(function () {
-    var x = $(this).find('.load_img').data('xform');//si es de un formulario mostrar la imagen
-    if (x == 0) {
-        $("#update_p_form").css({
-            "display": " inline-block",
-            "transition": "display 1.7s"
+$(".card-heading").hover(function () {
+    contador += 1;
 
-        });
+    var x = $(this).find('.load_img').data('xform');//ve de que formulario mostrar la imagen
+
+
+    if ((contador % 2) == !0) {
+
+        if (x == 0) {
+            $('#update_p_form').css('display', 'inline-block');
+            $('#aav_prev').css('display', 'inline-block');
+        } else {
+            $('#new_user_img').css('display', 'inline-block');
+            $('#av_prev_nu').css('display', 'inline-block');
+
+        }
     }
     else {
-        $("#new_user_img").css({
-            "display": " inline-block",
-            "transition": "display 1.7s"
+        if (x == 0) {
+            $('#update_p_form').css('display', 'none');
+            $('#aav_prev').css('display', 'none');
+        } else {
+            $('#new_user_img').css('display', 'none');
+            $('#av_prev_nu').css('display', 'none');
 
-        });
+        }
+
     }
-
 })
-
-$('.card-body').mouseenter(function () {
-    $(".avatar-upload").css({
-        "display": "none",
-        "transition": "display 0.7s"
-
-    })
-})
-$('.main-sidebar').mouseenter(function () {
-    $(".avatar-upload").css({
-        "display": "none",
-        "transition": "display 0.7s"
-
-    })
-});
-$('.col-lg-12').mouseenter(function () {
-    $(".avatar-upload").css({
-        "display": "none",
-        "transition": "display 0.7s"
-
-    })
-});
 $("#update_profile_check").on("change", function () {
     // console.log($(this).prop);
     if ($(this).prop('checked') == true) {
@@ -124,9 +147,14 @@ $("#sub_updatePI").on("submit", function (event) {
 $("form").submit(function (event) {
 
     if ($(this).attr('id') == 'register_user') {
-        show_spin("sub_register_user", "spin_n_user", "not_spin_n_user");
+        // show_spin("sub_register_user", "spin_n_user", "not_spin_n_user");
         event.preventDefault();
         var formData = new FormData($(this)[0]);
+        if ($("#imageUpload_new").val() == '') {
+            formData.delete("img_user");
+            formData.append("img_user", "");
+            // console.log(formData.get("img_user"));
+        }
         $.ajax({
             url: $(this).attr('action'),
             type: $(this).attr('method'),
@@ -137,16 +165,22 @@ $("form").submit(function (event) {
             success: function (respuesta) {
 
 
-                var r = JSON.parse(respuesta);
+                if (respuesta == 1) {
+                    $("#validation_user").html("That Email Already Exist");
+                    $("#validation_user").removeClass("d-none");
+                } else {
+                    user_table.ajax.reload();
+                    hide_spin("sub_register_user", "spin_n_user", "not_spin_n_user");
+                    alert("The New User Has Been Registred Succesfully");
+                    $('#alert_user_page').html("The New User Has Been Registred Succesfully");
+                    $('#alert_user_page').removeClass('d-none');
+                    $("#validation_user").addClass("d-none");
+                    $("#validation_user").html("")
+                }
+
                 // console.log(r,'json');
             }
-        }).done(function () {
-            user_table.ajax.reload();
-            hide_spin("sub_register_user", "spin_n_user", "not_spin_n_user");
-            $('#alert_user_page').html("The New User Has Been Registred Succesfully");
-            $('#alert_user_page').removeClass('d-none');
-
-        });
+        })
     }
 
 

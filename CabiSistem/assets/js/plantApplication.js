@@ -1,3 +1,4 @@
+// VIEW FORM APPLICATION FUNCTIONS////////////////////////////
 $(document).ready(function () {
     // Get Crop
     $.ajax({
@@ -19,6 +20,116 @@ $(document).ready(function () {
         }
 
     });
+    // ////////////////////////////////////
+    // LOAD DATATABLE FOR PLANT APPLICATION REPORT
+    var p_app;
+    $(document).ready(function () {
+
+
+        p_app = $('#plapp_table_report').DataTable({
+            select: {
+                style: 'single',
+                blurable: true
+            },
+            stateSave: true,
+            dom: 'Bfrtip',
+            pagingType: "input",
+            buttons: [
+                {
+
+                    text: 'PDF',
+                    titleAttr: "To PDF",
+                    action: function () {
+                        var farmer = p_app.row({ selected: true }).data();
+
+                        to_pdf_farmer(farmer);
+
+                    }
+                },
+                'excel', 'print'
+            ],
+            ajax: {
+                method: "GET",
+                url: "get/plant_app",
+                dataSrc: ""
+
+            },
+            columns: [
+
+                { data: 'name_f' },
+                { data: 'id_farm' },
+                { data: 'f_addres' },
+                { data: 'plt_loc' },
+                { data: 'f_phone' },
+                { data: 'f_acr' },
+                { data: 'f_dst' },
+                { data: 'f_date_apl' },
+                { data: 'plt_ofc' },
+            ],
+            columnDefs: [
+                {
+                    targets: [0],
+                    data: 'name_f',
+                    render: function (data, type, row) {
+                        return "<span>" + data + " " + row.last_name_f + " " + row.mo_last_name + " </span><input class='id_dca_form' type='hidden' name='id_dca_form' value=" + row.id_dca_form + ">"
+
+
+                    }
+
+                    //     },
+                    //     {
+                    //         targets: [2],
+                    //         data: 'f_sex_dca',
+                    //         render: function (data, type, row) {
+                    //             return "<span> SEX: &nbsp;" + data + " <br> AGE: " + row.f_age_dca + "</span>"
+
+
+                    //         }
+
+                    //     },
+                    //     {
+                    //         targets: [3],
+                    //         data: 'name_lv2',
+                    //         render: function (data, type, row) {
+                    //             return "<span> Sub-County: &nbsp;" + data + " <br> Village: " + row.name_lv3 + "</span>"
+
+
+                    //         }
+
+                    //     },
+                    //     {
+                    //         targets: [4],
+                    //         data: 'Crop_name',
+                    //         render: function (data, type, row) {
+                    //             return "<span> Crop: &nbsp;" + data + " <br> Variety: " + row.name_variety + "</span>"
+
+
+                    //         }
+
+                    //     },
+                    //     // {
+                    //     //     targets: [6],
+                    //     //     data: 'sex',
+                    //     //     render: function (data, type, row) {
+                    //     //         if (data == 1) {
+                    //     //             return "<span>Female</span>"
+                    //     //         }
+                    //     //         if (data == 2) {
+                    //     //             return "<span>Male</span>"
+                    //     //         }
+
+
+                    //     //     }
+
+                },
+
+
+
+            ]
+        });
+
+    });
+    // ///////////////////////////////
 })
 function add_plant_apply() {
 
@@ -231,3 +342,4 @@ function future_development(id_plant_apply) {
 
     });
 }
+// VIEW PLANT APPLICATION REPORT FUNCTIONS////////////////////////////

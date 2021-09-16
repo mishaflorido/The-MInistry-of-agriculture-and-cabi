@@ -7,7 +7,7 @@ use App\Models\PlantApplicationModel;
 
 class PlantApplicationController extends BaseController
 {
-    public function get_praedial()
+    public function get_plant_application()
     {
         $plant_application = new PlantApplicationModel();
         $result = $plant_application->findAll();
