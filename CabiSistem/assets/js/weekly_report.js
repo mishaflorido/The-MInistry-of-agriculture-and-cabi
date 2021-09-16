@@ -1,3 +1,56 @@
+var ofwr_table;
+$(document).ready(function () {
+    ofwr_table = $('#ofwr_table_report').DataTable({
+        select: {
+            style: 'single',
+            blurable: true
+        },
+        stateSave: true,
+        dom: 'Bfrtip',
+        pagingType: "input",
+        buttons: [
+            {
+
+                text: 'PDF',
+                titleAttr: "To PDF",
+                action: function () {
+                    var ofwr = ofwr_table.row({ selected: true }).data();
+
+                    to_pdf_ofwr(ofwr);
+
+                }
+            },
+            'excel', 'print'
+        ],
+        ajax: {
+            method: "GET",
+            url: "get/oficer_wr",
+            dataSrc: ""
+
+        },
+        columns: [
+
+            { data: 'ofc_name' },
+            { data: 'ofc_desig' },
+            { data: 'ofc_week' },
+            { data: 'ofc_dpt' },
+            { data: 'wk_beg' },
+
+
+        ],
+
+    });
+});
+function to_pdf_ofwr(data) {
+    let doc = new jsPDF('l', 'pt', 'a4');
+    doc.setFont('helvetica');
+    doc.setFontType('normal');
+
+    window.open(doc.output('bloburl'));
+}
+
+
+// OFFICER WEEKLY REPORT FORM
 $(document).on("change", "#week_end", function () {
     var date_n = new Date($(this).val());
     var x_date = new Date($(this).val());

@@ -242,7 +242,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#testing_page" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#ofwr_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
                                     </a>
@@ -403,6 +403,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <div class="content-wrapper collapse" id="frmroad_report">
             <?= view_cell('App\Libraries\ViewComponents::getFarmRoadeport') ?>
+        </div>
+        <div class="content-wrapper collapse" id="ofwr_report">
+            <?= view_cell('App\Libraries\ViewComponents::getOfficerWReport') ?>
         </div>
         <!-- /.content-wrapper -->
 

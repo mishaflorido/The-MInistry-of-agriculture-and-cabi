@@ -80,4 +80,8 @@ class ViewComponents
     {
         return view('FarmRoadReport');
     }
+    public function getOfficerWReport()
+    {
+        return view('WeeklyReport_report');
+    }
 }

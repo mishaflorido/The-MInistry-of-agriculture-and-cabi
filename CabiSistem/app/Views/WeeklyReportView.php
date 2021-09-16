@@ -21,7 +21,7 @@
         <form class="frm_ofwr">
             <div class="row my-2">
                 <div class="col-md-6">
-                    <span class="input-group-text">Name of offcer: </span>
+                    <span class="input-group-text">Name of officer: </span>
                     <input type="text" class="form-control" placeholder="Name of offcer" name="ofc_name">
                 </div>
                 <div class="col-md-6">
