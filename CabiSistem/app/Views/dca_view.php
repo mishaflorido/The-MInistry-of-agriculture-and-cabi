@@ -328,41 +328,174 @@
             <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Describe only the major symptoms </span>
-                    <select class="form-select" aria-label="Default select example" name="symtoms">
-                        <option selected>Open this select menu</option>
-                        <option value="Blistered">Blistered</option>
-                        <option value="Bore holes">Bore holes</option>
-                        <option value="Chewed">Chewed</option>
-                        <option value="Dieback">Dieback</option>
-                        <option value="Distorted">Distorted</option>
-                        <option value="Drying">Drying</option>
-                        <option value="Frass">Frass</option>
-                        <option value="Galls/sweellings">Galls/sweellings</option>
-                        <option value="Insect seen">Insect seen</option>
-                        <option value="Leaf fall">Leaf fall</option>
-                        <option value="Leaf spot">Leaf spot</option>
-                        <option value="Mite seen">Mite seen</option>
-                        <option value="Mosaic">Mosaic</option>
-                        <option value="No response">No response</option>
-                        <option value="Pustule">Pustule</option>
-                        <option value="Red">Red</option>
-                    </select>
+                    <div class="row">
+                        <div class="col-md-6" id="symtoms_checkboxes1">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Blistered" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Blistered
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Bore holes" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Bore holes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Chewed" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Chewed
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Dieback" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Dieback
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Leaf fall" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Leaf fall
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Leaf spot" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Leaf spot
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="No response" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    No response
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Pustule" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Pustule
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="symtoms_checkboxes2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Distorted" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Distorted
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Drying" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Drying
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Frass" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Frass
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Galls/sweellings" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Galls/sweellings
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Insect seen" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Insect seen
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Mite seen" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Mite seen
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Mosaic" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Mosaic
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Red" name="symtoms">
+                                <label class="form-check-label" for="pln_afected">
+                                    Red
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="col-md-6">
                     <span class="input-group-text">Symptom distribution </span>
-                    <select class="form-select" aria-label="Default select example" name="sym_dist">
-                        <option selected>Open this select menu</option>
-                        <option value="Certain varieties">Certain varieties</option>
-                        <option value="Even">Even</option>
-                        <option value="Field margin">Field margin</option>
-                        <option value="High areas">High areas</option>
-                        <option value="Individual plants">Individual plants</option>
-                        <option value="Linear">Linear</option>
-                        <option value="Localised">Localised</option>
-                        <option value="Low areas">Low areas</option>
-                        <option value="Scattered">Scattered</option>
-                        >
-                    </select>
+                    <div class="row">
+                        <div class="col-md-6" id="sym_dist_checkboxes1">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Certain varieties" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Certain varieties
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Even" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Even
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Field margin" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Field margin
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="High areas" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    High areas
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Scattered" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Scattered
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="sym_dist_checkboxes2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Individual plants" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Individual plants
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Linear" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Linear
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Localised" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Localised
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Low areas" name="sym_dist">
+                                <label class="form-check-label" for="pln_afected">
+                                    Low areas
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <hr>
@@ -511,18 +644,68 @@
             <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Recomendation type </span>
-                    <select class="form-select" aria-label="Default select example" name="rec_type">
-                        <option selected>Open this select menu</option>
-                        <option value="Biological">Biological</option>
-                        <option value="Cultural">Cultural</option>
-                        <option value="Fertilizer"> Fertilizer</option>
-                        <option value="Fungicide">Fungicide</option>
-                        <option value="Herbicide">Herbicide</option>
-                        <option value="Insecticide/acaricide">Insecticide/acaricide</option>
-                        <option value="Monitoring"> Monitoring</option>
-                        <option value="Other">Other</option>
-                        <option value="Resistant varieties">Resistant varieties</option>
-                    </select>
+                    <div class="row">
+                        <div class="col-md-6" id="recomendationType_checkboxes1">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Biological" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Biological
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Cultural" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Cultural
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Fertilizer" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Fertilizer
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Fungicide" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Fungicide
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Resistant varieties" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Resistant varieties
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="recomendationType_checkboxes2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Herbicide" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Herbicide
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Insecticide/acaricide" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Insecticide/acaricide
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Monitoring" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Monitoring
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Other" name="rec_type">
+                                <label class="form-check-label" for="pln_afected">
+                                    Other
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row my-2">

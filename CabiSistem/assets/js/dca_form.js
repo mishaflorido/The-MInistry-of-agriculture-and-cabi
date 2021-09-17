@@ -167,34 +167,43 @@ $("form").submit(function (event) {
         var id_vari = get_id_crop(formData.get("id_variety"), "list_dca_variety");
         var dev_stage = get_string_check("development_stage1", "development_stage2");
         var pp_afected = get_string_check("plant_afect1", "plant_afect2");
+        var symtoms = get_string_check("symtoms_checkboxes1", "symtoms_checkboxes2");
+        var sym_dist = get_string_check("sym_dist_checkboxes1", "sym_dist_checkboxes2");
+        var rec_type = get_string_check("recomendationType_checkboxes1", "recomendationType_checkboxes2");
         formData.delete("id_crop");
         formData.delete("id_variety");
+        formData.delete("symtoms");
+        formData.delete("sym_dist");
+        formData.delete("rec_type");
+        formData.append("symtoms", symtoms);
+        formData.append("sym_dist", sym_dist);
+        formData.append("rec_type", rec_type);
         formData.append("id_crop", id_crop);
         formData.append("id_variety", id_vari);
         formData.append("dev_stage", dev_stage);
         formData.append("pp_afected", pp_afected);
-        $.ajax({
-            url: "insert/dca_form",
-            type: "POST",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (respuesta) {
-                // setTimeout(function () {
-                //     $('#alert_farmer_page').html("The New User Has Been Registred Succesfully");
-                //     $('#alert_farmer_page').removeClass('d-none');
-                // }, 2000);
-                // $('#alert_farmer_page').addClass('d-none');
+        // $.ajax({
+        //     url: "insert/dca_form",
+        //     type: "POST",
+        //     data: formData,
+        //     cache: false,
+        //     contentType: false,
+        //     processData: false,
+        //     success: function (respuesta) {
+        //         // setTimeout(function () {
+        //         //     $('#alert_farmer_page').html("The New User Has Been Registred Succesfully");
+        //         //     $('#alert_farmer_page').removeClass('d-none');
+        //         // }, 2000);
+        //         // $('#alert_farmer_page').addClass('d-none');
 
-                // var r = JSON.parse(respuesta);
-            }
-        }).done(function () {
-            dca_table.ajax.reload();
-            hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
-            $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
-            $('.alert_dca').removeClass('d-none');
-        });;
+        //         // var r = JSON.parse(respuesta);
+        //     }
+        // }).done(function () {
+        //     dca_table.ajax.reload();
+        //     hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
+        //     $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
+        //     $('.alert_dca').removeClass('d-none');
+        // });;
 
 
     }
@@ -204,16 +213,20 @@ function get_string_check(list1, list2) {
     $("#" + list1 + " div").each(function () {
 
         if ($(this).find("input").is(":checked")) {
-            cadena = cadena + $(this).find("input").val() + " ";
+            cadena = cadena + $(this).find("input").val() + ",";
         }
     });
     $("#" + list2 + " div").each(function () {
 
         if ($(this).find("input").is(":checked")) {
-            cadena = cadena + $(this).find("input").val() + " ";
+            cadena = cadena + $(this).find("input").val() + ",";
         }
     });
-    return cadena;
+
+    console.log(cadena);
+    var newcadena = cadena.split(",");
+    console.log(newcadea);
+    // return cadena;
 
 
 

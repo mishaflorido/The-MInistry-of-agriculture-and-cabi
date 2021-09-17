@@ -28,36 +28,46 @@
         </tbody>
     </table>
     <div class="row my-4">
-        <table id="dca_table_report" class="display responsive " style="width:100%">
-            <thead>
-                <tr>
-                    <th>Farmer Name and ID</th>
-                    <th>Phone</th>
-                    <th>Sex And Age</th>
-                    <th>Sub-County and Village</th>
-                    <th>Crop And Variety</th>
-                    <th>Symtoms</th>
-                    <th>Type Problem</th>
-                    <th>Diagnosis</th>
-                    <th>Recomendation</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_dca_report">
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Farmer Name and ID</th>
-                    <th>Phone</th>
-                    <th>Sex And Age</th>
-                    <th>Sub-County and Village</th>
-                    <th>Crop And Variety</th>
-                    <th>Symtoms</th>
-                    <th>Type Problem</th>
-                    <th>Diagnosis</th>
-                    <th>Recomendation</th>
+        <div class="table-responsive">
+            <table id="dca_table_report" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Farmer Name</th>
+                        <th>Farmer ID</th>
+                        <th>Phone</th>
+                        <th>Sex</th>
+                        <th>Age</th>
+                        <th>Sub-County</th>
+                        <th>Village</th>
+                        <th>Crop</th>
+                        <th>Variety</th>
+                        <th>Symtoms</th>
+                        <th>Type Problem</th>
+                        <th>Diagnosis</th>
+                        <th>Recomendation</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_dca_report">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Farmer Name</th>
+                        <th>Farmer ID</th>
+                        <th>Phone</th>
+                        <th>Sex</th>
+                        <th>Age</th>
+                        <th>Sub-County</th>
+                        <th>Village</th>
+                        <th>Crop</th>
+                        <th> Variety</th>
+                        <th>Symtoms</th>
+                        <th>Type Problem</th>
+                        <th>Diagnosis</th>
+                        <th>Recomendation</th>
 
-                </tr>
-            </tfoot>
-        </table>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>

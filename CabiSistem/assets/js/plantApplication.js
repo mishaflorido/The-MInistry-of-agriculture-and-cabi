@@ -42,7 +42,7 @@ $(document).ready(function () {
                     action: function () {
                         var farmer = p_app.row({ selected: true }).data();
 
-                        to_pdf_farmer(farmer);
+                        to_pdf_pappform(farmer);
 
                     }
                 },
@@ -131,6 +131,16 @@ $(document).ready(function () {
     });
     // ///////////////////////////////
 })
+function to_pdf_pappform(params) {
+    let doc = new jsPDF('p', 'pt', 'a4');
+    window.open(doc.output('bloburl'));
+}
+
+
+
+
+
+
 function add_plant_apply() {
 
     $('#tbody_plant_aplication').append('<tr>' +
