@@ -133,6 +133,49 @@ $(document).ready(function () {
 })
 function to_pdf_pappform(params) {
     let doc = new jsPDF('p', 'pt', 'a4');
+
+// Header to print variables
+
+  doc.setFontType('bold');
+    doc.setFontSize (20)
+    doc.text(150, 30, 'MINISTRY OF AGRICULTURE');
+    doc.setFontType('normal');
+    doc.text(170, 55, 'PLANT APLICATION FORM');
+    doc.setFontSize (12)
+    doc.text(30, 80, 'Name of farmer:');
+    doc.text(350, 80, 'MOA Farmer´s ID:');
+    doc.text(30, 100, 'Address:');
+    doc.text(350, 100, 'Locations of plots:');
+    doc.text(30, 120, 'Tel. No.:');
+    doc.text(180, 120, 'Acreage:');
+    doc.text(350, 120, 'Ext´n District:');
+    doc.text(30, 140, 'Date applied:');
+    doc.text(350, 140, 'Extension officer:');
+// put here the first table
+
+
+
+//Footer of the first table
+    doc.setFontSize (8)
+    doc.text(30, 200, '‘Quantity Recommended’ to be done by Extension Officer; ‘Quantity Approved’ to be done by Agronomy Division ');
+    doc.text(60, 215, 'NB: Forms to be submitted to the Extension Officer to reach Agronomy Division no later than September 15');
+    doc.text(60, 225, ' (Please note the date the form has been received from the applicant) ');
+
+
+// next page
+    doc.addPage("letter","l")
+    doc.setFontSize (10)
+    doc.text(30, 30, 'To be completed by Extension Officer:');
+    doc.text(30,50,'1. Pre-planting inspection: (eg. Area cleared, status of lining of plots, drains, establishment of shade, holes dug, etc)');
+// put here the second table
+
+    doc.text(30,100,'2. Post-planting inspection: (eg. Plants planted; field condition – weeds, rootstock growth;  pests & diseases ; # of deaths; cause  of death, etc.)');
+
+// put here the third table
+    doc.text(30,150,'3. Potential for Future Development: (eg. Plans for expansion, overall plan for farm, etc.)');
+
+    doc.text(30,160,'Extension Officer: ______________________________	Date:________________________');
+    
     window.open(doc.output('bloburl'));
 }
 

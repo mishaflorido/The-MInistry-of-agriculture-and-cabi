@@ -46,6 +46,21 @@ function to_pdf_ofwr(data) {
     doc.setFont('helvetica');
     doc.setFontType('normal');
 
+// Header to print variables
+
+  doc.setFontType('bold');
+    doc.setFontSize (20)
+    doc.text(300, 30, 'MINISTRY OF AGRICULTURE');
+    doc.setFontType('normal');
+    doc.text(300, 55, 'OFICCERS WEEKLY REPORT');
+    doc.setFontSize (14)
+    doc.text(300, 80, '(To be submited to Officcer-in-charge on Mondays)');
+    doc.setFontSize (12)
+    doc.text(30, 105, 'Name of Officcer:');
+    doc.text(300, 105, 'Designation:');
+    doc.text(30, 120, 'Week ending:');
+    doc.text(300, 120, 'Departament/Unit:');
+
     window.open(doc.output('bloburl'));
 }
 
