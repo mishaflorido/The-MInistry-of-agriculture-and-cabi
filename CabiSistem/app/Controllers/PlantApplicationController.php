@@ -14,6 +14,46 @@ class PlantApplicationController extends BaseController
 
         echo json_encode($result);
     }
+    public function get_plant_application_tb1()
+    {
+        $request = \Config\Services::request();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $id_plant_apply = $request->getPostGet('id_plant_apply');
+        $result = $db->query("Select tb1.*, c.Crop_name from plant_application_table tb1 INNER JOIN crops c on c.id_crop = tb1.id_crop where tb1.id_plant_apply = " . $id_plant_apply)->getResultArray();
+        $db->close();
+        echo json_encode($result);
+    }
+    public function get_plant_application_tb2()
+    {
+        $request = \Config\Services::request();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $id_plant_apply = $request->getPostGet('id_plant_apply');
+        $result = $db->query("Select * from pre_plant_insp where id_plant_apply = " . $id_plant_apply)->getResultArray();
+        $db->close();
+        echo json_encode($result);
+    }
+    public function get_plant_application_tb3()
+    {
+        $request = \Config\Services::request();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $id_plant_apply = $request->getPostGet('id_plant_apply');
+        $result = $db->query("Select * from post_plant_insp where id_plant_apply = " . $id_plant_apply)->getResultArray();
+        $db->close();
+        echo json_encode($result);
+    }
+    public function get_plant_application_tb4()
+    {
+        $request = \Config\Services::request();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $id_plant_apply = $request->getPostGet('id_plant_apply');
+        $result = $db->query("Select * from future_development where id_plant_apply = " . $id_plant_apply)->getResultArray();
+        $db->close();
+        echo json_encode($result);
+    }
     public function insert_plant_application()
     {
         $plant_application = new PlantApplicationModel();
@@ -122,9 +162,8 @@ class PlantApplicationController extends BaseController
         $db = \Config\Database::connect("default");
         $request = \Config\Services::request();
         $db = db_connect();
-        $fut_dev  = $request->getPostGet('fut_dev ');
+        $fut_dev  = $request->getPostGet('fut_dev');
         $id_plant_apply = $request->getPostGet('id_plant_apply');
-
         try {
             $db->query("INSERT INTO future_development(fut_dev, id_plant_apply) VALUES ('" . $fut_dev . "'," . $id_plant_apply . ")");
             return "Insertado";

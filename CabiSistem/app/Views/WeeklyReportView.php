@@ -63,10 +63,11 @@
                 <tbody id='tbody_wkly_past_report'>
                     <tr>
                         <td>
-                            <input type="text" name="" value="MON" disabled style="width: 70px;" class="form-control day_monday show_inp">
+                            <input type="text" name="day_ofwr" value="MON" disabled style="width: 70px;" class="form-control day_monday show_inp day_ofwr">
                             <input placeholder="MON" name="date_rpt_day" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_rpt_day h_input d-none">
+
                         </td>
-                        <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control date_wkly_rpt"></textarea></td>
+                        <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control name_wkly_rpt"></textarea></td>
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style=" overflow:hidden;" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style=" overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
@@ -75,7 +76,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="" value="TUES" disabled style="width: 70px;" class="form-control day_tuesday">
+                            <input type="text" name="day_ofwr" value="TUES" disabled style="width: 70px;" class="form-control day_ofwr">
                             <input type="hidden" name="date_rpt_day" style="width: 70px;" style="width: 70px;" class="form-control date_rpt_day h_input d-none">
                         </td>
                         <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control name_wkly_rpt"></textarea></td>
@@ -87,7 +88,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="" value="WED" disabled style="width: 70px;" class="form-control day_wed">
+                            <input type="text" name="day_ofwr" value="WED" disabled style="width: 70px;" class="form-control day_ofwr">
                             <input type="hidden" name="date_rpt_day" style="width: 70px;" class="form-control date_rpt_day h_input d-none">
                         </td>
                         <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control name_wkly_rpt"></textarea></td>
@@ -99,7 +100,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="" value="THURS" disabled style="width: 70px;" class="form-control day_thurs">
+                            <input type="text" name="day_ofwr" value="THURS" disabled style="width: 70px;" class="form-control day_ofwr">
                             <input type="hidden" name="date_rpt_day" style="width: 70px;" class="form-control date_rpt_day h_input d-none">
                         </td>
                         <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control name_wkly_rpt"></textarea></td>
@@ -111,7 +112,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="" value="FRI" disabled style="width: 70px;" class="form-control day_fri">
+                            <input type="text" name="day_ofwr" value="FRI" disabled style="width: 70px;" class="form-control  day_ofwr">
                             <input type="hidden" name="date_rpt_day" style="width: 70px;" class="form-control date_rpt_day h_input d-none">
                         </td>
                         <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control name_wkly_rpt"></textarea></td>
@@ -123,7 +124,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="" value="SAT" disabled style="width: 70px;" class="form-control day_sat">
+                            <input type="text" name="day_ofwr" value="SAT" disabled style="width: 70px;" class="form-control day_ofwr">
                             <input type="hidden" name="date_rpt_day" style="width: 70px;" class="form-control date_rpt_day h_input d-none">
                         </td>
                         <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control name_wkly_rpt"></textarea></td>
@@ -135,7 +136,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="" value="SUN" disabled style="width: 70px;" class="form-control day_sun">
+                            <input type="text" name="day_ofwr" value="SUN" disabled style="width: 70px;" class="form-control day_ofwr">
                             <input type="hidden" name="date_rpt_day" style="width: 70px;" class="form-control date_rpt_day h_input d-none">
                         </td>
                         <td><textarea style="overflow:hidden" type="text" name="name_wkly_rpt" placeholder="Name, Addres, Tel.No" class="form-control name_wkly_rpt"></textarea></td>
@@ -220,7 +221,7 @@
                 <tbody id='tbody_wkly_plan_report'>
                     <tr>
                         <td>
-                            <input type="text" name="day_wkly_rpt" value="MON" disabled style="width: 70px;" class="form-control day_monday show_inp">
+                            <input type="text" name="day_plan_rpt" value="MON" disabled style="width: 70px;" class="form-control day_plan_rpt show_inp">
                             <input placeholder="MON" name="date_plan_rpt" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_plan_rpt h_input_b d-none">
                         </td>
                         <td><input type="text" name="prp_act" placeholder="" class="form-control prp_act"></td>
@@ -231,7 +232,7 @@
 
                     <tr>
                         <td>
-                            <input type="text" name="day_plan_rpt" value="THURS" disabled style="width: 70px;" class="form-control day_p_thurs">
+                            <input type="text" name="day_plan_rpt" value="TUES" disabled style="width: 70px;" class="form-control day_plan_rpt">
                             <input placeholder="MON" name="date_plan_rpt" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_plan_rpt h_input_b d-none">
                         </td>
                         <td><input type="text" name="prp_act" placeholder="" class="form-control prp_act"></td>
@@ -241,7 +242,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="day_plan_rpt" value="WED" disabled style="width: 70px;" class="form-control day_p_wed">
+                            <input type="text" name="day_plan_rpt" value="WED" disabled style="width: 70px;" class="form-control day_plan_rpt">
                             <input placeholder="MON" name="date_plan_rpt" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_plan_rpt h_input_b d-none">
                         </td>
                         <td><input type="text" name="prp_act" placeholder="" class="form-control prp_act"></td>
@@ -251,7 +252,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="day_plan_rpt" value="TUES" disabled style="width: 70px;" class="form-control day_p_tues">
+                            <input type="text" name="day_plan_rpt" value="THURS" disabled style="width: 70px;" class="form-control day_plan_rpt">
                             <input placeholder="MON" name="date_plan_rpt" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_plan_rpt h_input_b d-none">
                         </td>
                         <td><input type="text" name="prp_act" placeholder="" class="form-control prp_act"></td>
@@ -261,7 +262,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="day_plan_rpt" value="FRI" disabled style="width: 70px;" class="form-control day_p_fri">
+                            <input type="text" name="day_plan_rpt" value="FRI" disabled style="width: 70px;" class="form-control day_plan_rpt">
                             <input placeholder="MON" name="date_plan_rpt" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_plan_rpt h_input_b d-none">
                         </td>
                         <td><input type="text" name="prp_act" placeholder="" class="form-control prp_act"></td>
@@ -272,7 +273,17 @@
 
                     <tr>
                         <td>
-                            <input type="text" name="day_plan_rpt" value="SAT" disabled style="width: 70px;" class="form-control day_p_sat">
+                            <input type="text" name="day_plan_rpt" value="SAT" disabled style="width: 70px;" class="form-control day_plan_rpt">
+                            <input placeholder="MON" name="date_plan_rpt" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_plan_rpt h_input_b d-none">
+                        </td>
+                        <td><input type="text" name="prp_act" placeholder="" class="form-control prp_act"></td>
+                        <td><input type="text" name="name_act" placeholder="" class="form-control name_act"></td>
+                        <td><input type="text" name="loc_prp" placeholder="" class="form-control loc_prp"></td>
+                        <td><input type="text" name="nat_prp" placeholder="" class="form-control nat_prp"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="day_plan_rpt" value="SUN" disabled style="width: 70px;" class="form-control day_plan_rpt">
                             <input placeholder="MON" name="date_plan_rpt" type="hidden" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 70px;" class="form-control date_plan_rpt h_input_b d-none">
                         </td>
                         <td><input type="text" name="prp_act" placeholder="" class="form-control prp_act"></td>

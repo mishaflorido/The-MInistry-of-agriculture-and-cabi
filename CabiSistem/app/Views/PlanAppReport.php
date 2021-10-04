@@ -16,14 +16,53 @@
 </div>
 <!-- /.content-header -->
 <div class="container">
-    <table class="d-none" id="t-other">
+    <table class="d-none" id="papp_t1">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Last Name</th>
+                <th>Plant type/Variety</th>
+                <th>Request</th>
+                <th>Recom</th>
+                <th>Approved</th>
+                <th>Received</th>
             </tr>
         </thead>
-        <tbody id="tb_other">
+        <tbody id="papp_tb1">
+
+        </tbody>
+    </table>
+    <table class="d-none" id="papp_t2">
+        <thead>
+            <tr>
+                <th>Date of Visit</th>
+                <th>Comments:</th>
+                <th>Extn. Officer</th>
+                <th>Supervisor</th>
+            </tr>
+        </thead>
+        <tbody id="papp_tb2">
+
+        </tbody>
+    </table>
+    <table class="d-none" id="papp_t3">
+        <thead>
+            <tr>
+                <th>Date of Visit</th>
+                <th>Comments:</th>
+                <th>Extn. Officer</th>
+                <th>Supervisor</th>
+            </tr>
+        </thead>
+        <tbody id="papp_tb3">
+
+        </tbody>
+    </table>
+    <table class="d-none" id="papp_t4">
+        <thead>
+            <tr>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody id="papp_tb4">
 
         </tbody>
     </table>

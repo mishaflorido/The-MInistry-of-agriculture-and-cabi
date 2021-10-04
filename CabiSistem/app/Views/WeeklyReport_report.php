@@ -16,20 +16,45 @@
 </div>
 <!-- /.content-header -->
 <div class="container">
-    <table class="d-none" id="t-farm-road">
+    <table class="d-none" id="table_wr">
         <thead>
             <tr>
-                <th>Date Registered</th>
-                <th>Extension District/Parish</th>
-                <th>Name of Road</th>
-                <th>Approximate Length</th>
-                <th>N° of Farmer Using Road</th>
-                <th>Agricultural Activities</th>
-                <th>Work to be Done</th>
-                <th>Remarks</th>
+                <th>Day & Date</th>
+                <th>Name, Addres, Tel.No</th>
+                <th>Date of previous visit</th>
+                <th>Clients problems, needs and requests</th>
+                <th>Nature of advise given or work done with client (inlcude relevant and especific information)</th>
+                <th>Amount of time spent with client</th>
+                <th>Miles traveled</th>
             </tr>
         </thead>
-        <tbody id="tb_farm_road">
+        <tbody id="tb_wr">
+
+        </tbody>
+    </table>
+    <table class="d-none" id="table_oa">
+        <thead>
+            <tr>
+                <th>Day, date & time</th>
+                <th>Nature of activity</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody id="tb_oa">
+
+        </tbody>
+    </table>
+    <table class="d-none" id="table_wb">
+        <thead>
+            <tr>
+                <th>Day & Date</th>
+                <th>Proposed activity eg. Visits, attendace at seminar, meeting, demostration, training session, etc.</th>
+                <th>Names, Address & Tel.No. of clients to be visited</th>
+                <th>Location of proposed activity (Specific addresses)</th>
+                <th>Nature of to be carried out e.g. Advisory work, follop up, demostration, meeting, etc.</th>
+            </tr>
+        </thead>
+        <tbody id="tb_wb">
 
         </tbody>
     </table>

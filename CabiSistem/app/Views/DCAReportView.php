@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-8">
-                <h1 class="m-0">DCA Report</h1>
+                <h1 class="m-0">DCA Report Compatible with POMS Format</h1>
             </div><!-- /.col -->
             <div class="col-sm-4">
                 <ol class="breadcrumb float-sm-right">
@@ -16,58 +16,49 @@
 </div>
 <!-- /.content-header -->
 <div class="container">
-    <table class="d-none" id="t-other">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Last Name</th>
-            </tr>
-        </thead>
-        <tbody id="tb_other">
+    <div class="table-responsive">
+        <table id="table_dcatoPOMS" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Clinic Code</th>
+                    <th>Plant Doctor</th>
+                    <th>Farmer Name</th>
+                    <th>Farmer Gender</th>
+                    <th>Farmer Age</th>
+                    <th>Farmer Location 1</th>
+                    <th>Farmer Location 2</th>
+                    <th>Farmer Location 3</th>
+                    <th>Farmer Telephone</th>
+                    <th>Crop</th>
+                    <th>Variety</th>
+                    <th>Sample Brought</th>
+                    <th>Development Stage</th>
+                    <th>Part Affected</th>
+                    <th>Year First Noticed</th>
+                    <th>Area Planted</th>
+                    <th>Area Planted Unit</th>
+                    <th>Percent Of Crop Affected</th>
+                    <th>Symptoms</th>
+                    <th>Distribution</th>
+                    <th>Description Of Problem</th>
+                    <th>Problem Type</th>
+                    <th>Diagnosis</th>
+                    <th>Description Of Current Control</th>
+                    <th>Recommendation Type</th>
+                    <th>Recommendation For Current Problem</th>
+                    <th>Recommendation For Future Prevention</th>
+                    <th>Sample Sent To Lab</th>
+                    <th>Factsheet Given</th>
+                    <th>Field Visit Arranged</th>
 
-        </tbody>
-    </table>
-    <div class="row my-4">
-        <div class="table-responsive">
-            <table id="dca_table_report" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Farmer Name</th>
-                        <th>Farmer ID</th>
-                        <th>Phone</th>
-                        <th>Sex</th>
-                        <th>Age</th>
-                        <th>Sub-County</th>
-                        <th>Village</th>
-                        <th>Crop</th>
-                        <th>Variety</th>
-                        <th>Symtoms</th>
-                        <th>Type Problem</th>
-                        <th>Diagnosis</th>
-                        <th>Recomendation</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_dca_report">
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Farmer Name</th>
-                        <th>Farmer ID</th>
-                        <th>Phone</th>
-                        <th>Sex</th>
-                        <th>Age</th>
-                        <th>Sub-County</th>
-                        <th>Village</th>
-                        <th>Crop</th>
-                        <th> Variety</th>
-                        <th>Symtoms</th>
-                        <th>Type Problem</th>
-                        <th>Diagnosis</th>
-                        <th>Recomendation</th>
 
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+                </tr>
+            </thead>
+            <tbody id="tb_other">
+
+            </tbody>
+        </table>
     </div>
+
 </div>

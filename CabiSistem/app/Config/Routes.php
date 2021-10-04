@@ -67,6 +67,8 @@ $routes->post('/insert/live_det', 'FarmerController::insert_live_det');
 $routes->post('/insert/m_det', 'FarmerController::insert_middleman');
 // Pesticide Application 
 $routes->post('/insert/pest_app', 'PestAppController::insert_pest_app');
+$routes->post('/get/pest_app_betweendate', 'PestAppController::get_pest_app_datebtw');
+$routes->get('/get/pest_app', 'PestAppController::get_pest_app');
 // Boundary 
 $routes->post('/insert/boundary', 'FarmerController::insert_boundary');
 // FarmRoads 
@@ -92,6 +94,10 @@ $routes->post('/insert/pre_plant_insp', 'PlantApplicationController::insert_pre_
 $routes->post('/insert/post_plant_insp', 'PlantApplicationController::insert_post_plant_insp');
 $routes->post('/insert/future_development', 'PlantApplicationController::insert_future_development');
 $routes->get('/get/plant_app', 'PlantApplicationController::get_plant_application');
+$routes->post('/get/plant_apply_tb1', 'PlantApplicationController::get_plant_application_tb1');
+$routes->post('/get/plant_apply_tb2', 'PlantApplicationController::get_plant_application_tb2');
+$routes->post('/get/plant_apply_tb3', 'PlantApplicationController::get_plant_application_tb3');
+$routes->post('/get/plant_apply_tb4', 'PlantApplicationController::get_plant_application_tb4');
 // DCA Form
 $routes->get('/get/variety', 'DCAFromController::get_variety');
 $routes->get('/get/dca', 'DCAFromController::get_dca');
@@ -102,6 +108,9 @@ $routes->post('/insert/oficer_wr', 'OficersWeeklyReportController::insert_of_wr'
 $routes->post('/insert/weekend_wr', 'OficersWeeklyReportController::insert_weeklyend_ofwr');
 $routes->post('/insert/other_activ', 'OficersWeeklyReportController::insert_other_activ_ofwr');
 $routes->post('/insert/itinerary_week', 'OficersWeeklyReportController::insert_itinerary_week');
+$routes->post('/get/endWeek', 'OficersWeeklyReportController::get_endWeek');
+$routes->post('/get/otherActivities', 'OficersWeeklyReportController::get_otherActivities');
+$routes->post('/get/weekBeginning', 'OficersWeeklyReportController::get_weekBeginning');
 
 
 

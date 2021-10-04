@@ -182,51 +182,50 @@ $("form").submit(function (event) {
         formData.append("id_variety", id_vari);
         formData.append("dev_stage", dev_stage);
         formData.append("pp_afected", pp_afected);
-        // $.ajax({
-        //     url: "insert/dca_form",
-        //     type: "POST",
-        //     data: formData,
-        //     cache: false,
-        //     contentType: false,
-        //     processData: false,
-        //     success: function (respuesta) {
-        //         // setTimeout(function () {
-        //         //     $('#alert_farmer_page').html("The New User Has Been Registred Succesfully");
-        //         //     $('#alert_farmer_page').removeClass('d-none');
-        //         // }, 2000);
-        //         // $('#alert_farmer_page').addClass('d-none');
+        $.ajax({
+            url: "insert/dca_form",
+            type: "POST",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (respuesta) {
+                // setTimeout(function () {
+                //     $('#alert_farmer_page').html("The New User Has Been Registred Succesfully");
+                //     $('#alert_farmer_page').removeClass('d-none');
+                // }, 2000);
+                // $('#alert_farmer_page').addClass('d-none');
 
-        //         // var r = JSON.parse(respuesta);
-        //     }
-        // }).done(function () {
-        //     dca_table.ajax.reload();
-        //     hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
-        //     $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
-        //     $('.alert_dca').removeClass('d-none');
-        // });;
+                // var r = JSON.parse(respuesta);
+            }
+        }).done(function () {
+            dca_table.ajax.reload();
+            hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
+            $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
+            $('.alert_dca').removeClass('d-none');
+        });;
 
 
     }
 });
 function get_string_check(list1, list2) {
-    var cadena = "";
+    var arr = [];
     $("#" + list1 + " div").each(function () {
 
         if ($(this).find("input").is(":checked")) {
-            cadena = cadena + $(this).find("input").val() + ",";
+            arr.push($(this).find("input").val());
+            // cadena = cadena + $(this).find("input").val() + ",";
         }
     });
     $("#" + list2 + " div").each(function () {
 
         if ($(this).find("input").is(":checked")) {
-            cadena = cadena + $(this).find("input").val() + ",";
+            arr.push($(this).find("input").val());
+            // cadena = cadena + $(this).find("input").val() + ",";
         }
     });
 
-    console.log(cadena);
-    var newcadena = cadena.split(",");
-    console.log(newcadea);
-    // return cadena;
+    return arr.toString();
 
 
 

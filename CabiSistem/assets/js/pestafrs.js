@@ -1,3 +1,4 @@
+var pestapp;
 $(document).ready(function () {
     // Get Crop
     $.ajax({
@@ -20,7 +21,119 @@ $(document).ready(function () {
         }
 
     });
+
+    pestapp = $('#pestapp_table_report').DataTable({
+        // select: {
+        //     style: 'single',
+        //     blurable: true
+        // },
+        stateSave: true,
+        dom: 'Bfrtip',
+        pagingType: "input",
+        buttons: [
+            {
+
+                text: 'PDF',
+                titleAttr: "To PDF",
+                action: function () {
+                    // var farmer = pestapp.row({ selected: true }).data();
+                    // get_papp_tb1(farmer.id_plant_apply);
+                    to_pdf_pestappform();
+
+                }
+            },
+            'excel', 'print'
+        ],
+        ajax: {
+            method: "GET",
+            url: "get/pest_app",
+            dataSrc: ""
+
+        },
+        columns: [
+
+            { data: 'spsig_pestapp' },
+            { data: 'inf_far' },
+            { data: 'date_pestapp' },
+            { data: 'com_pestapp' },
+
+        ],
+
+    });
+
 })
+$(document).on("change", ".to_search", function () {
+    // console.log("busqueda");
+    get_between_datepestapp();
+})
+function get_between_datepestapp() {
+    $("#pestapp_tb1").empty();
+    var f_date = $("#f_date").val();
+    var l_date = $("#l_date").val();
+    var sup_sig_pdf = $("#sup_sig_pdf").val();
+    $.ajax({
+        url: "get/pest_app_betweendate",
+        type: "POST",
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        data: {
+            'f_date': f_date,
+            'l_date': l_date,
+            'sup_sig_pdf': sup_sig_pdf,
+
+        },
+        success: function (respuesta) {
+            for (const key in respuesta) {
+                if (Object.hasOwnProperty.call(respuesta, key)) {
+                    const element = respuesta[key];
+                    // console.log(element);
+                    $('#pestapp_tb1').append("<tr>" +
+                        "<td>" + element['inf_far'] + "</td>" +
+                        "<td>" + element['date_pestapp'] + "</td>" +
+                        "<td>" + element['crop_pestapp'] + "</td>" +
+                        "<td>" + element['plsi_pestapp'] + "</td>" +
+                        "<td>" + element['targ_pestapp'] + "</td>" +
+                        "<td>" + element['pest_pestapp'] + "</td>" +
+                        "<td>" + element['rate_pestapp'] + "</td>" +
+                        "<td>" + element['amt_pestapp'] + "</td>" +
+                        "<td>" + element['com_pestapp'] + "</td>" +
+                        "</tr>");
+
+                }
+
+            }
+        }
+    })
+}
+function to_pdf_pestappform() {
+    let doc = new jsPDF('p', 'pt', 'a4');
+    doc.setFontType('bold');
+    doc.setFontSize(16)
+    doc.text(120, 30, 'Pest Management Unit, Ministry of Agriculture');
+    doc.setFontType('normal');
+    doc.text(140, 55, 'Pesticide Application – Field Record Sheet');
+    doc.setFontSize(12)
+    var res = doc.autoTableHtmlToJson(document.getElementById("pestapp_t1"));
+    doc.autoTable(res.columns, res.data, {
+        startY: 70,
+        tableLineColor: 200,
+        tableLineWidth: 0,
+        margin: { horizontal: 30 },
+        styles: { overflow: 'linebreak' },
+        headerStyles: { fillColor: '#30aa4c', },
+        columnStyles: {
+            //     0: { columnWidth: 80 },
+            //     1: { columnWidth: 377 },
+            // },
+            theme: "grid"
+        }
+    });
+    doc.text(30, doc.autoTableEndPosY() + 20, 'Supervisor signature: ' + $("#sup_sig_pdf").val());
+
+
+    window.open(doc.output('bloburl'));
+
+}
 function add_pesticide() {
 
     $('#tbody_pesticide').append('<tr>' +

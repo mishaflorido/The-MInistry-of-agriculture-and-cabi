@@ -260,6 +260,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#pestapp_report" aria-expanded="false" aria-controls="user_page">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pesticide Application</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#testing_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Vendors Registration Report</p>
@@ -406,6 +412,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <div class="content-wrapper collapse" id="ofwr_report">
             <?= view_cell('App\Libraries\ViewComponents::getOfficerWReport') ?>
+        </div>
+        <div class="content-wrapper collapse" id="pestapp_report">
+            <?= view_cell('App\Libraries\ViewComponents::getPestAppReport') ?>
         </div>
         <!-- /.content-wrapper -->
 

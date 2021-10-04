@@ -84,4 +84,8 @@ class ViewComponents
     {
         return view('WeeklyReport_report');
     }
+    public function getPestAppReport()
+    {
+        return view('PestAppReport');
+    }
 }

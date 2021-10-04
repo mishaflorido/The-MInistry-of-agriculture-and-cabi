@@ -14,6 +14,39 @@ class OficersWeeklyReportController extends BaseController
 
         echo json_encode($result);
     }
+    public function get_endWeek()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $request = \Config\Services::request();
+        $id_of_wr = $request->getPostGet('id_of_wr');
+        $result = $db->query("SELECT * FROM `week_end` WHERE `id_of_wr` = " . $id_of_wr . " ORDER BY STR_TO_DATE(`date_rpt_day`,'%d/%m/%Y')")->getResultArray();
+
+        $db->close();
+        echo json_encode($result);
+    }
+    public function get_weekBeginning()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $request = \Config\Services::request();
+        $id_of_wr = $request->getPostGet('id_of_wr');
+        $result = $db->query("SELECT * FROM `itinerary_week` WHERE `id_of_wr` = " . $id_of_wr . " ORDER BY STR_TO_DATE(`date_plan_rpt`,'%d/%m/%Y')")->getResultArray();
+
+        $db->close();
+        echo json_encode($result);
+    }
+    public function get_otherActivities()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $request = \Config\Services::request();
+        $id_of_wr = $request->getPostGet('id_of_wr');
+        $result = $db->query("SELECT * FROM `other_activ` WHERE `id_of_wr` = " . $id_of_wr)->getResultArray();
+
+        $db->close();
+        echo json_encode($result);
+    }
     public function insert_of_wr()
     {
         $of_wr = new OficersWeeklyReportModel();
@@ -49,6 +82,7 @@ class OficersWeeklyReportController extends BaseController
         $request = \Config\Services::request();
         $db = db_connect();
         $date_rpt_day = $request->getPostGet('date_rpt_day');
+        $day_ofwr = $request->getPostGet('day_ofwr');
         $name_wkly_rpt = $request->getPostGet('name_wkly_rpt');
         $date_wkly_rpt = $request->getPostGet('date_wkly_rpt');
         $clt_wkly_rpt = $request->getPostGet('clt_wkly_rpt');
@@ -56,10 +90,10 @@ class OficersWeeklyReportController extends BaseController
         $time_wkly_rpt = $request->getPostGet('time_wkly_rpt');
         $miles_wkly_rpt = $request->getPostGet('miles_wkly_rpt');
         $id_of_wr = $request->getPostGet('id_of_wr');
-
-        echo "INSERT INTO week_end(id_of_wr, date_rpt_day, name_wkly_rpt, date_wkly_rpt, clt_wkly_rpt, Adv_wkly_rpt, time_wkly_rpt, miles_wkly_rpt) VALUES (" . $id_of_wr . ",'" . $date_rpt_day . "','" . $name_wkly_rpt . "','" . $date_wkly_rpt . "','" . $clt_wkly_rpt . "','" . $Adv_wkly_rpt . "'," . $time_wkly_rpt . "," . $miles_wkly_rpt . ")";
+        echo $date_rpt_day;
+        echo "INSERT INTO week_end(id_of_wr, date_rpt_day,day_ofwr, name_wkly_rpt, date_wkly_rpt, clt_wkly_rpt, Adv_wkly_rpt, time_wkly_rpt, miles_wkly_rpt) VALUES (" . $id_of_wr . ",'" . $date_rpt_day . "', '" . $day_ofwr . "','" . $name_wkly_rpt . "','" . $date_wkly_rpt . "','" . $clt_wkly_rpt . "','" . $Adv_wkly_rpt . "'," . $time_wkly_rpt . "," . $miles_wkly_rpt . ")";
         try {
-            $db->query("INSERT INTO week_end(id_of_wr, date_rpt_day, name_wkly_rpt, date_wkly_rpt, clt_wkly_rpt, Adv_wkly_rpt, time_wkly_rpt, miles_wkly_rpt) VALUES (" . $id_of_wr . ",'" . $date_rpt_day . "','" . $name_wkly_rpt . "','" . $date_wkly_rpt . "','" . $clt_wkly_rpt . "','" . $Adv_wkly_rpt . "'," . $time_wkly_rpt . "," . $miles_wkly_rpt . ")");
+            $db->query("INSERT INTO week_end(id_of_wr, date_rpt_day, day_ofwr, name_wkly_rpt, date_wkly_rpt, clt_wkly_rpt, Adv_wkly_rpt, time_wkly_rpt, miles_wkly_rpt) VALUES (" . $id_of_wr . ",'" . $date_rpt_day . "', '" . $day_ofwr . "','" . $name_wkly_rpt . "','" . $date_wkly_rpt . "','" . $clt_wkly_rpt . "','" . $Adv_wkly_rpt . "'," . $time_wkly_rpt . "," . $miles_wkly_rpt . ")");
             return "Insertado";
         } catch (\Throwable $th) {
             echo $th;
@@ -93,15 +127,16 @@ class OficersWeeklyReportController extends BaseController
         $request = \Config\Services::request();
         $db = db_connect();
         $date_plan_rpt = $request->getPostGet('date_plan_rpt');
+        $day_plan_rpt = $request->getPostGet('day_plan_rpt');
         $prp_act = $request->getPostGet('prp_act');
         $name_act = $request->getPostGet('name_act');
         $loc_prp = $request->getPostGet('loc_prp');
         $nat_prp = $request->getPostGet('nat_prp');
         $id_of_wr = $request->getPostGet('id_of_wr');
 
-        echo "INSERT INTO itinerary_week(id_of_wr, date_plan_rpt, prp_act, name_act, loc_prp, nat_prp) VALUES (" . $id_of_wr . ",'" . $date_plan_rpt . "','" . $prp_act . "','" . $name_act . "','" . $loc_prp . "','" . $nat_prp . "')";
+        echo "INSERT INTO itinerary_week(id_of_wr, date_plan_rpt, day_plan_rpt , prp_act, name_act, loc_prp, nat_prp) VALUES (" . $id_of_wr . ",'" . $date_plan_rpt . "', '" . $day_plan_rpt . "','" . $prp_act . "','" . $name_act . "','" . $loc_prp . "','" . $nat_prp . "')";
         try {
-            $db->query("INSERT INTO itinerary_week(id_of_wr, date_plan_rpt, prp_act, name_act, loc_prp, nat_prp) VALUES (" . $id_of_wr . ",'" . $date_plan_rpt . "','" . $prp_act . "','" . $name_act . "','" . $loc_prp . "','" . $nat_prp . "')");
+            $db->query("INSERT INTO itinerary_week(id_of_wr, date_plan_rpt, day_plan_rpt , prp_act, name_act, loc_prp, nat_prp) VALUES (" . $id_of_wr . ",'" . $date_plan_rpt . "', '" . $day_plan_rpt . "','" . $prp_act . "','" . $name_act . "','" . $loc_prp . "','" . $nat_prp . "')");
             return "Insertado";
         } catch (\Throwable $th) {
             echo $th;

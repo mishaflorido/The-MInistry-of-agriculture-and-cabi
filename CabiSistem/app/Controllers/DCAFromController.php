@@ -20,7 +20,7 @@ class DCAFromController extends BaseController
     {
         $db = \Config\Database::connect("default");
         $db = db_connect();
-        $result = $db->query("Select a.*, c.Crop_name, v.name_variety, l2.name_lv2, l3.name_lv3 from dca_form a INNER JOIN crops c on c.id_crop = a.id_crop INNER JOIN variety v on v.id_variety = a.id_variety INNER JOIN level2 l2 on l2.id_lv2 = a.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = a.id_lv3")->getResultArray();
+        $result = $db->query("Select a.*, pd.pdoc_name, pd.pdoc_lastname, c.Crop_name, v.name_variety, l1.name_lv1,l2.name_lv2, l3.name_lv3 from dca_form a INNER JOIN crops c on c.id_crop = a.id_crop INNER JOIN variety v on v.id_variety = a.id_variety INNER JOIN level2 l2 on l2.id_lv2 = a.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = a.id_lv3 INNER JOIN plant_doctor pd on pd.id_plant_doc = a.id_plant_doc INNER JOIN level1 l1 on l1.id_lv1 = a.id_lv1")->getResultArray();
         $db->close();
         echo json_encode($result);
     }
@@ -61,6 +61,7 @@ class DCAFromController extends BaseController
         $s_tolab = $request->getPostGet('s_tolab');
         $sheet_giv = $request->getPostGet('sheet_giv');
         $field_v = $request->getPostGet('field_v');
+        $date_dcaform = date("Y/m/d");
         $data = [
             "id_plant_doc" => $id_plant_doc,
             "cli_det" => $cli_det,
@@ -92,7 +93,8 @@ class DCAFromController extends BaseController
             "rec_prevp" => $rec_prevp,
             "s_tolab" => $s_tolab,
             "sheet_giv" => $sheet_giv,
-            "field_v" => $field_v
+            "field_v" => $field_v,
+            "date_dcaform" => $date_dcaform
         ];
         print_r($data);
         $dcaForm->insert($data);

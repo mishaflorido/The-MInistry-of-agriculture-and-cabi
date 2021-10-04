@@ -7,11 +7,22 @@ use App\Models\PestAppModel;
 
 class PestAppController extends BaseController
 {
-    public function get_crop_damage()
+    public function get_pest_app()
     {
         $pestapp = new PestAppModel();
         $result = $pestapp->findAll();
 
+        echo json_encode($result);
+    }
+    public function get_pest_app_datebtw()
+    {
+        $db = \Config\Database::connect("default");
+        $request = \Config\Services::request();
+        $db = db_connect();
+        $f_date = $request->getPostGet('f_date');
+        $l_date = $request->getPostGet('l_date');
+        $sup_sig_pdf = $request->getPostGet('sup_sig_pdf');
+        $result = $db->query("SELECT * FROM pest_app WHERE spsig_pestapp = '" . $sup_sig_pdf . "' AND date_pestapp BETWEEN '" . $f_date . "' AND '" . $l_date . "'")->getResultArray();
         echo json_encode($result);
     }
     public function insert_pest_app()

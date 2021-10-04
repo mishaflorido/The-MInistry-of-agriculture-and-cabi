@@ -1,3 +1,4 @@
+var p_app;
 // VIEW FORM APPLICATION FUNCTIONS////////////////////////////
 $(document).ready(function () {
     // Get Crop
@@ -22,160 +23,325 @@ $(document).ready(function () {
     });
     // ////////////////////////////////////
     // LOAD DATATABLE FOR PLANT APPLICATION REPORT
-    var p_app;
-    $(document).ready(function () {
 
 
-        p_app = $('#plapp_table_report').DataTable({
-            select: {
-                style: 'single',
-                blurable: true
+
+    p_app = $('#plapp_table_report').DataTable({
+        select: {
+            style: 'single',
+            blurable: true
+        },
+        stateSave: true,
+        dom: 'Bfrtip',
+        pagingType: "input",
+        buttons: [
+            {
+
+                text: 'PDF',
+                titleAttr: "To PDF",
+                action: function () {
+                    var farmer = p_app.row({ selected: true }).data();
+                    // get_papp_tb1(farmer.id_plant_apply);
+                    to_pdf_pappform(farmer);
+
+                }
             },
-            stateSave: true,
-            dom: 'Bfrtip',
-            pagingType: "input",
-            buttons: [
-                {
+            'excel', 'print'
+        ],
+        ajax: {
+            method: "GET",
+            url: "get/plant_app",
+            dataSrc: ""
 
-                    text: 'PDF',
-                    titleAttr: "To PDF",
-                    action: function () {
-                        var farmer = p_app.row({ selected: true }).data();
+        },
+        columns: [
 
-                        to_pdf_pappform(farmer);
+            { data: 'name_f' },
+            { data: 'id_farm' },
+            { data: 'f_addres' },
+            { data: 'plt_loc' },
+            { data: 'f_phone' },
+            { data: 'f_acr' },
+            { data: 'f_dst' },
+            { data: 'f_date_apl' },
+            { data: 'plt_ofc' },
+        ],
+        columnDefs: [
+            {
+                targets: [0],
+                data: 'name_f',
+                render: function (data, type, row) {
+                    return "<span>" + data + " " + row.last_name_f + " " + row.mo_last_name + " </span><input class='id_dca_form' type='hidden' name='id_dca_form' value=" + row.id_dca_form + ">"
 
-                    }
-                },
-                'excel', 'print'
-            ],
-            ajax: {
-                method: "GET",
-                url: "get/plant_app",
-                dataSrc: ""
 
+                }
             },
-            columns: [
-
-                { data: 'name_f' },
-                { data: 'id_farm' },
-                { data: 'f_addres' },
-                { data: 'plt_loc' },
-                { data: 'f_phone' },
-                { data: 'f_acr' },
-                { data: 'f_dst' },
-                { data: 'f_date_apl' },
-                { data: 'plt_ofc' },
-            ],
-            columnDefs: [
-                {
-                    targets: [0],
-                    data: 'name_f',
-                    render: function (data, type, row) {
-                        return "<span>" + data + " " + row.last_name_f + " " + row.mo_last_name + " </span><input class='id_dca_form' type='hidden' name='id_dca_form' value=" + row.id_dca_form + ">"
-
-
-                    }
-
-                    //     },
-                    //     {
-                    //         targets: [2],
-                    //         data: 'f_sex_dca',
-                    //         render: function (data, type, row) {
-                    //             return "<span> SEX: &nbsp;" + data + " <br> AGE: " + row.f_age_dca + "</span>"
-
-
-                    //         }
-
-                    //     },
-                    //     {
-                    //         targets: [3],
-                    //         data: 'name_lv2',
-                    //         render: function (data, type, row) {
-                    //             return "<span> Sub-County: &nbsp;" + data + " <br> Village: " + row.name_lv3 + "</span>"
-
-
-                    //         }
-
-                    //     },
-                    //     {
-                    //         targets: [4],
-                    //         data: 'Crop_name',
-                    //         render: function (data, type, row) {
-                    //             return "<span> Crop: &nbsp;" + data + " <br> Variety: " + row.name_variety + "</span>"
-
-
-                    //         }
-
-                    //     },
-                    //     // {
-                    //     //     targets: [6],
-                    //     //     data: 'sex',
-                    //     //     render: function (data, type, row) {
-                    //     //         if (data == 1) {
-                    //     //             return "<span>Female</span>"
-                    //     //         }
-                    //     //         if (data == 2) {
-                    //     //             return "<span>Male</span>"
-                    //     //         }
-
-
-                    //     //     }
-
-                },
 
 
 
-            ]
-        });
-
+        ]
     });
+
+
     // ///////////////////////////////
 })
-function to_pdf_pappform(params) {
+function get_papp_tb1(id_plant_apply) {
+    $('#papp_tb1').empty();
+    $.ajax({
+        url: "get/plant_apply_tb1",
+        type: "POST",
+        data: {
+            "id_plant_apply": id_plant_apply,
+        },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        success: function (respuesta) {
+            // var r = JSON.parse(respuesta);
+            for (const key in respuesta) {
+                if (Object.hasOwnProperty.call(respuesta, key)) {
+                    const element = respuesta[key];
+                    // console.log(element);
+                    $('#papp_tb1').append("<tr>" +
+                        "<td>" + element['Crop_name'] + "</td>" +
+                        "<td>" + element['plant_req'] + "</td>" +
+                        "<td>" + element['plant_recom'] + "</td>" +
+                        "<td>" + element['plant_approv'] + "</td>" +
+                        "<td>" + element['plant_received'] + "</td>" +
+                        "</tr>");
+
+                }
+
+            }
+        }
+
+    })
+
+}
+function get_papp_tb2(id_plant_apply) {
+    $('#papp_tb2').empty();
+    $.ajax({
+        url: "get/plant_apply_tb2",
+        type: "POST",
+        data: {
+            "id_plant_apply": id_plant_apply,
+        },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        success: function (respuesta) {
+            // var r = JSON.parse(respuesta);
+            for (const key in respuesta) {
+                if (Object.hasOwnProperty.call(respuesta, key)) {
+                    const element = respuesta[key];
+                    // console.log(element);
+                    $('#papp_tb2').append("<tr>" +
+                        "<td>" + element['pre_date_visit'] + "</td>" +
+                        "<td>" + element['pre_com'] + "</td>" +
+                        "<td>" + element['extn_officeer'] + "</td>" +
+                        "<td>" + element['supervisor'] + "</td>" +
+                        "</tr>");
+
+                }
+
+            }
+        }
+
+    })
+
+}
+function get_papp_tb3(id_plant_apply) {
+    $('#papp_tb3').empty();
+    $.ajax({
+        url: "get/plant_apply_tb3",
+        type: "POST",
+        data: {
+            "id_plant_apply": id_plant_apply,
+        },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        success: function (respuesta) {
+            // var r = JSON.parse(respuesta);
+            for (const key in respuesta) {
+                if (Object.hasOwnProperty.call(respuesta, key)) {
+                    const element = respuesta[key];
+                    // console.log(element);
+                    $('#papp_tb3').append("<tr>" +
+                        "<td>" + element['pos_date_visit'] + "</td>" +
+                        "<td>" + element['pos_Comments'] + "</td>" +
+                        "<td>" + element['extn_officeer_post'] + "</td>" +
+                        "<td>" + element['supervisor_post'] + "</td>" +
+                        "</tr>");
+
+                }
+
+            }
+        }
+
+    })
+
+}
+function get_papp_tb4(id_plant_apply) {
+    $('#papp_tb4').empty();
+    $.ajax({
+        url: "get/plant_apply_tb4",
+        type: "POST",
+        data: {
+            "id_plant_apply": id_plant_apply,
+        },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        success: function (respuesta) {
+            // var r = JSON.parse(respuesta);
+            for (const key in respuesta) {
+                if (Object.hasOwnProperty.call(respuesta, key)) {
+                    const element = respuesta[key];
+                    // console.log(element);
+                    $('#papp_tb4').append("<tr>" +
+                        "<td>" + element['fut_dev'] + "</td>" +
+                        "</tr>");
+
+                }
+
+            }
+        }
+
+    })
+
+}
+$(document).on("click", "#tbody_plapp_report tr", function () {
+    var crop = p_app.row({ selected: true }).data();
+    get_papp_tb1(crop["id_plant_apply"]);
+    get_papp_tb2(crop["id_plant_apply"]);
+    get_papp_tb3(crop["id_plant_apply"]);
+    get_papp_tb4(crop["id_plant_apply"]);
+})
+function to_pdf_pappform(papp) {
     let doc = new jsPDF('p', 'pt', 'a4');
 
-// Header to print variables
+    // Header to print variables
 
-  doc.setFontType('bold');
-    doc.setFontSize (20)
+    doc.setFontType('bold');
+    doc.setFontSize(20)
     doc.text(150, 30, 'MINISTRY OF AGRICULTURE');
     doc.setFontType('normal');
     doc.text(170, 55, 'PLANT APLICATION FORM');
-    doc.setFontSize (12)
-    doc.text(30, 80, 'Name of farmer:');
-    doc.text(350, 80, 'MOA Farmer´s ID:');
-    doc.text(30, 100, 'Address:');
-    doc.text(350, 100, 'Locations of plots:');
-    doc.text(30, 120, 'Tel. No.:');
-    doc.text(180, 120, 'Acreage:');
-    doc.text(350, 120, 'Ext´n District:');
-    doc.text(30, 140, 'Date applied:');
-    doc.text(350, 140, 'Extension officer:');
-// put here the first table
+    doc.setFontSize(12)
+    doc.text(30, 80, 'Name of farmer: ' + papp['name_f'] + " " + papp['last_name_f'] + " " + papp['mo_last_name']);
+    doc.text(350, 80, 'MOA Farmer´s ID.#: ' + papp['id_farm']);
+    doc.text(30, 105, 'Address: ' + papp['f_addres']);
+    doc.text(350, 105, 'Locations of plots: ' + papp['plt_loc']);
+    doc.text(30, 130, 'Tel. No.: ' + papp['f_phone']);
+    doc.text(180, 130, 'Acreage: ' + papp['f_acr']);
+    doc.text(350, 130, 'Ext´n District: ' + papp['f_dst']);
+    doc.text(30, 190, 'Date applied: ' + papp['f_date_apl']);
+    doc.text(340, 190, 'Extension officer: ' + papp['plt_ofc']);
+    // put here the first table
+    doc.rect(30, 200, 535, 20, "S");
+    doc.setFillColor(48, 170, 76);
+    doc.rect(198, 200.5, 270, 19, "F");
+    doc.setFontSize("10");
+    doc.setTextColor(255, 255, 255);
+    doc.text(290, 215, "QUANTITY");
+    var res = doc.autoTableHtmlToJson(document.getElementById("papp_t1"));
+    doc.autoTable(res.columns, res.data, {
+        startY: 221,
+        tableLineColor: 200,
+        tableLineWidth: 0,
+        margin: { horizontal: 30 },
+        styles: { overflow: 'linebreak' },
+        headerStyles: { fillColor: '#30aa4c', },
+        columnStyles: {
+            0: { columnWidth: 170 },
+            1: { columnWidth: 90 },
+            2: { columnWidth: 90 },
+            3: { columnWidth: 90 },
+        },
+        theme: "grid"
+    });
 
 
+    //Footer of the first table
+    doc.setFontType('bold');
+    doc.setFontSize(8)
+    doc.text(30, doc.autoTableEndPosY() + 10, '‘Quantity Recommended’ to be done by Extension Officer; ‘Quantity Approved’ to be done by Agronomy Division ');
+    doc.text(90, doc.autoTableEndPosY() + 30, 'NB: Forms to be submitted to the Extension Officer to reach Agronomy Division no later than September 15');
+    doc.setFontType('normal');
+    doc.text(150, doc.autoTableEndPosY() + 40, ' (Please note the date the form has been received from the applicant) ');
 
-//Footer of the first table
-    doc.setFontSize (8)
-    doc.text(30, 200, '‘Quantity Recommended’ to be done by Extension Officer; ‘Quantity Approved’ to be done by Agronomy Division ');
-    doc.text(60, 215, 'NB: Forms to be submitted to the Extension Officer to reach Agronomy Division no later than September 15');
-    doc.text(60, 225, ' (Please note the date the form has been received from the applicant) ');
 
-
-// next page
-    doc.addPage("letter","l")
-    doc.setFontSize (10)
+    // next page
+    doc.addPage("letter", "l")
+    doc.setFontSize(10)
     doc.text(30, 30, 'To be completed by Extension Officer:');
-    doc.text(30,50,'1. Pre-planting inspection: (eg. Area cleared, status of lining of plots, drains, establishment of shade, holes dug, etc)');
-// put here the second table
+    doc.text(30, 50, '1. Pre-planting inspection: (eg. Area cleared, status of lining of plots, drains, establishment of shade, holes dug, etc)');
+    // // put here the second table
+    doc.rect(30, 55, 635, 20, "S");
+    doc.setFillColor(48, 170, 76);
+    doc.rect(485, 55.5, 277, 19, "F");
+    doc.setFontSize("10");
+    doc.setTextColor(255, 255, 255);
+    doc.setFontType('bold');
+    doc.text(590, 70, "Signed by:");
+    var res = doc.autoTableHtmlToJson(document.getElementById("papp_t2"));
+    doc.autoTable(res.columns, res.data, {
+        startY: 76,
+        tableLineColor: 200,
+        tableLineWidth: 0,
+        margin: { horizontal: 30 },
+        styles: { overflow: 'linebreak' },
+        headerStyles: { fillColor: '#30aa4c', },
+        columnStyles: {
+            0: { columnWidth: 80 },
+            1: { columnWidth: 377 },
+        },
+        theme: "grid"
+    });
+    doc.setFontType('normal');
+    doc.text(30, doc.autoTableEndPosY() + 20, '2. Post-planting inspection: (eg. Plants planted; field condition – weeds, rootstock growth;  pests & diseases ; # of deaths; cause  of death, etc.)');
+    // // put here the third table
+    doc.rect(30, doc.autoTableEndPosY() + 25, 635, 20, "S");
+    doc.setFillColor(48, 170, 76);
+    doc.rect(485, doc.autoTableEndPosY() + 25.5, 277, 19, "F");
+    doc.setFontSize("10");
+    doc.setTextColor(255, 255, 255);
+    doc.setFontType('bold');
+    doc.text(590, doc.autoTableEndPosY() + 40, "Signed by:");
+    var res = doc.autoTableHtmlToJson(document.getElementById("papp_t3"));
+    doc.autoTable(res.columns, res.data, {
+        startY: doc.autoTableEndPosY() + 45.5,
+        tableLineColor: 200,
+        tableLineWidth: 0,
+        margin: { horizontal: 30 },
+        styles: { overflow: 'linebreak' },
+        headerStyles: { fillColor: '#30aa4c', },
+        columnStyles: {
+            0: { columnWidth: 80 },
+            1: { columnWidth: 377 },
+        },
+        theme: "grid"
+    });
 
-    doc.text(30,100,'2. Post-planting inspection: (eg. Plants planted; field condition – weeds, rootstock growth;  pests & diseases ; # of deaths; cause  of death, etc.)');
 
-// put here the third table
-    doc.text(30,150,'3. Potential for Future Development: (eg. Plans for expansion, overall plan for farm, etc.)');
 
-    doc.text(30,160,'Extension Officer: ______________________________	Date:________________________');
-    
+    doc.setFontType('normal');
+    doc.text(30, doc.autoTableEndPosY() + 20, '3. Potential for Future Development: (eg. Plans for expansion, overall plan for farm, etc.)');
+    var res = doc.autoTableHtmlToJson(document.getElementById("papp_t4"));
+    doc.autoTable(res.columns, res.data, {
+        startY: doc.autoTableEndPosY() + 21,
+        tableLineColor: 200,
+        tableLineWidth: 0,
+        margin: { horizontal: 30 },
+        styles: { overflow: 'linebreak' },
+        headerStyles: { fillColor: '#FFFFFF' },
+        columnStyles: {
+            text: { columnWidth: 'auto' },
+            nil: { halign: 'right' },
+            tgl: { halign: 'right' }
+        },
+        theme: "grid"
+    });
+
+    doc.text(30, doc.internal.pageSize.height - 20, 'Extension Officer: ______________________________	Date:________________________');
+
     window.open(doc.output('bloburl'));
 }
 

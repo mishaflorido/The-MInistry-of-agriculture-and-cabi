@@ -29,16 +29,16 @@
                     <span class="input-group-text">Clinic details </span>
                     <select class="form-select" aria-label="Default select example" name="cli_det">
                         <option selected>Open this select menu</option>
-                        <option value="GDCAR1 Carriacou and Petit Martinic">GDCAR1 Carriacou and Petit Martinic</option>
-                        <option value="GDCARF Carriacou field visit">GDCARF Carriacou field visit</option>
-                        <option value="GDEAE1 Eastern Agricultural District">GDEAE1 Eastern Agricultural District</option>
-                        <option value="GDEAEF Eastern Agricultural District Field Visit">GDEAEF Eastern Agricultural District Field Visit</option>
-                        <option value="GDNAD1 (Northern Agricultural District)">GDNAD1 (Northern Agricultural District)</option>
-                        <option value="GDNADF (Northern Agricultural District Field Visit)">GDNADF (Northern Agricultural District Field Visit)</option>
-                        <option value="GDSAD1 Southern Agricultural District">GDSAD1 Southern Agricultural District</option>
-                        <option value="GDSADF Southern Agricultural District Field Visit">GDSADF Southern Agricultural District Field Visit</option>
-                        <option value="GDWAD1 Western Agricultural District">GDWAD1 Western Agricultural District</option>
-                        <option value="GDWADF Western Agricultural District Field Visit">GDWADF Western Agricultural District Field Visit</option>
+                        <option value="GDCAR1">GDCAR1 Carriacou and Petit Martinic</option>
+                        <option value="GDCARF">GDCARF Carriacou field visit</option>
+                        <option value="GDEAE1">GDEAE1 Eastern Agricultural District</option>
+                        <option value="GDEAEF">GDEAEF Eastern Agricultural District Field Visit</option>
+                        <option value="GDNAD1">GDNAD1 (Northern Agricultural District)</option>
+                        <option value="GDNADF">GDNADF (Northern Agricultural District Field Visit)</option>
+                        <option value="GDSAD1">GDSAD1 Southern Agricultural District</option>
+                        <option value="GDSADF">GDSADF Southern Agricultural District Field Visit</option>
+                        <option value="GDWAD1">GDWAD1 Western Agricultural District</option>
+                        <option value="GDWADF">GDWADF Western Agricultural District Field Visit</option>
                     </select>
                 </div>
             </div>
