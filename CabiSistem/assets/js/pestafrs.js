@@ -1,5 +1,8 @@
-var pestapp;
+var pestapp_table;
 $(document).ready(function () {
+    setinterval(function () {
+        pestapp_table.ajax.reload();
+    }, 300000);
     // Get Crop
     $.ajax({
         method: "GET",
@@ -22,7 +25,7 @@ $(document).ready(function () {
 
     });
 
-    pestapp = $('#pestapp_table_report').DataTable({
+    pestapp_table = $('#pestapp_table_report').DataTable({
         // select: {
         //     style: 'single',
         //     blurable: true

@@ -1,6 +1,10 @@
 var cropest_table;
 $(document).ready(function () {
-    console.log("img here");
+
+    setInterval(function () {
+        cropest_table.ajax.reload();
+        // console.log("cropest_tale table loaded");
+    }, 300000);
 
 
     cropest_table = $('#crest_table_report').DataTable({

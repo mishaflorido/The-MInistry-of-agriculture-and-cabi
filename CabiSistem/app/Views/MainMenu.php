@@ -36,6 +36,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/adminlte.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/formUser.css">
+    <!-- MapBox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
 
 
 </head>
@@ -302,15 +304,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li> -->
                     </ul>
-                    <footer style="width:100%; margin-top: 8rem;">
+                    <footer style="width:100%; margin-top: 7.2rem;">
 
                         <div>
                             <a href="https://www.cabi.org/">
                                 <img src="<?= base_url() ?>/assets/img/CABI_LOGO.jpg" style="width: 100%">
                             </a>
                         </div>
-                        <div class="text-center my-2" style="color: white; font-size: 70%;">
-                            Portal set with collaboration of CABI Plantwise
+                        <div class="text-center my-2" style="color: white; font-size: 90%; font-family: open_sansbold;">
+                            Portal set in collaboration with CABI Plantwise
                         </div>
                     </footer>
                 </nav>
@@ -499,10 +501,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.25/pagination/input.js"></script>
     <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
-
-
-
-
+    <!-- MapBox JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
     <script>
         var myCollapse = document.getElementById('start_page');
         var bsCollapse = new bootstrap.Collapse(myCollapse, {

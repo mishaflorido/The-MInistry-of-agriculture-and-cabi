@@ -2,6 +2,20 @@
     <div style="text-align: center" class="mb-3">
         <label for="FarmRegisterForm" class="form-label">DCA FORM</label>
     </div>
+    <style>
+        .coordinates {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 5px 10px;
+            margin-top: -8%;
+            margin-right: 50%;
+            margin-left: 20%;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
+        }
+    </style>
 
     <div class="container">
         <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
@@ -13,6 +27,17 @@
 
                     </div>
                     <!-- ///////// -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-md-3">
+
+                    <div id='map' style='width: 400px; height: 300px;'> </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <pre id="coordinates" class="coordinates"></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- esta parte debemos obtener de la tabla doctores de plantas -->

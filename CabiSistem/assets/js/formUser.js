@@ -1,6 +1,9 @@
 var user_table;
 var contador = 0;
 $(document).ready(function () {
+    setinterval(function () {
+        user_table.ajax.reload();
+    }, 300000);
 
     user_table = $('#user_table').DataTable({
         stateSave: true,

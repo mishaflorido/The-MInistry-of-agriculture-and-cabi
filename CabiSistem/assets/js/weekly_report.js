@@ -1,5 +1,8 @@
 var ofwr_table;
 $(document).ready(function () {
+    setinterval(function () {
+        ofwr_table.ajax.reload();
+    })
     ofwr_table = $('#ofwr_table_report').DataTable({
         select: {
             style: 'single',

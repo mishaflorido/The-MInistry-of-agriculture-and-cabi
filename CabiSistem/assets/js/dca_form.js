@@ -2,8 +2,31 @@ var county;
 var sub_county;
 var village;
 var variety;
+const coordinates = document.getElementById('coordinates');
 
 $(document).ready(function () {
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWlndWVsZmxvcmlkbyIsImEiOiJja3VoZHRocHUyZGpkMm5vMzA5eWxwdHc5In0.U3l5KH2nMBy87fQBrQTMjg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-61.68262052668253, 12.133375886867], // starting position [lng, lat],
+        zoom: 10, // starting zoom
+    });
+
+    const marker = new mapboxgl.Marker({
+        draggable: true
+    }).setLngLat([-61.68262052668253, 12.133375886867]).addTo(map);
+    function onDragEnd() {
+        const lngLat = marker.getLngLat();
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+    }
+    map.on('click', (e) => {
+        console.log(e);
+        marker.setLngLat([e.lngLat.lng, e.lngLat.lat]);
+        onDragEnd();
+    });
+    marker.on('dragend', onDragEnd);
     // Get Varietys
     $.ajax({
         method: "get",

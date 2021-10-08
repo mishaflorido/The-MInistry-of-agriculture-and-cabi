@@ -1,8 +1,11 @@
 var dca_table;
-var dca_toPOMS;
+var dca_toPOMS_table;
 $(document).ready(function () {
+    setinterval(function () {
+        dca_toPOMS_table.ajax.reload();
+    }, 300000);
 
-    dca_toPOMS = $('#table_dcatoPOMS').DataTable({
+    dca_toPOMS_table = $('#table_dcatoPOMS').DataTable({
         select: {
             style: 'single',
             blurable: true
@@ -16,9 +19,20 @@ $(document).ready(function () {
                 text: 'Individual PDF',
                 titleAttr: "To PDF",
                 action: function () {
-                    var dca = dca_toPOMS.row({ selected: true }).data();
+                    var dca = dca_toPOMS_table.row({ selected: true }).data();
 
                     to_pdf_dcaform(dca);
+
+                }
+            },
+            {
+
+                text: 'Edit Row',
+                titleAttr: "Edit Row",
+                action: function () {
+                    var dca = dca_toPOMS_table.row({ selected: true }).data();
+
+                    edit_row_dcaform(dca);
 
                 }
             },
@@ -877,4 +891,7 @@ function to_pdf_dcaform(dca) {
     doc.rect(170, 273, 30, 6);
 
     window.open(doc.output('bloburl'));
+}
+function edit_row_dcaform(data) {
+
 }

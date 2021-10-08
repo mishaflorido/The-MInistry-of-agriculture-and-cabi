@@ -1,6 +1,9 @@
-var p_app;
+var p_app_table;
 // VIEW FORM APPLICATION FUNCTIONS////////////////////////////
 $(document).ready(function () {
+    setinterval(function () {
+        p_app_table.ajax.reaload();
+    }, 300000);
     // Get Crop
     $.ajax({
         method: "GET",
@@ -26,7 +29,7 @@ $(document).ready(function () {
 
 
 
-    p_app = $('#plapp_table_report').DataTable({
+    p_app_table = $('#plapp_table_report').DataTable({
         select: {
             style: 'single',
             blurable: true
@@ -40,7 +43,7 @@ $(document).ready(function () {
                 text: 'PDF',
                 titleAttr: "To PDF",
                 action: function () {
-                    var farmer = p_app.row({ selected: true }).data();
+                    var farmer = p_app_table.row({ selected: true }).data();
                     // get_papp_tb1(farmer.id_plant_apply);
                     to_pdf_pappform(farmer);
 
@@ -208,7 +211,7 @@ function get_papp_tb4(id_plant_apply) {
 
 }
 $(document).on("click", "#tbody_plapp_report tr", function () {
-    var crop = p_app.row({ selected: true }).data();
+    var crop = p_app_table.row({ selected: true }).data();
     get_papp_tb1(crop["id_plant_apply"]);
     get_papp_tb2(crop["id_plant_apply"]);
     get_papp_tb3(crop["id_plant_apply"]);

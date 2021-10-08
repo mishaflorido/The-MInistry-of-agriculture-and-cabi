@@ -1,7 +1,10 @@
-var froad;
+var froad_table;
 $(document).ready(function () {
+    setinterval(function () {
+        froad_table.ajax.reload();
+    }, 300000);
     get_farmRoad_toreport($("#date_farm_road").val())
-    froad = $('#froad_table_report').DataTable({
+    froad_table = $('#froad_table_report').DataTable({
         select: {
             style: 'single',
             blurable: true
@@ -15,7 +18,7 @@ $(document).ready(function () {
                 text: 'PDF',
                 titleAttr: "To PDF",
                 action: function () {
-                    var farmer = froad.row({ selected: true }).data();
+                    var farmer = froad_table.row({ selected: true }).data();
 
                     to_pdf_farmroad(farmer);
 

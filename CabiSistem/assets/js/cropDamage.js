@@ -1,6 +1,10 @@
-var cropDamage;
+var cropDamage_table;
 $(document).ready(function () {
-    cropDamage = $('#crdd_table_report').DataTable({
+    setTimeout(function () {
+        cropDamage_table.ajax.reload();
+    }, 300000);
+
+    cropDamage_table = $('#crdd_table_report').DataTable({
         select: {
             style: 'single',
             blurable: true
@@ -14,7 +18,7 @@ $(document).ready(function () {
                 text: 'PDF',
                 titleAttr: "To PDF",
                 action: function () {
-                    var crop = cropDamage.row({ selected: true }).data();
+                    var crop = cropDamage_table.row({ selected: true }).data();
 
                     to_pdf_cropdamage(crop);
 
@@ -39,7 +43,7 @@ $(document).ready(function () {
 
 });
 $(document).on("click", "#tbody_crdd_report tr", function () {
-    var crop = cropDamage.row({ selected: true }).data();
+    var crop = cropDamage_table.row({ selected: true }).data();
 
     get_crop_damage_tb1(crop["id_crop_damage"]);
     get_crop_damage_tb2(crop["id_crop_damage"]);

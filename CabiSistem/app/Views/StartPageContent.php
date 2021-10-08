@@ -19,29 +19,23 @@
 <!-- Main content -->
 
 
-<div class="row" style="margin-right: 0;">
-    <div class="col-lg-6">
-        <img src="<?= base_url() ?>/assets/img/foto_start_page.jpg" style="width:100%; height:42em">
-
+<div class="row" style="margin-right: 1px;">
+    <div class="col-lg-6" style="padding-left: 14px; padding: right 1px;">
+        <a href="https://gov.gd/ministry-agriculture-and-lands">
+            <img src="<?= base_url() ?>/assets/img/foto_start_page.jpg" style="width:100%; height:46em; padding-top: 4px;">
+        </a>
     </div>
     <!-- /.col-md-6 -->
-    <div class="col-lg-5">
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body text-success">
-                <h5 class="card-title">Success card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body text-success">
-                <h5 class="card-title">Success card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
+    <div class="col-lg-6" style="padding-left: 1px; padding-right: 4px;">
+        <a href="https://www.plantwise.org/KnowledgeBank/">
+            <img src="<?= base_url() ?>/assets/img/PlantWiseSmallFront.jpeg" style="width: 100%; padding-top:4px; padding-bottom: 4px">
+        </a>
+        <img src="<?= base_url() ?>/assets/img/PlantWiseBigFront.jpeg" style="width: 100%; height:34em">
 
     </div>
-    <!-- /.col-md-6 -->
+
+
+</div>
+<!-- /.col-md-6 -->
 </div>
 <!-- /.row -->
