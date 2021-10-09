@@ -1,8 +1,8 @@
 var froad_table;
 $(document).ready(function () {
-    setinterval(function () {
+    setInterval(function () {
         froad_table.ajax.reload();
-    }, 300000);
+    }, 180000);
     get_farmRoad_toreport($("#date_farm_road").val())
     froad_table = $('#froad_table_report').DataTable({
         select: {

@@ -31,8 +31,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <!-- <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all"> -->
     <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/adminlte.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/formUser.css">
@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#dca_form" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#dca_form" aria-expanded="false" aria-controls="user_page" id="btn_toDCAFORM">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>DCA Form</p>
                                     </a>

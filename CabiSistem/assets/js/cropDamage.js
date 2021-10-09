@@ -1,8 +1,8 @@
 var cropDamage_table;
 $(document).ready(function () {
-    setTimeout(function () {
+    setInterval(function () {
         cropDamage_table.ajax.reload();
-    }, 300000);
+    }, 180000);
 
     cropDamage_table = $('#crdd_table_report').DataTable({
         select: {

@@ -1,9 +1,9 @@
 var p_app_table;
 // VIEW FORM APPLICATION FUNCTIONS////////////////////////////
 $(document).ready(function () {
-    setinterval(function () {
-        p_app_table.ajax.reaload();
-    }, 300000);
+    setInterval(function () {
+        p_app_table.ajax.reload();
+    }, 180000);
     // Get Crop
     $.ajax({
         method: "GET",

@@ -1,8 +1,8 @@
 var pestapp_table;
 $(document).ready(function () {
-    setinterval(function () {
+    setInterval(function () {
         pestapp_table.ajax.reload();
-    }, 300000);
+    }, 180000);
     // Get Crop
     $.ajax({
         method: "GET",

@@ -1,9 +1,9 @@
 var dca_table;
 var dca_toPOMS_table;
 $(document).ready(function () {
-    setinterval(function () {
+    setInterval(function () {
         dca_toPOMS_table.ajax.reload();
-    }, 300000);
+    }, 180000);
 
     dca_toPOMS_table = $('#table_dcatoPOMS').DataTable({
         select: {
@@ -893,5 +893,17 @@ function to_pdf_dcaform(dca) {
     window.open(doc.output('bloburl'));
 }
 function edit_row_dcaform(data) {
+    console.log("edit_row_dcaform");
+    $("#dca_form").collapse("toggle");
+    $("input[name='farm_name_dca']").val(data["farm_name_dca"]);
+    $("input[name='id_plant_doc']").val(data['pdoc_name'] + " " + data["pdoc_lastname"]);
+    $("input[name='phone_n_dca']").val(data["phone_n_dca"]);
+    $("input[name='f_sex_dca']").val(data["f_sex_dca"]);
+    // if (data["f_sex_dca"] == "Female") {
 
+
+    // }else{
+
+    // }
+    // $("input[name='farm_name_dca']").val(data["farm_name_dca"]);
 }
