@@ -44,7 +44,7 @@
             <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Select or enter plant doctor name: </span>
-                    <input list="plant_doctor_list" class="form-control" name="id_plant_doc">
+                    <input list="plant_doctor_list" class="form-control" name="id_plant_doc" id="id_plant_doc">
                     <datalist id="plant_doctor_list">
 
                     </datalist>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-6">
                     <span class="input-group-text">Clinic details </span>
-                    <select class="form-select" aria-label="Default select example" name="cli_det">
+                    <select class="form-select" aria-label="Default select example" name="cli_det" id="cli_det">
                         <option selected>Open this select menu</option>
                         <option value="GDCAR1">GDCAR1 Carriacou and Petit Martinic</option>
                         <option value="GDCARF">GDCARF Carriacou field visit</option>
@@ -74,15 +74,15 @@
             <div class="row my-2">
                 <div class="col-md-4">
                     <span class="input-group-text">Enter famer name: </span>
-                    <input type="text" class="form-control" placeholder="Farmer name" name="farm_name_dca">
+                    <input type="text" class="form-control" placeholder="Farmer name" name="farm_name_dca" id="farm_name_dca">
                 </div>
                 <div class="col-md-4">
                     <span class="input-group-text">Phone number: </span>
-                    <input type="text" class="form-control" placeholder="Phone number" name="phone_n_dca">
+                    <input type="text" class="form-control" placeholder="Phone number" name="phone_n_dca" id="phone_n_dca">
                 </div>
                 <div class="col-md-4">
                     <span class="input-group-text">Farmer ID: </span>
-                    <input type="text" class="form-control" placeholder="Farmer id" name="f_id_dca">
+                    <input type="text" class="form-control" placeholder="Farmer id" name="f_id_dca" id="f_id_dca">
                 </div>
             </div>
 
@@ -90,13 +90,13 @@
                 <div class="col-md-6">
                     <span class="input-group-text">Farmer sex: </span>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="f_sex_dca" value="Male">
+                        <input class="form-check-input" type="radio" name="f_sex_dca" value="Male" id="f_sex_dca_male">
                         <label class="form-check-label" for="flexRadioDefault1">
                             Male
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="f_sex_dca" value="Female" checked>
+                        <input class="form-check-input" type="radio" name="f_sex_dca" value="Female" id="f_sex_dca_fem" checked>
                         <label class="form-check-label" for="flexRadioDefault2">
                             Female
                         </label>
