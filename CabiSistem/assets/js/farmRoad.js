@@ -15,16 +15,42 @@ $(document).ready(function () {
         buttons: [
             {
 
-                text: 'PDF',
+                text: 'Individual form print',
                 titleAttr: "To PDF",
                 action: function () {
                     var farmer = froad_table.row({ selected: true }).data();
+                    if (farmer == null) {
+                        alert("Please select a row to create a PDF");
+                    } else {
+                        to_pdf_farmroad(farmer);
+                    }
 
-                    to_pdf_farmroad(farmer);
 
                 }
             },
-            'excel', 'print'
+            {
+                extend: 'print',
+                text: "Print Table"
+            },
+            {
+
+                text: 'Edit Row',
+                titleAttr: "Edit register",
+                action: function () {
+                    var dca = froad_table.row({ selected: true }).data();
+                    if (dca == null) {
+                        alert("Please select a row to Edit");
+                    }
+                    else {
+                        edit_row_froad(dca);
+                    }
+
+                }
+            },
+            {
+                extend: 'excel',
+                text: 'Excel'
+            }
         ],
         ajax: {
             method: "GET",
@@ -139,7 +165,7 @@ $("#submit_farm_road").on("click", function () {
 
     var date_farm_road = $("#date_farm_road").val();
     $("#tbody_farm_road tr").each(function () {
-
+        var url_variable;
         var road_dist = $(this).find(".road_dist").val();
         var road_name = $(this).find(".road_name").val();
         var road_length = $(this).find(".road_length").val();
@@ -147,11 +173,20 @@ $("#submit_farm_road").on("click", function () {
         var agr_act = $(this).find(".agr_act").val();
         var work = $(this).find(".work").val();
         var remark = $(this).find(".remark").val();
+        var id_farm_road = $("input[name='id_farm_road']").val();
+        if ($("input[name='id_farm_road']").val() != '') {
+            url_variable = "update/farmRoad";
+        }
+        else {
+            url_variable = "insert/farmRoad";
+        }
+        console.log(url_variable);
 
         $.ajax({
-            url: "insert/farmRoad",
+            url: url_variable,
             type: "POST",
             data: {
+                'id_farm_road': id_farm_road,
                 'date_farm_road': date_farm_road,
                 'road_dist': road_dist,
                 'road_name': road_name,
@@ -175,7 +210,22 @@ $("#submit_farm_road").on("click", function () {
     hide_spin("submit_farm_road", "spin_farm_road", "not_spin_farm_road");
     $('#alert_farm_roads').html("The Farm Roads Has Been Registred Succesfully");
     $('#alert_farm_roads').removeClass('d-none');
-    // }
+
 
 })
+
 // ////////////////////////////////////////////////////////////////
+function edit_row_froad(data) {
+    $("#farm_roads").collapse("toggle");
+    $("input[name='id_farm_road']").val(data['id_farm_roads'])
+    $("#date_farm_road").val(data['date_farm_road']);
+    $("#tbody_farm_road tr").each(function () {
+        $("input[name='road_dist']").val(data['road_dist']);
+        $("input[name='road_name']").val(data['road_name']);
+        $("input[name='road_length']").val(data['road_length']);
+        $("input[name='num_farm']").val(data['num_farm']);
+        $("input[name='agr_act']").val(data['agr_act']);
+        $("input[name='work']").val(data['work']);
+        $("input[name='remark']").val(data['remark']);
+    })
+}

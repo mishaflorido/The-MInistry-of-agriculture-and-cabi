@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-8">
-                <h1 class="m-0">Crop Damage Data Report</h1>
+                <h1 class="m-0">List of Farm Roads That Need Urgent Attention</h1>
             </div><!-- /.col -->
             <div class="col-sm-4">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a role="button" class="nav-link" data-bs-toggle="collapse" data-bs-target="#start_page" aria-expanded="false" aria-controls="start_page" style="padding-top: 0; padding-right:0">Home</a></li>
-                    <li class="breadcrumb-item active">Crop Damage Data Report</li>
+                    <li class="breadcrumb-item active">List of Farm Roads That Need Urgent Attention</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -34,7 +34,10 @@
         </tbody>
     </table>
     <div class="row my-2">
-        <input type="date" name="" id="date_farmroad_report" value="<?php echo date('Y-m-d'); ?>">
+        <div class="offset-md-2 col-md-8">
+            <span class="input-group-text">Select Date To Print a PDF</span>
+            <input type="date" name="" id="date_farmroad_report" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+        </div>
     </div>
     <div class="row my-4">
         <table id="froad_table_report" class="display responsive" style="width:100%">

@@ -57,19 +57,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="mailto:mishaflorido@gmail.com" class="nav-link">Contact</a>
                 </li>
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-
-
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
                 <?php echo form_open("logout") ?>
                 <li class="nav-item">
                     <button type="submit" class="nav-link">
@@ -138,14 +131,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#farmer_page" data-t="farmer_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Farmer Register Form</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#dca_form" aria-expanded="false" aria-controls="user_page" id="btn_toDCAFORM">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#dca_form" data-t="dca_form" aria-expanded="false" aria-controls="user_page" id="btn_toDCAFORM">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>DCA Form</p>
                                     </a>
@@ -181,24 +174,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>Crop damage data</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#monthly_report" data-t="monthly_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Monthly Report(many topics)</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#pesta_frs" data-t="pesta_frs" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pesticide Application – Field Record Sheet</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#vendor_page" data-t="vendor_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Vendors Registration Form</p>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
                         <li class="nav-item ">
@@ -206,19 +199,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <i class="nav-icon far fa-file-alt"></i>
 
                                 <p>
-                                    Reports Page
+                                    Report & Edit Forms
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#farmer_page_report" data-t="farmer_page_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Farmer Register Report</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#dca_page_report" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#dca_page_report" data-t="dca_page_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>DCA Report</p>
                                     </a>
@@ -226,53 +219,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#frmroad_report" aria-expanded="false" aria-controls="farm_roads">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#frmroad_report" data-t="frmroad_report" aria-expanded="false" aria-controls="farm_roads">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List of Farm Roads That Need Urgent Attention</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#crop_estab_report" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#crop_estab_report" data-t="crop_estab_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Crop Establishment and Production Information</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#plant_app_report" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#plant_app_report" data-t="plant_app_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Plant Application Report</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#ofwr_report" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#ofwr_report" data-t="ofwr_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Officer´s weekly report -Other official activities – Itinerary for next week</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#crpdd_report" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#crpdd_report" data-t="crpdd_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Crop damage data</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#testing_page" aria-expanded="false" aria-controls="user_page">
+                                <!-- <li class="nav-item">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#testing_page" data-t="testing_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Monthly Report(many topics)</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
-                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#pestapp_report" aria-expanded="false" aria-controls="user_page">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#pestapp_report" data-t="pestapp_report" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pesticide Application</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#testing_page" data-t="vendor_page" aria-expanded="false" aria-controls="user_page">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Vendors Registration Report</p>
                                     </a>
-                                </li>
+                                </li> -->
 
                             </ul>
                         </li>
@@ -307,7 +300,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <footer style="width:100%; margin-top: 7.2rem;">
 
                         <div>
-                            <a href="https://www.cabi.org/">
+                            <a href="https://www.cabi.org/" target="_blank">
                                 <img src="<?= base_url() ?>/assets/img/CABI_LOGO.jpg" style="width: 100%">
                             </a>
                         </div>

@@ -20,12 +20,18 @@ $(document).ready(function () {
         const lngLat = marker.getLngLat();
         coordinates.style.display = 'block';
         coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+        $("input[name='coordinates_lat']").val(lngLat.lat);
+        $("input[name='coordinates_lng']").val(lngLat.lng);
     }
     map.on('click', (e) => {
         console.log(e);
         marker.setLngLat([e.lngLat.lng, e.lngLat.lat]);
         onDragEnd();
     });
+    $("#id_dca_form").change(function () {
+        console.log("change input");
+        onDragEnd();
+    })
     marker.on('dragend', onDragEnd);
     // Get Varietys
     $.ajax({
@@ -50,7 +56,7 @@ $(document).ready(function () {
                 if (Object.hasOwnProperty.call(county, key)) {
                     const element = county[key];
 
-                    $('#plant_doctor_list').append("<option id='" + element['id_plant_doc'] + "' value='" + element['pdoc_name'] + element['pdoc_lastname'] + "'></option>");
+                    $('#plant_doctor_list').append("<option class='" + element['pdoc_name'] + element['pdoc_lastname'] + "' id='" + element['id_plant_doc'] + "' value='" + element['pdoc_name'] + element['pdoc_lastname'] + "'></option>");
 
                 }
             }
@@ -168,8 +174,10 @@ $("#sub_county_list_id").on('change', function () {
     }
 });
 $("#crop_dca_list").on("change", function () {
-    console.log("valor" + $(this).val());
+    // console.log("valor" + $(this).val());
     var id_crop = get_id_crop($(this).val(), "crop_dca");
+    $("#variety_dca").val('');
+    $("#list_dca_variety").empty();
     for (const key in variety) {
         if (Object.hasOwnProperty.call(variety, key)) {
             const element = variety[key];
@@ -186,6 +194,8 @@ $("form").submit(function (event) {
         event.preventDefault();
         show_spin("btn_dca_form", "spin_dca", "not_spin_dca");
         var formData = new FormData($(this)[0]);
+        var id_plant_doc = get_id_crop(formData.get("id_plant_doc"), "plant_doctor_list");
+        var url_variable;
         var id_crop = get_id_crop(formData.get("id_crop"), "crop_dca");
         var id_vari = get_id_crop(formData.get("id_variety"), "list_dca_variety");
         var dev_stage = get_string_check("development_stage1", "development_stage2");
@@ -193,11 +203,18 @@ $("form").submit(function (event) {
         var symtoms = get_string_check("symtoms_checkboxes1", "symtoms_checkboxes2");
         var sym_dist = get_string_check("sym_dist_checkboxes1", "sym_dist_checkboxes2");
         var rec_type = get_string_check("recomendationType_checkboxes1", "recomendationType_checkboxes2");
+        if ($("input[name='id_dca_form']").val() != '') {
+            url_variable = "update/dca_form";
+        }
+        else {
+            url_variable = "insert/dca_form";
+        }
         formData.delete("id_crop");
         formData.delete("id_variety");
         formData.delete("symtoms");
         formData.delete("sym_dist");
         formData.delete("rec_type");
+        formData.delete("id_plant_doc");
         formData.append("symtoms", symtoms);
         formData.append("sym_dist", sym_dist);
         formData.append("rec_type", rec_type);
@@ -205,24 +222,21 @@ $("form").submit(function (event) {
         formData.append("id_variety", id_vari);
         formData.append("dev_stage", dev_stage);
         formData.append("pp_afected", pp_afected);
+        formData.append("id_plant_doc", id_plant_doc);
+        console.log(formData.get("prob_type_other"));
+        console.log(formData.get("rec_type_other"));
         $.ajax({
-            url: "insert/dca_form",
+            url: url_variable,
             type: "POST",
             data: formData,
             cache: false,
             contentType: false,
             processData: false,
             success: function (respuesta) {
-                // setTimeout(function () {
-                //     $('#alert_farmer_page').html("The New User Has Been Registred Succesfully");
-                //     $('#alert_farmer_page').removeClass('d-none');
-                // }, 2000);
-                // $('#alert_farmer_page').addClass('d-none');
 
-                // var r = JSON.parse(respuesta);
             }
         }).done(function () {
-            dca_table.ajax.reload();
+            reload_dca_table();
             hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
             $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
             $('.alert_dca').removeClass('d-none');

@@ -18,16 +18,27 @@ $(document).ready(function () {
         buttons: [
             {
 
-                text: 'PDF',
+                text: 'Individual form print',
                 titleAttr: "To PDF",
                 action: function () {
                     var cropest = cropest_table.row({ selected: true }).data();
+                    if (cropest == null) {
+                        alert("Please select a row to create PDF");
+                    } else {
+                        to_pdf_cropest(cropest);
+                    }
 
-                    to_pdf_cropest(cropest);
 
                 }
             },
-            'excel', 'print'
+            {
+                extend: 'excel',
+                text: 'Excel'
+            },
+            {
+                extend: 'print',
+                text: "Print Table"
+            }
         ],
         ajax: {
             method: "GET",

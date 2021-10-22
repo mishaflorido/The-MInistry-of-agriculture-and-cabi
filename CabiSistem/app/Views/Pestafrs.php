@@ -15,6 +15,12 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+<div style="text-align: center" class="mb-3">
+    <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
+</div>
+<div style="text-align: center" class="mb-3">
+    <label for="FarmRegister" class="form-label"> PEST APPLICATION FORM </label>
+</div>
 
 <div class="container">
     <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">

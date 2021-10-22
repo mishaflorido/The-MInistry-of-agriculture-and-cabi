@@ -36,16 +36,27 @@ $(document).ready(function () {
         buttons: [
             {
 
-                text: 'PDF',
+                text: 'Individual form print',
                 titleAttr: "To PDF",
                 action: function () {
-                    // var farmer = pestapp.row({ selected: true }).data();
-                    // get_papp_tb1(farmer.id_plant_apply);
-                    to_pdf_pestappform();
+
+                    if ($("#f_date").val() != '' && $("#l_date").val() != '' && $("#sup_sig_pdf").val() != '') {
+                        to_pdf_pestappform();
+                    }
+                    else {
+                        alert("Please entrer the completed information (First Date, Last Date, Supervisor Signature)");
+                    }
 
                 }
             },
-            'excel', 'print'
+            {
+                extend: 'excel',
+                text: 'Excel'
+            },
+            {
+                extend: 'print',
+                text: "Print Table"
+            }
         ],
         ajax: {
             method: "GET",
@@ -89,7 +100,7 @@ function get_between_datepestapp() {
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
                     const element = respuesta[key];
-                    // console.log(element);
+                    console.log(element);
                     $('#pestapp_tb1').append("<tr>" +
                         "<td>" + element['inf_far'] + "</td>" +
                         "<td>" + element['date_pestapp'] + "</td>" +

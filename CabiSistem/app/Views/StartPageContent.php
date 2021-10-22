@@ -21,7 +21,7 @@
 
 <div class="row" style="margin-right: 1px;">
     <div class="col-lg-6" style="padding-left: 14px; padding: right 1px;">
-        <a href="https://gov.gd/ministry-agriculture-and-lands">
+        <a href="https://gov.gd/ministry-agriculture-and-lands" target="_blank">
             <img src="<?= base_url() ?>/assets/img/foto_start_page.jpg" style="width:100%; height:46em; padding-top: 9px;">
         </a>
     </div>
@@ -32,11 +32,13 @@
                 <h5 class="m-0">About PlantWise</h5>
             </div>
             <div class="card-body">
-                <a href="https://www.plantwise.org/KnowledgeBank/">
+                <a href="https://www.plantwise.org/KnowledgeBank/" target="_blank">
                     <img src="<?= base_url() ?>/assets/img/PlantWiseSmallFront.jpeg" style="width: 100%;">
                 </a>
                 <div class="my-2">
-                    <img src="<?= base_url() ?>/assets/img/PlantWiseBigFront.jpeg" style="width: 50%; height:19em">
+                    <a href="https://www.plantwise.org/wp-content/uploads/sites/9/2019/11/Diagnostic-Field-Guide.pdf#:~:text=The%20Plantwise%20Diagnostic%20Field%20Guide%20is%20intended%20to%20support%20plant,and%20the%20various%20possible%20causes." target="_blank">
+                        <img src="<?= base_url() ?>/assets/img/PlantWiseBigFront.jpeg" style="width: 50%; height:19em">
+                    </a>
                 </div>
             </div>
         </div>

@@ -40,16 +40,27 @@ $(document).ready(function () {
         buttons: [
             {
 
-                text: 'PDF',
+                text: 'Individual form print',
                 titleAttr: "To PDF",
                 action: function () {
                     var farmer = p_app_table.row({ selected: true }).data();
                     // get_papp_tb1(farmer.id_plant_apply);
-                    to_pdf_pappform(farmer);
+                    if (farmer == null) {
+                        alert("Please select a row to create PDF");
+                    } else {
+                        to_pdf_pappform(farmer);
+                    }
 
                 }
             },
-            'excel', 'print'
+            {
+                extend: 'excel',
+                text: 'Excel'
+            },
+            {
+                extend: 'print',
+                text: "Print Table"
+            }
         ],
         ajax: {
             method: "GET",

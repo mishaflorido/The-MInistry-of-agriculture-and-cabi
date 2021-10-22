@@ -51,6 +51,8 @@
                     <th>Sample Sent To Lab</th>
                     <th>Factsheet Given</th>
                     <th>Field Visit Arranged</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
 
 
                 </tr>

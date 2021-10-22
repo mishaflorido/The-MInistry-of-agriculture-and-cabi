@@ -15,8 +15,8 @@ $(document).ready(function () {
         buttons: [
             {
 
-                text: 'PDF',
-                titleAttr: "To PDF",
+                text: 'Individual form print',
+                titleAttr: "Individual form print",
                 action: function () {
                     var crop = cropDamage_table.row({ selected: true }).data();
 
@@ -24,7 +24,14 @@ $(document).ready(function () {
 
                 }
             },
-            'excel', 'print'
+            {
+                extend: 'excel',
+                text: 'Excel'
+            },
+            {
+                extend: 'print',
+                text: "Print Table"
+            }
         ],
         ajax: {
             method: "GET",

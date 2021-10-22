@@ -73,6 +73,7 @@ $routes->get('/get/pest_app', 'PestAppController::get_pest_app');
 $routes->post('/insert/boundary', 'FarmerController::insert_boundary');
 // FarmRoads 
 $routes->post('/insert/farmRoad', 'FarmRoadController::insert_farm_road');
+$routes->post('/update/farmRoad', 'FarmRoadController::update_farm_road');
 $routes->get('/get/farmRoad', 'FarmRoadController::get_farm_road');
 $routes->post('/get/farm_road_report', 'FarmRoadController::get_farm_road_report');
 // Praedial
@@ -102,6 +103,8 @@ $routes->post('/get/plant_apply_tb4', 'PlantApplicationController::get_plant_app
 $routes->get('/get/variety', 'DCAFromController::get_variety');
 $routes->get('/get/dca', 'DCAFromController::get_dca');
 $routes->post('/insert/dca_form', 'DCAFromController::insert_dca');
+$routes->post('/update/dca_form', 'DCAFromController::update_dca');
+$routes->post('/delete/dca_form', 'DCAFromController::delete_dca');
 // Oficers Weekly Report
 $routes->get('/get/oficer_wr', 'OficersWeeklyReportController::get_of_wr');
 $routes->post('/insert/oficer_wr', 'OficersWeeklyReportController::insert_of_wr');

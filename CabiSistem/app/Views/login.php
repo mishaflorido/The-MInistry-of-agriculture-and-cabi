@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
-	
+
 
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
 							<div class="text w-100">
 								<h2>Welcome to login</h2>
 								<p>Don't have an account?</p>
-								<a href="#" class="btn btn-white btn-outline-white">Sign Up</a>
+								<a href="mailto:mishaflorido@gmail.com?Subject=I%20want%20to%20register%20a%20new%20account%20for%20CABI%20System" class="btn btn-white btn-outline-white">Contact To</a>
 							</div>
 						</div>
 						<div class="login-wrap p-4 p-lg-5">
@@ -40,22 +40,22 @@
 								<div class="w-100 text-center">
 									<h4 class="mb-4">Sign In</h4>
 								</div>
-							
+
 							</div>
 							<?php echo form_open("login"); ?>
-								<div class="form-group mb-3">
-									<label class="label" for="name">User Email</label>
-									<input type="text" class="form-control" placeholder="User Email" name="email_user" required>
-								</div>
-								<div class="form-group mb-3">
-									<label class="label" for="password">Password</label>
-									<input type="password" class="form-control" placeholder="Password" name="psw_user" required>
-								</div>
-								<div class="form-group">
-									<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
-								</div>
-								
-								<?php echo form_close(); ?>
+							<div class="form-group mb-3">
+								<label class="label" for="name">User Email</label>
+								<input type="text" class="form-control" placeholder="User Email" name="email_user" required>
+							</div>
+							<div class="form-group mb-3">
+								<label class="label" for="password">Password</label>
+								<input type="password" class="form-control" placeholder="Password" name="psw_user" required>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+							</div>
+
+							<?php echo form_close(); ?>
 						</div>
 					</div>
 				</div>

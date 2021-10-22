@@ -1,5 +1,8 @@
 var dca_table;
 var dca_toPOMS_table;
+function reload_dca_table() {
+    dca_toPOMS_table.ajax.reload();
+}
 $(document).ready(function () {
     setInterval(function () {
         dca_toPOMS_table.ajax.reload();
@@ -16,27 +19,62 @@ $(document).ready(function () {
         buttons: [
             {
 
-                text: 'Individual PDF',
-                titleAttr: "To PDF",
+                text: 'Individual form print',
+                titleAttr: "Individual form print",
                 action: function () {
                     var dca = dca_toPOMS_table.row({ selected: true }).data();
-
-                    to_pdf_dcaform(dca);
+                    if (dca == null) {
+                        alert("Please select a row to create PDF");
+                    }
+                    else {
+                        to_pdf_dcaform(dca);
+                    }
 
                 }
             },
             {
+                extend: 'print',
+                text: "Print Table"
+            },
+            {
 
                 text: 'Edit Row',
-                titleAttr: "Edit Row",
+                titleAttr: "Edit register",
                 action: function () {
                     var dca = dca_toPOMS_table.row({ selected: true }).data();
-
-                    edit_row_dcaform(dca);
+                    if (dca == null) {
+                        alert("Please select a row to Edit");
+                    }
+                    else {
+                        edit_row_dcaform(dca);
+                    }
 
                 }
             },
-            'excel', 'print'
+            {
+                extend: 'excel',
+                title: 'Excel_POMS_format',
+                text: 'Excel'
+            },
+            {
+
+                text: 'Delete Row',
+                titleAttr: "Delete Register",
+                action: function () {
+
+                    var dca = dca_toPOMS_table.row({ selected: true }).data();
+                    if (dca == null) {
+                        alert("Please select a row to Delet");
+                    }
+                    else {
+                        if (confirm("Want to Delete the row?")) {
+                            delete_row_dcaform(dca);
+                        }
+
+                    }
+                }
+            }
+
         ],
         ajax: {
             method: "GET",
@@ -76,7 +114,9 @@ $(document).ready(function () {
             { data: 'rec_prevp' },
             { data: 's_tolab' },
             { data: 'sheet_giv' },
-            { data: 'field_v' }
+            { data: 'field_v' },
+            { data: 'Latitude' },
+            { data: 'Longitude' },
 
         ],
         columnDefs: [
@@ -663,6 +703,8 @@ function to_pdf_dcaform(dca) {
     doc.text(95, 175, 'Nematode');
     doc.text(115, 175, 'Weed');
     doc.text(150, 175, 'Other');
+    doc.text(160, 175, dca['prob_type_other']);
+    doc.line(160, 176, 195, 176);
 
 
     doc.text(18, 180, 'Water mould');
@@ -765,10 +807,10 @@ function to_pdf_dcaform(dca) {
 
 
 
-    // Recomendation for management:
+    // Recommendation for management:
     doc.setFontSize(10);
     doc.rect(10, 206, 190, 60)
-    doc.text(12, 205, 'Recomendation for management: ');
+    doc.text(12, 205, 'Recommendation for management: ');
 
     doc.setFontSize(8);
     doc.text(20, 211, 'Monitoring');
@@ -783,6 +825,8 @@ function to_pdf_dcaform(dca) {
     doc.text(155, 211, 'Botanical');
     doc.text(175, 211, 'Fertilizer');
     doc.text(190, 211, 'Other');
+    doc.line(160, 218, 196, 218);
+    doc.text(160, 217, dca['rec_type_other']);
 
 
     doc.rect(16, 209, 3, 3);
@@ -795,6 +839,7 @@ function to_pdf_dcaform(dca) {
     doc.rect(151, 209, 3, 3);
     doc.rect(171, 209, 3, 3);
     doc.rect(187, 209, 3, 3);
+
     //Aca falta hacer la seleccion para poner la x
     var rec_manag = dca['rec_type'].split(",");
     rec_manag.forEach(element => {
@@ -844,8 +889,8 @@ function to_pdf_dcaform(dca) {
     doc.text(dca["rec_curp"], 14, 222, { maxWidth: 180, align: "left" });
     doc.text(dca["rec_prevp"], 14, 249, { maxWidth: 180, align: "left" });
     doc.setFontSize(10);
-    doc.text(14, 218, 'Recomendation for the current problem: ');
-    doc.text(14, 245, 'Recomendation to prevent this problem for the current problem: ');
+    doc.text(14, 218, 'Recommendation for the current problem: ');
+    doc.text(14, 245, 'Recommendation to prevent this problem for the current problem: ');
 
     doc.text(14, 275, 'Followup activities: ');
 
@@ -895,15 +940,408 @@ function to_pdf_dcaform(dca) {
 function edit_row_dcaform(data) {
     console.log("edit_row_dcaform");
     $("#dca_form").collapse("toggle");
+    $("input[name='coordinates_lat']").val(data['Latitude']);
+    $("input[name='coordinates_lng']").val(data["Longitude"]);
+    $("input[name='id_dca_form']").val(data['id_dca_form']).trigger('change');
+    $("#cli_det option").each(function () {
+        if ($(this).val() == data["cli_det"]) {
+            $(this).attr("selected", true);
+        }
+
+    })
     $("input[name='farm_name_dca']").val(data["farm_name_dca"]);
     $("input[name='id_plant_doc']").val(data['pdoc_name'] + " " + data["pdoc_lastname"]);
     $("input[name='phone_n_dca']").val(data["phone_n_dca"]);
     $("input[name='f_sex_dca']").val(data["f_sex_dca"]);
-    // if (data["f_sex_dca"] == "Female") {
+    $("input[name='f_id_dca']").val(data["f_id_dca"]);
+    if (data["f_sex_dca"] == "Female") {
+        $("#f_sex_dca_fem").attr("checked", 'checked');
+    } else {
+        $("#f_sex_dca_male").attr("checked", 'checked');
+    }
+    switch (data['f_age_dca']) {
+        case "Adult":
+            $("#adult_inp").attr("checked", "checked");
 
+            break;
+        case "Senior":
+            $("#senior_inp").attr("checked", "checked");
 
-    // }else{
+            break;
+        case "Youth":
+            $("#youth_inp").attr("checked", "checked");
 
-    // }
+            break;
+
+    }
+    $("#county_list_id option").each(function () {
+        if ($(this).val() == data["id_lv1"]) {
+            $(this).attr("selected", "selected").trigger("change");
+        }
+    })
+    $("#sub_county_list_id option").each(function () {
+        if ($(this).val() == data["id_lv2"]) {
+            $(this).attr("selected", "selected").trigger("change");
+        }
+    })
+    $("#village_id option").each(function () {
+        if ($(this).val() == data["id_lv3"]) {
+            $(this).attr("selected", "selected").trigger("change");
+        }
+    })
+    $("#crop_dca option").each(function () {
+        if ($(this).attr("id") == data["id_crop"]) {
+            $("input[name='id_crop']").val($(this).val()).trigger("change");
+        }
+    })
+    $("#list_dca_variety option").each(function () {
+        if ($(this).attr("id") == data["id_variety"]) {
+            $("input[name='id_variety']").val($(this).val()).trigger("change");
+        }
+    })
+    if (data["sb_dca"] == 1) {
+        $("#sb_dca_yes").attr("checked", true);
+
+    } else {
+        $("#sb_dca_no").attr("checked", true);
+    }
+    var dev_stage = data["dev_stage"].split(",");
+    dev_stage.forEach(element => {
+
+        switch (element) {
+            case "Seeding":
+                $("#id-Seeding").attr("checked", "checked");
+                break;
+            case "Intermediate":
+                $("#id-Intermediate").attr("checked", "checked");
+                break;
+            case "Flowering":
+                $("#id-Flowering").attr("checked", "checked");
+                break;
+            case "Fruiting":
+                $("#id-Fruiting").attr("checked", "checked");
+                break;
+            case "Mature":
+                $("#id-Mature").attr("checked", "checked");
+                break;
+            case "Post hasrvest":
+                $("#id-Postharvest").attr("checked", "checked");
+                break;
+
+        }
+    })
+    var pp_afected = data["pp_afected"].split(",");
+    pp_afected.forEach(element => {
+        switch (element) {
+            case "Seed":
+                $("#id-Seed").attr("checked", "checked");
+                break;
+            case "Root/Tuber":
+                $("#id-RootTuber").attr("checked", "checked");
+                break;
+            case "Steem/Shot":
+                $("#id-SteemShot").attr("checked", "checked");
+                break;
+            case "Twig/branch":
+                $("#id-Twigbranch").attr("checked", "checked");
+                break;
+            case "Leaf":
+                $("#id-Leaf").attr("checked", "checked");
+                break;
+            case "Flower":
+                $("#id-Flower").attr("checked", "checked");
+                break;
+            case "Fruit/grain":
+                $("#id-Fruitgrain").attr("checked", "checked");
+                break;
+            case "Whole plant":
+                $("#id-Whole plant").attr("checked", "checked");
+                break;
+
+        }
+
+    });
+    $("input[name='yfs_dca']").val(data["yfs_dca"]);
+    $("input[name='area_planted']").val(data["area_planted"]);
+    $("select[name='unit_ap'] option").each(function () {
+        console.log($(this).val());
+        if ($(this).val() == data['unit_ap']) {
+            $(this).attr("selected", "selected");
+        }
+    });
+    $("select[name='per_cafected'] option").each(function () {
+        if ($(this).val() == data['per_cafected']) {
+            $(this).attr("selected", "selected");
+        }
+    });
+    var majsimtoms = data['symtoms'].split(",");
+    majsimtoms.forEach(element => {
+        switch (element) {
+            case 'Insect seen':
+                $("#id-Insectseen").attr("checked", "checked");
+                break;
+            case 'Frass':
+                $("#id-Frass").attr("checked", "checked");
+                break;
+            case 'Galls/sweellings':
+                $("#id-Gallssweellings").attr("checked", "checked");
+                break;
+            case 'Wilt':
+                $("#id-Wilt").attr("checked", "checked");
+                break;
+            case 'Stunted':
+                $("#id-Stunted").attr("checked", "checked");
+                break;
+            case 'Leaf spot':
+                $("#id-Leafspot").attr("checked", "checked");
+                break;
+            case 'Slaining':
+                $("#id-Slaining").attr("checked", "checked");
+                break;
+            case 'Blistered':
+                $("#id-Blistered").attr("checked", "checked");
+                break;
+            case 'Mite seen':
+                $("#id-Miteseen").attr("checked", "checked");
+                break;
+            case 'Webbing':
+                $("#id-Webbing").attr("checked", "checked");
+                break;
+            case 'Witches broom':
+                $("#id-Witchesbroom").attr("checked", "checked");
+                break;
+            case 'Yellow':
+                $("#id-Yellow").attr("checked", "checked");
+                break;
+            case 'Leaf Fall':
+                $("#id-LeafFall").attr("checked", "checked");
+                break;
+            case 'Suface growth':
+                $("#id-Sufacegrowth").attr("checked", "checked");
+                break;
+            case 'Rot':
+                $("#id-Rot").attr("checked", "checked");
+                break;
+            case 'Distorted':
+                $("#id-Distorted").attr("checked", "checked");
+                break;
+            case 'Bore holes':
+                $("#id-Boreholes").attr("checked", "checked");
+                break;
+            case 'Chewed':
+                $("#id-Chewed").attr("checked", "checked");
+                break;
+
+            case 'Dieback':
+                $("#id-Dieback").attr("checked", "checked");
+                break;
+            case 'Red':
+                $("#id-Red").attr("checked", "checked");
+                break;
+
+            case 'Pustule':
+                $("#id-Pustule").attr("checked", "checked");
+                break;
+            case 'Drying':
+                $("#id-Drying").attr("checked", "checked");
+                break;
+
+            case 'Mosaic':
+                $("#id-Mosaic").attr("checked", "checked");
+                break;
+            case 'Streak':
+                $("#id-Streak").attr("checked", "checked");
+                break;
+
+        }
+
+    });
+    var distSimptoms = data['sym_dist'].split(",");
+    distSimptoms.forEach(element => {
+        switch (element) {
+            case 'Localised':
+                $("#id-Localised").attr("checked", "checked");
+                break;
+            case 'Scattered':
+                $("#id-Scattered").attr("checked", "checked");
+                break;
+            case 'Linear':
+                $("#id-Linear").attr("checked", "checked");
+                break;
+            case 'Field margin':
+                $("#id-Fieldmargin").attr("checked", "checked");
+                break;
+            case 'Even':
+                $("#id-Even").attr("checked", "checked");
+                break;
+            case 'Certain varieties':
+                $("#id-Certain varieties").attr("checked", "checked");
+                break;
+            case 'Individual plants':
+                $("#id-Individual plants").attr("checked", "checked");
+                break;
+            case 'High areas':
+                $("#id-Highareas").attr("checked", "checked");
+                break;
+            case 'Low areas':
+                $("#id-Lowareas").attr("checked", "checked");
+                break;
+        }
+
+    });
+    $("textarea[name='desc_problem']").val(data['desc_problem']);
+    var type_prob = data['type_problem'].split(",");
+    type_prob.forEach(element => {
+        switch (element) {
+            case "Fungus":
+                $("#id-Fungus").attr("checked", "checked");
+                break;
+            case "Bacterium":
+                $("#id-Bacterium").attr("checked", "checked");
+                break;
+            case "Insecto":
+                $("#id-Insecto").attr("checked", "checked");
+                break;
+            case "Mollusc":
+                $("#id-Mollusc").attr("checked", "checked");
+                break;
+            case "Nematode":
+                $("#id-Nematode").attr("checked", "checked");
+                break;
+            case "Weed":
+                $("#id-Weed").attr("checked", "checked");
+                break;
+            case "Other":
+                $("#id-Other").attr("checked", "checked");
+                break;
+            case "Water mould":
+                $("#id-Watermould").attr("checked", "checked");
+                break;
+            case "Virus":
+                $("#id-Virus").attr("checked", "checked");
+                break;
+            case "Mite":
+                $("#id-Mite").attr("checked", "checked");
+                break;
+            case "Bird":
+                $("#id-Bird").attr("checked", "checked");
+                break;
+            case "Mammal":
+                $("#id-Mammal").attr("checked", "checked");
+                break;
+            case "Nutrient deficiency":
+                $("#id-Nutrientdeficiency").attr("checked", "checked");
+                break;
+            case "Unknow":
+                $("#id-Unknow").attr("checked", "checked");
+                break;
+        }
+
+    });
+    // $("#").val(data[''])
+    $("input[name='diagnosis']").val(data['diagnosis']);
+    switch (data['Cur_cnt']) {
+        case '1':
+            $("#id_Cur_cnt_yes").attr("checked", "checked");
+
+            break;
+
+        default:
+            $("#id_Cur_cnt_no").attr("checked", "checked");
+            break;
+    }
+    var rec_manag = data['rec_type'].split(",");
+    rec_manag.forEach(element => {
+        switch (element) {
+            case "Monitoring":
+                $("#id-Monitoring").attr("checked", "checked");
+                break;
+
+            case "Cultural":
+                $("#id-Cultural").attr("checked", "checked");
+                break;
+
+            case "Biological":
+                $("#id-Biological").attr("checked", "checked");
+                break;
+
+            case "Resistant varieties":
+                $("#id-Resistantvarieties").attr("checked", "checked");
+                break;
+
+            case "Fungicide":
+                $("#id-Fungicide").attr("checked", "checked");
+                break;
+
+            case "Insecticide/acaricide":
+                $("#id-Insecticideacaricide").attr("checked", "checked");
+                break;
+
+            case "Herbicide":
+                $("#id-Herbicide").attr("checked", "checked");
+                break;
+
+            case "Botanical":
+                $("#id-Botanical").attr("checked", "checked");
+                break;
+            case "Fertilizer":
+                $("#id-Fertilizer").attr("checked", "checked");
+                break;
+            case "Other":
+                $("#id-Other").attr("checked", "checked");
+                break;
+
+        }
+
+    });
+    $("input[name='rec_curp']").val(data["rec_curp"]);
+    $("input[name='rec_prevp']").val(data['rec_prevp']);
+    switch (data["s_tolab"]) {
+        case 1:
+            $("#id_stlb_yes").attr("checked", "checked");
+
+            break;
+
+        default:
+            $("#id_stlb_no").attr("checked", "checked");
+            break;
+    }
+    switch (data["sheet_giv"]) {
+        case 1:
+            $("#sheet_giv_yes").attr("checked", "checked");
+
+            break;
+
+        default:
+            $("#sheet_giv_no").attr("checked", "checked");
+            break;
+    }
+    switch (data["field_v"]) {
+        case 1:
+            $("#field_v_yes").attr("checked", "checked");
+
+            break;
+
+        default:
+            $("#field_v_no").attr("checked", "checked");
+            break;
+    }
     // $("input[name='farm_name_dca']").val(data["farm_name_dca"]);
+}
+function delete_row_dcaform(data) {
+
+    $.ajax({
+        url: 'delete/dca_form',
+        type: "POST",
+        data: {
+            'id_dca_form': data['id_dca_form'],
+
+        },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        dataType: 'json',
+        success: function (respuesta) {
+            console.log(respuesta);
+        }
+    })
+    reload_dca_table();
 }

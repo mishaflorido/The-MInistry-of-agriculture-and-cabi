@@ -35,6 +35,7 @@
         </div>
         <div class="container">
             <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
+                <input type="hidden" name="id_farm_road">
                 <!-- start input section -->
                 <div class="row my-2">
                     <input type="date" name="date_farm_road" class="form-control date_farm_road" value="<?php echo date('Y-m-d'); ?>" id="date_farm_road">

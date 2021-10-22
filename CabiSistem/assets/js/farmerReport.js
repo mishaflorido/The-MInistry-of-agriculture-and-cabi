@@ -14,11 +14,16 @@ $(document).ready(function () {
             {
 
                 text: '<i class="fas fa-trash-o" aria-hidden="true"></i>',
-                titleAttr: "To PDF",
+                titleAttr: "Individual form print",
                 action: function () {
                     var farmer = table.row({ selected: true }).data();
+                    if (farmer == null) {
+                        alert("Please select a row to create PDF");
 
-                    to_pdf_dcaform(farmer);
+                    } else {
+                        to_pdf_dcaform(farmer);
+                    }
+
 
                 }
             },

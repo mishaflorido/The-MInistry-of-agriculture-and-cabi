@@ -15,16 +15,26 @@ $(document).ready(function () {
         buttons: [
             {
 
-                text: 'PDF',
+                text: 'Individual form print',
                 titleAttr: "To PDF",
                 action: function () {
                     var ofwr = ofwr_table.row({ selected: true }).data();
-
-                    to_pdf_ofwr(ofwr);
+                    if (ofwr == null) {
+                        alert('Please select a row to create PDF')
+                    } else {
+                        to_pdf_ofwr(ofwr);
+                    }
 
                 }
             },
-            'excel', 'print'
+            {
+                extend: 'excel',
+                text: 'Excel'
+            },
+            {
+                extend: 'print',
+                text: "Print Table"
+            }
         ],
         ajax: {
             method: "GET",

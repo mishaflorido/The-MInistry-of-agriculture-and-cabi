@@ -4,7 +4,6 @@
         <div class="row mb-2">
             <div class="col-sm-8">
                 <h1 class="m-0"> OFFICER´S WEEKLY REPORT </h1>
-                <h3 class="m-0"> (To be submited to Officer-in-charge on Mondays) </h3>
             </div><!-- /.col -->
             <div class="col-sm-4">
                 <ol class="breadcrumb float-sm-right">
@@ -16,6 +15,11 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+<div style="text-align: center" class="mb-3">
+    <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label></br>
+    <label for="FarmRegisterForm" class="form-label">OFFICER´S WEEKLY REPORT</label></br>
+    <label for="FarmRegisterForm" class="form-label">(To be submited to Officer-in-charge on Mondays)</label>
+</div>
 <div class="container">
     <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
         <form class="frm_ofwr">
