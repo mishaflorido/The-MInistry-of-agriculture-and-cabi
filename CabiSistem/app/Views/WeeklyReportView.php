@@ -22,6 +22,7 @@
 </div>
 <div class="container">
     <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
+        <a class="form-control" role="button" id="text_test"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
         <form class="frm_ofwr">
             <div class="row my-2">
                 <div class="col-md-6">
@@ -75,8 +76,8 @@
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style=" overflow:hidden;" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style=" overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
-                        <td><input type="number" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
-                        <td><input type="number" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
                     </tr>
                     <tr>
                         <td>
@@ -87,8 +88,8 @@
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style=" overflow:hidden" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style="overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
-                        <td><input type="number" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
-                        <td><input type="number" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
                     </tr>
                     <tr>
                         <td>
@@ -99,8 +100,8 @@
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style="  overflow:hidden" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style="  overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
-                        <td><input type="number" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
-                        <td><input type="number" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
                     </tr>
                     <tr>
                         <td>
@@ -111,8 +112,8 @@
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style=" overflow:hidden" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style=" overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
-                        <td><input type="number" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
-                        <td><input type="number" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
                     </tr>
                     <tr>
                         <td>
@@ -123,8 +124,8 @@
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style="  overflow:hidden" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style=" overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
-                        <td><input type="number" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
-                        <td><input type="number" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
                     </tr>
                     <tr>
                         <td>
@@ -135,8 +136,8 @@
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style="  overflow:hidden" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style="  overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
-                        <td><input type="number" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
-                        <td><input type="number" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
                     </tr>
                     <tr>
                         <td>
@@ -147,8 +148,8 @@
                         <td><input type="text" name="date_wkly_rpt" style="width: 107px;" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control date_wkly_rpt"></td>
                         <td><textarea style=" overflow:hidden" type="text" name="clt_wkly_rpt" placeholder="Client problems" class="form-control clt_wkly_rpt"></textarea></td>
                         <td><textarea style="  overflow:hidden" type="text" name="Adv_wkly_rpt" placeholder="Advise" class="form-control Adv_wkly_rpt"></textarea></td>
-                        <td><input type="number" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
-                        <td><input type="number" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="time_wkly_rpt" placeholder="time" class="form-control time_wkly_rpt"></td>
+                        <td><input type="number" step="any" name="miles_wkly_rpt" placeholder="Miles" class="form-control miles_wkly_rpt"></td>
                     </tr>
 
                 </tbody>

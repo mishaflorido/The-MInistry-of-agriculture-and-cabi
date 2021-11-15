@@ -1,4 +1,11 @@
 var ofwr_table;
+
+$(".frm_ofwr").keypress(function (e) {
+    if (e.keyCode == 13 && !e.shiftKey) {
+        e.preventDefault();
+    }
+})
+
 $(document).ready(function () {
     setInterval(function () {
         ofwr_table.ajax.reload();
@@ -326,6 +333,7 @@ $("form").submit(function (event) {
 
             }
         }).done(function () {
+            fillEmptyInputDataWR();
             ofwr_table.ajax.reload();
             hide_spin("ofiwr_btn_submit", "spin_ofwr", "not_spin_ofwr");
             $('#alert_ofwr').html("The Oficers Itinerary Has Been Registred Succesfully");
@@ -437,3 +445,16 @@ function insert_week_report(id_of_wr) {
     });
 
 }
+//  Filled Empty Input Data
+
+function fillEmptyInputDataWR() {
+    console.log("empty");
+    $(".frm_ofwr input[type='date']").val('');
+    $(".frm_ofwr input[type='text']").not('.day_ofwr, .day_plan_rpt').val('');
+    $(".frm_ofwr input[type='number']").val('');
+    $(".frm_ofwr textarea").val('');
+
+
+
+}
+// ////////////////////

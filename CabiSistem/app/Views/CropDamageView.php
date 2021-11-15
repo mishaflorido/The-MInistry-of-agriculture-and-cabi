@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-md-11">
                     <div class="container">
-                        <table class="table">
+                        <table class="table table-responsive">
                             <thead>
                                 <tr>
                                     <th scope="col">name of farmer</th>
@@ -78,13 +78,13 @@
                                 <tr>
                                     <td><input type="text" name="farmer_name_crd" placeholder="" class="form-control farmer_name_crd"></td>
                                     <td><input type="date" name="visit_date_crd" placeholder="" class="form-control visit_date_crd"></td>
-                                    <td><input type="number" name="farmer_reg_crd" placeholder="" class="form-control farmer_reg_crd"></td>
+                                    <td><input type="text" name="farmer_reg_crd" placeholder="" class="form-control farmer_reg_crd"></td>
                                     <td><input type="text" name="contact_crd" placeholder="" class="form-control contact_crd"></td>
                                     <td><input type="text" name="crop_var_crd" placeholder="" class="form-control crop_var_crd"></td>
                                     <td><input type="text" name="location_crd" placeholder="" class="form-control location_crd"></td>
-                                    <td><input type="number" name="tot_acre_crd" placeholder="" class="form-control tot_acre_crd"></td>
+                                    <td><input type="number" step="any" name="tot_acre_crd" placeholder="" class="form-control tot_acre_crd"></td>
                                     <td><input type="text" name="desc_dmg_crd" placeholder="" class="form-control desc_dmg_crd"></td>
-                                    <td><input type="number" name="area_plot_crd" placeholder="" class="form-control area_plot_crd"></td>
+                                    <td><input type="number" step="any" name="area_plot_crd" placeholder="" class="form-control area_plot_crd"></td>
                                     <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 </tr>
                             </tbody>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="col-md-11">
                     <div class="container">
-                        <table class="table">
+                        <table class="table table-responsive">
                             <thead>
                                 <tr>
                                     <th scope="col">No. of Stools</th>
@@ -120,12 +120,12 @@
 
                             <tbody id='tbody_stools'>
                                 <tr>
-                                    <td><input type="number" name="num_stools" placeholder="" class="form-control num_stools"></td>
-                                    <td><input type="number" name="amount" placeholder="" class="form-control amount"></td>
-                                    <td><input type="number" name="age_plants" placeholder="" class="form-control age_plants"></td>
+                                    <td><input type="number" step="any" name="num_stools" placeholder="" class="form-control num_stools"></td>
+                                    <td><input type="number" step="any" name="amount" placeholder="" class="form-control amount"></td>
+                                    <td><input type="number" step="any" name="age_plants" placeholder="" class="form-control age_plants"></td>
                                     <td><input type="text" name="stage_mat" placeholder="" class="form-control stage_mat"></td>
-                                    <td><input type="number" name="cost_plant" placeholder="" class="form-control cost_plant"></td>
-                                    <td><input type="number" name="tot_val" placeholder="" class="form-control tot_val"></td>
+                                    <td><input type="number" step="any" name="cost_plant" placeholder="" class="form-control cost_plant"></td>
+                                    <td><input type="number" step="any" name="tot_val" placeholder="" class="form-control tot_val"></td>
                                     <td><input type="text" name="ofc_collec" placeholder="" class="form-control ofc_collec"></td>
                                     <td><input type="text" name="cert_by" placeholder="" class="form-control cert_by"></td>
                                     <td><input type="text" name="remark_stools" placeholder="" class="form-control remark"></td>

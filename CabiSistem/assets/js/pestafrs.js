@@ -1,9 +1,31 @@
 var pestapp_table;
-$(document).ready(function () {
-    setInterval(function () {
-        pestapp_table.ajax.reload();
-    }, 180000);
-    // Get Crop
+// Filled Empty Input Data
+
+function fillEmptyInputDataPESTAPP() {
+    $(".frm_pestapp input[type='text']").val('');
+    $("#tbody_pesticide").empty();
+    $("#tbody_pesticide").append(`
+      <tr>
+     <td><textarea name="inf_far" placeholder="" class="form-control inf_far" rows="1"> </textarea></td>
+       <td><input type="date" name="date_pestapp" placeholder="" class="form-control date_pestapp" style="width: 100px;"></td>
+       <td><input list="crop_pestapp_list" name="crop_pestapp" placeholder="" class="form-control crop_pestapp">
+          <datalist id="crop_pestapp_list"></datalist>
+      </td>
+      <td><input type="text" name="plsi_pestapp" placeholder="" class="form-control plsi_pestapp"></td>
+       <td><input type="text" name="targ_pestapp" placeholder="" class="form-control targ_pestapp"></td>
+     <td><input type="text" name="pest_pestapp" placeholder="" class="form-control pest_pestapp"></td>
+     <td><input type="text" name="rate_pestapp" placeholder="" class="form-control rate_pestapp"> </td>
+      <td><input type="text" name="amt_pestapp" placeholder="" class="form-control amt_pestapp"></td>
+      <td><textarea name="com_pestapp" placeholder="" class="form-control com_pestapp" rows="1"></textarea></td>
+     <td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>
+ </tr>
+    `);
+    get_cropPestapp();
+
+
+}
+// Get Crop
+function get_cropPestapp() {
     $.ajax({
         method: "GET",
         url: "get/crop",
@@ -24,7 +46,14 @@ $(document).ready(function () {
         }
 
     });
+}
 
+// ////////////////////
+$(document).ready(function () {
+    setInterval(function () {
+        pestapp_table.ajax.reload();
+    }, 180000);
+    get_cropPestapp();
     pestapp_table = $('#pestapp_table_report').DataTable({
         // select: {
         //     style: 'single',
@@ -200,6 +229,8 @@ $("#btn_pestapp").on('click', function () {
                 console.log(respuesta);
             }
         }).done(function () {
+            fillEmptyInputDataPESTAPP();
+            pestapp_table.ajax.reload();
             hide_spin("btn_pestapp", "spin_pestapp", "not_spin_pestapp");
             $('#alert_pestapp').html("The Pesticide Field Record Form Has Been Registred Succesfully");
             $('#alert_pestapp').removeClass('d-none');

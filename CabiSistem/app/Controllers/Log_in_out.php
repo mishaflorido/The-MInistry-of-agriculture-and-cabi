@@ -57,7 +57,8 @@ class Log_in_out extends BaseController
 
             return view('MainMenu', $data);
         } else {
-            return ("usuario desconocido");
+            $user['validation'] = 1;
+            return view("login", $user);
         };
         $db->close();
     }

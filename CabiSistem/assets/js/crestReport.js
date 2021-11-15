@@ -1,4 +1,5 @@
 var cropest_table;
+var aux_table_cropest;
 $(document).ready(function () {
 
     setInterval(function () {
@@ -32,13 +33,28 @@ $(document).ready(function () {
                 }
             },
             {
+                extend: 'print',
+                text: "Print Table"
+            },
+            {
+
+                text: 'Edit Row',
+                titleAttr: "Edit register",
+                action: function () {
+                    var dca = cropest_table.row({ selected: true }).data();
+                    if (dca == null) {
+                        alert("Please select a row to Edit");
+                    }
+                    else {
+                        edit_row_cropest(dca);
+                    }
+
+                }
+            },
+            {
                 extend: 'excel',
                 text: 'Excel'
             },
-            {
-                extend: 'print',
-                text: "Print Table"
-            }
         ],
         ajax: {
             method: "GET",
@@ -73,7 +89,7 @@ function get_weekly_data_collection(id_praedial) {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         dataType: 'json',
         success: function (respuesta) {
-            // var r = JSON.parse(respuesta);
+            aux_table_cropest = respuesta;
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
                     const element = respuesta[key];
@@ -166,4 +182,35 @@ function to_pdf_cropest(crop) {
 
 
     window.open(doc.output('bloburl'));
+}
+function edit_row_cropest(data) {
+    $("#larceny_programme").collapse("toggle");
+    $("input[name='id_praedial']").val(data['id_praedial']);
+    $("input[name='registration_number']").val(data['registration_number']);
+    $("input[name='farmer_name']").val(data['farmer_name']);
+    $("input[name='parcel_address']").val(data['parcel_address']);
+    $("input[name='parcel_number']").val(data['parcel_number']);
+    $("#tbody_produce").empty();
+    for (const key in aux_table_cropest) {
+        if (Object.hasOwnProperty.call(aux_table_cropest, key)) {
+            const element = aux_table_cropest[key];
+            $('#tbody_produce').append(`<tr>
+            
+            <td><input type="hidden" name="id_wdc" class="id_wdc" value="${element['id_wdc']}"><input type="text" name="crop_name" placeholder="" style="width: auto" class="form-control crop_name" value="${element['crop_name']}"></td>
+            <td><input type="number" name="plot_size" placeholder="" class="form-control plot_size" value="${element['plot_size']}" ></td>
+            <td><input type="number" name="n_stools" style="width: auto" placeholder="" class="form-control n_stools" value="${element['n_stools']}"></td>
+            <td><input type="date" name="date_planted" placeholder="" style="width: auto" class="form-control date_planted" value="${element['date_planted']}"></td>
+            <td><input type="text" name="variety" placeholder="" class="form-control variety" value="${element['variety']}"></td>
+            <td><input type="text" name="stage_maturity" placeholder="" class="form-control stage_maturity" value="${element['stage_maturity']}"></td>
+            <td> <input type="date" name="harvest_date" placeholder="" style="width: auto" class="form-control  harvest_date" value="${element['harvest_date']}"></td>
+            <td><input type="text" name="yield" placeholder="" class="form-control yield" value="${element['yield']}"></td>
+            <td><input type="text" name="activities_carried" placeholder="" class="form-control activities_carried" value="${element['activities_carried']}"></td>
+            <td><input type="text" name="taq_arf_moa" placeholder=""style="width: auto" class="form-control taq_arf_moa" value="${element['taq_arf_moa']}"></td>
+            <td><input type="number" name="n_farm_visits" placeholder="" class="form-control n_farm_visits" value="${element['n_farm_visits']}"></td>
+            <td><input type="text" name="remarks" placeholder="" class="form-control remarks" value="${element['remarks']}"></td>
+            <td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>
+            </tr>`);
+
+        }
+    }
 }

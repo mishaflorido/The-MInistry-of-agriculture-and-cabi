@@ -19,6 +19,7 @@
 
 <!-- AQUI ENTRE TODO EL CONTENIDO -->
 
+
 <form class="praedial_lancery">
     <div style="text-align: center" class="mb-3">
         <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
@@ -42,6 +43,7 @@
 
         <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
             <!-- start input section -->
+            <input type="hidden" name='id_praedial'>
 
             <div class=" row my-2">
                 <div class="col-md-6">
@@ -73,50 +75,47 @@
             <!-- </div> -->
             <div class="row my-2">
                 <!-- <div class="col-md-11"> -->
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Crop Name</th>
+                                <th scope="col">Plot Size(sq ft)</th>
+                                <th scope="col">No Of Stools</th>
+                                <th scope="col">Date Planted</th>
+                                <th scope="col">Variety</th>
+                                <th scope="col">Stage Of Maturity</th>
+                                <th scope="col">Expected <br>Harvest Date(S)</th>
+                                <th scope="col">Expect-Ed Yield</th>
+                                <th scope="col">Activities Carried Out By Farmers</th>
+                                <th scope="col">
+                                    Type Quantity Of <br> Assistance Received From Moa
+                                </th>
+                                <th scope="col">No Of Farm Visits</th>
+                                <th scope="col">Remarks</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
 
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">Crop Name</th>
-                            <th scope="col">Plot Size(Acre)</th>
-                            <th scope="col">No Of Stools</th>
-                            <th scope="col">Date Planted</th>
-                            <th scope="col">Variety</th>
-                            <th scope="col">Stage Of Maturity</th>
-                            <th scope="col">Expected <br>Harvest Date(S)</th>
-                            <th scope="col">Expect-Ed Yield</th>
-                            <th scope="col">Activities Carried Out By Farmers</th>
-                            <th scope="col">
-                                <div class="badge_in">
-                                    <span class="d-none position-absolute badge rounded-pill bg-secondary" style="font-size: 1em;">Type Quantity Of <br> Assistance Received From Moa</span>
-                                    T.A.Q Of A.R From Moa
-                                </div>
-                            </th>
-                            <th scope="col">No Of Farm Visits</th>
-                            <th scope="col">Remarks</th>
-                            <th scope="col">Delete</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id='tbody_produce'>
-                        <tr>
-                            <td><input type="text" name="crop_name" placeholder="" class="form-control crop_name"></td>
-                            <td><input type="number" name="plot_size" placeholder="" class="form-control plot_size"></td>
-                            <td><input type="number" name="n_stools" placeholder="" class="form-control n_stools"></td>
-                            <td><input type="date" name="date_planted" placeholder="" style="width: 100px" class="form-control date_planted"></td>
-                            <td><input type="text" name="variety" placeholder="" class="form-control variety"></td>
-                            <td><input type="text" name="stage_maturity" placeholder="" class="form-control stage_maturity"></td>
-                            <td> <input type="date" name="harvest_date" placeholder="" style="width: 100px" class="form-control  harvest_date"> </td>
-                            <td><input type="text" name="yield" placeholder="" class="form-control yield"></td>
-                            <td><input type="text" name="activities_carried" placeholder="" class="form-control activities_carried"></td>
-                            <td><input type="text" name="taq_arf_moa" placeholder="" class="form-control taq_arf_moa"></td>
-                            <td><input type="number" name="n_farm_visits" placeholder="" class="form-control n_farm_visits"></td>
-                            <td><input type="text" name="remarks" placeholder="" class="form-control remarks"></td>
-                            <td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                        <tbody id='tbody_produce'>
+                            <tr>
+                                <td><input type="text" name="crop_name" placeholder="" style="width: auto" class="form-control crop_name"></td>
+                                <td><input type="number" step="any" name="plot_size" placeholder="" class="form-control plot_size"></td>
+                                <td><input type="number" step="any" name="n_stools" placeholder="" class="form-control n_stools"></td>
+                                <td><input type="date" name="date_planted" placeholder="" class="form-control date_planted"></td>
+                                <td><input type="text" name="variety" placeholder="" style="width: auto" class="form-control variety"></td>
+                                <td><input type="text" name="stage_maturity" placeholder="" style="width: auto" class="form-control stage_maturity"></td>
+                                <td> <input type="date" name="harvest_date" placeholder="" class="form-control  harvest_date"> </td>
+                                <td><input type="text" name="yield" placeholder="" style="width: auto" class="form-control yield"></td>
+                                <td><input type="text" name="activities_carried" style="width: auto" placeholder="" class="form-control activities_carried"></td>
+                                <td><input type="text" name="taq_arf_moa" style="width: auto" placeholder="" class="form-control taq_arf_moa"></td>
+                                <td><input type="number" step="any" name="n_farm_visits" placeholder="" class="form-control n_farm_visits"></td>
+                                <td><input type="text" name="remarks" placeholder="" style="width: auto" class="form-control remarks"></td>
+                                <td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <!-- </div> -->
             </div>
 

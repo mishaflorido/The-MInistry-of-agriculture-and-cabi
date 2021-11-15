@@ -65,7 +65,7 @@
                                     <tr>
                                         <td><input type="text" name="road_dist" placeholder="" class="form-control road_dist" required></td>
                                         <td><input type="text" name="road_name" placeholder="" class="form-control road_name" required></td>
-                                        <td><input type="number" name="road_length" placeholder="" class="form-control road_length" required></td>
+                                        <td><input type="text" name="road_length" placeholder="" class="form-control road_length" required></td>
                                         <td><input type="number" name="num_farm" placeholder="" class="form-control num_farm" required></td>
                                         <td><input type="text" name="agr_act" placeholder="" class="form-control agr_act" required></td>
                                         <td><input type="text" name="work" placeholder="" class="form-control work" required></td>

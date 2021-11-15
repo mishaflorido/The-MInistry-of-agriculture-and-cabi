@@ -15,6 +15,7 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+
 <form class="plant_application">
     <div style="text-align: center" class="mb-3">
         <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
@@ -35,6 +36,7 @@
                 </div>
             </div>
             <div class="row">
+                <input type="hidden" name="id_plant_apply">
                 <div class="col-md-6">
                     <span class="input-group-text">Name Of Farmer: </span>
                     <div class="input-group">
@@ -44,8 +46,8 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <span class="input-group-text">MOA FARMERS ID# </span>
-                    <input type="number" class="form-control" placeholder="MOA farmers id" name="id_farm">
+                    <span class="input-group-text">FARMERS ID# </span>
+                    <input type="text" class="form-control" placeholder="MOA farmers id" name="id_farm">
                 </div>
             </div>
 
@@ -63,7 +65,7 @@
             <div class="row my-2">
                 <div class="col-md-4">
                     <span class="input-group-text">Tel. N°: </span>
-                    <input type="number" class="form-control" placeholder="Tel. Number" name="f_phone">
+                    <input type="text" class="form-control" placeholder="Tel. Number" name="f_phone">
                 </div>
                 <div class="col-md-4">
                     <span class="input-group-text">ACREAGE(S): </span>

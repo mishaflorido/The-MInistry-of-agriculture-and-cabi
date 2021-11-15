@@ -51,6 +51,17 @@
 								<label class="label" for="password">Password</label>
 								<input type="password" class="form-control" placeholder="Password" name="psw_user" required>
 							</div>
+							<?php if (isset($validation)) { ?>
+								<div class="row">
+									<div class="col-lg-12">
+										<!-- Alert -->
+										<div class="alert alert-danger" role="alert" id="alert_plant_application">
+											User email or password is incorrect
+										</div>
+										<!-- ///////// -->
+									</div>
+								</div>
+							<?php } ?>
 							<div class="form-group">
 								<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
 							</div>

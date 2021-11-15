@@ -1,4 +1,44 @@
 var cropDamage_table;
+// Filled Empty Input Data
+
+function fillEmptyInputDataCRD() {
+    $(".crop_damage_form input[type='date']").val('');
+    $(".crop_damage_form input[type='text']").val('');
+    $(".crop_damage_form input[type='hidden']").val('');
+    $("#tbody_crop_damage").empty();
+    $("#tbody_crop_damage").append(`
+      <tr>
+         <td><input type="text" name="farmer_name_crd" placeholder="" class="form-control farmer_name_crd"></td>
+         <td><input type="date" name="visit_date_crd" placeholder="" class="form-control visit_date_crd"></td>
+          <td><input type="text" name="farmer_reg_crd" placeholder="" class="form-control farmer_reg_crd"></td>
+          <td><input type="text" name="contact_crd" placeholder="" class="form-control contact_crd"></td>
+          <td><input type="text" name="crop_var_crd" placeholder="" class="form-control crop_var_crd"></td>
+          <td><input type="text" name="location_crd" placeholder="" class="form-control location_crd"></td>
+          <td><input type="number" name="tot_acre_crd" placeholder="" class="form-control tot_acre_crd"></td>
+          <td><input type="text" name="desc_dmg_crd" placeholder="" class="form-control desc_dmg_crd"></td>
+          <td><input type="number" name="area_plot_crd" placeholder="" class="form-control area_plot_crd"></td>
+          <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+    </tr>
+    `);
+    $("#tbody_stools").empty();
+    $("#tbody_stools").append(`
+      <tr>
+     <td><input type="number" name="num_stools" placeholder="" class="form-control num_stools"></td>
+      <td><input type="number" name="amount" placeholder="" class="form-control amount"></td>
+      <td><input type="number" name="age_plants" placeholder="" class="form-control age_plants"></td>
+      <td><input type="text" name="stage_mat" placeholder="" class="form-control stage_mat"></td>
+       <td><input type="number" name="cost_plant" placeholder="" class="form-control cost_plant"></td>
+       <td><input type="number" name="tot_val" placeholder="" class="form-control tot_val"></td>
+      <td><input type="text" name="ofc_collec" placeholder="" class="form-control ofc_collec"></td>
+       <td><input type="text" name="cert_by" placeholder="" class="form-control cert_by"></td>
+       <td><input type="text" name="remark_stools" placeholder="" class="form-control remark"></td>
+         <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+ </tr>
+    `);
+
+
+}
+// ////////////////////
 $(document).ready(function () {
     setInterval(function () {
         cropDamage_table.ajax.reload();
@@ -250,7 +290,7 @@ function add_cropdmg() {
     $('#tbody_crop_damage').append('<tr>' +
         '<td><input type="text" name="farmer_name_crd" placeholder="" class="form-control farmer_name_crd"></td>' +
         '<td><input type="date" name="visit_date_crd" placeholder="" class="form-control visit_date_crd"></td>' +
-        '<td><input type="number" name="farmer_reg_crd" placeholder="" class="form-control farmer_reg_crd"></td>' +
+        '<td><input type="text" name="farmer_reg_crd" placeholder="" class="form-control farmer_reg_crd"></td>' +
         '<td><input type="text" name="contact_crd" placeholder="" class="form-control contact_crd"></td>' +
         '<td><input type="text" name="crop_var_crd" placeholder="" class="form-control crop_var_crd"></td>' +
         '<td><input type="text" name="location_crd" placeholder="" class="form-control location_crd"></td>' +
@@ -306,6 +346,8 @@ $("#submit_crop_damage").on("click", function () {
 
         }
     }).done(function () {
+        cropDamage_table.ajax.reload();
+        fillEmptyInputDataCRD();
         hide_spin("submit_crop_damage", "spin_crop_dmg", "not_spin_cdmg");
         $('#alert_crop_dmg').html("The Crop Damage Form Has Been Registred Succesfully");
         $('#alert_crop_dmg').removeClass('d-none');

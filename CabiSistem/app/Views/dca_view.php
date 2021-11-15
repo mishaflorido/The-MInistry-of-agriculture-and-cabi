@@ -327,7 +327,7 @@
                 </div>
                 <div class="col-md-3">
                     <span class="input-group-text">Area planted: </span>
-                    <input type="number" class="form-control" placeholder="area planted" name="area_planted">
+                    <input type="number" class="form-control" placeholder="area planted" name="area_planted" step="any">
                 </div>
                 <div class="col-md-3">
 
@@ -547,7 +547,7 @@
 
                 <div class="col-md-6">
                     <span class="input-group-text">Type of problem: </span>
-                    <div class="row" style="">
+                    <div class="row">
                         <div class="col-md-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="t_prob" value="Bacterium" id="id-Bacterium">

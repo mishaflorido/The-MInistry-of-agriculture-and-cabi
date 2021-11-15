@@ -144,7 +144,6 @@ $("#sub_updatePI").on("submit", function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
 
-
 });
 // Register new User 
 $("form").submit(function (event) {

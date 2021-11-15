@@ -63,6 +63,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button type="button" class="nav-link btn border fs-6">
+                        User Manual <i class="fa fa-download"></i>
+                    </button>
+                    <!-- <a class="nav-link" href="#" role="submit" id='log_out_button'> -->
+                    <!-- </a> -->
+                </li>
                 <?php echo form_open("logout") ?>
                 <li class="nav-item">
                     <button type="submit" class="nav-link">
@@ -464,17 +471,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url() ?>/assets/js/mainMenu.js"></script>
     <script src="<?= base_url() ?>/assets/js/farmer.js"></script>
     <script src="<?= base_url() ?>/assets/js/vendor.js"></script>
+    <script src="<?= base_url() ?>/assets/js/crestReport.js"></script>
     <script src="<?= base_url() ?>/assets/js/lanceryProgramme.js"></script>
-    <script type="module" src="<?= base_url() ?>/assets/js/farmRoad.js"></script>
+    <script src="<?= base_url() ?>/assets/js/farmRoad.js"></script>
     <script src="<?= base_url() ?>/assets/js/cropDamage.js"></script>
     <script src="<?= base_url() ?>/assets/js/plantApplication.js"></script>
+    <script src="<?= base_url() ?>/assets/js/dcaReport.js"></script>
     <script src="<?= base_url() ?>/assets/js/dca_form.js"></script>
     <script src="<?= base_url() ?>/assets/js/weekly_report.js"></script>
     <script src="<?= base_url() ?>/assets/js/pestafrs.js"></script>
     <!-- Report scripts -->
     <script src="<?= base_url() ?>/assets/js/farmerReport.js"></script>
-    <script src="<?= base_url() ?>/assets/js/dcaReport.js"></script>
-    <script src="<?= base_url() ?>/assets/js/crestReport.js"></script>
 
     <!-- JSpdf -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->

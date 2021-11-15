@@ -1,4 +1,27 @@
 var froad_table;
+// Filled Empty Input Data
+
+function fillEmptyInputData() {
+    $(".farm_roads input[type='date']").val('');
+    $(".farm_roads input[type='hidden']").val('');
+    $("#tbody_farm_road").empty();
+    $("#tbody_farm_road").append(`
+      <tr>
+        <td><input type="text" name="road_dist" placeholder="" class="form-control road_dist" required></td>
+        <td><input type="text" name="road_name" placeholder="" class="form-control road_name" required></td>
+        <td><input type="text" name="road_length" placeholder="" class="form-control road_length" required></td>
+        <td><input type="number" name="num_farm" placeholder="" class="form-control num_farm" required></td>
+        <td><input type="text" name="agr_act" placeholder="" class="form-control agr_act" required></td>
+        <td><input type="text" name="work" placeholder="" class="form-control work" required></td>
+        <td><input type="text" name="remark" placeholder="" class="form-control remark" required></td>
+        <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+     </tr>    
+    `)
+
+
+}
+// ////////////////////
+
 $(document).ready(function () {
     setInterval(function () {
         froad_table.ajax.reload();
@@ -14,18 +37,11 @@ $(document).ready(function () {
         pagingType: "input",
         buttons: [
             {
-
                 text: 'Individual form print',
                 titleAttr: "To PDF",
                 action: function () {
                     var farmer = froad_table.row({ selected: true }).data();
-                    if (farmer == null) {
-                        alert("Please select a row to create a PDF");
-                    } else {
-                        to_pdf_farmroad(farmer);
-                    }
-
-
+                    to_pdf_farmroad(farmer);
                 }
             },
             {
@@ -152,7 +168,7 @@ function add_road() {
     $('#tbody_farm_road').append('<tr>' +
         '<td><input type="text" name="road_dist" placeholder="" class="form-control road_dist"></td>' +
         '<td><input type="text" name="road_name" placeholder="" class="form-control road_name"></td>' +
-        '<td><input type="number" name="road_length" placeholder="" class="form-control road_length"></td>' +
+        '<td><input type="text" name="road_length" placeholder="" class="form-control road_length"></td>' +
         '<td><input type="number" name="num_farm" placeholder="" class="form-control num_farm"></td>' +
         '<td><input type="text" name="agr_act" placeholder="" class="form-control agr_act"></td>' +
         '<td><input type="text" name="work" placeholder="" class="form-control work"></td>' +
@@ -207,6 +223,8 @@ $("#submit_farm_road").on("click", function () {
             }
         });
     })
+    froad_table.ajax.reload();
+    fillEmptyInputData();
     hide_spin("submit_farm_road", "spin_farm_road", "not_spin_farm_road");
     $('#alert_farm_roads').html("The Farm Roads Has Been Registred Succesfully");
     $('#alert_farm_roads').removeClass('d-none');

@@ -3,7 +3,26 @@ var sub_county;
 var village;
 var variety;
 const coordinates = document.getElementById('coordinates');
+// Filled Empty Input Data
+function filledEmptyInput() {
+    console.log("filled empty input");
+    $("#dca_reg_form input[type='text']").val('');
+    $("#dca_reg_form input[type='hidden']").val('');
+    $("#dca_reg_form input[type='number']").not("input[name='yfs_dca']").val('');
+    $("#dca_reg_form input[type='checkbox']").prop('checked', false);
+    $("#dca_reg_form textarea").val('');
+    $("#dca_reg_form input[type='date']").val('');
 
+}
+// //////////////////////
+// DCA RELOAD TABLE
+function reload_dca_table() {
+    console.log("Reloading table...");
+    dca_toPOMS_table.ajax.reload();
+}
+
+
+// //////////////////////////
 $(document).ready(function () {
     mapboxgl.accessToken = 'pk.eyJ1IjoibWlndWVsZmxvcmlkbyIsImEiOiJja3VoZHRocHUyZGpkMm5vMzA5eWxwdHc5In0.U3l5KH2nMBy87fQBrQTMjg';
     var map = new mapboxgl.Map({
@@ -237,6 +256,7 @@ $("form").submit(function (event) {
             }
         }).done(function () {
             reload_dca_table();
+            filledEmptyInput();
             hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
             $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
             $('.alert_dca').removeClass('d-none');

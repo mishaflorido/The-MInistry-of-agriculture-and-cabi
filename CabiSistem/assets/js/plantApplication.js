@@ -1,10 +1,64 @@
 var p_app_table;
+var aux_papp_tb1;
+var aux_papp_tb2;
+var aux_papp_tb3;
+var aux_papp_tb4;
 // VIEW FORM APPLICATION FUNCTIONS////////////////////////////
-$(document).ready(function () {
-    setInterval(function () {
-        p_app_table.ajax.reload();
-    }, 180000);
-    // Get Crop
+// Filled Empty Input Data
+function filledEmptyInputPAP() {
+    $(".plant_application input[type='date']").val('');
+    $(".plant_application input[type='text']").val('');
+    $(".plant_application input[type='hidden']").val('');
+    $("#tbody_plant_aplication").empty();
+    $("#tbody_plant_aplication").append(`
+      <tr>
+        <td>
+        <input list="var_type" name="plant_crop" class="form-control plant_crop">
+           <datalist id="var_type">
+
+          </datalist>
+         </td>
+         <td><input type="text" name="plant_req" placeholder="" class="form-control plant_req"></td>
+          <td><input type="text" name="plant_recom" placeholder="" class="form-control plant_recom"></td>
+          <td><input type="text" name="plant_approv" placeholder="" class="form-control plant_approv"></td>
+         <td><input type="text" name="plant_received" placeholder="" class="form-control plant_received"></td>
+         <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+     </tr>
+    `);
+    getVarietyPAP();
+    $("#tbody_pre_pln_inspection").empty();
+    $("#tbody_pre_pln_inspection").append(`
+       <tr>
+            <td><input type="date" name="pre_date_visit" placeholder="" class="form-control pre_date_visit"></td>
+            <td><input type="text" name="pre_com" placeholder="" class="form-control pre_com"></td>
+            <td><input type="text" name="extn_officeer" placeholder="" class="form-control extn_officeer"></td>
+             <td><input type="text" name="supervisor" placeholder="" class="form-control supervisor"></td>
+            <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+        </tr>
+    `);
+    $("#tbody_pst_pln_inspection").empty();
+    $("#tbody_pst_pln_inspection").append(`
+      <tr>
+        <td><input type="date" name="pos_date_visit" placeholder="" class="form-control pos_date_visit"></td>
+        <td><input type="text" name="pos_Comments" placeholder="" class="form-control pos_Comments"></td>
+         <td><input type="text" name="extn_officeer_post" placeholder="" class="form-control extn_officeer_post"></td>
+         <td><input type="text" name="supervisor_post" placeholder="" class="form-control supervisor_post"></td>
+         <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+     </tr>
+    `);
+    $("#tbody_fut_dev").empty();
+    $("#tbody_fut_dev").append(`
+      <tr>
+        <td><input type="text" name="fut_dev" placeholder="" class="form-control fut_dev"></td>
+        <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+     </tr>
+    `);
+
+}
+
+// //////////////////////
+// Get Variety 
+function getVarietyPAP() {
     $.ajax({
         method: "GET",
         url: "get/crop",
@@ -24,6 +78,14 @@ $(document).ready(function () {
         }
 
     });
+}
+// //////////////
+$(document).ready(function () {
+    setInterval(function () {
+        p_app_table.ajax.reload();
+    }, 180000);
+    // Get Crop
+    getVarietyPAP();
     // ////////////////////////////////////
     // LOAD DATATABLE FOR PLANT APPLICATION REPORT
 
@@ -54,12 +116,27 @@ $(document).ready(function () {
                 }
             },
             {
-                extend: 'excel',
-                text: 'Excel'
-            },
-            {
                 extend: 'print',
                 text: "Print Table"
+            },
+            {
+
+                text: 'Edit Row',
+                titleAttr: "Edit register",
+                action: function () {
+                    var dca = p_app_table.row({ selected: true }).data();
+                    if (dca == null) {
+                        alert("Please select a row to Edit");
+                    }
+                    else {
+                        edit_row_plantApplications(dca);
+                    }
+
+                }
+            },
+            {
+                extend: 'excel',
+                text: 'Excel'
             }
         ],
         ajax: {
@@ -111,8 +188,10 @@ function get_papp_tb1(id_plant_apply) {
         dataType: 'json',
         success: function (respuesta) {
             // var r = JSON.parse(respuesta);
+            aux_papp_tb1 = respuesta;
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
+
                     const element = respuesta[key];
                     // console.log(element);
                     $('#papp_tb1').append("<tr>" +
@@ -142,6 +221,7 @@ function get_papp_tb2(id_plant_apply) {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         dataType: 'json',
         success: function (respuesta) {
+            aux_papp_tb2 = respuesta;
             // var r = JSON.parse(respuesta);
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
@@ -173,6 +253,7 @@ function get_papp_tb3(id_plant_apply) {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         dataType: 'json',
         success: function (respuesta) {
+            aux_papp_tb3 = respuesta;
             // var r = JSON.parse(respuesta);
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
@@ -204,6 +285,7 @@ function get_papp_tb4(id_plant_apply) {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         dataType: 'json',
         success: function (respuesta) {
+            aux_papp_tb4 = respuesta;
             // var r = JSON.parse(respuesta);
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
@@ -367,7 +449,7 @@ function to_pdf_pappform(papp) {
 function add_plant_apply() {
 
     $('#tbody_plant_aplication').append('<tr>' +
-        '<td><input list="var_type" name="plant_crop" class="form-control plant_crop"></td>' +
+        '<td> <input type="hidden" name="id_papply_tb"><input list="var_type" name="plant_crop" class="form-control plant_crop"></td>' +
         '<td><input type="text" name="plant_req" placeholder="" class="form-control plant_req"></td>' +
         '<td><input type="text" name="plant_recom" placeholder="" class="form-control plant_recom"></td>' +
         '<td><input type="text" name="plant_approv" placeholder="" class="form-control plant_approv"></td>' +
@@ -378,7 +460,7 @@ function add_plant_apply() {
 function add_preplnt() {
 
     $('#tbody_pre_pln_inspection').append('<tr>' +
-        '<td><input type="date" name="pre_date_visit" placeholder="" class="form-control pre_date_visit"></td>' +
+        '<td><input type="hidden" name="id_preplins"><input type="date" name="pre_date_visit" placeholder="" class="form-control pre_date_visit"></td>' +
         '<td><input type="text" name="pre_com" placeholder="" class="form-control pre_com"></td>' +
         '<td><input type="text" name="extn_officeer" placeholder="" class="form-control extn_officeer"></td>' +
         '<td><input type="text" name="supervisor" placeholder="" class="form-control supervisor"></td>' +
@@ -388,7 +470,7 @@ function add_preplnt() {
 function add_pstplnt() {
 
     $('#tbody_pst_pln_inspection').append('<tr>' +
-        '<td><input type="date" name="pos_date_visit" placeholder="" class="form-control pos_date_visit"></td>' +
+        '<td><input type="hidden" name="id_postplins"><input type="date" name="pos_date_visit" placeholder="" class="form-control pos_date_visit"></td>' +
         '<td><input type="text" name="pos_Comments" placeholder="" class="form-control pos_Comments"></td>' +
         '<td><input type="text" name="extn_officeer_post" placeholder="" class="form-control extn_officeer_post"></td>' +
         '<td><input type="text" name="supervisor_post" placeholder="" class="form-control supervisor_post"></td>' +
@@ -398,7 +480,7 @@ function add_pstplnt() {
 function add_fut_dev() {
 
     $('#tbody_fut_dev').append('<tr>' +
-        '<td><input type="text" name="fut_dev" placeholder="" class="form-control fut_dev"></td>' +
+        '<td><input type="hidden" name="id_fut_dev"><input type="text" name="fut_dev" placeholder="" class="form-control fut_dev"></td>' +
         '<td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>' +
         '</tr>');
 }
@@ -409,9 +491,16 @@ $("form").submit(function (event) {
         show_spin("btn_plant_app", "spin_papp", "not_spin_plant");
 
         var formData = new FormData($(this)[0]);
+        var url_variable_papp;
+        if ($("input[name='id_plant_apply']").val() != '') {
+            url_variable_papp = "update/plant_application";
+        }
+        else {
+            url_variable_papp = "insert/plant_application";
+        }
 
         $.ajax({
-            url: "insert/plant_application",
+            url: url_variable_papp,
             type: "POST",
             data: formData,
             cache: false,
@@ -444,27 +533,44 @@ $("form").submit(function (event) {
 
             }
         }).done(function () {
-            hide_spin("btn_plant_app", "spin_papp", "not_spin_plant");
-            $('#alert_plant_application').html("The Plant Application Form Has Been Registred Succesfully");
-            $('#alert_plant_application').removeClass('d-none');
+            p_app_table.ajax.reload();
+            setTimeout(function () {
+                hide_spin("btn_plant_app", "spin_papp", "not_spin_plant");
+                $('#alert_plant_application').html("The Plant Application Form Has Been Registred Succesfully");
+                $('#alert_plant_application').removeClass('d-none');
+
+                filledEmptyInputPAP();
+
+            }, 1000);
         });
     }
 
 })
 function insert_plant_application_table(id_plant_apply) {
-
+    console.log("insert_plant_application_table");
+    var url_papp_tb1;
+    if ($("input[name='id_papply_tb']").val() != '') {
+        url_papp_tb1 = "update/plant_application_table";
+        // console.log("update", $("input[name='id_papply_tb']").val());
+    }
+    else {
+        console.log("insert", $("input[name='id_papply_tb']").val());
+        url_papp_tb1 = "insert/plant_application_table";
+    }
     $("#tbody_plant_aplication tr").each(function () {
+        var id_papply_tb = $(this).find("input[name='id_papply_tb']").val();
         var plant_crop = get_id_crop($(this).find(".plant_crop").val(), 'var_type');
         var plant_req = $(this).find(".plant_req").val();
         var plant_recom = $(this).find(".plant_recom").val();
         var plant_approv = $(this).find(".plant_approv").val();
         var plant_received = $(this).find(".plant_received").val();
         $.ajax({
-            url: "insert/plant_application_table",
+            url: url_papp_tb1,
             type: "POST",
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             dataType: 'json',
             data: {
+                'id_papply_tb': id_papply_tb,
                 'plant_crop': plant_crop,
                 'plant_req': plant_req,
                 'plant_recom': plant_recom,
@@ -486,18 +592,27 @@ function insert_plant_application_table(id_plant_apply) {
 }
 function insert_pre_plant_insp(id_plant_apply) {
 
+    var url_papp_tb2;
+    if ($("input[name='id_preplins']").val() != '') {
+        url_papp_tb2 = "update/pre_plant_insp";
+    }
+    else {
+        url_papp_tb2 = "insert/pre_plant_insp";
+    }
     $("#tbody_pre_pln_inspection tr").each(function () {
 
+        var id_preplins = $(this).find("input[name='id_preplins']").val();
         var pre_date_visit = $(this).find(".pre_date_visit").val();
         var pre_com = $(this).find(".pre_com").val();
         var extn_officeer = $(this).find(".extn_officeer").val();
         var supervisor = $(this).find(".supervisor").val();
         $.ajax({
-            url: "insert/pre_plant_insp",
+            url: url_papp_tb2,
             type: "POST",
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             dataType: 'json',
             data: {
+                'id_preplins': id_preplins,
                 'pre_date_visit': pre_date_visit,
                 'pre_com': pre_com,
                 'extn_officeer': extn_officeer,
@@ -517,19 +632,28 @@ function insert_pre_plant_insp(id_plant_apply) {
     });
 }
 function insert_post_plant_insp(id_plant_apply) {
+    var url_papp_tb3;
+    if ($("input[name='id_postplins']").val() != '') {
+        url_papp_tb3 = "update/post_plant_insp";
+    }
+    else {
+        url_papp_tb3 = "insert/post_plant_insp";
+    }
 
     $("#tbody_pst_pln_inspection tr").each(function () {
 
+        var id_postplins = $(this).find("input[name='id_postplins']").val();
         var pos_date_visit = $(this).find(".pos_date_visit").val();
         var pos_Comments = $(this).find(".pos_Comments").val();
         var extn_officeer_post = $(this).find(".extn_officeer_post").val();
         var supervisor_post = $(this).find(".supervisor_post").val();
         $.ajax({
-            url: "insert/post_plant_insp",
+            url: url_papp_tb3,
             type: "POST",
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             dataType: 'json',
             data: {
+                'id_postplins': id_postplins,
                 'pos_date_visit': pos_date_visit,
                 'pos_Comments': pos_Comments,
                 'extn_officeer_post': extn_officeer_post,
@@ -549,17 +673,25 @@ function insert_post_plant_insp(id_plant_apply) {
     });
 }
 function future_development(id_plant_apply) {
-
+    var url_papp_tb4;
+    if ($("input[name='id_fut_dev']").val() != '') {
+        url_papp_tb4 = "update/future_development";
+    }
+    else {
+        url_papp_tb4 = "insert/future_development";
+    }
     $("#tbody_fut_dev tr").each(function () {
 
+        var id_fut_dev = $(this).find("input[name='id_fut_dev']").val();
         var fut_dev = $(this).find(".fut_dev").val();
 
         $.ajax({
-            url: "insert/future_development",
+            url: url_papp_tb4,
             type: "POST",
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             dataType: 'json',
             data: {
+                'id_fut_dev': id_fut_dev,
                 'fut_dev': fut_dev,
                 'id_plant_apply': id_plant_apply
             },
@@ -576,3 +708,79 @@ function future_development(id_plant_apply) {
     });
 }
 // VIEW PLANT APPLICATION REPORT FUNCTIONS////////////////////////////
+// EDIT ROW FUNCTIONS
+function edit_row_plantApplications(data) {
+    $("#plant_application").collapse("toggle");
+    $(".plant_application input[name='id_plant_apply']").val(data['id_plant_apply']);
+    $(".plant_application input[name='name_f']").val(data['name_f']);
+    $(".plant_application input[name='last_name_f']").val(data['last_name_f']);
+    $(".plant_application input[name='mo_last_name']").val(data['mo_last_name']);
+    $(".plant_application input[name='id_farm']").val(data['id_farm']);
+    $(".plant_application input[name='f_addres']").val(data['f_addres']);
+    $(".plant_application input[name='plt_loc']").val(data['plt_loc']);
+    $(".plant_application input[name='f_phone']").val(data['f_phone']);
+    $(".plant_application input[name='f_acr']").val(data['f_acr']);
+    $(".plant_application input[name='f_dst']").val(data['f_dst']);
+    $(".plant_application input[name='f_date_apl']").val(data['f_date_apl']);
+    $(".plant_application input[name='plt_ofc']").val(data['plt_ofc']);
+    $("#tbody_plant_aplication").empty();
+    for (const key in aux_papp_tb1) {
+        if (Object.hasOwnProperty.call(aux_papp_tb1, key)) {
+            const element = aux_papp_tb1[key];
+            $('#tbody_plant_aplication').append(`<tr>
+                <td>
+                <input type="hidden" name="id_papply_tb" value="${element['id_papply_tb']}">
+                <input list="var_type" name="plant_crop" class="form-control plant_crop" value="${element['Crop_name']}">
+              
+                </td>
+                <td><input type="text" name="plant_req" placeholder="" class="form-control plant_req" value="${element['plant_req']}"></td>
+                <td><input type="text" name="plant_recom" placeholder="" class="form-control plant_recom" value="${element['plant_recom']}"></td>
+                <td><input type="text" name="plant_approv" placeholder="" class="form-control plant_approv" value="${element['plant_approv']}"></td>
+                <td><input type="text" name="plant_received" placeholder="" class="form-control plant_received" value="${element['plant_received']}"></td>
+                <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                </tr>`);
+        }
+    }
+    $('#tbody_plant_aplication').append(`<datalist id="var_type"></datalist>`);
+    getVarietyPAP();
+    $("#tbody_pre_pln_inspection").empty();
+    // console.log(aux_papp_tb2);
+    for (const key in aux_papp_tb2) {
+        if (Object.hasOwnProperty.call(aux_papp_tb2, key)) {
+            const element = aux_papp_tb2[key];
+            $('#tbody_pre_pln_inspection').append(`<tr>
+            <td><input type="hidden" name="id_preplins" value="${element['id_preplins']}"><input type="date" name="pre_date_visit" placeholder="" class="form-control pre_date_visit" value="${element['pre_date_visit']}"></td>
+            <td><input type="text" name="pre_com" placeholder="" class="form-control pre_com" value="${element['pre_com']}"></td>
+            <td><input type="text" name="extn_officeer" placeholder="" class="form-control extn_officeer" value="${element['extn_officeer']}"></td>
+            <td><input type="text" name="supervisor" placeholder="" class="form-control supervisor" value="${element['supervisor']}"></td>
+            <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            </tr>`);
+        }
+    };
+    $("#tbody_pst_pln_inspection").empty();
+    // console.log(aux_papp_tb3);
+    for (const key in aux_papp_tb3) {
+        if (Object.hasOwnProperty.call(aux_papp_tb3, key)) {
+            const element = aux_papp_tb3[key];
+            $('#tbody_pst_pln_inspection').append(`<tr>
+            <td><input type="hidden" name="id_postplins" value="${element['id_postplins']}"><input type="date" name="pos_date_visit" placeholder="" class="form-control pos_date_visit" value="${element['pos_date_visit']}"></td>
+            <td><input type="text" name="pos_Comments" placeholder="" class="form-control pos_Comments" value="${element['pos_Comments']}"></td>
+            <td><input type="text" name="extn_officeer_post" placeholder="" class="form-control extn_officeer_post" value="${element['extn_officeer_post']}"></td>
+            <td><input type="text" name="supervisor_post" placeholder="" class="form-control supervisor_post" value="${element['pre_date_vissupervisor_postit']}"></td>
+            <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            </tr>`);
+        }
+    }
+    $("#tbody_fut_dev").empty();
+    // console.log(aux_papp_tb3);
+    for (const key in aux_papp_tb4) {
+        if (Object.hasOwnProperty.call(aux_papp_tb4, key)) {
+            const element = aux_papp_tb4[key];
+            $('#tbody_fut_dev').append(`<tr>
+            <td><input type="hidden" name="id_fut_dev" value="${element['id_fut_dev']}"><input type="text" name="fut_dev" placeholder="" class="form-control fut_dev" value="${element['fut_dev']}"></td>
+            <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            </tr>`);
+        }
+    }
+
+}

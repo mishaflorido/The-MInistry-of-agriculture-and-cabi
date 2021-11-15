@@ -78,7 +78,9 @@ $routes->get('/get/farmRoad', 'FarmRoadController::get_farm_road');
 $routes->post('/get/farm_road_report', 'FarmRoadController::get_farm_road_report');
 // Praedial
 $routes->post('/insert/praedial', 'PraedialController::insert_praedial');
+$routes->post('/update/praedial', 'PraedialController::update_praedial');
 $routes->post('/insert/weekly_data_collector', 'PraedialController::insert_weekly_data_collection');
+$routes->post('/update/weekly_data_collector', 'PraedialController::update_weekly_data_collection');
 $routes->get('/get/weekly_data_collector', 'PraedialController::get_praedial');
 $routes->post('/get/weekly_data', 'PraedialController::get_weekly_data');
 //Crop Damage
@@ -90,10 +92,15 @@ $routes->post('/insert/crop_damage_tb1', 'CropDamageController::insert_crop_dama
 $routes->post('/insert/crop_damage_tb2', 'CropDamageController::insert_crop_damage_tb2');
 // Plant Application
 $routes->post('/insert/plant_application', 'PlantApplicationController::insert_plant_application');
+$routes->post('/update/plant_application', 'PlantApplicationController::update_plant_application');
 $routes->post('/insert/plant_application_table', 'PlantApplicationController::insert_plant_application_table');
+$routes->post('/update/plant_application_table', 'PlantApplicationController::update_plant_application_table');
 $routes->post('/insert/pre_plant_insp', 'PlantApplicationController::insert_pre_plant_insp');
+$routes->post('/update/pre_plant_insp', 'PlantApplicationController::update_pre_plant_insp');
 $routes->post('/insert/post_plant_insp', 'PlantApplicationController::insert_post_plant_insp');
+$routes->post('/update/post_plant_insp', 'PlantApplicationController::update_post_plant_insp');
 $routes->post('/insert/future_development', 'PlantApplicationController::insert_future_development');
+$routes->post('/update/future_development', 'PlantApplicationController::update_future_development');
 $routes->get('/get/plant_app', 'PlantApplicationController::get_plant_application');
 $routes->post('/get/plant_apply_tb1', 'PlantApplicationController::get_plant_application_tb1');
 $routes->post('/get/plant_apply_tb2', 'PlantApplicationController::get_plant_application_tb2');
