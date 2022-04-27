@@ -1,4 +1,6 @@
 var cropDamage_table;
+var tb_crop_damage1;
+var tb_crop_damage2;
 // Filled Empty Input Data
 
 function fillEmptyInputDataCRD() {
@@ -65,6 +67,21 @@ $(document).ready(function () {
                 }
             },
             {
+
+                text: 'Edit Row',
+                titleAttr: "Edit register",
+                action: function () {
+                    var dca = cropDamage_table.row({ selected: true }).data();
+                    if (dca == null) {
+                        alert("Please select a row to Edit");
+                    }
+                    else {
+                        edit_row_cropdmg(dca);
+                    }
+
+                }
+            },
+            {
                 extend: 'excel',
                 text: 'Excel'
             },
@@ -106,6 +123,7 @@ function get_crop_damage_tb1(id_crop_damage) {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         dataType: 'json',
         success: function (respuesta) {
+            tb_crop_damage1 = respuesta;
             // var r = JSON.parse(respuesta);
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
@@ -142,6 +160,7 @@ function get_crop_damage_tb2(id_crop_damage) {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
         dataType: 'json',
         success: function (respuesta) {
+            tb_crop_damage2 = respuesta;
             // var r = JSON.parse(respuesta);
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
@@ -317,15 +336,26 @@ function add_stools() {
 }
 $("#submit_crop_damage").on("click", function () {
     // $("form").submit(function () {
+
     var ext = $("#cdf_ext_dist").val();
     var date_dis = $("#cdf_date_dis").val();
     var typ_dis = $("#cdf_typ_dis").val();
     show_spin("submit_crop_damage", "spin_crop_dmg", "not_spin_cdmg");
+    var url_variable;
+    if ($("input[name='id_crop_damage']").val() != '') {
+        url_variable = "update/crop_damage";
+        var id_crop_damage = $("input[name='id_crop_damage']").val();
+    }
+    else {
+        url_variable = "insert/crop_damage";
+        var id_crop_damage = '';
+    }
     // console.log(ext, date_dis, typ_dis);
     $.ajax({
-        url: "insert/crop_damage",
+        url: url_variable,
         type: "POST",
         data: {
+            "id_crop_damage": id_crop_damage,
             "cdf_ext_dist": ext,
             "cdf_date_dis": date_dis,
             "cdf_typ_dis": typ_dis,
@@ -347,16 +377,28 @@ $("#submit_crop_damage").on("click", function () {
         }
     }).done(function () {
         cropDamage_table.ajax.reload();
-        fillEmptyInputDataCRD();
-        hide_spin("submit_crop_damage", "spin_crop_dmg", "not_spin_cdmg");
-        $('#alert_crop_dmg').html("The Crop Damage Form Has Been Registred Succesfully");
-        $('#alert_crop_dmg').removeClass('d-none');
+        setTimeout(function () {
+            fillEmptyInputDataCRD();
+            hide_spin("submit_crop_damage", "spin_crop_dmg", "not_spin_cdmg");
+            $('#alert_crop_dmg').html("The register has been saved succesfully");
+            $('#alert_crop_dmg').removeClass('d-none');
+
+        }, 1000);
+
     })
 
 
 })
 function insert_crop_damage_tb1(id_crop_damage) {
+    var url_variable;
+    if ($("input[name='id_cd_table1']").val() != '') {
+        url_variable = "update/crop_damage_tb1";
+    }
+    else {
+        url_variable = "insert/crop_damage_tb1";
+    }
     $("#tbody_crop_damage tr").each(function () {
+        var id_cd_table1 = $(this).find("input[name='id_cd_table1']").val();
         var farmer_name_crd = $(this).find(".farmer_name_crd").val();
         var visit_date_crd = $(this).find(".visit_date_crd").val();
         var farmer_reg_crd = $(this).find(".farmer_reg_crd").val();
@@ -367,11 +409,12 @@ function insert_crop_damage_tb1(id_crop_damage) {
         var desc_dmg_crd = $(this).find(".desc_dmg_crd").val();
         var area_plot_crd = $(this).find(".area_plot_crd").val();
         $.ajax({
-            url: "insert/crop_damage_tb1",
+            url: url_variable,
             type: "POST",
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             dataType: 'json',
             data: {
+                'id_cd_table1': id_cd_table1,
                 'farmer_name_crd': farmer_name_crd,
                 'visit_date_crd': visit_date_crd,
                 'farmer_reg_crd': farmer_reg_crd,
@@ -396,7 +439,15 @@ function insert_crop_damage_tb1(id_crop_damage) {
     });
 }
 function insert_crop_damage_tb2(id_crop_damage) {
+    var url_variable;
+    if ($("input[name='id_cd_stool']").val() != '') {
+        url_variable = "update/crop_damage_tb2";
+    }
+    else {
+        url_variable = "insert/crop_damage_tb2";
+    }
     $("#tbody_stools tr").each(function () {
+        var id_cd_stool = $(this).find("input[name='id_cd_stool']").val();
         var num_stools = $(this).find(".num_stools").val();
         var amount = $(this).find(".amount").val();
         var age_plants = $(this).find(".age_plants").val();
@@ -407,11 +458,12 @@ function insert_crop_damage_tb2(id_crop_damage) {
         var cert_by = $(this).find(".cert_by").val();
         var remark_stools = $(this).find(".remark_stools").val();
         $.ajax({
-            url: "insert/crop_damage_tb2",
+            url: url_variable,
             type: "POST",
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             dataType: 'json',
             data: {
+                'id_cd_stool': id_cd_stool,
                 'num_stools': num_stools,
                 'amount': amount,
                 'age_plants': age_plants,
@@ -436,3 +488,56 @@ function insert_crop_damage_tb2(id_crop_damage) {
     });
 }
 // //////////////////////////////////////////////
+// EDIT CROP DAMAGE
+function edit_row_cropdmg(data) {
+    $("#cropdamage").collapse("toggle");
+    $("input[name='id_crop_damage']").val(data['id_crop_damage']);
+    $("input[name='cdf_ext_dist']").val(data['cdf_ext_dist']);
+    $("input[name='cdf_date_dis']").val(data['cdf_date_dis']);
+    $("input[name='cdf_typ_dis']").val(data['cdf_typ_dis']);
+    $("#tbody_crop_damage").empty();
+    for (const key in tb_crop_damage1) {
+        if (Object.hasOwnProperty.call(tb_crop_damage1, key)) {
+            const element = tb_crop_damage1[key];
+            $("#tbody_crop_damage").append(`<tr>
+            <input type="hidden" value="${element['id_cd_table1']}" name="id_cd_table1">
+                                    <td><input type="text" name="farmer_name_crd" placeholder="" class="form-control farmer_name_crd" value="${element['farmer_name_crd']}"></td>
+                                    <td><input type="date" name="visit_date_crd" placeholder="" class="form-control visit_date_crd" value="${element['visit_date_crd']}"></td>
+                                    <td><input type="text" name="farmer_reg_crd" placeholder="" class="form-control farmer_reg_crd" value="${element['farmer_reg_crd']}"></td>
+                                    <td><input type="text" name="contact_crd" placeholder="" class="form-control contact_crd" value="${element['contact_crd']}"></td>
+                                    <td><input type="text" name="crop_var_crd" placeholder="" class="form-control crop_var_crd" value="${element['crop_var_crd']}"></td>
+                                    <td><input type="text" name="location_crd" placeholder="" class="form-control location_crd" value="${element['location_crd']}"></td>
+                                    <td><input type="number" step="any" name="tot_acre_crd" placeholder="" class="form-control tot_acre_crd" value="${element['tot_acre_crd']}"></td>
+                                    <td><input type="text" name="desc_dmg_crd" placeholder="" class="form-control desc_dmg_crd" value="${element['desc_dmg_crd']}"></td>
+                                    <td><input type="number" step="any" name="area_plot_crd" placeholder="" class="form-control area_plot_crd" value="${element['area_plot_crd']}"></td>
+                                    <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            </tr>`)
+
+        }
+    }
+    $("#tbody_stools").empty();
+    for (const key in tb_crop_damage2) {
+        if (Object.hasOwnProperty.call(tb_crop_damage2, key)) {
+            const element = tb_crop_damage2[key];
+            $("#tbody_stools").append(`<tr>
+            <input type="hidden" value="${element['id_cd_stool']}" name="id_cd_stool">
+                                    <td><input type="number" step="any" name="num_stools" placeholder="" class="form-control num_stools" value="${element['num_stools']}"></td>
+                                    <td><input type="number" step="any" name="amount" placeholder="" class="form-control amount" value="${element['amount']}"></td>
+                                    <td><input type="number" step="any" name="age_plants" placeholder="" class="form-control age_plants" value="${element['age_plants']}"></td>
+                                    <td><input type="text" name="stage_mat" placeholder="" class="form-control stage_mat" value="${element['stage_mat']}"></td>
+                                    <td><input type="number" step="any" name="cost_plant" placeholder="" class="form-control cost_plant" value="${element['cost_plant']}"></td>
+                                    <td><input type="number" step="any" name="tot_val" placeholder="" class="form-control tot_val" value="${element['tot_val']}"></td>
+                                    <td><input type="text" name="ofc_collec" placeholder="" class="form-control ofc_collec" value="${element['ofc_collec']}"></td>
+                                    <td><input type="text" name="cert_by" placeholder="" class="form-control cert_by" value="${element['cert_by']}"></td>
+                                    <td><input type="text" name="remark_stools" placeholder="" class="form-control remark_stools" value="${element['remark_stools']}"></td>
+                                    <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            </tr>`)
+
+        }
+    }
+
+
+
+
+}
+// ///////////////

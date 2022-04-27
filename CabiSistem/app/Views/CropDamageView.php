@@ -36,6 +36,7 @@
             </div>
 
             <div class="row">
+                <input type="hidden" name="id_crop_damage">
                 <div class="col-md-4">
                     <span class="input-group-text">EXTENSION DISTRICT: </span>
                     <input type="text" class="form-control" placeholder="Extensión district" name="cdf_ext_dist" id="cdf_ext_dist">
@@ -128,7 +129,7 @@
                                     <td><input type="number" step="any" name="tot_val" placeholder="" class="form-control tot_val"></td>
                                     <td><input type="text" name="ofc_collec" placeholder="" class="form-control ofc_collec"></td>
                                     <td><input type="text" name="cert_by" placeholder="" class="form-control cert_by"></td>
-                                    <td><input type="text" name="remark_stools" placeholder="" class="form-control remark"></td>
+                                    <td><input type="text" name="remark_stools" placeholder="" class="form-control remark_stools"></td>
                                     <td class="align-middle text-center"><a role="button"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                 </tr>
                             </tbody>

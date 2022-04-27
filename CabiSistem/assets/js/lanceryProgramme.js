@@ -78,10 +78,13 @@ $("form").submit(function (event) {
             }
         }).done(function () {
             cropest_table.ajax.reload();
-            fillEmptyInputDataCEPI();
-            hide_spin("lancery_btn_submit", "spin_lancery", "not_spin_lancery");
-            $('#alert_lancery_programme').html("The Crop Establishment and Production Information Has Been Registred Succesfully");
-            $('#alert_lancery_programme').removeClass('d-none');
+            setTimeout(function () {
+                fillEmptyInputDataCEPI();
+                hide_spin("lancery_btn_submit", "spin_lancery", "not_spin_lancery");
+                $('#alert_lancery_programme').html("The register has been saved succesfully");
+                $('#alert_lancery_programme').removeClass('d-none');
+
+            }, 1000);
         });
     }
 

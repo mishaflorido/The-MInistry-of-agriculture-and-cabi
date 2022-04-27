@@ -180,7 +180,6 @@ function to_pdf_cropest(crop) {
 
 
 
-
     window.open(doc.output('bloburl'));
 }
 function edit_row_cropest(data) {

@@ -256,10 +256,15 @@ $("form").submit(function (event) {
             }
         }).done(function () {
             reload_dca_table();
-            filledEmptyInput();
-            hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
-            $('.alert_dca').html("The New Farmer Has Been Registred Succesfully");
-            $('.alert_dca').removeClass('d-none');
+
+            setTimeout(function () {
+                filledEmptyInput();
+
+                hide_spin("btn_dca_form", "spin_dca", "not_spin_dca");
+                $('.alert_dca').html("The register has been saved succesfully");
+                $('.alert_dca').removeClass('d-none');
+
+            }, 1000);
         });;
 
 

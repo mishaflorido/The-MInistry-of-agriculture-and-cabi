@@ -1,6 +1,5 @@
 var dca_table;
 var dca_toPOMS_table;
-
 $(document).ready(function () {
     setInterval(function () {
         dca_toPOMS_table.ajax.reload();

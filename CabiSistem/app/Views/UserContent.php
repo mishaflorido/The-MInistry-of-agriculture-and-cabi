@@ -27,13 +27,12 @@ if ($type_user == 0) {
         <div class="row">
             <!-- User Profile Information -->
             <div class="<?= $size ?>">
-
                 <div class="wrapper wrapper--w780">
                     <div class="card card-3">
                         <div id="imagePreview" class="card-heading my_user" style="background-color: #373c42;">
                             <form autocomplete="off" role="form" method="POST" id="update_profile" action="update/user" class="userform">
                                 <div class="avatar-edit">
-                                    <input disabled class="pi_input load_img" data-xform='0' type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                    <input disabled class="pi_input load_img" name='img_user' data-xform='0' type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
                                     <label for="imageUpload"><i class="fas fa-pencil-alt" style="position: absolute; left:30%; top:26%;"></i></label>
                                 </div>
                                 <div class="avatar-upload" id="update_p_form">
@@ -73,10 +72,13 @@ if ($type_user == 0) {
 
                                     </div>
                                     <div class="input-group">
-                                        <input disabled class="input--style-3 pi_input" type="email" placeholder="Email" name="email" value="<?php echo $email ?>">
+                                        <input disabled class="input--style-3 pi_input" type="email" placeholder="Email" name="email_user" value="<?php echo $email ?>">
                                     </div>
                                     <div class="input-group">
-                                        <input disabled class="input--style-3 pi_input" type="text" placeholder="Phone" name="phone" autocomplete="off" value="<?php echo $phone ?>">
+                                        <input disabled class="input--style-3 pi_input" type="text" placeholder="Phone" name="phone_user" autocomplete="off" value="<?php echo $phone ?>">
+                                    </div>
+                                    <div class="input-group">
+                                        <input disabled class="input--style-3 pi_input" type="text" placeholder="Password" name="psw_user" autocomplete="off" value="<?php echo $psw_user ?>">
                                     </div>
 
 
@@ -87,7 +89,11 @@ if ($type_user == 0) {
                                         </label>
                                     </div>
                                     <div class="row p-t-10">
-                                        <button class="btn btn--pill btn--green d-none" id="sub_updatePI" type="submit">Update</button>
+                                        <button class="btn btn--pill btn--green d-none" id="sub_updatePI" type="submit">
+                                            <span class="spinner-border spinner-border-sm d-none spin_my_user" role="status" aria-hidden="true"></span>
+                                            <span class="d-none spin_my_user">Loading...<br></span>
+                                            <span class="d-none spin_my_user"> Please Wait</span>
+                                            <span class="not_spin_my_user"> Update User</span></button>
                                     </div>
                             </form>
                         </div>
@@ -213,3 +219,87 @@ if ($type_user == 0) {
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content -->
+<!-- Modal -->
+<div class="modal fade" id="ModalEditUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit User information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="modal_EditUserForm" action="update/userInfo" method="POST">
+                <div class="modal-body">
+                    <div class="row my-2">
+                        <div class="col-md-3 mt-2">
+                            <label>Name : </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="hidden" name='id_user' id='modal-id_user'>
+                            <input class="form-control" type="text" name='name_user' id='modal-name_user'>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-3 mt-2">
+                            <label>Last Name : </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" name='lastn_user' id='modal-lastn_user'>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-3 mt-2">
+                            <label>Email : </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="email" name='email_user' id='modal-email_user'>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-3 mt-2">
+                            <label>Password : </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" name='psw_user' id='modal-psw_user'>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-3 mt-2">
+                            <label>Phone : </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" type="text" name='phone_user' id='modal-phone_user'>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="col-md-3 mt-2">
+                            <label>Type User : </label>
+                        </div>
+                        <div class="col-md-8">
+                            <select class="form-select" aria-label="Default select example" name="type_user" id='modal-type_user'>
+                                <option selected disabled>Select the type of user</option>
+                                <option value="0">Admin</option>
+                                <option value="1">Supervisor</option>
+                                <option value="2">Technical</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <!-- <div class="row"> -->
+                    <!-- <div class="col-md-1"> -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- </div> -->
+                    <!-- <div class="offset-md-4 col-md-7"> -->
+                    <button type="submit" class="btn btn-primary" id="saveChangesEditUser">
+                        <span class="spinner-border spinner-border-sm d-none spin_e_user" role="status" aria-hidden="true"></span>
+                        <span class="d-none spin_e_user">Loading...<br></span>
+                        <span class="d-none spin_e_user"> Please Wait</span>
+                        <span class="not_spin_e_user"> Save changes</span></button>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

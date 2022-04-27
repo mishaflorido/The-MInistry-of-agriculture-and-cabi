@@ -224,10 +224,16 @@ $("#submit_farm_road").on("click", function () {
         });
     })
     froad_table.ajax.reload();
-    fillEmptyInputData();
-    hide_spin("submit_farm_road", "spin_farm_road", "not_spin_farm_road");
-    $('#alert_farm_roads').html("The Farm Roads Has Been Registred Succesfully");
-    $('#alert_farm_roads').removeClass('d-none');
+
+
+    setTimeout(function () {
+        fillEmptyInputData();
+
+        hide_spin("submit_farm_road", "spin_farm_road", "not_spin_farm_road");
+        $('#alert_farm_roads').html("The register has been saved succesfully");
+        $('#alert_farm_roads').removeClass('d-none');
+
+    }, 1000);
 
 
 })

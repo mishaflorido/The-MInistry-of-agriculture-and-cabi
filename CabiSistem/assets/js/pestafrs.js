@@ -1,4 +1,5 @@
 var pestapp_table;
+var table_pestapp_toedit;
 // Filled Empty Input Data
 
 function fillEmptyInputDataPESTAPP() {
@@ -70,7 +71,22 @@ $(document).ready(function () {
                 action: function () {
 
                     if ($("#f_date").val() != '' && $("#l_date").val() != '' && $("#sup_sig_pdf").val() != '') {
-                        to_pdf_pestappform();
+                        to_pdf_pestappform($("#sup_sig_pdf").val());
+                    }
+                    else {
+                        alert("Please entrer the completed information (First Date, Last Date, Supervisor Signature)");
+                    }
+
+                }
+            },
+            {
+
+                text: 'Edit Row',
+                titleAttr: "Edit register",
+                action: function () {
+
+                    if ($("#f_date").val() != '' && $("#l_date").val() != '' && $("#sup_sig_pdf").val() != '') {
+                        to_edit_pestapp($("#sup_sig_pdf").val());
                     }
                     else {
                         alert("Please entrer the completed information (First Date, Last Date, Supervisor Signature)");
@@ -126,6 +142,7 @@ function get_between_datepestapp() {
 
         },
         success: function (respuesta) {
+            table_pestapp_toedit = respuesta;
             for (const key in respuesta) {
                 if (Object.hasOwnProperty.call(respuesta, key)) {
                     const element = respuesta[key];
@@ -196,12 +213,24 @@ function add_pesticide() {
 }
 $("#btn_pestapp").on('click', function () {
     show_spin("btn_pestapp", "spin_pestapp", "not_spin_pestapp");
+    var url_variable;
+
     $("#tbody_pesticide tr").each(function () {
+        if ($("input[name='id_pest_app']").val() != '') {
+            url_variable = "update/pest_app";
+            console.log("update");
+        }
+        else {
+            url_variable = "insert/pest_app";
+            console.log("Insert");
+        }
+        var id_pest_app = $(this).find("input[name='id_pest_app']").val();
         var spsig_pestapp = $('#spsig_pestapp').val();
 
         var inf_far = $(this).find(".inf_far").val();
         var date_pestapp = $(this).find(".date_pestapp").val();
-        var crop_pestapp = get_id_crop($(this).find(".crop_pestapp").val(), 'crop_pestapp_list');
+        // var crop_pestapp = get_id_crop($(this).find(".crop_pestapp").val(), 'crop_pestapp_list');
+        var crop_pestapp = $(this).find(".crop_pestapp").val();
         var plsi_pestapp = $(this).find(".plsi_pestapp").val();
         var targ_pestapp = $(this).find(".targ_pestapp").val();
         var pest_pestapp = $(this).find(".pest_pestapp").val();
@@ -209,11 +238,12 @@ $("#btn_pestapp").on('click', function () {
         var amt_pestapp = $(this).find(".amt_pestapp").val();
         var com_pestapp = $(this).find(".com_pestapp").val();
         $.ajax({
-            url: "insert/pest_app",
+            url: url_variable,
             type: "POST",
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             dataType: 'json',
             data: {
+                'id_pest_app': id_pest_app,
                 'spsig_pestapp': spsig_pestapp,
                 'inf_far': inf_far,
                 'date_pestapp': date_pestapp,
@@ -229,11 +259,14 @@ $("#btn_pestapp").on('click', function () {
                 console.log(respuesta);
             }
         }).done(function () {
-            fillEmptyInputDataPESTAPP();
             pestapp_table.ajax.reload();
-            hide_spin("btn_pestapp", "spin_pestapp", "not_spin_pestapp");
-            $('#alert_pestapp').html("The Pesticide Field Record Form Has Been Registred Succesfully");
-            $('#alert_pestapp').removeClass('d-none');
+            setTimeout(function () {
+                fillEmptyInputDataPESTAPP();
+                get_between_datepestapp();
+                hide_spin("btn_pestapp", "spin_pestapp", "not_spin_pestapp");
+                $('#alert_pestapp').html("The register has been saved succesfully");
+                $('#alert_pestapp').removeClass('d-none');
+            }, 1000);
         });;
 
     });
@@ -252,3 +285,33 @@ function get_id_crop(name, list) {
     return resp;
 
 }
+// Edit PestApp
+function to_edit_pestapp(sup) {
+    $("#pesta_frs").collapse("toggle");
+    $("input[name='spsig_pestapp']").val(sup);
+    $("#tbody_pesticide").empty();
+    for (const key in table_pestapp_toedit) {
+        if (Object.hasOwnProperty.call(table_pestapp_toedit, key)) {
+            const element = table_pestapp_toedit[key];
+            $("#tbody_pesticide").append(`<tr>
+            <input type="hidden" name="id_pest_app" value="${element['id_pest_app']}">
+                                <td><textarea style="overflow:hidden" name="inf_far" placeholder="" class="form-control inf_far" rows="1">${element['inf_far']}</textarea></td>
+                                <td><input type="date" name="date_pestapp" placeholder="" class="form-control date_pestapp" style="width: 100px;" value="${element['date_pestapp']}"></td>
+                                <td><input list="crop_pestapp_list" name="crop_pestapp" placeholder="" class="form-control crop_pestapp" value="${element['crop_pestapp']}"></td>
+                                <td><input type="text" name="plsi_pestapp" placeholder="" class="form-control plsi_pestapp" value="${element['plsi_pestapp']}"></td>
+                                <td><input type="text" name="targ_pestapp" placeholder="" class="form-control targ_pestapp" value="${element['targ_pestapp']}"></td>
+                                <td><input type="text" name="pest_pestapp" placeholder="" class="form-control pest_pestapp" value="${element['pest_pestapp']}"></td>
+                                <td><input type="text" name="rate_pestapp" placeholder="" class="form-control rate_pestapp" value="${element['rate_pestapp']}"> </td>
+                                <td><input type="text" name="amt_pestapp" placeholder="" class="form-control amt_pestapp" value="${element['amt_pestapp']}"></td>
+                                <td><textarea style="overflow:hidden" name="com_pestapp" placeholder="" class="form-control com_pestapp" rows="1">${element['com_pestapp']}</textarea></td>
+                                <td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>
+                                </tr>`)
+
+        }
+    }
+
+    $('#tbody_pesticide').append('<datalist id="crop_pestapp_list"></datalist>');
+    get_cropPestapp();
+
+}
+// //////////

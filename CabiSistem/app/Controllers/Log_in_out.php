@@ -47,6 +47,7 @@ class Log_in_out extends BaseController
                     'username' => $value['name_user'],
                     'lastn_user' => $value['lastn_user'],
                     'email' => $value['email_user'],
+                    'psw_user' => $value['psw_user'],
                     'phone' => $value['phone_user'],
                     'type_user' => $value['type_user'],
                     'img_user' => $value['img_user']

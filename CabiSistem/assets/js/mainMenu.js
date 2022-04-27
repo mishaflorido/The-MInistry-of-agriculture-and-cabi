@@ -14,4 +14,9 @@ $(".nav-link").on("click", function () {
     }
 
 })
+// $("#user_manual").on("click", function(){
+
+//     $(this).download = '../user_manual.pdf';
+
+// })
 

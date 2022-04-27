@@ -64,9 +64,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <button type="button" class="nav-link btn border fs-6">
+                    <a role="button" class="nav-link btn border fs-6" id="user_manual" target="_blank" href="<?= base_url(); ?>/assets/user_manual.pdf">
                         User Manual <i class="fa fa-download"></i>
-                    </button>
+                    </a>
                     <!-- <a class="nav-link" href="#" role="submit" id='log_out_button'> -->
                     <!-- </a> -->
                 </li>

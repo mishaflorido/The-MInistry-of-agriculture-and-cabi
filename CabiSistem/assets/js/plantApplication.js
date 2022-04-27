@@ -536,7 +536,7 @@ $("form").submit(function (event) {
             p_app_table.ajax.reload();
             setTimeout(function () {
                 hide_spin("btn_plant_app", "spin_papp", "not_spin_plant");
-                $('#alert_plant_application').html("The Plant Application Form Has Been Registred Succesfully");
+                $('#alert_plant_application').html("The register has been saved succesfully");
                 $('#alert_plant_application').removeClass('d-none');
 
                 filledEmptyInputPAP();

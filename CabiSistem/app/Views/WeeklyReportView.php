@@ -22,8 +22,9 @@
 </div>
 <div class="container">
     <div class="border border-secondary border-3 rounded mb-4" style="padding: 1em; border: 6px solid #dee2e6 !important;">
-        <a class="form-control" role="button" id="text_test"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+
         <form class="frm_ofwr">
+            <input type="hidden" name="id_of_wr">
             <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Name of officer: </span>
@@ -205,7 +206,7 @@
                     <span class="input-group-text" style="text-align: center;">Week begining: </span>
                     <div class="row" style="margin-left: 1px;">
                         <input type="text" class="form-control" placeholder="Week Begining" name="wk_beg" style="width:50%;">
-                        <input placeholder="Date of Week Ending" name="" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 48.5%;" class="form-control day_monday input_date" id="week_beg">
+                        <input placeholder="Date of Week Ending" name="week_beg_date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" style="width: 48.5%;" class="form-control day_monday input_date" id="week_beg">
                     </div>
 
                 </div>

@@ -26,6 +26,24 @@ $(document).ready(function () {
 
                 }
             },
+            {
+
+                text: 'Edit',
+                titleAttr: "Edit User",
+                action: function () {
+                    var user = user_table.row({ selected: true }).data();
+                    if (user == null) {
+                        alert("Please Select a User to Edit");
+                    }
+                    else {
+                        FillUserEditData(user);
+
+                        $("#ModalEditUser").modal("show");
+                    }
+
+
+                }
+            },
 
         ],
         ajax: {
@@ -41,9 +59,71 @@ $(document).ready(function () {
             { data: 'email_user' },
             { data: 'phone_user' },
             { data: 'type_user' }
+        ],
+        columnDefs: [
+            {
+                targets: [4],
+                data: 'type_user',
+                render: function (data, type, row) {
+                    if (data == 0) {
+                        return "<span> Administrator </span>"
+                    }
+                    if (data == 1) {
+                        return "<span> Supervisor </span>"
+                    }
+                    if (data == 2) {
+                        return "<span> Technical User </span>"
+                    }
+                    if (data == 3) {
+                        return "<span> Invited User </span>"
+                    }
+
+
+                }
+
+            },
         ]
     });
 });
+function FillUserEditData(user) {
+    console.log(user)
+    $("#modal-name_user").val(user['name_user']);
+    $("#modal-lastn_user").val(user['lastn_user']);
+    $("#modal-email_user").val(user['email_user']);
+    $("#modal-psw_user").val(user['psw_user']);
+    $("#modal-phone_user").val(user['phone_user']);
+    $("#modal-type_user").val(user['type_user']);
+    $("#modal-id_user").val(user['id_user']);
+}
+$("#modal_EditUserForm").on("submit", function (event) {
+    event.preventDefault();
+    show_spin("saveChangesEditUser", "spin_e_user", "not_spin_e_user");
+    var formData = new FormData($(this)[0]);
+    console.log("submit");
+    $.ajax({
+        url: $(this).attr('action'),
+        type: $(this).attr('method'),
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (respuesta) {
+
+            console.log(respuesta)
+            // if (respuesta == 1) {
+            //     $("#validation_user").html("That Email Already Exist");
+            //     $("#validation_user").removeClass("d-none");
+            // } else {
+            user_table.ajax.reload();
+            alert("The User Has Been Updated Succesfully");
+            hide_spin("saveChangesEditUser", "spin_e_user", "not_spin_e_user");
+
+            // }
+
+            // console.log(r,'json');
+        }
+    })
+})
 function delete_user(user) {
     if (confirm("Want to delete " + user['name_user'] + "?")) {
         $.ajax({
@@ -140,17 +220,44 @@ $("#update_profile_check").on("change", function () {
     }
 });
 // Update This Profile
-$("#sub_updatePI").on("submit", function (event) {
+$("#update_profile").submit(function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
+    show_spin("sub_updatePI", "spin_my_user", "not_spin_my_user");
+    if ($("#imageUpload").val() == '') {
+        formData.delete("img_user");
+        formData.append("img_user", "");
+        // console.log(formData.get("img_user"));
+    }
+    $.ajax({
+        url: $(this).attr('action'),
+        type: $(this).attr('method'),
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (respuesta) {
 
+            // if (respuesta == 1) {
+            //     $("#validation_user").html("That Email Already Exist");
+            //     $("#validation_user").removeClass("d-none");
+            // } else {
+            user_table.ajax.reload();
+            hide_spin("sub_updatePI", "spin_my_user", "not_spin_my_user");
+            alert("The User Has Been Updated Succesfully");
+
+        }
+
+        // console.log(r,'json');
+
+    })
 });
 // Register new User 
-$("form").submit(function (event) {
+$("#register_user").submit(function (event) {
+    event.preventDefault();
 
     if ($(this).attr('id') == 'register_user') {
-        // show_spin("sub_register_user", "spin_n_user", "not_spin_n_user");
-        event.preventDefault();
+        show_spin("sub_register_user", "spin_n_user", "not_spin_n_user");
         var formData = new FormData($(this)[0]);
         if ($("#imageUpload_new").val() == '') {
             formData.delete("img_user");

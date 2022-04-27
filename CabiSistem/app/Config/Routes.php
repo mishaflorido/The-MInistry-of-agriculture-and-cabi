@@ -39,6 +39,7 @@ $routes->post('/logout', 'Log_in_out::log_out');
 // User Controllers
 $routes->post('/insert/user', 'UserController::insert_user');
 $routes->post('/update/user', 'UserController::update_user');
+$routes->post('/update/userInfo', 'UserController::update_userInfo');
 $routes->get('/get/users', 'UserController::get_users');
 $routes->post('/delete/user', 'UserController::delete_users');
 // Farmer
@@ -67,6 +68,7 @@ $routes->post('/insert/live_det', 'FarmerController::insert_live_det');
 $routes->post('/insert/m_det', 'FarmerController::insert_middleman');
 // Pesticide Application 
 $routes->post('/insert/pest_app', 'PestAppController::insert_pest_app');
+$routes->post('/update/pest_app', 'PestAppController::update_pest_app');
 $routes->post('/get/pest_app_betweendate', 'PestAppController::get_pest_app_datebtw');
 $routes->get('/get/pest_app', 'PestAppController::get_pest_app');
 // Boundary 
@@ -88,8 +90,11 @@ $routes->post('/get/crop_damage_tb1', 'CropDamageController::get_cropd_tb1');
 $routes->post('/get/crop_damage_tb2', 'CropDamageController::get_cropd_tb2');
 $routes->get('/get/crop_damage', 'CropDamageController::get_crop_damage');
 $routes->post('/insert/crop_damage', 'CropDamageController::insert_crop_damage');
+$routes->post('/update/crop_damage', 'CropDamageController::update_crop_damage');
 $routes->post('/insert/crop_damage_tb1', 'CropDamageController::insert_crop_damage_tb1');
+$routes->post('/update/crop_damage_tb1', 'CropDamageController::update_crop_damage_tb1');
 $routes->post('/insert/crop_damage_tb2', 'CropDamageController::insert_crop_damage_tb2');
+$routes->post('/update/crop_damage_tb2', 'CropDamageController::update_crop_damage_tb2');
 // Plant Application
 $routes->post('/insert/plant_application', 'PlantApplicationController::insert_plant_application');
 $routes->post('/update/plant_application', 'PlantApplicationController::update_plant_application');
@@ -115,9 +120,13 @@ $routes->post('/delete/dca_form', 'DCAFromController::delete_dca');
 // Oficers Weekly Report
 $routes->get('/get/oficer_wr', 'OficersWeeklyReportController::get_of_wr');
 $routes->post('/insert/oficer_wr', 'OficersWeeklyReportController::insert_of_wr');
+$routes->post('/update/oficer_wr', 'OficersWeeklyReportController::update_of_wr');
 $routes->post('/insert/weekend_wr', 'OficersWeeklyReportController::insert_weeklyend_ofwr');
+$routes->post('/update/weekend_wr', 'OficersWeeklyReportController::update_weeklyend_ofwr');
 $routes->post('/insert/other_activ', 'OficersWeeklyReportController::insert_other_activ_ofwr');
+$routes->post('/update/other_activ', 'OficersWeeklyReportController::update_other_activ_ofwr');
 $routes->post('/insert/itinerary_week', 'OficersWeeklyReportController::insert_itinerary_week');
+$routes->post('/update/itinerary_week', 'OficersWeeklyReportController::update_itinerary_week');
 $routes->post('/get/endWeek', 'OficersWeeklyReportController::get_endWeek');
 $routes->post('/get/otherActivities', 'OficersWeeklyReportController::get_otherActivities');
 $routes->post('/get/weekBeginning', 'OficersWeeklyReportController::get_weekBeginning');
