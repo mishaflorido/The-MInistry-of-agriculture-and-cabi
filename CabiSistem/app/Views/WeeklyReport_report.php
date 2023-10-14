@@ -59,9 +59,10 @@
         </tbody>
     </table>
     <div class="row my-4">
-        <table id="ofwr_table_report" class="display responsive" style="width:100%">
+        <table id="ofwr_table_report" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th>Created By:</th>
                     <th>Name of oficer:</th>
                     <th>Desigantion:</th>
                     <th>Week ending:</th>
@@ -73,6 +74,7 @@
             </tbody>
             <tfoot>
                 <tr>
+                    <th>Created By:</th>
                     <th>Name of oficer:</th>
                     <th>Desigantion:</th>
                     <th>Week ending:</th>

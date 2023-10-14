@@ -62,9 +62,10 @@
         </tbody>
     </table>
     <div class="row my-4">
-        <table id="crdd_table_report" class="display responsive" style="width:100%">
+        <table id="crdd_table_report" class="display " style="width:100%">
             <thead>
                 <tr>
+                    <th>Created By</th>
                     <th>Extension Disctrict</th>
                     <th>Date of Disaster</th>
                     <th>Type of Disaster</th>
@@ -74,6 +75,7 @@
             </tbody>
             <tfoot>
                 <tr>
+                    <th>Created By</th>
                     <th>Extension Disctrict</th>
                     <th>Date of Disaster</th>
                     <th>Type of Disaster</th>

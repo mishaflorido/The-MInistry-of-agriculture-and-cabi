@@ -32,7 +32,7 @@ if ($type_user == 0) {
                         <div id="imagePreview" class="card-heading my_user" style="background-color: #373c42;">
                             <form autocomplete="off" role="form" method="POST" id="update_profile" action="update/user" class="userform">
                                 <div class="avatar-edit">
-                                    <input disabled class="pi_input load_img" name='img_user' data-xform='0' type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                    <input readonly class="pi_input load_img" name='img_user' data-xform='0' type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
                                     <label for="imageUpload"><i class="fas fa-pencil-alt" style="position: absolute; left:30%; top:26%;"></i></label>
                                 </div>
                                 <div class="avatar-upload" id="update_p_form">
@@ -191,7 +191,7 @@ if ($type_user == 0) {
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-            <table id="user_table" class="display responsive" style="width:100%">
+            <table id="user_table" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -276,7 +276,7 @@ if ($type_user == 0) {
                         </div>
                         <div class="col-md-8">
                             <select class="form-select" aria-label="Default select example" name="type_user" id='modal-type_user'>
-                                <option selected disabled>Select the type of user</option>
+                                <option selected readonly>Select the type of user</option>
                                 <option value="0">Admin</option>
                                 <option value="1">Supervisor</option>
                                 <option value="2">Technical</option>

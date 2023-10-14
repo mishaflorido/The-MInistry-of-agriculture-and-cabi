@@ -21,43 +21,45 @@
             <thead>
                 <tr>
                     <th>Date</th>
-                    <th>Clinic Code</th>
-                    <th>Plant Doctor</th>
-                    <th>Farmer Name</th>
-                    <th>Farmer Gender</th>
-                    <th>Farmer Age</th>
-                    <th>Farmer Location 1</th>
-                    <th>Farmer Location 2</th>
-                    <th>Farmer Location 3</th>
-                    <th>Farmer Telephone</th>
+                    <th>CreatedBy</th>
+                    <th>ClinicCode</th>
+                    <th>PlantDoctor</th>
+                    <th>FarmerName</th>
+                    <th>FarmerGender</th>
+                    <th>FarmerAge</th>
+                    <th>FarmerLocation1</th>
+                    <th>FarmerLocation2</th>
+                    <th>FarmerLocation3</th>
+                    <th>FarmerTelephone</th>
                     <th>Crop</th>
                     <th>Variety</th>
-                    <th>Sample Brought</th>
-                    <th>Development Stage</th>
-                    <th>Part Affected</th>
-                    <th>Year First Noticed</th>
-                    <th>Area Planted</th>
-                    <th>Area Planted Unit</th>
-                    <th>Percent Of Crop Affected</th>
+                    <th>SampleBrought</th>
+                    <th>DevelopmentStage</th>
+                    <th>PartAffected</th>
+                    <th>YearFirstNoticed</th>
+                    <th>AreaPlanted</th>
+                    <th>AreaPlantedUnit</th>
+                    <th>PercentOfCropAffected</th>
                     <th>Symptoms</th>
                     <th>Distribution</th>
-                    <th>Description Of Problem</th>
-                    <th>Problem Type</th>
+                    <th>DescriptionOfProblem</th>
+                    <th>ProblemType</th>
                     <th>Diagnosis</th>
-                    <th>Description Of Current Control</th>
-                    <th>Recommendation Type</th>
-                    <th>Recommendation For Current Problem</th>
-                    <th>Recommendation For Future Prevention</th>
-                    <th>Sample Sent To Lab</th>
-                    <th>Factsheet Given</th>
-                    <th>Field Visit Arranged</th>
+                    <th>CurrentControl</th>
+                    <th>DescriptionOfCurrentControl</th>
+                    <th>RecommendationType</th>
+                    <th>RecommendationForCurrentProblem</th>
+                    <th>RecommendationForFuturePrevention</th>
+                    <th>SampleSentToLab</th>
+                    <th>FactsheetGiven</th>
+                    <th>FieldVisitArranged</th>
                     <th>Latitude</th>
                     <th>Longitude</th>
 
 
                 </tr>
             </thead>
-            <tbody id="tb_other">
+            <tbody id="">
 
             </tbody>
         </table>

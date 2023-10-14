@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class PlantDoctorModel extends Model
 {
     protected $table      = 'plant_doctor';
-    protected $primaryKey = 'id_user';
+    protected $primaryKey = 'id_plant_doc';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['id_plant_doc', 'pdoc_name', 'pdoc_lastname', 'pdoc_phone', 'pdoc_email', 'pdoc_ocupation', 'pdoc_type_entity'];
+    protected $allowedFields = ['pdoc_name', 'pdoc_lastname', 'pdoc_phone', 'pdoc_email', 'pdoc_ocupation', 'pdoc_type_entity'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

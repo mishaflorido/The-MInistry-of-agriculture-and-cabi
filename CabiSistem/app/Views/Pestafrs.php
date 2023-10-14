@@ -1,4 +1,10 @@
 <!-- Content Header (Page header) -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css"> -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -16,7 +22,7 @@
 </div>
 <!-- /.content-header -->
 <div style="text-align: center" class="mb-3">
-    <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
+    <label for="FarmRegisterForm" class="form-label">Grenada and Ministry of agricultural, lands and forestry</label>
 </div>
 <div style="text-align: center" class="mb-3">
     <label for="FarmRegister" class="form-label"> PEST APPLICATION FORM </label>
@@ -30,7 +36,6 @@
                 <div class="offset-lg-1 col-lg-10">
                     <!-- Alert -->
                     <div class="alert alert-success d-none" role="alert" id="alert_pestapp">
-
                     </div>
                     <!-- ///////// -->
                 </div>
@@ -39,19 +44,23 @@
                 <div class="offset-md-3 col-md-6">
                     <span class="input-group-text">Supervisor signature</span>
                     <input type="text" class="form-control" placeholder="Supervisor" name="spsig_pestapp" id="spsig_pestapp">
+                    <input type="hidden" name="id_pest_app">
                 </div>
             </div>
-            <div class="row my-2">
+            <div class="row my-3">
                 <div class="col-md-1 text-center">
                     <div class="d-inline-flex text-center mt-4">
-                        <a class="form-control" role="button" id="add_praedial" onclick="add_pesticide()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+                        <a class="form-control" role="button" id="" onclick="add_pesticide()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
                     </div>
                 </div>
-                <div class="col-md-11" style="overflow-x: auto;">
-                    <table class="table table-sm table-success">
+
+                <div class="col-md-11 " style="overflow-x: auto;">
+                    <table class="table table-sm table-success pestappTable">
                         <thead>
                             <tr>
-                                <th scope="col">Farmer Name, Address, tel # </th>
+                                <th scope="col">Farmer Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Phone #</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Crop(s)</th>
                                 <th scope="col">Plot size</th>
@@ -66,17 +75,25 @@
 
                         <tbody id='tbody_pesticide'>
                             <tr>
-                                <td><textarea name="inf_far" placeholder="" class="form-control inf_far" rows="1"> </textarea></td>
-                                <td><input type="date" name="date_pestapp" placeholder="" class="form-control date_pestapp" style="width: 100px;"></td>
-                                <td><input list="crop_pestapp_list" name="crop_pestapp" placeholder="" class="form-control crop_pestapp">
-                                    <datalist id="crop_pestapp_list"></datalist>
+                                <td><input style="width: 200px;" class="form-control" type="text" name="farmer_name" placeholder="Farmer Name"></td>
+                                <td><input style="width: 200px;" class="form-control" type="text" name="farmer_ad" placeholder="Farmer address"></td>
+                                <td><input style="width: 200px;" class="form-control" type="text" name="farmer_tel" placeholder="Farmer Phone"></td>
+                                <td><input style="width: 200px;" type="date" name="date_pestapp" placeholder="" class="form-control date_pestapp" ></td>
+                                <td>
+                                    <div class="btn-group dropup">
+                                        <button class="form-control dropdown-toggle text-end" style="width: 200px; overflow: hidden; white-space: nowrap;  text-overflow: ellipsis;" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Select crops</button>
+                                        <ul class="dropdown-menu " style="height: 100px; overflow: auto;" aria-labelledby="dropdownMenuClickableInside">
+                                        </ul>
+                                    </div>
+                                    <!-- <input list="crop_pestapp_list" name="crop_pestapp" placeholder="" class="form-control crop_pestapp">
+                                    <datalist id="crop_pestapp_list"></datalist> -->
                                 </td>
-                                <td><input type="text" name="plsi_pestapp" placeholder="" class="form-control plsi_pestapp"></td>
-                                <td><input type="text" name="targ_pestapp" placeholder="" class="form-control targ_pestapp"></td>
-                                <td><input type="text" name="pest_pestapp" placeholder="" class="form-control pest_pestapp"></td>
-                                <td><input type="text" name="rate_pestapp" placeholder="" class="form-control rate_pestapp"> </td>
-                                <td><input type="text" name="amt_pestapp" placeholder="" class="form-control amt_pestapp"></td>
-                                <td><textarea name="com_pestapp" placeholder="" class="form-control com_pestapp" rows="1"></textarea></td>
+                                <td><input type="text" style="width: 200px;" name="plsi_pestapp" placeholder="" class="form-control plsi_pestapp"></td>
+                                <td><input type="text" style="width: 200px;" name="targ_pestapp" placeholder="" class="form-control targ_pestapp"></td>
+                                <td><input type="text" style="width: 200px;" name="pest_pestapp" placeholder="" class="form-control pest_pestapp"></td>
+                                <td><input type="text" style="width: 200px;" name="rate_pestapp" placeholder="" class="form-control rate_pestapp"> </td>
+                                <td><input type="text" style="width: 200px;" name="amt_pestapp" placeholder="" class="form-control amt_pestapp"></td>
+                                <td><textarea style="width: 200px;" name="com_pestapp" placeholder="" class="form-control com_pestapp" rows="1"></textarea></td>
                                 <td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>
                             </tr>
                         </tbody>

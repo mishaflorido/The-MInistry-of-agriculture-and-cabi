@@ -30,23 +30,49 @@ class CropDamageController extends BaseController
     public function get_crop_damage()
     {
         $livestock = new CropDamageModel();
-        $result = $livestock->findAll();
+        $db = \Config\Database::connect("default");
+        $session = \Config\Services::session();
+        $db = db_connect();
+        $Type_user =  $session->get('type_user');
+        $id_user =  $session->get('id_user');
+        if ($Type_user == 0) {
+            // $result = $livestock->findAll();
+            $res = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user, cd.* FROM crop_damage as cd INNER JOIN `user` u on u.id_user = cd.id_user where cd.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($res);
+        } else {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user, cd.* FROM crop_damage as cd INNER JOIN `user` u on u.id_user = cd.id_user where cd.id_user =" . $id_user . " and cd.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        }
+    }
+    public function delete_crop_damage()
+    {
 
-        echo json_encode($result);
+        $crop_damage = new CropDamageModel();
+
+        $request = \Config\Services::request();
+
+        $id_crop_damage = $request->getPostGet('id_crop_damage');
+        $crop_damage->delete($id_crop_damage);
+        echo json_encode("Deleted");
     }
     public function insert_crop_damage()
     {
         $crop_damage = new CropDamageModel();
         $request = \Config\Services::request();
         $db = \Config\Database::connect("default");
+        $session = \Config\Services::session();
         $db = db_connect();
         $cdf_ext_dist = $request->getPostGet('cdf_ext_dist');
         $cdf_date_dis = $request->getPostGet('cdf_date_dis');
         $cdf_typ_dis = $request->getPostGet('cdf_typ_dis');
+        $id_user =  $session->get('id_user');
         $data = [
             "cdf_ext_dist" => $cdf_ext_dist,
             "cdf_date_dis" => $cdf_date_dis,
-            "cdf_typ_dis" => $cdf_typ_dis
+            "cdf_typ_dis" => $cdf_typ_dis,
+            "id_user" => $id_user
         ];
         $crop_damage->insert($data);
         $lastCropDamage = $db->query('select * from crop_damage ORDER BY id_crop_damage DESC LIMIT 1')->resultID;
@@ -91,6 +117,7 @@ class CropDamageController extends BaseController
         $visit_date_crd = $request->getPostGet('visit_date_crd');
         $farmer_reg_crd = $request->getPostGet('farmer_reg_crd');
         $contact_crd = $request->getPostGet('contact_crd');
+        $cropdmg_name = $request->getPostGet('cropdmg_name');
         $crop_var_crd = $request->getPostGet('crop_var_crd');
         $location_crd = $request->getPostGet('location_crd');
         $tot_acre_crd = $request->getPostGet('tot_acre_crd');
@@ -98,11 +125,11 @@ class CropDamageController extends BaseController
         $area_plot_crd = $request->getPostGet('area_plot_crd');
         $id_crop_damage = $request->getPostGet('id_crop_damage');
         // echo $name . " " . $last_name . " " . $id_farm . "esta es la informacion";
-
+        echo "update";
 
         try {
             $db->query("UPDATE crop_damage_table1 SET farmer_name_crd = '" . $farmer_name_crd . "',visit_date_crd = '" . $visit_date_crd . "',farmer_reg_crd = '" . $farmer_reg_crd . "',
-            contact_crd = '" . $contact_crd . "',crop_var_crd = '" . $crop_var_crd . "',location_crd = '" . $location_crd . "',tot_acre_crd = '" . $tot_acre_crd . "',
+            contact_crd = '" . $contact_crd . "',crop_var_crd = '" . $crop_var_crd . "',cropdmg_name = '" . $cropdmg_name ."',location_crd = '" . $location_crd . "',tot_acre_crd = '" . $tot_acre_crd . "',
             desc_dmg_crd = '" . $desc_dmg_crd . "',area_plot_crd = '" . $area_plot_crd . "' WHERE id_cd_table1 = " . $id_cd_table1);
             return "Insertado";
         } catch (\Throwable $th) {
@@ -119,6 +146,7 @@ class CropDamageController extends BaseController
         $visit_date_crd = $request->getPostGet('visit_date_crd');
         $farmer_reg_crd = $request->getPostGet('farmer_reg_crd');
         $contact_crd = $request->getPostGet('contact_crd');
+        $cropdmg_name = $request->getPostGet('cropdmg_name');
         $crop_var_crd = $request->getPostGet('crop_var_crd');
         $location_crd = $request->getPostGet('location_crd');
         $tot_acre_crd = $request->getPostGet('tot_acre_crd');
@@ -127,10 +155,12 @@ class CropDamageController extends BaseController
         $id_crop_damage = $request->getPostGet('id_crop_damage');
         // echo $name . " " . $last_name . " " . $id_farm . "esta es la informacion";
 
-
+       // echo "insert";
+       // echo "INSERT INTO crop_damage_table1(farmer_name_crd, visit_date_crd, farmer_reg_crd, contact_crd, crop_var_crd, location_crd,tot_acre_crd, desc_dmg_crd, area_plot_crd, id_crop_damage) " .
+         //   "VALUES ('" . $farmer_name_crd . "','" . $visit_date_crd . "'," . $farmer_reg_crd . ",'" . $contact_crd . "','" . $crop_var_crd . "','" . $location_crd . "','" . $tot_acre_crd . "','" . $desc_dmg_crd . "','" . $area_plot_crd . "'," . $id_crop_damage . ")";
         try {
-            $db->query("INSERT INTO crop_damage_table1(farmer_name_crd, visit_date_crd, farmer_reg_crd, contact_crd, crop_var_crd, location_crd,tot_acre_crd, desc_dmg_crd, area_plot_crd, id_crop_damage) " .
-                "VALUES ('" . $farmer_name_crd . "','" . $visit_date_crd . "'," . $farmer_reg_crd . ",'" . $contact_crd . "','" . $crop_var_crd . "','" . $location_crd . "','" . $tot_acre_crd . "','" . $desc_dmg_crd . "','" . $area_plot_crd . "'," . $id_crop_damage . ")");
+            $db->query("INSERT INTO crop_damage_table1(farmer_name_crd, visit_date_crd, farmer_reg_crd, contact_crd, crop_var_crd, cropdmg_name, location_crd,tot_acre_crd, desc_dmg_crd, area_plot_crd, id_crop_damage) " .
+                "VALUES ('" . $farmer_name_crd . "','" . $visit_date_crd . "','" . $farmer_reg_crd . "','" . $contact_crd . "','" . $crop_var_crd . "','" .$cropdmg_name ."','".$location_crd . "','" . $tot_acre_crd . "','" . $desc_dmg_crd . "','" . $area_plot_crd . "'," . $id_crop_damage . ")");
             return "Insertado";
         } catch (\Throwable $th) {
             echo $th;
@@ -153,7 +183,9 @@ class CropDamageController extends BaseController
         $remark_stools = $request->getPostGet('remark_stools');
         $id_crop_damage = $request->getPostGet('id_crop_damage');
         // echo $name . " " . $last_name . " " . $id_farm . "esta es la informacion";
-
+        echo "insert";
+        echo "INSERT INTO crop_damage_table2(num_stools, amount, age_plants, stage_mat, cost_plant, tot_val,ofc_collec, cert_by, remark_stools, id_crop_damage) " .
+            "VALUES (" . $num_stools . "," . $amount . "," . $age_plants . ",'" . $stage_mat . "'," . $cost_plant . "," . $tot_val . ",'" . $ofc_collec . "','" . $cert_by . "','" . $remark_stools . "'," . $id_crop_damage . ")";
         try {
             $db->query("INSERT INTO crop_damage_table2(num_stools, amount, age_plants, stage_mat, cost_plant, tot_val,ofc_collec, cert_by, remark_stools, id_crop_damage) " .
                 "VALUES (" . $num_stools . "," . $amount . "," . $age_plants . ",'" . $stage_mat . "'," . $cost_plant . "," . $tot_val . ",'" . $ofc_collec . "','" . $cert_by . "','" . $remark_stools . "'," . $id_crop_damage . ")");
@@ -179,7 +211,7 @@ class CropDamageController extends BaseController
         $remark_stools = $request->getPostGet('remark_stools');
         $id_crop_damage = $request->getPostGet('id_crop_damage');
         // echo $name . " " . $last_name . " " . $id_farm . "esta es la informacion";
-
+        echo "update";
         try {
             $db->query("UPDATE crop_damage_table2 SET num_stools = '" . $num_stools . "',amount = '" . $amount . "',age_plants = '" . $age_plants . "',
             stage_mat = '" . $stage_mat . "',cost_plant = '" . $cost_plant . "',tot_val = '" . $tot_val . "',ofc_collec = '" . $ofc_collec . "',

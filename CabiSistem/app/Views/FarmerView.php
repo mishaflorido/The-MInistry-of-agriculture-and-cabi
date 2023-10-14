@@ -98,13 +98,13 @@
 
             <div class="col-md-6">
               <select class="form-select" aria-label="District Select" id="parish">
-                <option selected disabled>Parish Select</option>
+                <option selected readonly>Parish Select</option>
 
               </select>
             </div>
             <div class="col-md-6">
               <select class="form-select" aria-label="District Select" id="district" name="district">
-                <option selected disabled>District Select (First Select Parish)</option>
+                <option selected readonly>District Select (First Select Parish)</option>
 
               </select>
             </div>
@@ -123,7 +123,7 @@
       <div class="row">
         <div class="col-md-2 text-center">
           <div class="d-inline-flex text-center mt-4">
-            <a class="form-control" role="button" id="add_involved" onclick="add_involded()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+            <a class="form-control" role="button" id="" onclick="add_involded()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
           </div>
         </div>
         <div class="col-md-10">
@@ -237,7 +237,7 @@
             <div class="row">
               <div class="col-md-2 text-center">
                 <div class="d-inline-flex text-center mt-4">
-                  <a class="form-control" role="button" id="add_involved" onclick="add_crop()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+                  <a class="form-control" role="button" id="" onclick="add_crop()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
                 </div>
               </div>
               <div class="col-md-10">

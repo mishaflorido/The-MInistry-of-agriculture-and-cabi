@@ -38,10 +38,11 @@
         </tbody>
     </table>
     <div class="row my-4">
-        <table id="crest_table_report" class="display responsive " style="width:100%">
+        <table id="crest_table_report" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>Registration Number</th>
+                    <th>Created by</th>
                     <th>Farmer Name</th>
                     <th>Parcel Address</th>
                     <th>Parcel Number</th>
@@ -52,6 +53,7 @@
             <tfoot>
                 <tr>
                     <th>Registration Number</th>
+                    <th>Created by</th>
                     <th>Farmer Name</th>
                     <th>Parcel Address</th>
                     <th>Parcel Number</th>
@@ -59,4 +61,5 @@
             </tfoot>
         </table>
     </div>
+
 </div>

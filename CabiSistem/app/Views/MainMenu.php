@@ -2,6 +2,7 @@
 $session = \Config\Services::session();
 $name = $session->get("username");
 $photo = $session->get('img_user');
+$type = $session->get('type_user');
 
 
 ?>
@@ -36,6 +37,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/adminlte.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/formUser.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/css/other.css">
     <!-- MapBox CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
 
@@ -43,6 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini">
+    <input type="hidden" id="type_user" value="<?= $type ?>" />
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -291,6 +294,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>User Page</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#consolitadio_page" data-t="consolitadio_page" aria-expanded="false" aria-controls="consolitadio_page">
+                                        <i class="nav-icon far fa-file-alt"></i>
+                                        <p>Consolidation Reports</p>
+                                    </a>
+                                </li>
+                                <?php if ($type == 0 || $type_user == 1) { ?>
+                                    <li class="nav-item">
+                                        <a role="button" class="nav-link sub-link" data-bs-toggle="collapse" data-bs-target="#other_page" data-t="user_page" aria-expanded="false" aria-controls="user_page">
+                                            <i class="nav-icon far fa-edit"></i>
+                                            <p>Others Page</p>
+                                        </a>
+                                    </li>
+                                <?php } ?>
 
                             </ul>
                         </li>
@@ -346,6 +363,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper collapse" id="user_page">
             <?= view_cell('App\Libraries\ViewComponents::getUserCont') ?>
+        </div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="consolitadio_page">
+            <?= view_cell('App\Libraries\ViewComponents::getConsolitadion') ?>
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper collapse" id="other_page">
+            <?= view_cell('App\Libraries\ViewComponents::getOtherCont') ?>
         </div>
         <!-- /.content-wrapper -->
 
@@ -459,7 +485,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- Bootstrap 5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
@@ -480,6 +506,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url() ?>/assets/js/dca_form.js"></script>
     <script src="<?= base_url() ?>/assets/js/weekly_report.js"></script>
     <script src="<?= base_url() ?>/assets/js/pestafrs.js"></script>
+    <script src="<?= base_url() ?>/assets/js/otherCont.js"></script>
+    <script src="<?= base_url() ?>/assets/js/consolidation.js"></script>
     <!-- Report scripts -->
     <script src="<?= base_url() ?>/assets/js/farmerReport.js"></script>
 

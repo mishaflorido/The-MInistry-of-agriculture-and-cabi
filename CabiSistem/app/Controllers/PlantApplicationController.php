@@ -10,9 +10,31 @@ class PlantApplicationController extends BaseController
     public function get_plant_application()
     {
         $plant_application = new PlantApplicationModel();
-        $result = $plant_application->findAll();
+        $session = \Config\Services::session();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $Type_user =  $session->get('type_user');
+        $id_user =  $session->get('id_user');
+        if ($Type_user == 0) {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,pa.*, l1.name_lv1, l2.name_lv2 , l3.name_lv3 from plant_application pa INNER JOIN level2 l2 on l2.id_lv2 = pa.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = pa.id_lv3 INNER JOIN level1 l1 on l1.id_lv1 = pa.id_lv1 INNER JOIN `user` u on u.id_user = pa.id_user where pa.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        } else {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,pa.*, l1.name_lv1, l2.name_lv2 , l3.name_lv3 from plant_application pa INNER JOIN level2 l2 on l2.id_lv2 = pa.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = pa.id_lv3 INNER JOIN level1 l1 on l1.id_lv1 = pa.id_lv1 INNER JOIN `user` u on u.id_user = pa.id_user where u.id_user = " . $id_user . " and pa.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        }
+    }
+    public function delete_plant_application()
+    {
 
-        echo json_encode($result);
+        $papp = new PlantApplicationModel();
+
+        $request = \Config\Services::request();
+
+        $id_plant_apply  = $request->getPostGet('id_plant_apply');
+        $papp->delete($id_plant_apply);
+        echo json_encode("Deleted");
     }
     public function get_plant_application_tb1()
     {
@@ -58,6 +80,7 @@ class PlantApplicationController extends BaseController
     {
         $plant_application = new PlantApplicationModel();
         $request = \Config\Services::request();
+        $session = \Config\Services::session();
         $db = \Config\Database::connect("default");
         $db = db_connect();
         $name_f = $request->getPostGet('name_f');
@@ -71,7 +94,10 @@ class PlantApplicationController extends BaseController
         $f_dst = $request->getPostGet('f_dst');
         $f_date_apl = $request->getPostGet('f_date_apl');
         $plt_ofc = $request->getPostGet('plt_ofc');
-
+        $id_lv1 = $request->getPostGet('f_county');
+        $id_lv2 = $request->getPostGet('f_subcounty');
+        $id_lv3 = $request->getPostGet('id_lv3');
+        $id_user =  $session->get('id_user');
         $data = [
             "name_f" => $name_f,
             "last_name_f" => $last_name_f,
@@ -83,7 +109,11 @@ class PlantApplicationController extends BaseController
             "f_acr" => $f_acr,
             "f_dst" => $f_dst,
             "f_date_apl" => $f_date_apl,
-            "plt_ofc" => $plt_ofc
+            "plt_ofc" => $plt_ofc,
+            "id_lv1" => $id_lv1,
+            "id_lv2" => $id_lv2,
+            "id_lv3" => $id_lv3,
+            "id_user" => $id_user
         ];
         $plant_application->insert($data);
         $lastplant = $db->query('select * from plant_application ORDER BY id_plant_apply DESC LIMIT 1')->resultID;
@@ -111,6 +141,9 @@ class PlantApplicationController extends BaseController
         $f_dst = $request->getPostGet('f_dst');
         $f_date_apl = $request->getPostGet('f_date_apl');
         $plt_ofc = $request->getPostGet('plt_ofc');
+        $id_lv1 = $request->getPostGet('id_lv1');
+        $id_lv2 = $request->getPostGet('id_lv2');
+        $id_lv3 = $request->getPostGet('id_lv3');
 
         $data = [
             "name_f" => $name_f,
@@ -123,7 +156,10 @@ class PlantApplicationController extends BaseController
             "f_acr" => $f_acr,
             "f_dst" => $f_dst,
             "f_date_apl" => $f_date_apl,
-            "plt_ofc" => $plt_ofc
+            "plt_ofc" => $plt_ofc,
+            "id_lv1" => $id_lv1,
+            "id_lv2" => $id_lv2,
+            "id_lv3" => $id_lv3
         ];
         $plant_application->update($id_plant_apply, $data);
         // $lastplant = $db->query('select * from plant_application ORDER BY id_plant_apply DESC LIMIT 1')->resultID;

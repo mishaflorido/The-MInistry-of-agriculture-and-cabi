@@ -20,7 +20,10 @@
         <thead>
             <tr>
                 <th>Date Registered</th>
-                <th>Extension District/Parish</th>
+                <th>Created By</th>
+                <th>Parish</th>
+                <th>Village</th>
+                <th>Complementary/adrress</th>
                 <th>Name of Road</th>
                 <th>Approximate Length</th>
                 <th>N° of Farmer Using Road</th>
@@ -40,11 +43,14 @@
         </div>
     </div>
     <div class="row my-4">
-        <table id="froad_table_report" class="display responsive" style="width:100%">
+        <table id="froad_table_report" class="display lfr_report" style="width:100%">
             <thead>
                 <tr>
                     <th>Registration Date</th>
-                    <th>Extension District/Parish</th>
+                    <th>Created By</th>
+                    <th>Parish</th>
+                    <th>Village</th>
+                    <th>Complementary/adrress</th>
                     <th>Name of Road</th>
                     <th>Approximate Length</th>
                     <th>N° of Farmer Using Road</th>
@@ -58,7 +64,10 @@
             <tfoot>
                 <tr>
                     <th>Registration Date</th>
-                    <th>Extension District/Parish</th>
+                    <th>Created By</th>
+                    <th>Parish</th>
+                    <th>Village</th>
+                    <th>Complementary/adrress</th>
                     <th>Name of Road</th>
                     <th>Approximate Length</th>
                     <th>N° of Farmer Using Road</th>

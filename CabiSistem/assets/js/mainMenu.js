@@ -6,11 +6,17 @@ $(".nav-link").on("click", function () {
     } else {
         if ($(this).hasClass("sub-link") == false) {
             $(this).addClass("active");
+            // $(this).addClass("disabled");
+            // $(this).prop("Disabled", true);
+
         }
     }
     if ($(this).hasClass("sub-link")) {
         $(".sub-link").removeClass("active");
+        $(".sub-link").removeClass("disabled");
         $(this).addClass("active");
+        $(this).addClass("disabled");
+        $(this).prop("disabled", true);
     }
 
 })

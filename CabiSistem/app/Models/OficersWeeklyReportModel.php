@@ -10,9 +10,9 @@ class OficersWeeklyReportModel extends Model
     protected $primaryKey = 'id_of_wr';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['ofc_name', 'ofc_desig', 'ofc_week', 'ofc_dpt', 'wk_beg'];
+    protected $allowedFields = ['ofc_name', 'ofc_desig', 'ofc_week', 'ofc_dpt', 'wk_beg', 'id_user', 'deleted_at'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

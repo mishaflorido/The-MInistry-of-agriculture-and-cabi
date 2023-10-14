@@ -192,6 +192,7 @@ $("form").submit(function (event) {
 })
 function get_id_crop(name, list) {
     var resp;
+    console.log("estoy aqui");
     $("#" + list + " option").each(function () {
         // console.log($(this).attr('class') + "Clase," + name + "nombre");
         if ($(this).attr('class') == name) {
@@ -200,7 +201,7 @@ function get_id_crop(name, list) {
         }
 
     });
-    // console.log(resp + 'Esta es el id crop');
+    console.log(resp + 'Esta es el id ');
     return resp;
 
 }
