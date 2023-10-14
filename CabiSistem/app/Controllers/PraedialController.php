@@ -10,10 +10,42 @@ class PraedialController extends BaseController
     public function get_praedial()
     {
         $livestock = new PraedialModel();
-        $result = $livestock->findAll();
+        $db = \Config\Database::connect("default");
+        $session = \Config\Services::session();
+        $db = db_connect();
+        $Type_user =  $session->get('type_user');
+        $id_user =  $session->get('id_user');
+        if ($Type_user == 0) {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,p.* from praedial_lancery as p INNER JOIN `user` u on u.id_user = p.id_user where p.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        } else {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,p.* from praedial_lancery as p INNER JOIN `user` u on u.id_user = p.id_user where p.id_user =" . $id_user . " and p.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        }
+        // $result = $livestock->findAll();
 
-        echo json_encode($result);
     }
+
+    public function get_CropEst_WDC()
+    {
+        $db = \Config\Database::connect("default");
+        $session = \Config\Services::session();
+        $db = db_connect();
+        $Type_user =  $session->get('type_user');
+        $id_user =  $session->get('id_user');
+        if ($Type_user == 0) {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,l1.name_lv1, l2.name_lv2,l3.name_lv3,p.*, wdc.* from praedial_lancery as p INNER JOIN `weekly_data_collection` wdc on wdc.id_praedial = p.id_praedial INNER JOIN `user` u on u.id_user = p.id_user INNER JOIN level1 l1 on l1.id_lv1 = p.id_lv1 INNER JOIN level2 l2 on l2.id_lv2 = p.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = p.id_lv3 where p.deleted_at IS NULL;")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        } else {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,p.* from praedial_lancery as p INNER JOIN `user` u on u.id_user = p.id_user where p.id_user =" . $id_user . " and p.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        }
+    }
+
     public function get_weekly_data()
     {
         $request = \Config\Services::request();
@@ -21,25 +53,34 @@ class PraedialController extends BaseController
         $db = \Config\Database::connect("default");
         $db = db_connect();
         $result = $db->query("Select * from weekly_data_collection where id_praedial = " . $id_praedial)->getResultArray();
-
+        $db->close();
         echo json_encode($result);
     }
     public function insert_praedial()
     {
         $praedial = new PraedialModel();
         $request = \Config\Services::request();
+        $session = \Config\Services::session();
         $db = \Config\Database::connect("default");
         $db = db_connect();
         $registration_number = $request->getPostGet('registration_number');
         $farmer_name = $request->getPostGet('farmer_name');
         $parcel_address = $request->getPostGet('parcel_address');
         $parcel_number = $request->getPostGet('parcel_number');
+        $id_lv1 = $request->getPostGet('f_county');
+        $id_lv2 = $request->getPostGet('f_subcounty');
+        $id_lv3 = $request->getPostGet('id_lv3');
+        $id_user =  $session->get('id_user');
 
         $data = [
             "registration_number" => $registration_number,
             "farmer_name" => $farmer_name,
             "parcel_address" => $parcel_address,
             "parcel_number" => $parcel_number,
+            "id_lv1" => $id_lv1,
+            "id_lv2" => $id_lv2,
+            "id_lv3" => $id_lv3,
+            "id_user" => $id_user
         ];
         $praedial->insert($data);
         $lastpredial = $db->query('select * from praedial_lancery ORDER BY id_praedial DESC LIMIT 1')->resultID;
@@ -59,12 +100,18 @@ class PraedialController extends BaseController
         $farmer_name = $request->getPostGet('farmer_name');
         $parcel_address = $request->getPostGet('parcel_address');
         $parcel_number = $request->getPostGet('parcel_number');
+        $id_lv1 = $request->getPostGet('f_county');
+        $id_lv2 = $request->getPostGet('f_subcounty');
+        $id_lv3 = $request->getPostGet('id_lv3');
 
         $data = [
             "registration_number" => $registration_number,
             "farmer_name" => $farmer_name,
             "parcel_address" => $parcel_address,
             "parcel_number" => $parcel_number,
+            "id_lv1" => $id_lv1,
+            "id_lv2" => $id_lv2,
+            "id_lv3" => $id_lv3,
         ];
         $praedial->update($id_praedial, $data);
         $lastpredial = $db->query('select * from praedial_lancery ORDER BY id_praedial DESC LIMIT 1')->resultID;
@@ -129,5 +176,16 @@ class PraedialController extends BaseController
             echo $th;
         }
         $db->close();
+    }
+    public function delete_weekly_data_collection()
+    {
+
+        $Froad = new PraedialModel();
+
+        $request = \Config\Services::request();
+
+        $id_praedial   = $request->getPostGet('id_praedial');
+        $Froad->delete($id_praedial);
+        echo json_encode("Deleted");
     }
 }

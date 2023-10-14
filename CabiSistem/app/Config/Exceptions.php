@@ -22,6 +22,9 @@ class Exceptions extends BaseConfig
 	 */
 	public $log = true;
 
+	public $logDeprecations;
+	public $deprecationLogLevel;
+
 	/**
 	 * --------------------------------------------------------------------------
 	 * DO NOT LOG STATUS CODES

@@ -23,7 +23,7 @@ class DCAFromController extends BaseController
 
         $db = \Config\Database::connect("default");
         $db = db_connect();
-        $result = $db->query("select * from variety")->getResultArray();
+        $result = $db->query("SELECT v.*, c.Crop_name from variety as v INNER JOIN crops as c on c.id_crop = v.id_crop where deleted_at IS NULL")->getResultArray();
         $db->close();
         echo json_encode($result);
     }
@@ -31,15 +31,25 @@ class DCAFromController extends BaseController
     {
         $db = \Config\Database::connect("default");
         $db = db_connect();
-        $result = $db->query("Select a.*, pd.pdoc_name, pd.pdoc_lastname, c.Crop_name, v.name_variety, l1.name_lv1,l2.name_lv2, l3.name_lv3 from dca_form a INNER JOIN crops c on c.id_crop = a.id_crop INNER JOIN variety v on v.id_variety = a.id_variety INNER JOIN level2 l2 on l2.id_lv2 = a.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = a.id_lv3 INNER JOIN plant_doctor pd on pd.id_plant_doc = a.id_plant_doc INNER JOIN level1 l1 on l1.id_lv1 = a.id_lv1")->getResultArray();
-        $db->close();
-        echo json_encode($result);
+        $session = \Config\Services::session();
+        $Type_user =  $session->get('type_user');
+        $id_user =  $session->get('id_user');
+        if ($Type_user == 0) {
+            $result = $db->query("Select CONCAT(u.name_user,' ',u.lastn_user) as name_user, a.*, pd.pdoc_name, pd.pdoc_lastname, c.Crop_name, v.name_variety, l1.name_lv1,l2.name_lv2, l3.name_lv3 from dca_form a INNER JOIN crops c on c.id_crop = a.id_crop INNER JOIN variety v on v.id_variety = a.id_variety INNER JOIN level2 l2 on l2.id_lv2 = a.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = a.id_lv3 INNER JOIN plant_doctor pd on pd.id_plant_doc = a.id_plant_doc INNER JOIN level1 l1 on l1.id_lv1 = a.id_lv1 INNER JOIN `user` u on u.id_user = a.id_user")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        } else {
+            $result = $db->query("Select CONCAT(u.name_user,' ',u.lastn_user) as name_user, a.*, pd.pdoc_name, pd.pdoc_lastname, c.Crop_name, v.name_variety, l1.name_lv1,l2.name_lv2, l3.name_lv3 from dca_form a INNER JOIN crops c on c.id_crop = a.id_crop INNER JOIN variety v on v.id_variety = a.id_variety INNER JOIN level2 l2 on l2.id_lv2 = a.id_lv2 INNER JOIN level3 l3 on l3.id_lv3 = a.id_lv3 INNER JOIN plant_doctor pd on pd.id_plant_doc = a.id_plant_doc INNER JOIN level1 l1 on l1.id_lv1 = a.id_lv1 INNER JOIN `user` u on u.id_user = a.id_user where a.id_user =" . $id_user)->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        }
     }
     public function insert_dca()
     {
         $dcaForm = new DCAFormModel();
 
         $request = \Config\Services::request();
+        $session = \Config\Services::session();
 
         $id_plant_doc = $request->getPostGet('id_plant_doc');
         $cli_det = $request->getPostGet('cli_det');
@@ -50,7 +60,7 @@ class DCAFromController extends BaseController
         $f_age_dca = $request->getPostGet('f_age_dca');
         $id_lv1 = $request->getPostGet('f_county');
         $id_lv2 = $request->getPostGet('f_subcounty');
-        $id_lv3 = $request->getPostGet('f_village');
+        $id_lv3 = $request->getPostGet('id_lv3');
         $id_crop = $request->getPostGet('id_crop');
         $id_variety = $request->getPostGet('id_variety');
         $sb_dca = $request->getPostGet('sb_dca');
@@ -66,6 +76,7 @@ class DCAFromController extends BaseController
         $type_problem = $request->getPostGet('t_prob');
         $diagnosis = $request->getPostGet('diagnosis');
         $Cur_cnt = $request->getPostGet('Cur_cnt');
+        $Cur_cnt_yesDecription = $request->getPostGet('curr_yes_option');
         $rec_type = $request->getPostGet('rec_type');
         $rec_curp = $request->getPostGet('rec_curp');
         $rec_prevp = $request->getPostGet('rec_prevp');
@@ -74,9 +85,10 @@ class DCAFromController extends BaseController
         $field_v = $request->getPostGet('field_v');
         $Latitude = $request->getPostGet('coordinates_lat');
         $Longitude = $request->getPostGet('coordinates_lng');
-        $date_dcaform = date("Y/m/d");
+        $date_dcaform = date("d/m/Y");
         $rec_type_other = $request->getPostGet('rec_type_other');
         $prob_type_other = $request->getPostGet('prob_type_other');
+        $id_user =  $session->get('id_user');
         $data = [
             "id_plant_doc" => $id_plant_doc,
             "cli_det" => $cli_det,
@@ -103,6 +115,7 @@ class DCAFromController extends BaseController
             "type_problem" => $type_problem,
             "diagnosis" => $diagnosis,
             "Cur_cnt" => $Cur_cnt,
+            "cur_cnt_yes_decription" => $Cur_cnt_yesDecription,
             "rec_type" => $rec_type,
             "rec_curp" => $rec_curp,
             "rec_prevp" => $rec_prevp,
@@ -114,6 +127,7 @@ class DCAFromController extends BaseController
             "Longitude" => $Longitude,
             "rec_type_other" => $rec_type_other,
             "prob_type_other" => $prob_type_other,
+            "id_user" => $id_user
         ];
         print_r($data);
         $dcaForm->insert($data);
@@ -135,7 +149,7 @@ class DCAFromController extends BaseController
         $f_age_dca = $request->getPostGet('f_age_dca');
         $id_lv1 = $request->getPostGet('f_county');
         $id_lv2 = $request->getPostGet('f_subcounty');
-        $id_lv3 = $request->getPostGet('f_village');
+        $id_lv3 = $request->getPostGet('id_lv3');
         $id_crop = $request->getPostGet('id_crop');
         $id_variety = $request->getPostGet('id_variety');
         $sb_dca = $request->getPostGet('sb_dca');
@@ -159,7 +173,7 @@ class DCAFromController extends BaseController
         $field_v = $request->getPostGet('field_v');
         $Latitude = $request->getPostGet('coordinates_lat');
         $Longitude = $request->getPostGet('coordinates_lng');
-        $date_dcaform = date("Y/m/d");
+        $date_dcaform = date("d/m/Y");
         $data = [
             "id_plant_doc" => $id_plant_doc,
             "cli_det" => $cli_det,

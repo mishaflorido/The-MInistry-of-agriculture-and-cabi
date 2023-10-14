@@ -115,7 +115,6 @@ button {
   outline: none;
   background: none;
   border: none;
-  
 }
 
 /* ==========================================================================
@@ -545,7 +544,7 @@ select option:hover{
   height: 192px;
   position: absolute;
   border-radius: 100%;
-  border: 6px solid #f8f8f8 ;
+  border: 6px solid #f8f8f8;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
   top: 35%;
   left: 15%;

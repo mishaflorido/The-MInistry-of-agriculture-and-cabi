@@ -216,24 +216,152 @@ class FarmerController extends BaseController
         }
         $db->close();
     }
+    // This parish name ir already deprecated now its village
     public function get_parish()
     {
-        $parish = new Lv2Model($db);
-        $result = $parish->findAll();
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $result = $db->query("SELECT lv2.*, lv1.name_lv1 from level2 as lv2 INNER JOIN level1 as lv1 on lv1.id_lv1 = lv2.id_lv1 where lv2.deleted_at IS NULL")->getResultArray();
         echo json_encode($result);
+        $db->close();
+
+        // $parish = new Lv2Model($db);
+        // $result = $parish->findAll();
+        // echo json_encode($result);
     }
+
+    public function insert_village()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $parish = new Lv2Model($db);
+        $request = \Config\Services::request();
+
+        $id_lv1  = $request->getPostGet('id_lv1');
+        $name_lv2 = $request->getPostGet('name_lv2');
+        $data = [
+            'id_lv1' => $id_lv1,
+            'name_lv2' => $name_lv2
+        ];
+        if ($parish->insert($data)) {
+            echo json_encode("1");
+        }
+        $db->close();
+    }
+    public function update_village()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $parish = new Lv2Model($db);
+        $request = \Config\Services::request();
+        $id_lv2  = $request->getPostGet('id_lv2');
+        $id_lv1  = $request->getPostGet('id_lv1');
+        $name_lv2 = $request->getPostGet('name_lv2');
+        $data = [
+            'id_lv1' => $id_lv1,
+            'name_lv2' => $name_lv2
+        ];
+        if ($parish->update($id_lv2, $data)) {
+            echo json_encode("1");
+        }
+        $db->close();
+    }
+    public function delete_village()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $parish = new Lv2Model($db);
+        $request = \Config\Services::request();
+        $id_lv2  = $request->getPostGet('id_lv2');
+
+        if ($parish->delete($id_lv2)) {
+            echo json_encode("1");
+        }
+        $db->close();
+    }
+    // ////////////////////
+    // Parish And County are the same
     public function get_county()
     {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
         $parish = new Lv1Model($db);
         $result = $parish->findAll();
         echo json_encode($result);
+        $db->close();
     }
+    public function insert_parish()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $parish = new Lv1Model($db);
+        $request = \Config\Services::request();
+        $name_lv1 = $request->getPostGet('name_lv1');
+        $data = [
+            'name_lv1' => $name_lv1
+        ];
+        if ($parish->insert($data)) {
+            echo json_encode("1");
+        }
+        $db->close();
+    }
+    public function update_parish()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $parish = new Lv1Model($db);
+        $request = \Config\Services::request();
+        $id_lv1 = $request->getPostGet('id_lv1');
+        $name_lv1 = $request->getPostGet('name_lv1');
+        $data = [
+            'name_lv1' => $name_lv1
+        ];
+        if ($parish->update($id_lv1, $data)) {
+            echo json_encode("1");
+        }
+        $db->close();
+    }
+    public function delete_parish()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $parish = new Lv1Model($db);
+        $request = \Config\Services::request();
+        $id_lv1 = $request->getPostGet('id_lv1');
+
+        if ($parish->delete($id_lv1)) {
+            echo json_encode("1");
+        }
+        $db->close();
+    }
+    // New Complementary 
     public function get_district()
     {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
         $distric = new Lv3Model($db);
         $result = $distric->findAll();
         echo json_encode($result);
+        $db->close();
     }
+    public function insert_complementary()
+    {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
+        $distric = new Lv3Model($db);
+        $request = \Config\Services::request();
+        $name_lv3 = $request->getPostGet('name_lv3');
+        $id_lv2 = $request->getPostGet('id_lv2');
+        $data = [
+            'name_lv3' => $name_lv3,
+            'id_lv2' => $id_lv2
+        ];
+        if ($distric->insert($data)) {
+            echo json_encode("1");
+        }
+        $db->close();
+    }
+    // ////////////
     public function get_farmer()
     {
         $db = \Config\Database::connect("default");

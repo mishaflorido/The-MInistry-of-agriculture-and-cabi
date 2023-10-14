@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
@@ -8,7 +10,7 @@ class Lv2Model extends Model
     protected $primaryKey = 'id_lv2';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $useSoftDeletes = true;
 
     protected $allowedFields = ['name_lv2', 'id_lv1'];
 

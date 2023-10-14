@@ -20,7 +20,9 @@
     <table class="d-none" id="pestapp_t1">
         <thead>
             <tr>
-                <th>Farmer Name, Address, tel #</th>
+                <th>Farmer Name</th>
+                <th>Address</th>
+                <th>Phone #</th>
                 <th>Date</th>
                 <th>Crop(s)</th>
                 <th>Plot size</th>
@@ -53,11 +55,15 @@
     </div>
 
     <div class="row my-4">
-        <table id="pestapp_table_report" class="display responsive" style="width:100%">
+
+        <table id="pestapp_table_report" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th>Created By</th>
                     <th>Supervisor signature</th>
-                    <th>Farmer Name, Address, tel #</th>
+                    <th>Farmer Name</th>
+                    <th>Address</th>
+                    <th>Phone #</th>
                     <th>Date</th>
                     <th>Comments</th>
                 </tr>
@@ -66,10 +72,13 @@
             </tbody>
             <tfoot>
                 <tr>
+                    <th>Created By</th>
                     <th>Supervisor signature</th>
-                    <th>Farmer Name, Address, tel #</th>
+                    <th>Farmer Name</th>
+                    <th>Address</th>
+                    <th>Phone #</th>
                     <th>Date</th>
-                    <th>Comments</th>
+                    <th>Comments</th>>
                 </tr>
             </tfoot>
         </table>

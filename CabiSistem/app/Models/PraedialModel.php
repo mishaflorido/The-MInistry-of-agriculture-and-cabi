@@ -10,9 +10,9 @@ class PraedialModel extends Model
     protected $primaryKey = 'id_praedial';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['registration_number', 'farmer_name', 'parcel_address', 'parcel_number'];
+    protected $allowedFields = ['registration_number', 'farmer_name', 'parcel_address', 'parcel_number','id_lv1','id_lv2','id_lv3', 'id_user', 'deleted_at'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

@@ -67,12 +67,16 @@
         </tbody>
     </table>
     <div class="row my-4">
-        <table id="plapp_table_report" class="display responsive" style="width:100%">
+        <table id="plapp_table_report" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th>Created By</th>
                     <th>Name Farmer</th>
                     <th>MOA Farmer ID</th>
                     <th>Address</th>
+                    <th>Parish</th>
+                    <th>Village</th>
+                    <th>Complementary Address</th>
                     <th>Location Of<br> Plots</th>
                     <th>Phone Num</th>
                     <th>Agreage(s)</th>
@@ -85,9 +89,13 @@
             </tbody>
             <tfoot>
                 <tr>
+                    <th>Created By</th>
                     <th>Name Farmer</th>
                     <th>MOA Farmer ID</th>
                     <th>Address</th>
+                    <th>Parish</th>
+                    <th>Village</th>
+                    <th>Complementary Address</th>
                     <th>Location Of<br> Plots</th>
                     <th>Phone Num</th>
                     <th>Agreage(s)</th>

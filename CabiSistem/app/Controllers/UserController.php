@@ -147,9 +147,12 @@ class UserController extends BaseController
     }
     public function get_users()
     {
+        $db = \Config\Database::connect("default");
+        $db = db_connect();
         $UserModel = new UserModel($db);
         $users = $UserModel->findAll();
         echo json_encode($users);
+        $db->close();
     }
     public function delete_users()
     {

@@ -88,4 +88,12 @@ class ViewComponents
     {
         return view('PestAppReport');
     }
+    public function getOtherCont()
+    {
+        return view('OtherCont');
+    }
+    public function getConsolitadion()
+    {
+        return view('Consolidation_view');
+    }
 }

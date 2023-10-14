@@ -22,7 +22,7 @@
 
 <form class="praedial_lancery">
     <div style="text-align: center" class="mb-3">
-        <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
+        <label for="FarmRegisterForm" class="form-label">Grenada and Ministry of agricultural, lands and forestry</label>
     </div>
     <div style="text-align: center" class="mb-3">
         <label for="FarmRegister" class="form-label"> Crop Establishment and Production Information </label>
@@ -65,11 +65,38 @@
                     <input type="text" name="parcel_number" placeholder="parcel number" class="form-control">
                 </div>
             </div>
+            <div class=" row my-2">
+                <div class="col-md-4">
+                    <span class="input-group-text"> Parish: </span>
+                    <select name="f_county" id="CE_county_list_id" class="form-control county_list">
+                        <option value="0" selected readonly>County Select</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text"> Village </span>
+                    <select name="f_subcounty" id="CE_sub_county_list_id" class="form-control subcounty_list">
+                        <option value="0" selected readonly>Sub County Select (First Select County)</option>
+                    </select>
+
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text"> Complement/adress: </span>
+                    <div class="input-group mb-3">
+                        <input list="CE_list_comp" class="form-control" name="f_village" id="CE_village_id" autocomplete="off" placeholder="Click To select">
+                        <datalist id="CE_list_comp">
+
+                        </datalist>
+                        <!-- <input type="text" class="form-control" placeholder="Complement/adress" aria-label="Complement/adress" aria-describedby="basic-addon1"> -->
+                        <button class="input-group-text btn-info save_btn_scompl" type='button' id="CE_btn_scompl"><i class="far fa-save"></i></button>
+                    </div>
+
+                </div>
+            </div>
             <hr>
             <!-- <div class="col-md-1 text-center"> -->
             <div class="row">
                 <div class="d-inline-flex text-center mt-4">
-                    <a class="form-control" role="button" id="add_praedial" onclick="add_praedial()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+                    <a class="form-control" role="button" id="" onclick="add_praedial()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
                 </div>
             </div>
             <!-- </div> -->
@@ -80,10 +107,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">Crop Name</th>
+                                <th scope="col">Variety</th>
                                 <th scope="col">Plot Size(sq ft)</th>
                                 <th scope="col">No Of Stools</th>
                                 <th scope="col">Date Planted</th>
-                                <th scope="col">Variety</th>
+
                                 <th scope="col">Stage Of Maturity</th>
                                 <th scope="col">Expected <br>Harvest Date(S)</th>
                                 <th scope="col">Expect-Ed Yield</th>
@@ -98,18 +126,31 @@
                         </thead>
 
                         <tbody id='tbody_produce'>
-                            <tr>
-                                <td><input type="text" name="crop_name" placeholder="" style="width: auto" class="form-control crop_name"></td>
-                                <td><input type="number" step="any" name="plot_size" placeholder="" class="form-control plot_size"></td>
-                                <td><input type="number" step="any" name="n_stools" placeholder="" class="form-control n_stools"></td>
-                                <td><input type="date" name="date_planted" placeholder="" class="form-control date_planted"></td>
-                                <td><input type="text" name="variety" placeholder="" style="width: auto" class="form-control variety"></td>
-                                <td><input type="text" name="stage_maturity" placeholder="" style="width: auto" class="form-control stage_maturity"></td>
-                                <td> <input type="date" name="harvest_date" placeholder="" class="form-control  harvest_date"> </td>
+                            <tr data-row="1">
+                                <td>
+
+                                    <input list="crop_datalist" name="crop_name" class="form-control crop_name" style="width: auto">
+                                    <datalist id="crop_datalist">
+
+                                    </datalist>
+                                </td>
+                                <td>
+                                    <!--<input type="text" name="variety" placeholder="" style="width: auto" class="form-control variety"> -->
+                                    <input list="variety_datalist1" name="variety" class="form-control variety" style="width: auto" id="variety_list1">
+                                    <datalist id="variety_datalist1">
+
+                                    </datalist>
+                                </td>
+                                <td><input type="number" step="any" name="plot_size" placeholder="" style="width: 200px" class="form-control plot_size"></td>
+                                <td><input type="number" step="any" name="n_stools" placeholder="" style="width: 200px" class="form-control n_stools"></td>
+                                <td><input type="date" style="width: 200px;" name="date_planted" placeholder="" class="form-control date_planted"></td>
+
+                                <td><input type="text" name="stage_maturity" placeholder="" style="width: 200px;" class="form-control stage_maturity"></td>
+                                <td><input type="date" name="harvest_date" placeholder="" style="width: 200px;" class="form-control  harvest_date"> </td>
                                 <td><input type="text" name="yield" placeholder="" style="width: auto" class="form-control yield"></td>
                                 <td><input type="text" name="activities_carried" style="width: auto" placeholder="" class="form-control activities_carried"></td>
                                 <td><input type="text" name="taq_arf_moa" style="width: auto" placeholder="" class="form-control taq_arf_moa"></td>
-                                <td><input type="number" step="any" name="n_farm_visits" placeholder="" class="form-control n_farm_visits"></td>
+                                <td><input type="number" step="any" name="n_farm_visits" placeholder="" style="width: 200px;" class="form-control n_farm_visits"></td>
                                 <td><input type="text" name="remarks" placeholder="" style="width: auto" class="form-control remarks"></td>
                                 <td class="align-middle text-center"><a role="button"><i class="fa fa-trash delete_button" aria-hidden="true"></i></a></td>
                             </tr>

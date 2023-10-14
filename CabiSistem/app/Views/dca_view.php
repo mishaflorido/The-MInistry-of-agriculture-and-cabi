@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-8">
-                <h1 class="m-0">DCA Form</h1>
+                <h1 class="m-0">DCA holaForm</h1>
             </div><!-- /.col -->
             <div class="col-sm-4">
                 <ol class="breadcrumb float-sm-right">
@@ -17,7 +17,7 @@
 <!-- /.content-header -->
 <form id="dca_reg_form">
     <div style="text-align: center" class="mb-3">
-        <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
+        <label for="FarmRegisterForm" class="form-label">Grenada and Ministry of agricultural, lands and forestry</label>
         <label for="FarmRegisterForm" class="form-label">DCA Form</label>
     </div>
     <style>
@@ -53,7 +53,7 @@
             <div class="row my-2">
                 <div class="col-md-6">
                     <span class="input-group-text">Select or enter plant doctor name: </span>
-                    <input list="plant_doctor_list" class="form-control" name="id_plant_doc" id="id_plant_doc" autocomplete="off">
+                    <input list="plant_doctor_list" placeholder="Select plant doctor" class="form-control" name="id_plant_doc" id="id_plant_doc" autocomplete="off">
                     <datalist id="plant_doctor_list">
 
                     </datalist>
@@ -62,7 +62,7 @@
                 <div class="col-md-6">
                     <span class="input-group-text">Clinic details </span>
                     <select class="form-select" aria-label="Default select example" name="cli_det" id="cli_det">
-                        <option selected>Open this select menu</option>
+                        <option value="default" selected>Open this select menu</option>
                         <option value="GDCAR1">GDCAR1 Carriacou and Petit Martinic</option>
                         <option value="GDCARF">GDCARF Carriacou field visit</option>
                         <option value="GDEAE1">GDEAE1 Eastern Agricultural District</option>
@@ -136,23 +136,28 @@
 
             <div class="row my-2">
                 <div class="col-md-4">
-                    <span class="input-group-text"> County: </span>
-                    <select name="f_county" id="county_list_id" class="form-control">
-                        <option selected disabled>County Select</option>
+                    <span class="input-group-text"> Parish: </span>
+                    <select name="f_county" id="county_list_id" class="form-control county_list">
+                        <option value="0" selected readonly>County Select</option>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <span class="input-group-text"> Sub - county: </span>
-                    <select name="f_subcounty" id="sub_county_list_id" class="form-control">
-                        <option selected disabled>Sub County Select (First Select County)</option>
+                    <span class="input-group-text"> Village </span>
+                    <select name="f_subcounty" id="sub_county_list_id" class="form-control subcounty_list">
+                        <option value="0" selected readonly>Sub County Select (First Select County)</option>
                     </select>
 
                 </div>
                 <div class="col-md-4">
-                    <span class="input-group-text"> Village: </span>
-                    <select name="f_village" id="village_id" class="form-control">
-                        <option selected disabled>Village Select (First Select Sub County)</option>
-                    </select>
+                    <span class="input-group-text"> Complement/adress: </span>
+                    <div class="input-group mb-3">
+                        <input list="list_comp" class="form-control" name="f_village" id="village_id" autocomplete="off" placeholder="Click To select">
+                        <datalist id="list_comp">
+
+                        </datalist>
+                        <!-- <input type="text" class="form-control" placeholder="Complement/adress" aria-label="Complement/adress" aria-describedby="basic-addon1"> -->
+                        <button class="input-group-text btn-info save_btn_scompl" type='button' id="btn_scompl"><i class="far fa-save"></i></button>
+                    </div>
 
                 </div>
             </div>
@@ -162,7 +167,7 @@
             </div>
             <div class="row my-2">
                 <div class="col-md-6">
-                    <span class="input-group-text">Select or enter crop: </span>
+                    <span class="input-group-text">Select crop: </span>
                     <!-- sacar de tabla crop y relacionar con variedad en la siguiente lista -->
                     <input type="hidden" name="id_crop_dca">
                     <input list="crop_dca" name="id_crop" class="form-control" placeholder="Select Crop" id="crop_dca_list" autocomplete="off">
@@ -172,7 +177,7 @@
                 </div>
                 <div class="col-md-6">
                     <!-- sacar de tabla variedady relacionar con crop de la tabla anterior -->
-                    <span class="input-group-text">Select or enter Variety: </span>
+                    <span class="input-group-text">Select Variety: </span>
                     <input list="list_dca_variety" class="form-select" placeholder="Select First Crop" name="id_variety" id="variety_dca" autocomplete="off">
                     <datalist id="list_dca_variety">
 
@@ -240,7 +245,7 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Post_harvest" name="dev_stage" id="id-Postharvest">
+                                <input class="form-check-input" type="checkbox" value="Post harvest" name="dev_stage" id="id-Postharvest">
                                 <label class="form-check-label" for="dev_stage">
                                     Post harvest
                                 </label>
@@ -266,7 +271,7 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Fruit/Grain" name="pp_afected" id="id-FruitGrain">
+                                <input class="form-check-input" type="checkbox" value="Fruit/grain" name="pp_afected" id="id-FruitGrain">
                                 <label class="form-check-label" for="pln_afected">
                                     Fruit/Grain
                                 </label>
@@ -292,7 +297,7 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Stem/shot" name="pp_afected" id="id-Stemshot">
+                                <input class="form-check-input" type="checkbox" value="Stem/shoot" name="pp_afected" id="id-Stemshot">
                                 <label class="form-check-label" for="pln_afected">
                                     Stem/shot
                                 </label>
@@ -304,7 +309,7 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Whole_plant" name="pp_afected" id="id-Whole_plant">
+                                <input class="form-check-input" type="checkbox" value="Whole plant" name="pp_afected" id="id-Whole_plant">
                                 <label class="form-check-label" for="pln_afected">
                                     Whole plant
                                 </label>
@@ -332,8 +337,8 @@
                 <div class="col-md-3">
 
                     <span class="input-group-text">Unit </span>
-                    <select class="form-select" aria-label="Default select example" name="unit_ap">
-                        <option selected>Open this select menu</option>
+                    <select class="form-select" aria-label="Default select example" name="unit_ap" id="unit_apselect">
+                        <option value="default" selected>Open this select menu</option>
                         <option value="Acres">Acres</option>
                         <option value="Hectares">Hectares</option>
                         <option value="m2">m2</option>
@@ -344,8 +349,8 @@
                 <div class="col-md-3">
 
                     <span class="input-group-text">Percent of crop afeted </span>
-                    <select class="form-select" aria-label="Default select example" name="per_cafected">
-                        <option selected>Open this select menu</option>
+                    <select class="form-select" aria-label="Default select example" name="per_cafected" id="per_cafectedSelect">
+                        <option value="default" selected>Open this select menu</option>
                         <option value="100%">100%</option>
                         <option value="75%">75%</option>
                         <option value="50%">50%</option>
@@ -663,7 +668,9 @@
                         <label class="form-check-label" for="cur_control">
                             Yes
                         </label>
+
                     </div>
+                    <input type="text" class="form-control d-none" style="border: 0; border-bottom: 1px solid; width: 60%; height:20%;" placeholder="type here another current control" name="curr_yes_option" id="id_curr_yes_option">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="Cur_cnt" value="0" id="id_Cur_cnt_no">
                         <label class="form-check-label" for="cur_control ">

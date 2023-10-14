@@ -1,6 +1,6 @@
 <form>
     <div style="text-align: center" class="mb-3">
-        <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
+        <label for="FarmRegisterForm" class="form-label">Grenada and Ministry of agricultural, lands and forestry</label>
     </div>
     <div style="text-align: center" class="mb-3">
         <label for="FarmRegister" class="form-label"> Vendor Registration form</label>

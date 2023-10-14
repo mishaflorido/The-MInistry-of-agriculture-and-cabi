@@ -10,9 +10,33 @@ class OficersWeeklyReportController extends BaseController
     public function get_of_wr()
     {
         $livestock = new OficersWeeklyReportModel();
-        $result = $livestock->findAll();
+        $db = \Config\Database::connect("default");
+        $session = \Config\Services::session();
+        $db = db_connect();
+        $Type_user =  $session->get('type_user');
+        $id_user =  $session->get('id_user');
+        if ($Type_user == 0) {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,w.* FROM ofice_weekly_report w INNER JOIN `user` u on u.id_user = w.id_user where w.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        } else {
+            $result = $db->query("SELECT CONCAT(u.name_user,' ',u.lastn_user) as name_user,w.* FROM ofice_weekly_report w INNER JOIN `user` u on u.id_user = w.id_user where w.id_user = " . $id_user . " and w.deleted_at IS NULL")->getResultArray();
+            $db->close();
+            echo json_encode($result);
+        }
+        // $result = $livestock->findAll();
 
-        echo json_encode($result);
+    }
+    public function delete_of_wr()
+    {
+
+        $ofwr = new OficersWeeklyReportModel();
+
+        $request = \Config\Services::request();
+
+        $id_of_wr = $request->getPostGet('id_of_wr');
+        $ofwr->delete($id_of_wr);
+        echo json_encode("Deleted");
     }
     public function get_endWeek()
     {
@@ -53,19 +77,20 @@ class OficersWeeklyReportController extends BaseController
         $db = \Config\Database::connect("default");
         $db = db_connect();
         $request = \Config\Services::request();
-
+        $session = \Config\Services::session();
         $ofc_name = $request->getPostGet('ofc_name');
         $ofc_desig = $request->getPostGet('ofc_desig');
         $ofc_week = $request->getPostGet('date_wkly_rpt');
         $ofc_dpt = $request->getPostGet('ofc_dpt');
         $wk_beg = $request->getPostGet('week_beg_date');
-
+        $id_user =  $session->get('id_user');
         $data = [
             "ofc_name" => $ofc_name,
             "ofc_desig" => $ofc_desig,
             "ofc_week" => $ofc_week,
             "ofc_dpt" => $ofc_dpt,
-            "wk_beg" => $wk_beg
+            "wk_beg" => $wk_beg,
+            "id_user" => $id_user
         ];
         $of_wr->insert($data);
         $lastOfWR = $db->query('select * from ofice_weekly_report ORDER BY id_of_wr DESC LIMIT 1')->resultID;

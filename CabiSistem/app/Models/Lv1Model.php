@@ -10,7 +10,7 @@ class Lv1Model extends Model
     protected $primaryKey = 'id_lv1';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $useSoftDeletes = true;
 
     protected $allowedFields = ['name_lv1'];
 

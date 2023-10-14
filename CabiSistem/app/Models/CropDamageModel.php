@@ -10,9 +10,9 @@ class CropDamageModel extends Model
     protected $primaryKey = 'id_crop_damage';
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
+    protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['cdf_ext_dist', 'cdf_date_dis', 'cdf_typ_dis'];
+    protected $allowedFields = ['cdf_ext_dist', 'cdf_date_dis', 'cdf_typ_dis', 'id_user', 'deleted_at'];
 
     protected $useTimestamps = false;
     // protected $createdField  = 'created_at';

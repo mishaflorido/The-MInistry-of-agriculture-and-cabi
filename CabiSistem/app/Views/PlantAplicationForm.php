@@ -18,7 +18,7 @@
 
 <form class="plant_application">
     <div style="text-align: center" class="mb-3">
-        <label for="FarmRegisterForm" class="form-label">THE MINISTRY OF AGRICULTURE, FORESTRY & FISHERIES</label>
+        <label for="FarmRegisterForm" class="form-label">Grenada and Ministry of agricultural, lands and forestry</label>
     </div>
     <div style="text-align: center" class="mb-3">
         <label for="FarmRegister" class="form-label"> PLANT APLICATION FORM </label>
@@ -48,6 +48,34 @@
                 <div class="col-md-6">
                     <span class="input-group-text">FARMERS ID# </span>
                     <input type="text" class="form-control" placeholder="MOA farmers id" name="id_farm">
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-4">
+                    <span class="input-group-text"> Parish: </span>
+                    <select name="f_county" id="county_list_PA" class="form-control">
+                        <option value="0" selected readonly>County Select</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text"> Village </span>
+                    <select name="f_subcounty" id="sub_county_list_PA" class="form-control">
+                        <option value="0" selected readonly>Sub County Select (First Select County)</option>
+                    </select>
+
+                </div>
+                <div class="col-md-4">
+                    <span class="input-group-text"> Complement/adress: </span>
+                    <div class="input-group mb-3">
+                        <input list="list_comp_PA" class="form-control" name="f_village" id="village_PA" autocomplete="off" placeholder="Click To select">
+                        <datalist id="list_comp_PA">
+
+                        </datalist>
+
+                        <button class="input-group-text btn-info" type='button' id="btn_scomplPA"><i class="far fa-save"></i></button>
+                    </div>
+
+
                 </div>
             </div>
 
@@ -93,7 +121,7 @@
             <div class="row my-2">
                 <div class="col-md-1 text-center">
                     <div class="d-inline-flex text-center mt-4">
-                        <a class="form-control" role="button" id="add_cropdmg" onclick="add_plant_apply()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
+                        <a class="form-control" role="button" id="" onclick="add_plant_apply()"><i class="fa fa-plus" aria-hidden="true" style="width: auto"></i></a>
                     </div>
                 </div>
                 <div class="col-md-11">
@@ -107,7 +135,7 @@
 
                                 </tr>
                                 <tr>
-                                    <th scope="col" style="width: 40%;">Plant type/Variety</th>
+                                    <th scope="col" style="width: 30%;">Plant type/Variety</th>
                                     <th scope="col">Request</th>
                                     <th scope="col">Recom.</th>
                                     <th scope="col">Approved</th>

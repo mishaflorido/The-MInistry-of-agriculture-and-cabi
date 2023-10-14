@@ -23,7 +23,9 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://localhost/The-MInistry-of-agriculture-and-cabi/CabiSistem/';
+
+	public $baseURL = 'https://grenadamoaforms.com/';
+	// public $baseURL = 'http://grenadamoaforms.com/';
 
 	/**
 	 * --------------------------------------------------------------------------
