@@ -31,10 +31,10 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->post('/login', 'Log_in_out::log_users');
-$routes->post('/index.php', 'Log_in_out::log_users');
-$routes->post('/logout', 'Log_in_out::log_out');
+$routes->get('index.php/', 'Home::index');
+$routes->post('index.php/login', 'Log_in_out::log_users');
+$routes->post('index.php/index.php', 'Log_in_out::log_users');
+$routes->post('index.php/logout', 'Log_in_out::log_out');
 
 // User Controllers
 $routes->post('/insert/user', 'UserController::insert_user');
